@@ -1,9 +1,9 @@
 package org.python.types;
 
 public class Slice extends org.python.types.Object {
-    private org.python.Object start;
-    private org.python.Object stop;
-    private org.python.Object step;
+    public org.python.Object start;
+    public org.python.Object stop;
+    public org.python.Object step;
 
     public Slice(org.python.Object stop) {
         this(null, stop, null);
