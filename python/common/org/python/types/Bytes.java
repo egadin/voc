@@ -129,16 +129,22 @@ public class Bytes extends org.python.types.Object {
     )
     public org.python.types.Str __str__() {
         StringBuilder sb = new StringBuilder();
-        sb.append("b'");
+        boolean hasDoubleQuote = false;
+        boolean hasSingleQuote = false;
+
         for (byte c : this.value) {
+            if (c == '\'') {
+                hasSingleQuote = true;
+            } else if (c == '"') {
+                hasDoubleQuote = true;
+            }
+
             if (c == '\n') {
                 sb.append("\\n");
             } else if (c == '\t') {
                 sb.append("\\t");
             } else if (c == '\r') {
                 sb.append("\\r");
-            } else if (c == '\'') {
-                sb.append("\\'");
             } else if (c == '\\') {
                 sb.append("\\\\");
             } else if (c >= 32 && c < 127) {
@@ -147,8 +153,22 @@ public class Bytes extends org.python.types.Object {
                 sb.append(String.format("\\x%02x", c));
             }
         }
-        sb.append("'");
-        return new org.python.types.Str(sb.toString());
+
+        String quote;
+        String repr = sb.toString();
+
+        if (hasSingleQuote) {
+            if (hasDoubleQuote) {
+                quote = "'";
+                repr = repr.replaceAll("'", "\\\\'");
+            } else {
+                quote = "\"";
+            }
+        } else {
+            quote = "'";
+        }
+
+        return new org.python.types.Str("b" + quote + repr + quote);
     }
 
     @org.python.Method(

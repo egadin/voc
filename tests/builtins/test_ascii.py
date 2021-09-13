@@ -7,8 +7,14 @@ class AsciiTests(TranspileTestCase):
             print(ascii(()))
             print(ascii((1,)))
             print(ascii((1,2,3)))
-            print(ascii("abcåäö\\n\\t"))
+            print(ascii(("abc123")))
+            print(ascii(("åäö\\n\\t")))
+            print(ascii(("'")))
+            print(ascii(("\\\\")))
+            print(ascii(("\\"")))
+            print(ascii(("'\\"")))
             print(ascii(("\\x04")))
+            print(ascii(("\\x80")))
             """)
 
     def test_ascii_str(self):
@@ -41,7 +47,9 @@ class AsciiTests(TranspileTestCase):
     def test_ascii_slice(self):
         self.assertCodeExecution("""
             print(ascii(slice(1,2,1)))
-            print(ascii(slice("\\x01", "\\n\\r\\t", "\\u1337/ascii")))
+            print(ascii(slice("abc","åäö","\\x04\\x80")))
+            print(ascii(slice("abc", "\\n\\r\\t", "\\u1337/ascii")))
+            print(ascii(slice("' \\\\","\\"","'\\"")))
             """)
 
     def test_ascii_list(self):
@@ -51,8 +59,38 @@ class AsciiTests(TranspileTestCase):
             print(ascii([1, "abc123", 2]))
             print(ascii([1, "\\n\\t\\r åäö", 2]))
             print(ascii(["\\x04"]))
+            print(ascii(["'", "\\\\", "\\"", "'\\""]))
             """)
 
+    # Still figuring out these
+    # def test_ascii_set(self):
+    #     self.assertCodeExecution("""
+    #         print(ascii(set([])))
+    #         print(ascii(set([1])))
+    #         print(ascii(set([1, "abc123", 2])))
+    #         print(ascii(set([1, "\\n\\t\\r åäö", 2])))
+    #         print(ascii(set(["\\x04"])))
+    #         print(ascii(set(["'", "\\\\", "\\"", "'\\""])))
+    #         """)
+
+    # def test_ascii_frozenset(self):
+    #     self.assertCodeExecution("""
+    #         print(ascii(frozenset([])))
+    #         print(ascii(frozenset([1])))
+    #         print(ascii(frozenset([1, "abc123", 2])))
+    #         print(ascii(frozenset([1, "\\n\\t\\r åäö", 2])))
+    #         print(ascii(frozenset(["\\x04"])))
+    #         print(ascii(frozenset(["'", "\\\\", "\\"", "'\\""])))
+    #         """)
+
+    # def test_ascii_dict(self):
+    #     self.assertCodeExecution("""
+    #         print(ascii({}))
+    #         print(ascii({"abc":123}))
+    #         print(ascii({"åäö":"\\n\\t\\r"}))
+    #         print(ascii({"\\x04":"\\x80"}))
+    #         print(ascii({"'":"\\\\", "\\"":"'\\""}))
+    #         """)
 
 class BuiltinAsciiFunctionTests(BuiltinFunctionTestCase, TranspileTestCase):
     functions = ["ascii"]
@@ -60,8 +98,4 @@ class BuiltinAsciiFunctionTests(BuiltinFunctionTestCase, TranspileTestCase):
     not_implemented = [
         'test_class',
         'test_complex',
-        'test_dict',
-        'test_frozenset',
-        'test_set',
-        'test_obj',
     ]
