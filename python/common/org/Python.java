@@ -505,7 +505,135 @@ public class Python {
             args = {"object"}
     )
     public static org.python.types.Str ascii(org.python.Object object) {
-        throw new org.python.exceptions.NotImplementedError("Builtin function 'ascii' not implemented");
+        if (object instanceof org.python.types.Str) {
+            org.python.types.Str s = (org.python.types.Str) object;
+
+            char startChar = '\'';
+
+            for (int i = 0; i < s.value.length(); i++) {
+                char c = s.value.charAt(i);
+
+                if (c == '\'') {
+                    startChar = '"';
+                } else if (c == '"') {
+                    startChar = '\'';
+                    break;
+                }
+            }
+
+            String out = Character.toString(startChar);
+
+            for (int i = 0; i < s.value.length(); i++) {
+                char c = s.value.charAt(i);
+
+                if (c == '\\') {
+                    out += "\\\\";
+                } else if (c == startChar) {
+                    out += "\\" + c;
+                } else if (0x20 <= c && c <= 0x7E) {
+                    out += c;
+                } else if (c <= 0xFF) {
+                    switch (c) {
+                        case 0x09: out += "\\t"; break;
+                        case 0x0A: out += "\\n"; break;
+                        case 0x0D: out += "\\r"; break;
+                        default: out += String.format("\\x%02x", (int) c);
+                    }
+                } else {
+                    out += String.format("\\u%04x", (int) c);
+                }
+            }
+
+            out += startChar;
+
+            return new org.python.types.Str(out);
+        } else if (object instanceof org.python.types.List) {
+            org.python.types.List l = (org.python.types.List) object;
+
+            String out = "[";
+
+            for (int i = 0; i < l.value.size(); i++) {
+                if(i != 0) {
+                    out += ", ";
+                }
+
+                out += ascii(l.value.get(i));
+            }
+
+            out += "]";
+
+            return new org.python.types.Str(out);
+        } else if (object instanceof org.python.types.Tuple) {
+            org.python.types.Tuple t = (org.python.types.Tuple) object;
+
+            String out = "(";
+
+            if (t.value.size() == 1) {
+                out += ascii(t.value.get(0)) + ",";
+            } else {
+                for (int i = 0; i < t.value.size(); i++) {
+                    if(i != 0) {
+                        out += ", ";
+                    }
+
+                    out += ascii(t.value.get(i));
+                }
+            }
+
+            out += ")";
+
+            return new org.python.types.Str(out);
+        } else if (object instanceof org.python.types.Slice) {
+            org.python.types.Slice s = (org.python.types.Slice) object;
+            return new org.python.types.Str(
+                String.format("slice(%s, %s, %s)",
+                    ascii(s.start).value,
+                    ascii(s.stop).value,
+                    ascii(s.step).value)
+            );
+        } else if (object instanceof org.python.types.Bytes) {
+            org.python.types.Bytes bytes = (org.python.types.Bytes) object;
+
+            char startChar = '\'';
+
+            for (int i = 0; i < bytes.value.length; i++) {
+                byte b = bytes.value[i];
+
+                if (b == '\'') {
+                    startChar = '"';
+                } else if (b == '"') {
+                    startChar = '\'';
+                    break;
+                }
+            }
+
+            String out = "b" + Character.toString(startChar);
+
+            for (int i = 0; i < bytes.value.length; i++) {
+                byte b = bytes.value[i];
+
+                if (b == '\\') {
+                    out += "\\\\";
+                } else if (b == startChar) {
+                    out += "\\" + (char) b;
+                } else if (0x20 <= b && b <= 0x7E) {
+                    out += (char) b;
+                } else {
+                    switch (b) {
+                        case 0x09: out += "\\t"; break;
+                        case 0x0A: out += "\\n"; break;
+                        case 0x0D: out += "\\r"; break;
+                        default: out += String.format("\\x%02x", b & 0xFF);
+                    }
+                }
+            }
+
+            out += startChar;
+
+            return new org.python.types.Str(out);
+        } else {
+            return (org.python.types.Str) object.__repr__();
+        }
     }
 
     @org.python.Method(

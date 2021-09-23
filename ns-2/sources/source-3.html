@@ -1,0 +1,247 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Object</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python</a>
+</div>
+
+<h1>Coverage Summary for Class: Object (org.python)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">Object</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;public interface Object extends Comparable {
+<i class="no-highlight">4</i>&nbsp;    /**
+<i class="no-highlight">5</i>&nbsp;     * Return a Java object that is the underlying data representation
+<i class="no-highlight">6</i>&nbsp;     * of this object (e.g., the java.util.Map behind a Python dict()).
+<i class="no-highlight">7</i>&nbsp;     * If the object is a pure Python object, calling this on an instance
+<i class="no-highlight">8</i>&nbsp;     * returns itself.
+<i class="no-highlight">9</i>&nbsp;     */
+<i class="no-highlight">10</i>&nbsp;    public java.lang.Object toJava();
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;    /**
+<i class="no-highlight">13</i>&nbsp;     * Return a Java object that is the best representation of the
+<i class="no-highlight">14</i>&nbsp;     * object being manipulated. This is used as the target for function
+<i class="no-highlight">15</i>&nbsp;     * invocation. Python-side objects will return themselves; Wrapped
+<i class="no-highlight">16</i>&nbsp;     * Java objects will return the wrapped object.
+<i class="no-highlight">17</i>&nbsp;     */
+<i class="no-highlight">18</i>&nbsp;    public java.lang.Object toObject();
+<i class="no-highlight">19</i>&nbsp;
+<i class="no-highlight">20</i>&nbsp;    /**
+<i class="no-highlight">21</i>&nbsp;     * Return the Python boolean interpretation of the object. This is
+<i class="no-highlight">22</i>&nbsp;     * used when the object is the subject of a logical comparison.
+<i class="no-highlight">23</i>&nbsp;     */
+<i class="no-highlight">24</i>&nbsp;    public boolean toBoolean();
+<i class="no-highlight">25</i>&nbsp;
+<i class="no-highlight">26</i>&nbsp;    /**
+<i class="no-highlight">27</i>&nbsp;     * Return the Python type for this object.
+<i class="no-highlight">28</i>&nbsp;     */
+<i class="no-highlight">29</i>&nbsp;    public org.python.types.Type type();
+<i class="no-highlight">30</i>&nbsp;
+<i class="no-highlight">31</i>&nbsp;    /**
+<i class="no-highlight">32</i>&nbsp;     * Return the Python type name for this object.
+<i class="no-highlight">33</i>&nbsp;     */
+<i class="no-highlight">34</i>&nbsp;    public java.lang.String typeName();
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    /**
+<i class="no-highlight">37</i>&nbsp;     * Python interface compatibility
+<i class="no-highlight">38</i>&nbsp;     * Section 3.3.1 - Basic customization
+<i class="no-highlight">39</i>&nbsp;     */
+<i class="no-highlight">40</i>&nbsp;
+<i class="no-highlight">41</i>&nbsp;    public org.python.Object __new__(org.python.Object cls);
+<i class="no-highlight">42</i>&nbsp;
+<i class="no-highlight">43</i>&nbsp;    // public void __init__();
+<i class="no-highlight">44</i>&nbsp;
+<i class="no-highlight">45</i>&nbsp;    public void __del__();
+<i class="no-highlight">46</i>&nbsp;
+<i class="no-highlight">47</i>&nbsp;    public org.python.Object __repr__();
+<i class="no-highlight">48</i>&nbsp;    public org.python.Object __str__();
+<i class="no-highlight">49</i>&nbsp;
+<i class="no-highlight">50</i>&nbsp;    public org.python.Object __bytes__();
+<i class="no-highlight">51</i>&nbsp;    public org.python.Object __format__(org.python.Object format);
+<i class="no-highlight">52</i>&nbsp;
+<i class="no-highlight">53</i>&nbsp;    public org.python.Object __lt__(org.python.Object other);
+<i class="no-highlight">54</i>&nbsp;    public org.python.Object __le__(org.python.Object other);
+<i class="no-highlight">55</i>&nbsp;    public org.python.Object __eq__(org.python.Object other);
+<i class="no-highlight">56</i>&nbsp;    public org.python.Object __ne__(org.python.Object other);
+<i class="no-highlight">57</i>&nbsp;    public org.python.Object __gt__(org.python.Object other);
+<i class="no-highlight">58</i>&nbsp;    public org.python.Object __ge__(org.python.Object other);
+<i class="no-highlight">59</i>&nbsp;
+<i class="no-highlight">60</i>&nbsp;    public org.python.Object __hash__();
+<i class="no-highlight">61</i>&nbsp;    public boolean isHashable();
+<i class="no-highlight">62</i>&nbsp;    public org.python.Object __bool__();
+<i class="no-highlight">63</i>&nbsp;
+<i class="no-highlight">64</i>&nbsp;    /**
+<i class="no-highlight">65</i>&nbsp;     * Section 3.3.2 - Emulating container types
+<i class="no-highlight">66</i>&nbsp;     */
+<i class="no-highlight">67</i>&nbsp;
+<i class="no-highlight">68</i>&nbsp;    // These four methods are the internal implementations of
+<i class="no-highlight">69</i>&nbsp;    // attribute manipulation. They return null/false in case of
+<i class="no-highlight">70</i>&nbsp;    // failure; that failure is then interpreted by the public
+<i class="no-highlight">71</i>&nbsp;    // interface method.
+<i class="no-highlight">72</i>&nbsp;    public org.python.Object __getattr_null(java.lang.String name);
+<i class="no-highlight">73</i>&nbsp;    public org.python.Object __getattribute_null(java.lang.String name);
+<i class="no-highlight">74</i>&nbsp;    public boolean __setattr_null(java.lang.String name, org.python.Object value);
+<i class="no-highlight">75</i>&nbsp;    public boolean __delattr_null(java.lang.String name);
+<i class="no-highlight">76</i>&nbsp;
+<i class="no-highlight">77</i>&nbsp;    // These four methods implement the internal interface to
+<i class="no-highlight">78</i>&nbsp;    // attribute manipulation. This means they accept raw Java strings
+<i class="no-highlight">79</i>&nbsp;    // as attribute names, and they raise exceptions on failure.
+<i class="no-highlight">80</i>&nbsp;    // These are the methods that are invoked by VOC-generated code.
+<i class="no-highlight">81</i>&nbsp;    public org.python.Object __getattr__(java.lang.String name);
+<i class="no-highlight">82</i>&nbsp;    public org.python.Object __getattribute__(java.lang.String name);
+<i class="no-highlight">83</i>&nbsp;    public void __setattr__(java.lang.String name, org.python.Object value);
+<i class="no-highlight">84</i>&nbsp;    public void __delattr__(java.lang.String name);
+<i class="no-highlight">85</i>&nbsp;
+<i class="no-highlight">86</i>&nbsp;    // Lastly, these methods are the public inteface to attribute
+<i class="no-highlight">87</i>&nbsp;    // manipulation. This means they take Python objects as attributes,
+<i class="no-highlight">88</i>&nbsp;    // and raise exceptions on failure.
+<i class="no-highlight">89</i>&nbsp;    public org.python.Object __getattr__(org.python.Object name);
+<i class="no-highlight">90</i>&nbsp;    public org.python.Object __getattribute__(org.python.Object name);
+<i class="no-highlight">91</i>&nbsp;    public void __setattr__(org.python.Object name, org.python.Object value);
+<i class="no-highlight">92</i>&nbsp;    public void __delattr__(org.python.Object name);
+<i class="no-highlight">93</i>&nbsp;
+<i class="no-highlight">94</i>&nbsp;    // These are the prototypes for the descriptor protocol.
+<i class="no-highlight">95</i>&nbsp;    public org.python.Object __get__(org.python.Object instance, org.python.Object klass);
+<i class="no-highlight">96</i>&nbsp;    public void __set__(org.python.Object instance, org.python.Object value);
+<i class="no-highlight">97</i>&nbsp;    public void __delete__(org.python.Object instance);
+<i class="no-highlight">98</i>&nbsp;
+<i class="no-highlight">99</i>&nbsp;    // Attribute name retrieval.
+<i class="no-highlight">100</i>&nbsp;    public org.python.Object __dir__();
+<i class="no-highlight">101</i>&nbsp;
+<i class="no-highlight">102</i>&nbsp;    /**
+<i class="no-highlight">103</i>&nbsp;     * Section 3.3.4 - Customizing instance and subclass checks
+<i class="no-highlight">104</i>&nbsp;     */
+<i class="no-highlight">105</i>&nbsp;    // public org.python.Object __instancecheck__();
+<i class="no-highlight">106</i>&nbsp;    // public org.python.Object __subclasscheck__();
+<i class="no-highlight">107</i>&nbsp;
+<i class="no-highlight">108</i>&nbsp;    /**
+<i class="no-highlight">109</i>&nbsp;     * Section 3.3.5 - Emulating callable objects
+<i class="no-highlight">110</i>&nbsp;     */
+<i class="no-highlight">111</i>&nbsp;    // public org.python.Object __call__();
+<i class="no-highlight">112</i>&nbsp;
+<i class="no-highlight">113</i>&nbsp;    /**
+<i class="no-highlight">114</i>&nbsp;     * Section 3.3.6 - Emulating container types
+<i class="no-highlight">115</i>&nbsp;     */
+<i class="no-highlight">116</i>&nbsp;
+<i class="no-highlight">117</i>&nbsp;    public org.python.Object __len__();
+<i class="no-highlight">118</i>&nbsp;    public org.python.Object __getitem__(org.python.Object item);
+<i class="no-highlight">119</i>&nbsp;    public void __setitem__(org.python.Object item, org.python.Object value);
+<i class="no-highlight">120</i>&nbsp;    public void __delitem__(org.python.Object item);
+<i class="no-highlight">121</i>&nbsp;    public org.python.Object __iter__();
+<i class="no-highlight">122</i>&nbsp;    public org.python.Object __reversed__();
+<i class="no-highlight">123</i>&nbsp;    public org.python.Object __contains__(org.python.Object item);
+<i class="no-highlight">124</i>&nbsp;
+<i class="no-highlight">125</i>&nbsp;    public org.python.Object __next__();
+<i class="no-highlight">126</i>&nbsp;
+<i class="no-highlight">127</i>&nbsp;    /**
+<i class="no-highlight">128</i>&nbsp;     * Section 3.3.7 - Emulating numeric types
+<i class="no-highlight">129</i>&nbsp;     */
+<i class="no-highlight">130</i>&nbsp;
+<i class="no-highlight">131</i>&nbsp;    public org.python.Object __add__(org.python.Object other);
+<i class="no-highlight">132</i>&nbsp;    public org.python.Object __sub__(org.python.Object other);
+<i class="no-highlight">133</i>&nbsp;    public org.python.Object __mul__(org.python.Object other);
+<i class="no-highlight">134</i>&nbsp;    public org.python.Object __truediv__(org.python.Object other);
+<i class="no-highlight">135</i>&nbsp;    public org.python.Object __floordiv__(org.python.Object other);
+<i class="no-highlight">136</i>&nbsp;    public org.python.Object __mod__(org.python.Object other);
+<i class="no-highlight">137</i>&nbsp;    public org.python.Object __divmod__(org.python.Object other);
+<i class="no-highlight">138</i>&nbsp;    public org.python.Object __pow__(org.python.Object other, org.python.Object modulus);
+<i class="no-highlight">139</i>&nbsp;    public org.python.Object __lshift__(org.python.Object other);
+<i class="no-highlight">140</i>&nbsp;    public org.python.Object __rshift__(org.python.Object other);
+<i class="no-highlight">141</i>&nbsp;    public org.python.Object __and__(org.python.Object other);
+<i class="no-highlight">142</i>&nbsp;    public org.python.Object __xor__(org.python.Object other);
+<i class="no-highlight">143</i>&nbsp;    public org.python.Object __or__(org.python.Object other);
+<i class="no-highlight">144</i>&nbsp;
+<i class="no-highlight">145</i>&nbsp;    public org.python.Object __iadd__(org.python.Object other);
+<i class="no-highlight">146</i>&nbsp;    public org.python.Object __isub__(org.python.Object other);
+<i class="no-highlight">147</i>&nbsp;    public org.python.Object __imul__(org.python.Object other);
+<i class="no-highlight">148</i>&nbsp;    public org.python.Object __itruediv__(org.python.Object other);
+<i class="no-highlight">149</i>&nbsp;    public org.python.Object __ifloordiv__(org.python.Object other);
+<i class="no-highlight">150</i>&nbsp;    public org.python.Object __imod__(org.python.Object other);
+<i class="no-highlight">151</i>&nbsp;    public org.python.Object __idivmod__(org.python.Object other);
+<i class="no-highlight">152</i>&nbsp;    public org.python.Object __ipow__(org.python.Object other);
+<i class="no-highlight">153</i>&nbsp;    public org.python.Object __ilshift__(org.python.Object other);
+<i class="no-highlight">154</i>&nbsp;    public org.python.Object __irshift__(org.python.Object other);
+<i class="no-highlight">155</i>&nbsp;    public org.python.Object __iand__(org.python.Object other);
+<i class="no-highlight">156</i>&nbsp;    public org.python.Object __ixor__(org.python.Object other);
+<i class="no-highlight">157</i>&nbsp;    public org.python.Object __ior__(org.python.Object other);
+<i class="no-highlight">158</i>&nbsp;
+<i class="no-highlight">159</i>&nbsp;    public org.python.Object __neg__();
+<i class="no-highlight">160</i>&nbsp;    public org.python.Object __pos__();
+<i class="no-highlight">161</i>&nbsp;    public org.python.Object __abs__();
+<i class="no-highlight">162</i>&nbsp;    public org.python.Object __invert__();
+<i class="no-highlight">163</i>&nbsp;
+<i class="no-highlight">164</i>&nbsp;    public org.python.Object __not__();
+<i class="no-highlight">165</i>&nbsp;
+<i class="no-highlight">166</i>&nbsp;    public org.python.Object __complex__(org.python.Object real, org.python.Object imag);
+<i class="no-highlight">167</i>&nbsp;    public org.python.Object __int__();
+<i class="no-highlight">168</i>&nbsp;    public org.python.Object __float__();
+<i class="no-highlight">169</i>&nbsp;    public org.python.Object __round__(org.python.Object ndigits);
+<i class="no-highlight">170</i>&nbsp;
+<i class="no-highlight">171</i>&nbsp;    public org.python.Object __index__();
+<i class="no-highlight">172</i>&nbsp;
+<i class="no-highlight">173</i>&nbsp;    // /**
+<i class="no-highlight">174</i>&nbsp;    //  * Section 3.3.8 - With statement context
+<i class="no-highlight">175</i>&nbsp;    //  */
+<i class="no-highlight">176</i>&nbsp;    // public org.python.Object __enter__();
+<i class="no-highlight">177</i>&nbsp;    // public org.python.Object __exit__(org.python.Object exc_type, org.python.Object exc_value, org.python.Object traceback);
+<i class="no-highlight">178</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

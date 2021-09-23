@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ReverseIterator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.types</a>
+</div>
+
+<h1>Coverage Summary for Class: ReverseIterator (org.python.types)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReverseIterator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.types;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;
+<b class="nc"><i class="no-highlight">4</i>&nbsp;class ReverseIterator extends org.python.types.Object implements org.python.Object {</b>
+<i class="no-highlight">5</i>&nbsp;    java.util.ListIterator&lt;org.python.Object&gt; iterator;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;    public int hashCode() {
+<b class="nc"><i class="no-highlight">8</i>&nbsp;        return this.iterator.hashCode();</b>
+<i class="no-highlight">9</i>&nbsp;    }
+<i class="no-highlight">10</i>&nbsp;
+<i class="no-highlight">11</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">12</i>&nbsp;            __doc__ = &quot;Implement iter(self).&quot;
+<i class="no-highlight">13</i>&nbsp;    )
+<i class="no-highlight">14</i>&nbsp;    public org.python.Object __iter__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">15</i>&nbsp;        if (kwargs != null &amp;&amp; kwargs.size() != 0) {</b>
+<b class="nc"><i class="no-highlight">16</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;__iter__ doesn&#39;t take keyword arguments&quot;);</b>
+<i class="no-highlight">17</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">18</i>&nbsp;        if (args != null &amp;&amp; args.size() != 0) {</b>
+<b class="nc"><i class="no-highlight">19</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;Expected 0 arguments, got &quot; + args.size());</b>
+<i class="no-highlight">20</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        return this;</b>
+<i class="no-highlight">22</i>&nbsp;    }
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;    public org.python.Object __iter__() {
+<b class="nc"><i class="no-highlight">25</i>&nbsp;        return this.__iter__(null, null, null, null);</b>
+<i class="no-highlight">26</i>&nbsp;    }
+<i class="no-highlight">27</i>&nbsp;
+<i class="no-highlight">28</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">29</i>&nbsp;            __doc__ = &quot;Implement next(self).&quot;
+<i class="no-highlight">30</i>&nbsp;    )
+<i class="no-highlight">31</i>&nbsp;    public org.python.Object __next__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">32</i>&nbsp;        if (kwargs != null &amp;&amp; kwargs.size() != 0) {</b>
+<b class="nc"><i class="no-highlight">33</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;__next__ doesn&#39;t take keyword arguments&quot;);</b>
+<i class="no-highlight">34</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">35</i>&nbsp;        if (args != null &amp;&amp; args.size() != 0) {</b>
+<b class="nc"><i class="no-highlight">36</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;Expected 0 arguments, got &quot; + args.size());</b>
+<i class="no-highlight">37</i>&nbsp;        }
+<i class="no-highlight">38</i>&nbsp;
+<i class="no-highlight">39</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">40</i>&nbsp;            return this.iterator.previous();</b>
+<b class="nc"><i class="no-highlight">41</i>&nbsp;        } catch (java.util.NoSuchElementException e) {</b>
+<i class="no-highlight">42</i>&nbsp;            // StopIteration is a singleton by design, see org/python/exceptions/StopIteration
+<b class="nc"><i class="no-highlight">43</i>&nbsp;            throw org.python.exceptions.StopIteration.STOPITERATION;</b>
+<i class="no-highlight">44</i>&nbsp;        }
+<i class="no-highlight">45</i>&nbsp;    }
+<i class="no-highlight">46</i>&nbsp;
+<i class="no-highlight">47</i>&nbsp;    public org.python.Object __next__() {
+<b class="nc"><i class="no-highlight">48</i>&nbsp;        return this.__next__(null, null, null, null);</b>
+<i class="no-highlight">49</i>&nbsp;    }
+<i class="no-highlight">50</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

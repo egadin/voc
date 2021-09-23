@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > collections</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">python</a>
+</div>
+
+<h1>Coverage Summary for Class: collections (python)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">collections</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package python;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;@org.python.Module(
+<i class="no-highlight">4</i>&nbsp;        __doc__ =
+<i class="no-highlight">5</i>&nbsp;            &quot;This module implements specialized container datatypes providing\n&quot; +
+<i class="no-highlight">6</i>&nbsp;            &quot;alternatives to Python&#39;s general purpose built-in containers, dict,\n&quot; +
+<i class="no-highlight">7</i>&nbsp;            &quot;list, set, and tuple.\n&quot; +
+<i class="no-highlight">8</i>&nbsp;                &quot;\n&quot; +
+<i class="no-highlight">9</i>&nbsp;                &quot;* namedtuple   factory function for creating tuple subclasses with named fields\n&quot; +
+<i class="no-highlight">10</i>&nbsp;                &quot;* deque        list-like container with fast appends and pops on either end\n&quot; +
+<i class="no-highlight">11</i>&nbsp;                &quot;* ChainMap     dict-like class for creating a single view of multiple mappings\n&quot; +
+<i class="no-highlight">12</i>&nbsp;                &quot;* Counter      dict subclass for counting hashable objects\n&quot; +
+<i class="no-highlight">13</i>&nbsp;                &quot;* OrderedDict  dict subclass that remembers the order entries were added\n&quot; +
+<i class="no-highlight">14</i>&nbsp;                &quot;* defaultdict  dict subclass that calls a factory function to supply missing values\n&quot; +
+<i class="no-highlight">15</i>&nbsp;                &quot;* UserDict     wrapper around dictionary objects for easier dict subclassing\n&quot; +
+<i class="no-highlight">16</i>&nbsp;                &quot;* UserList     wrapper around list objects for easier list subclassing\n&quot; +
+<i class="no-highlight">17</i>&nbsp;                &quot;* UserString   wrapper around string objects for easier string subclassing\n&quot; +
+<i class="no-highlight">18</i>&nbsp;                &quot;\n&quot;
+<i class="no-highlight">19</i>&nbsp;)
+<i class="no-highlight">20</i>&nbsp;public class collections extends org.python.types.Module {
+<i class="no-highlight">21</i>&nbsp;    public collections() {
+<b class="nc"><i class="no-highlight">22</i>&nbsp;        super();</b>
+<i class="no-highlight">23</i>&nbsp;    }
+<i class="no-highlight">24</i>&nbsp;
+<i class="no-highlight">25</i>&nbsp;    static {
+<b class="nc"><i class="no-highlight">26</i>&nbsp;        OrderedDict = org.python.types.Type.pythonType(org.python.stdlib.collections.OrderedDict.class);</b>
+<i class="no-highlight">27</i>&nbsp;        // Counter = org.python.types.Type.pythonTypeorg.python.stdlib.collections.Counter.class);
+<i class="no-highlight">28</i>&nbsp;        // ChainMap = org.python.types.Type.pythonTypeorg.python.stdlib.collections.ChainMap.class);
+<i class="no-highlight">29</i>&nbsp;        // UserDict = org.python.types.Type.pythonTypeorg.python.stdlib.collections.UserDict.class);
+<i class="no-highlight">30</i>&nbsp;        // UserList = org.python.types.Type.pythonTypeorg.python.stdlib.collections.UserList.class);
+<i class="no-highlight">31</i>&nbsp;        // UserString = org.python.types.Type.pythonTypeorg.python.stdlib.collections.UserString.class);
+<b class="nc"><i class="no-highlight">32</i>&nbsp;        defaultdict = org.python.types.Type.pythonType(org.python.stdlib.collections.DefaultDict.class);</b>
+<i class="no-highlight">33</i>&nbsp;        // deque = org.python.stdlib.collections.Deque.class;
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">37</i>&nbsp;    public static org.python.Object OrderedDict;
+<i class="no-highlight">38</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">39</i>&nbsp;    // public static org.python.Object Counter;
+<i class="no-highlight">40</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">41</i>&nbsp;    // public static org.python.Object ChainMap;
+<i class="no-highlight">42</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">43</i>&nbsp;    // public static org.python.Object UserDict;
+<i class="no-highlight">44</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">45</i>&nbsp;    // public static org.python.Object UserList;
+<i class="no-highlight">46</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">47</i>&nbsp;    // public static org.python.Object UserString;
+<i class="no-highlight">48</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">49</i>&nbsp;    public static org.python.Object defaultdict;
+<i class="no-highlight">50</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">51</i>&nbsp;    // public static org.python.Object deque;
+<i class="no-highlight">52</i>&nbsp;
+<i class="no-highlight">53</i>&nbsp;    @org.python.Attribute()
+<b class="nc"><i class="no-highlight">54</i>&nbsp;    public static org.python.Object __file__ = new org.python.types.Str(&quot;python/common/python/collections.java&quot;);</b>
+<i class="no-highlight">55</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">56</i>&nbsp;    public static org.python.Object __loader__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">57</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">58</i>&nbsp;    public static org.python.Object __name__ = new org.python.types.Str(&quot;collections&quot;);</b>
+<i class="no-highlight">59</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">60</i>&nbsp;    public static org.python.Object __package__ = new org.python.types.Str(&quot;collections&quot;);</b>
+<i class="no-highlight">61</i>&nbsp;    @org.python.Attribute()
+<i class="no-highlight">62</i>&nbsp;    public static org.python.Object __path__;
+<i class="no-highlight">63</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">64</i>&nbsp;    public static org.python.Object __spec__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">65</i>&nbsp;    @org.python.Attribute()
+<i class="no-highlight">66</i>&nbsp;    public static org.python.Object _bootstrap;
+<i class="no-highlight">67</i>&nbsp;    @org.python.Attribute()
+<i class="no-highlight">68</i>&nbsp;    public static org.python.Object _imp;
+<i class="no-highlight">69</i>&nbsp;
+<i class="no-highlight">70</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">71</i>&nbsp;            __doc__ = &quot;Returns a new subclass of tuple with named fields.\n&quot; +
+<i class="no-highlight">72</i>&nbsp;                &quot;\n&quot;,
+<i class="no-highlight">73</i>&nbsp;            args = {&quot;typename&quot;, &quot;field_names&quot;}
+<i class="no-highlight">74</i>&nbsp;    )
+<i class="no-highlight">75</i>&nbsp;    public static org.python.Object namedtuple(org.python.Object typename, org.python.Object field_names) {
+<b class="nc"><i class="no-highlight">76</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;namedtuple has not been implemented&quot;);</b>
+<i class="no-highlight">77</i>&nbsp;    }
+<i class="no-highlight">78</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

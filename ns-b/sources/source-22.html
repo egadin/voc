@@ -1,0 +1,197 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Property</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.types</a>
+</div>
+
+<h1>Coverage Summary for Class: Property (org.python.types)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Property</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.types;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;public class Property extends org.python.types.Object {
+<i class="no-highlight">4</i>&nbsp;    org.python.Object fget;
+<i class="no-highlight">5</i>&nbsp;    org.python.Object fset;
+<i class="no-highlight">6</i>&nbsp;    org.python.Object fdel;
+<i class="no-highlight">7</i>&nbsp;    org.python.Object doc;
+<i class="no-highlight">8</i>&nbsp;
+<b class="nc"><i class="no-highlight">9</i>&nbsp;    public Property(org.python.Object fget, org.python.Object fset, org.python.Object fdel, org.python.Object doc) {</b>
+<b class="nc"><i class="no-highlight">10</i>&nbsp;        this.fget = fget;</b>
+<b class="nc"><i class="no-highlight">11</i>&nbsp;        this.fset = fset;</b>
+<b class="nc"><i class="no-highlight">12</i>&nbsp;        this.fdel = fdel;</b>
+<b class="nc"><i class="no-highlight">13</i>&nbsp;        this.doc = doc;</b>
+<i class="no-highlight">14</i>&nbsp;    }
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">17</i>&nbsp;            __doc__ = &quot;Return repr(self).&quot;
+<i class="no-highlight">18</i>&nbsp;    )
+<i class="no-highlight">19</i>&nbsp;    public org.python.Object __repr__() {
+<i class="no-highlight">20</i>&nbsp;        // if (this.expression.getName().startswith(&quot;genexpr_&quot;))
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        return new org.python.types.Str(String.format(&quot;&lt;%s object at 0x%x&gt;&quot;, this.typeName(), this.hashCode()));</b>
+<i class="no-highlight">22</i>&nbsp;    }
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">25</i>&nbsp;            __doc__ = &quot;Return an attribute of instance, which is of type owner.&quot;,
+<i class="no-highlight">26</i>&nbsp;            args = {&quot;instance&quot;, &quot;klass&quot;}
+<i class="no-highlight">27</i>&nbsp;    )
+<i class="no-highlight">28</i>&nbsp;    public org.python.Object __get__(org.python.Object instance, org.python.Object klass) {
+<i class="no-highlight">29</i>&nbsp;        // System.out.println(&quot;Property __get__ on &quot; + instance);
+<b class="nc"><i class="no-highlight">30</i>&nbsp;        if (this.fget != null) {</b>
+<i class="no-highlight">31</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">32</i>&nbsp;                return ((org.python.types.Function) this.fget).invoke(instance, null, null);</b>
+<b class="nc"><i class="no-highlight">33</i>&nbsp;            } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">34</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + this.fget.typeName() + &quot;&#39; object is not callable&quot;);</b>
+<i class="no-highlight">35</i>&nbsp;            }
+<i class="no-highlight">36</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">37</i>&nbsp;            throw new org.python.exceptions.AttributeError(&quot;can&#39;t get attribute&quot;);</b>
+<i class="no-highlight">38</i>&nbsp;        }
+<i class="no-highlight">39</i>&nbsp;    }
+<i class="no-highlight">40</i>&nbsp;
+<i class="no-highlight">41</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">42</i>&nbsp;            __doc__ = &quot;Set an attribute of instance to value.&quot;,
+<i class="no-highlight">43</i>&nbsp;            args = {&quot;instance&quot;, &quot;value&quot;}
+<i class="no-highlight">44</i>&nbsp;    )
+<i class="no-highlight">45</i>&nbsp;    public void __set__(org.python.Object instance, org.python.Object value) {
+<i class="no-highlight">46</i>&nbsp;        // System.out.println(&quot;Property __set__ on &quot; + instance);
+<b class="nc"><i class="no-highlight">47</i>&nbsp;        if (this.fset != null) {</b>
+<i class="no-highlight">48</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">49</i>&nbsp;                ((org.python.types.Function) this.fset).invoke(instance, new org.python.Object[]{value}, null);</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;            } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">51</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + this.fset.typeName() + &quot;&#39; object is not callable&quot;);</b>
+<b class="nc"><i class="no-highlight">52</i>&nbsp;            }</b>
+<i class="no-highlight">53</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">54</i>&nbsp;            throw new org.python.exceptions.AttributeError(&quot;can&#39;t set attribute&quot;);</b>
+<i class="no-highlight">55</i>&nbsp;        }
+<i class="no-highlight">56</i>&nbsp;    }
+<i class="no-highlight">57</i>&nbsp;
+<i class="no-highlight">58</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">59</i>&nbsp;            __doc__ = &quot;Delete an attribute of instance.&quot;,
+<i class="no-highlight">60</i>&nbsp;            args = {&quot;instance&quot;}
+<i class="no-highlight">61</i>&nbsp;    )
+<i class="no-highlight">62</i>&nbsp;    public void __delete__(org.python.Object instance) {
+<i class="no-highlight">63</i>&nbsp;        // System.out.println(&quot;Property __delete__ on &quot; + instance);
+<b class="nc"><i class="no-highlight">64</i>&nbsp;        if (this.fdel != null) {</b>
+<i class="no-highlight">65</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">66</i>&nbsp;                ((org.python.types.Function) this.fdel).invoke(instance, null, null);</b>
+<b class="nc"><i class="no-highlight">67</i>&nbsp;            } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + this.fdel.typeName() + &quot;&#39; object is not callable&quot;);</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;            }</b>
+<i class="no-highlight">70</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">71</i>&nbsp;            throw new org.python.exceptions.AttributeError(&quot;can&#39;t delete attribute&quot;);</b>
+<i class="no-highlight">72</i>&nbsp;        }
+<i class="no-highlight">73</i>&nbsp;    }
+<i class="no-highlight">74</i>&nbsp;
+<i class="no-highlight">75</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">76</i>&nbsp;            __doc__ = &quot;Descriptor to change the setter on a property.&quot;,
+<i class="no-highlight">77</i>&nbsp;            args = {&quot;fn&quot;}
+<i class="no-highlight">78</i>&nbsp;    )
+<i class="no-highlight">79</i>&nbsp;    public org.python.Object setter(org.python.Object fn) {
+<i class="no-highlight">80</i>&nbsp;        // Duplicate the property, substituting the new setter.
+<b class="nc"><i class="no-highlight">81</i>&nbsp;        return new org.python.types.Property(this.fget, fn, this.fdel, this.doc);</b>
+<i class="no-highlight">82</i>&nbsp;    }
+<i class="no-highlight">83</i>&nbsp;
+<i class="no-highlight">84</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">85</i>&nbsp;            __doc__ = &quot;Descriptor to change the deleter on a property.&quot;,
+<i class="no-highlight">86</i>&nbsp;            args = {&quot;fn&quot;}
+<i class="no-highlight">87</i>&nbsp;    )
+<i class="no-highlight">88</i>&nbsp;    public org.python.Object deleter(org.python.Object fn) {
+<i class="no-highlight">89</i>&nbsp;        // Duplicate the property, substituting the new deleter.
+<b class="nc"><i class="no-highlight">90</i>&nbsp;        return new org.python.types.Property(this.fget, this.fset, fn, this.doc);</b>
+<i class="no-highlight">91</i>&nbsp;    }
+<i class="no-highlight">92</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

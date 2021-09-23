@@ -1,0 +1,595 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Dict</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.types</a>
+</div>
+
+<h1>Coverage Summary for Class: Dict (org.python.types)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Dict</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/173)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.types;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;public class Dict extends org.python.types.Object {
+<i class="no-highlight">4</i>&nbsp;    public java.util.Map&lt;org.python.Object, org.python.Object&gt; value;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;    public java.lang.Object toJava() {
+<b class="nc"><i class="no-highlight">7</i>&nbsp;        return this.value;</b>
+<i class="no-highlight">8</i>&nbsp;    }
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;    public int hashCode() {
+<b class="nc"><i class="no-highlight">11</i>&nbsp;        return this.value.hashCode();</b>
+<i class="no-highlight">12</i>&nbsp;    }
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;    @Override
+<i class="no-highlight">15</i>&nbsp;    public org.python.Object __hash__() {
+<b class="nc"><i class="no-highlight">16</i>&nbsp;        throw new org.python.exceptions.AttributeError(this, &quot;__hash__&quot;);</b>
+<i class="no-highlight">17</i>&nbsp;    }
+<i class="no-highlight">18</i>&nbsp;
+<i class="no-highlight">19</i>&nbsp;    @Override
+<i class="no-highlight">20</i>&nbsp;    public boolean isHashable() {
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        return false;</b>
+<i class="no-highlight">22</i>&nbsp;    }
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;    public Dict() {
+<b class="nc"><i class="no-highlight">25</i>&nbsp;        super();</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;        this.value = new java.util.HashMap&lt;org.python.Object, org.python.Object&gt;();</b>
+<i class="no-highlight">27</i>&nbsp;    }
+<i class="no-highlight">28</i>&nbsp;
+<b class="nc"><i class="no-highlight">29</i>&nbsp;    public Dict(java.util.Map&lt;org.python.Object, org.python.Object&gt; dict) {</b>
+<b class="nc"><i class="no-highlight">30</i>&nbsp;        this.value = dict;</b>
+<i class="no-highlight">31</i>&nbsp;    }
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">34</i>&nbsp;            __doc__ = &quot;dict() -&gt; new empty dictionary&quot; +
+<i class="no-highlight">35</i>&nbsp;                    &quot;dict(mapping) -&gt; new dictionary initialized from a mapping object&#39;s\n&quot; +
+<i class="no-highlight">36</i>&nbsp;                    &quot;    (key, value) pairs\n&quot; +
+<i class="no-highlight">37</i>&nbsp;                    &quot;dict(iterable) -&gt; new dictionary initialized as if via:\n&quot; +
+<i class="no-highlight">38</i>&nbsp;                    &quot;    d = {}\n&quot; +
+<i class="no-highlight">39</i>&nbsp;                    &quot;    for k, v in iterable:\n&quot; +
+<i class="no-highlight">40</i>&nbsp;                    &quot;        d[k] = v\n&quot; +
+<i class="no-highlight">41</i>&nbsp;                    &quot;dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs\n&quot; +
+<i class="no-highlight">42</i>&nbsp;                    &quot;    in the keyword argument list.  For example:  dict(one=1, two=2)\n&quot;,
+<i class="no-highlight">43</i>&nbsp;            default_args = {&quot;iterable&quot;}
+<i class="no-highlight">44</i>&nbsp;    )
+<b class="nc"><i class="no-highlight">45</i>&nbsp;    public Dict(org.python.Object[] args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs) {</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;        if (args[0] == null) {</b>
+<b class="nc"><i class="no-highlight">47</i>&nbsp;            this.value = new java.util.HashMap&lt;org.python.Object, org.python.Object&gt;();</b>
+<i class="no-highlight">48</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">49</i>&nbsp;            if (args[0] instanceof org.python.types.Dict) {</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;                this.value = new java.util.HashMap&lt;org.python.Object, org.python.Object&gt;(</b>
+<i class="no-highlight">51</i>&nbsp;                        ((org.python.types.Dict) args[0]).value
+<i class="no-highlight">52</i>&nbsp;                );
+<i class="no-highlight">53</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">54</i>&nbsp;                org.python.Object iterator = org.Python.iter(args[0]);</b>
+<b class="nc"><i class="no-highlight">55</i>&nbsp;                java.util.Map&lt;org.python.Object, org.python.Object&gt; generated = new java.util.HashMap&lt;org.python.Object, org.python.Object&gt;();</b>
+<i class="no-highlight">56</i>&nbsp;                try {
+<i class="no-highlight">57</i>&nbsp;                    while (true) {
+<b class="nc"><i class="no-highlight">58</i>&nbsp;                        org.python.Object next = iterator.__next__();</b>
+<i class="no-highlight">59</i>&nbsp;                        java.util.List&lt;org.python.Object&gt; data;
+<b class="nc"><i class="no-highlight">60</i>&nbsp;                        if (next instanceof org.python.types.Tuple) {</b>
+<b class="nc"><i class="no-highlight">61</i>&nbsp;                            data = ((org.python.types.Tuple) next).value;</b>
+<b class="nc"><i class="no-highlight">62</i>&nbsp;                        } else if (next instanceof org.python.types.List) {</b>
+<b class="nc"><i class="no-highlight">63</i>&nbsp;                            data = ((org.python.types.List) next).value;</b>
+<b class="nc"><i class="no-highlight">64</i>&nbsp;                        } else if (next instanceof org.python.types.Str) {</b>
+<b class="nc"><i class="no-highlight">65</i>&nbsp;                            org.python.types.Str str = ((org.python.types.Str) next);</b>
+<b class="nc"><i class="no-highlight">66</i>&nbsp;                            data = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="nc"><i class="no-highlight">67</i>&nbsp;                            for (int i = 0; i &lt; ((org.python.types.Int) str.__len__()).value; i++) {</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;                                data.add(str.__getitem__(org.python.types.Int.getInt(i)));</b>
+<i class="no-highlight">69</i>&nbsp;                            }
+<b class="nc"><i class="no-highlight">70</i>&nbsp;                        } else {</b>
+<b class="nc"><i class="no-highlight">71</i>&nbsp;                            throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">72</i>&nbsp;                                    &quot;cannot convert dictionary update sequence element #&quot; + generated.size() +</b>
+<i class="no-highlight">73</i>&nbsp;                                            &quot; to a sequence&quot;
+<i class="no-highlight">74</i>&nbsp;                            );
+<i class="no-highlight">75</i>&nbsp;                        }
+<i class="no-highlight">76</i>&nbsp;
+<b class="nc"><i class="no-highlight">77</i>&nbsp;                        if (data.size() != 2) {</b>
+<b class="nc"><i class="no-highlight">78</i>&nbsp;                            throw new org.python.exceptions.ValueError(</b>
+<b class="nc"><i class="no-highlight">79</i>&nbsp;                                    &quot;dictionary update sequence element #&quot; + generated.size() +</b>
+<b class="nc"><i class="no-highlight">80</i>&nbsp;                                            &quot; has length &quot; + data.size() +</b>
+<i class="no-highlight">81</i>&nbsp;                                            &quot;; 2 is required&quot;
+<i class="no-highlight">82</i>&nbsp;                            );
+<i class="no-highlight">83</i>&nbsp;                        }
+<i class="no-highlight">84</i>&nbsp;
+<b class="nc"><i class="no-highlight">85</i>&nbsp;                        generated.put(data.get(0), data.get(1));</b>
+<b class="nc"><i class="no-highlight">86</i>&nbsp;                    }</b>
+<b class="nc"><i class="no-highlight">87</i>&nbsp;                } catch (org.python.exceptions.StopIteration si) {</b>
+<i class="no-highlight">88</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">89</i>&nbsp;                this.value = generated;</b>
+<i class="no-highlight">90</i>&nbsp;            }
+<i class="no-highlight">91</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">92</i>&nbsp;        for (java.util.Map.Entry&lt;java.lang.String, org.python.Object&gt; entry : kwargs.entrySet()) {</b>
+<b class="nc"><i class="no-highlight">93</i>&nbsp;            this.value.put(new Str(entry.getKey()), entry.getValue());</b>
+<b class="nc"><i class="no-highlight">94</i>&nbsp;        }</b>
+<i class="no-highlight">95</i>&nbsp;    }
+<i class="no-highlight">96</i>&nbsp;
+<i class="no-highlight">97</i>&nbsp;    // @org.python.Method(
+<i class="no-highlight">98</i>&nbsp;    //     __doc__ = &quot;Create and return a new object.  See help(type) for accurate signature.&quot;
+<i class="no-highlight">99</i>&nbsp;    // )
+<i class="no-highlight">100</i>&nbsp;    // public org.python.Object __new__() {
+<i class="no-highlight">101</i>&nbsp;    //     throw new org.python.exceptions.NotImplementedError(&quot;dict.__new__() has not been implemented.&quot;);
+<i class="no-highlight">102</i>&nbsp;    // }
+<i class="no-highlight">103</i>&nbsp;
+<i class="no-highlight">104</i>&nbsp;    // @org.python.Method(
+<i class="no-highlight">105</i>&nbsp;    //     __doc__ = &quot;Initialize self.  See help(type(self)) for accurate signature.&quot;
+<i class="no-highlight">106</i>&nbsp;    // )
+<i class="no-highlight">107</i>&nbsp;    // public org.python.Object __init__() {
+<i class="no-highlight">108</i>&nbsp;    //     throw new org.python.exceptions.NotImplementedError(&quot;dict.__init__() has not been implemented.&quot;);
+<i class="no-highlight">109</i>&nbsp;    // }
+<i class="no-highlight">110</i>&nbsp;
+<i class="no-highlight">111</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">112</i>&nbsp;            __doc__ = &quot;Return repr(self).&quot;
+<i class="no-highlight">113</i>&nbsp;    )
+<i class="no-highlight">114</i>&nbsp;    public org.python.types.Str __repr__() {
+<b class="nc"><i class="no-highlight">115</i>&nbsp;        java.lang.StringBuilder buffer = new java.lang.StringBuilder(&quot;{&quot;);</b>
+<b class="nc"><i class="no-highlight">116</i>&nbsp;        boolean first = true;</b>
+<b class="nc"><i class="no-highlight">117</i>&nbsp;        for (org.python.Object key : this.value.keySet()) {</b>
+<b class="nc"><i class="no-highlight">118</i>&nbsp;            if (first) {</b>
+<b class="nc"><i class="no-highlight">119</i>&nbsp;                first = false;</b>
+<i class="no-highlight">120</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">121</i>&nbsp;                buffer.append(&quot;, &quot;);</b>
+<i class="no-highlight">122</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">123</i>&nbsp;            org.python.Object val = this.value.get(key);</b>
+<b class="nc"><i class="no-highlight">124</i>&nbsp;            if (val.toJava() instanceof org.python.internals.Scope) {</b>
+<b class="nc"><i class="no-highlight">125</i>&nbsp;                buffer.append(</b>
+<b class="nc"><i class="no-highlight">126</i>&nbsp;                        String.format(&quot;%s: {...}&quot;, key.__repr__())</b>
+<i class="no-highlight">127</i>&nbsp;                );
+<i class="no-highlight">128</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">129</i>&nbsp;                buffer.append(</b>
+<b class="nc"><i class="no-highlight">130</i>&nbsp;                        String.format(&quot;%s: %s&quot;, key.__repr__(), val.__repr__())</b>
+<i class="no-highlight">131</i>&nbsp;                );
+<i class="no-highlight">132</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">133</i>&nbsp;        }</b>
+<b class="nc"><i class="no-highlight">134</i>&nbsp;        buffer.append(&quot;}&quot;);</b>
+<b class="nc"><i class="no-highlight">135</i>&nbsp;        return new org.python.types.Str(buffer.toString());</b>
+<i class="no-highlight">136</i>&nbsp;    }
+<i class="no-highlight">137</i>&nbsp;
+<i class="no-highlight">138</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">139</i>&nbsp;            __doc__ = &quot;default object formatter&quot;
+<i class="no-highlight">140</i>&nbsp;    )
+<i class="no-highlight">141</i>&nbsp;    public org.python.types.Str __format__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">142</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;dict.__format__() has not been implemented.&quot;);</b>
+<i class="no-highlight">143</i>&nbsp;    }
+<i class="no-highlight">144</i>&nbsp;
+<i class="no-highlight">145</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">146</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">147</i>&nbsp;    )
+<i class="no-highlight">148</i>&nbsp;    public org.python.Object __bool__() {
+<b class="nc"><i class="no-highlight">149</i>&nbsp;        return org.python.types.Bool.getBool(!this.value.isEmpty());</b>
+<i class="no-highlight">150</i>&nbsp;    }
+<i class="no-highlight">151</i>&nbsp;
+<i class="no-highlight">152</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">153</i>&nbsp;            __doc__ = &quot;Return self&lt;value.&quot;,
+<i class="no-highlight">154</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">155</i>&nbsp;    )
+<i class="no-highlight">156</i>&nbsp;    public org.python.Object __lt__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">157</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">158</i>&nbsp;    }
+<i class="no-highlight">159</i>&nbsp;
+<i class="no-highlight">160</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">161</i>&nbsp;            __doc__ = &quot;Return self&lt;=value.&quot;,
+<i class="no-highlight">162</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">163</i>&nbsp;    )
+<i class="no-highlight">164</i>&nbsp;    public org.python.Object __le__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">165</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">166</i>&nbsp;    }
+<i class="no-highlight">167</i>&nbsp;
+<i class="no-highlight">168</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">169</i>&nbsp;            __doc__ = &quot;Return self==value.&quot;,
+<i class="no-highlight">170</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">171</i>&nbsp;    )
+<i class="no-highlight">172</i>&nbsp;    public org.python.Object __eq__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">173</i>&nbsp;        if (other instanceof org.python.types.Dict) {</b>
+<b class="nc"><i class="no-highlight">174</i>&nbsp;            org.python.types.Dict otherDict = (org.python.types.Dict) other;</b>
+<b class="nc"><i class="no-highlight">175</i>&nbsp;            return org.python.types.Bool.getBool(this.value.equals(otherDict.value));</b>
+<i class="no-highlight">176</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">177</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">178</i>&nbsp;    }
+<i class="no-highlight">179</i>&nbsp;
+<i class="no-highlight">180</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">181</i>&nbsp;            __doc__ = &quot;Return self&gt;value.&quot;,
+<i class="no-highlight">182</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">183</i>&nbsp;    )
+<i class="no-highlight">184</i>&nbsp;    public org.python.Object __gt__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">185</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">186</i>&nbsp;    }
+<i class="no-highlight">187</i>&nbsp;
+<i class="no-highlight">188</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">189</i>&nbsp;            __doc__ = &quot;Return self&gt;=value.&quot;,
+<i class="no-highlight">190</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">191</i>&nbsp;    )
+<i class="no-highlight">192</i>&nbsp;    public org.python.Object __ge__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">193</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">194</i>&nbsp;    }
+<i class="no-highlight">195</i>&nbsp;
+<i class="no-highlight">196</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">197</i>&nbsp;            __doc__ = &quot;&quot;,
+<i class="no-highlight">198</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">199</i>&nbsp;    )
+<i class="no-highlight">200</i>&nbsp;    public org.python.Object __mul__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">201</i>&nbsp;        return super.__mul__(other);</b>
+<i class="no-highlight">202</i>&nbsp;    }
+<i class="no-highlight">203</i>&nbsp;
+<i class="no-highlight">204</i>&nbsp;    public boolean __setattr_null(java.lang.String name, org.python.Object value) {
+<i class="no-highlight">205</i>&nbsp;        // Builtin types can&#39;t have attributes set on them.
+<b class="nc"><i class="no-highlight">206</i>&nbsp;        return false;</b>
+<i class="no-highlight">207</i>&nbsp;    }
+<i class="no-highlight">208</i>&nbsp;
+<i class="no-highlight">209</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">210</i>&nbsp;            __doc__ = &quot;__dir__() -&gt; list\ndefault dir() implementation&quot;
+<i class="no-highlight">211</i>&nbsp;    )
+<i class="no-highlight">212</i>&nbsp;    public org.python.types.List __dir__() {
+<b class="nc"><i class="no-highlight">213</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;dict.__dir__() has not been implemented.&quot;);</b>
+<i class="no-highlight">214</i>&nbsp;    }
+<i class="no-highlight">215</i>&nbsp;
+<i class="no-highlight">216</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">217</i>&nbsp;            __doc__ = &quot;Return len(self).&quot;
+<i class="no-highlight">218</i>&nbsp;    )
+<i class="no-highlight">219</i>&nbsp;    public org.python.types.Int __len__() {
+<b class="nc"><i class="no-highlight">220</i>&nbsp;        return org.python.types.Int.getInt(this.value.size());</b>
+<i class="no-highlight">221</i>&nbsp;    }
+<i class="no-highlight">222</i>&nbsp;
+<i class="no-highlight">223</i>&nbsp;    private org.python.Object _getitem(org.python.Object item) {
+<b class="nc"><i class="no-highlight">224</i>&nbsp;        if (item.isHashable()) {</b>
+<b class="nc"><i class="no-highlight">225</i>&nbsp;            org.python.Object value = this.value.get(item);</b>
+<i class="no-highlight">226</i>&nbsp;
+<b class="nc"><i class="no-highlight">227</i>&nbsp;            if (value == null) {</b>
+<b class="nc"><i class="no-highlight">228</i>&nbsp;                throw new org.python.exceptions.KeyError(item);</b>
+<i class="no-highlight">229</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">230</i>&nbsp;            return value;</b>
+<i class="no-highlight">231</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">232</i>&nbsp;            throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">233</i>&nbsp;                String.format(&quot;unhashable type: &#39;%s&#39;&quot;, org.Python.typeName(item.getClass())));</b>
+<i class="no-highlight">234</i>&nbsp;        }
+<i class="no-highlight">235</i>&nbsp;    }
+<i class="no-highlight">236</i>&nbsp;
+<i class="no-highlight">237</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">238</i>&nbsp;            __doc__ = &quot;x.__getitem__(y) &lt;==&gt; x[y]&quot;,
+<i class="no-highlight">239</i>&nbsp;            args = {&quot;item&quot;}
+<i class="no-highlight">240</i>&nbsp;    )
+<i class="no-highlight">241</i>&nbsp;    public org.python.Object __getitem__(org.python.Object item) {
+<i class="no-highlight">242</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">243</i>&nbsp;            return _getitem(item);</b>
+<b class="nc"><i class="no-highlight">244</i>&nbsp;        } catch (org.python.exceptions.KeyError e) {</b>
+<i class="no-highlight">245</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">246</i>&nbsp;                return this.__missing__(item);</b>
+<b class="nc"><i class="no-highlight">247</i>&nbsp;            } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">248</i>&nbsp;                throw new org.python.exceptions.KeyError(item);</b>
+<i class="no-highlight">249</i>&nbsp;            }
+<i class="no-highlight">250</i>&nbsp;        }
+<i class="no-highlight">251</i>&nbsp;    }
+<i class="no-highlight">252</i>&nbsp;
+<i class="no-highlight">253</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">254</i>&nbsp;            __doc__ = &quot;Set self[key] to value.&quot;,
+<i class="no-highlight">255</i>&nbsp;            args = {&quot;item&quot;, &quot;value&quot;}
+<i class="no-highlight">256</i>&nbsp;    )
+<i class="no-highlight">257</i>&nbsp;    public void __setitem__(org.python.Object item, org.python.Object value) {
+<b class="nc"><i class="no-highlight">258</i>&nbsp;        if (item.isHashable()) {</b>
+<b class="nc"><i class="no-highlight">259</i>&nbsp;            this.value.put(item, value);</b>
+<i class="no-highlight">260</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">261</i>&nbsp;            throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">262</i>&nbsp;                    String.format(&quot;unhashable type: &#39;%s&#39;&quot;, org.Python.typeName(item.getClass())));</b>
+<i class="no-highlight">263</i>&nbsp;        }
+<i class="no-highlight">264</i>&nbsp;    }
+<i class="no-highlight">265</i>&nbsp;
+<i class="no-highlight">266</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">267</i>&nbsp;            __doc__ = &quot;Delete self[key].&quot;,
+<i class="no-highlight">268</i>&nbsp;            args = {&quot;item&quot;}
+<i class="no-highlight">269</i>&nbsp;    )
+<i class="no-highlight">270</i>&nbsp;    public void __delitem__(org.python.Object item) {
+<b class="nc"><i class="no-highlight">271</i>&nbsp;        org.python.Object value = this.value.remove(item);</b>
+<b class="nc"><i class="no-highlight">272</i>&nbsp;        if (value == null) {</b>
+<b class="nc"><i class="no-highlight">273</i>&nbsp;            throw new org.python.exceptions.KeyError(item);</b>
+<i class="no-highlight">274</i>&nbsp;        }
+<i class="no-highlight">275</i>&nbsp;    }
+<i class="no-highlight">276</i>&nbsp;
+<i class="no-highlight">277</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">278</i>&nbsp;            __doc__ = &quot;Implement iter(self).&quot;
+<i class="no-highlight">279</i>&nbsp;    )
+<i class="no-highlight">280</i>&nbsp;    public org.python.Object __iter__() {
+<i class="no-highlight">281</i>&nbsp;        // FIXME: Once this is implemented, update org.Python.addToKwargs()
+<b class="nc"><i class="no-highlight">282</i>&nbsp;        return new org.python.types.Dict_KeyIterator(this);</b>
+<i class="no-highlight">283</i>&nbsp;    }
+<i class="no-highlight">284</i>&nbsp;
+<i class="no-highlight">285</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">286</i>&nbsp;            __doc__ = &quot;True if D has a key k, else False.&quot;,
+<i class="no-highlight">287</i>&nbsp;            args = {&quot;item&quot;}
+<i class="no-highlight">288</i>&nbsp;    )
+<i class="no-highlight">289</i>&nbsp;    public org.python.Object __contains__(org.python.Object item) {
+<i class="no-highlight">290</i>&nbsp;        // allow unhashable type error to be percolated up.
+<i class="no-highlight">291</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">292</i>&nbsp;            _getitem(item);</b>
+<b class="nc"><i class="no-highlight">293</i>&nbsp;            return org.python.types.Bool.TRUE;</b>
+<b class="nc"><i class="no-highlight">294</i>&nbsp;        } catch (org.python.exceptions.KeyError e) {</b>
+<b class="nc"><i class="no-highlight">295</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">296</i>&nbsp;        }
+<i class="no-highlight">297</i>&nbsp;    }
+<i class="no-highlight">298</i>&nbsp;
+<i class="no-highlight">299</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">300</i>&nbsp;            __doc__ = &quot;D.clear() -&gt; None.  Remove all items from D.&quot;
+<i class="no-highlight">301</i>&nbsp;    )
+<i class="no-highlight">302</i>&nbsp;    public org.python.Object clear() {
+<b class="nc"><i class="no-highlight">303</i>&nbsp;        this.value.clear();</b>
+<b class="nc"><i class="no-highlight">304</i>&nbsp;        return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">305</i>&nbsp;    }
+<i class="no-highlight">306</i>&nbsp;
+<i class="no-highlight">307</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">308</i>&nbsp;            __doc__ = &quot;D.copy() -&gt; dict -- a shallow copy of D&quot;
+<i class="no-highlight">309</i>&nbsp;    )
+<i class="no-highlight">310</i>&nbsp;    public org.python.Object copy() {
+<b class="nc"><i class="no-highlight">311</i>&nbsp;        return new org.python.types.Dict(new java.util.HashMap&lt;org.python.Object, org.python.Object&gt;(this.value));</b>
+<i class="no-highlight">312</i>&nbsp;    }
+<i class="no-highlight">313</i>&nbsp;
+<i class="no-highlight">314</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">315</i>&nbsp;            __doc__ = &quot;Returns a new dict with keys from iterable and values equal to value.&quot;,
+<i class="no-highlight">316</i>&nbsp;            args = {&quot;iterable&quot;},
+<i class="no-highlight">317</i>&nbsp;            default_args = {&quot;value&quot;}
+<i class="no-highlight">318</i>&nbsp;    )
+<i class="no-highlight">319</i>&nbsp;    public static org.python.Object fromkeys(org.python.Object iterable, org.python.Object value) {
+<b class="nc"><i class="no-highlight">320</i>&nbsp;        org.python.types.Dict result = new org.python.types.Dict();</b>
+<i class="no-highlight">321</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">322</i>&nbsp;            org.python.Object iter = iterable.__iter__();</b>
+<b class="nc"><i class="no-highlight">323</i>&nbsp;            if (value == null) {</b>
+<b class="nc"><i class="no-highlight">324</i>&nbsp;                value = org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">325</i>&nbsp;            }
+<i class="no-highlight">326</i>&nbsp;            while (true) {
+<b class="nc"><i class="no-highlight">327</i>&nbsp;                result.__setitem__(iter.__next__(), value);</b>
+<i class="no-highlight">328</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">329</i>&nbsp;        } catch (org.python.exceptions.AttributeError e) {</b>
+<b class="nc"><i class="no-highlight">330</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + iterable.typeName() + &quot;&#39; object is not iterable&quot;);</b>
+<b class="nc"><i class="no-highlight">331</i>&nbsp;        } catch (org.python.exceptions.StopIteration e) { }</b>
+<i class="no-highlight">332</i>&nbsp;
+<b class="nc"><i class="no-highlight">333</i>&nbsp;        return result;</b>
+<i class="no-highlight">334</i>&nbsp;    }
+<i class="no-highlight">335</i>&nbsp;
+<i class="no-highlight">336</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">337</i>&nbsp;            __doc__ = &quot;D.get(k[,d]) -&gt; D[k] if k in D, else d.  d defaults to None.&quot;,
+<i class="no-highlight">338</i>&nbsp;            default_args = {&quot;k&quot;, &quot;d&quot;}
+<i class="no-highlight">339</i>&nbsp;    )
+<i class="no-highlight">340</i>&nbsp;    public org.python.Object get(org.python.Object k, org.python.Object d) {
+<i class="no-highlight">341</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">342</i>&nbsp;            return this._getitem(k);</b>
+<b class="nc"><i class="no-highlight">343</i>&nbsp;        } catch (org.python.exceptions.KeyError e) { // allow unhashable type error to be percolated up.</b>
+<b class="nc"><i class="no-highlight">344</i>&nbsp;            if (d == null) {</b>
+<b class="nc"><i class="no-highlight">345</i>&nbsp;                return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">346</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">347</i>&nbsp;            return d;</b>
+<i class="no-highlight">348</i>&nbsp;        }
+<i class="no-highlight">349</i>&nbsp;    }
+<i class="no-highlight">350</i>&nbsp;
+<i class="no-highlight">351</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">352</i>&nbsp;            __doc__ = &quot;D.items() -&gt; a set-like object providing a view on D&#39;s items&quot;
+<i class="no-highlight">353</i>&nbsp;    )
+<i class="no-highlight">354</i>&nbsp;    public org.python.Object items() {
+<b class="nc"><i class="no-highlight">355</i>&nbsp;        return new org.python.types.DictItems(this);</b>
+<i class="no-highlight">356</i>&nbsp;    }
+<i class="no-highlight">357</i>&nbsp;
+<i class="no-highlight">358</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">359</i>&nbsp;            __doc__ = &quot;D.keys() -&gt; a set-like object providing a view on D&#39;s keys&quot;
+<i class="no-highlight">360</i>&nbsp;    )
+<i class="no-highlight">361</i>&nbsp;    public org.python.Object keys() {
+<i class="no-highlight">362</i>&nbsp;        //throw new org.python.exceptions.NotImplementedError(&quot;dict.keys() has not been implemented.&quot;);
+<b class="nc"><i class="no-highlight">363</i>&nbsp;        return new org.python.types.DictKeys(this);</b>
+<i class="no-highlight">364</i>&nbsp;    }
+<i class="no-highlight">365</i>&nbsp;
+<i class="no-highlight">366</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">367</i>&nbsp;            __doc__ = &quot;D.pop(k[,d]) -&gt; v, remove specified key and return the corresponding value.\nIf key is not found, d is returned if given, otherwise KeyError is raised&quot;,
+<i class="no-highlight">368</i>&nbsp;            args = {&quot;k&quot;},
+<i class="no-highlight">369</i>&nbsp;            default_args = {&quot;d&quot;}
+<i class="no-highlight">370</i>&nbsp;    )
+<i class="no-highlight">371</i>&nbsp;    public org.python.Object pop(org.python.Object k, org.python.Object d) {
+<b class="nc"><i class="no-highlight">372</i>&nbsp;        org.python.Object value = this.value.remove(k);</b>
+<b class="nc"><i class="no-highlight">373</i>&nbsp;        if (value == null) {</b>
+<b class="nc"><i class="no-highlight">374</i>&nbsp;            if (d == null) {</b>
+<b class="nc"><i class="no-highlight">375</i>&nbsp;                throw new org.python.exceptions.KeyError(k);</b>
+<i class="no-highlight">376</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">377</i>&nbsp;                value = d;</b>
+<i class="no-highlight">378</i>&nbsp;            }
+<i class="no-highlight">379</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">380</i>&nbsp;        return value;</b>
+<i class="no-highlight">381</i>&nbsp;    }
+<i class="no-highlight">382</i>&nbsp;
+<i class="no-highlight">383</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">384</i>&nbsp;            __doc__ = &quot;D.popitem() -&gt; (k, v), remove and return some (key, value) pair as a\n2-tuple; but raise KeyError if D is empty.&quot;
+<i class="no-highlight">385</i>&nbsp;    )
+<i class="no-highlight">386</i>&nbsp;    public org.python.Object popitem() {
+<b class="nc"><i class="no-highlight">387</i>&nbsp;        if (this.value.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">388</i>&nbsp;            throw new org.python.exceptions.KeyError(new org.python.types.Str(&quot;popitem(): dictionary is empty&quot;));</b>
+<i class="no-highlight">389</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">390</i>&nbsp;        java.util.Map.Entry&lt;org.python.Object, org.python.Object&gt; entry = this.value.entrySet().iterator().next();</b>
+<b class="nc"><i class="no-highlight">391</i>&nbsp;        org.python.Object key = entry.getKey();</b>
+<b class="nc"><i class="no-highlight">392</i>&nbsp;        org.python.Object value = this.value.remove(key);</b>
+<i class="no-highlight">393</i>&nbsp;
+<b class="nc"><i class="no-highlight">394</i>&nbsp;        java.util.List&lt;org.python.Object&gt; item_pair = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="nc"><i class="no-highlight">395</i>&nbsp;        item_pair.add(key);</b>
+<b class="nc"><i class="no-highlight">396</i>&nbsp;        item_pair.add(value);</b>
+<b class="nc"><i class="no-highlight">397</i>&nbsp;        return new org.python.types.Tuple(item_pair);</b>
+<i class="no-highlight">398</i>&nbsp;    }
+<i class="no-highlight">399</i>&nbsp;
+<i class="no-highlight">400</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">401</i>&nbsp;            __doc__ = &quot;D.setdefault(k[,d]) -&gt; D.get(k,d), also set D[k]=d if k not in D&quot;,
+<i class="no-highlight">402</i>&nbsp;            default_args = {&quot;k&quot;, &quot;d&quot;}
+<i class="no-highlight">403</i>&nbsp;    )
+<i class="no-highlight">404</i>&nbsp;    public org.python.Object setdefault(org.python.Object k, org.python.Object d) {
+<i class="no-highlight">405</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">406</i>&nbsp;            return this._getitem(k);</b>
+<b class="nc"><i class="no-highlight">407</i>&nbsp;        } catch (org.python.exceptions.KeyError e) { // allow unhashable type error to be percolated up.</b>
+<b class="nc"><i class="no-highlight">408</i>&nbsp;            if (d == null) {</b>
+<b class="nc"><i class="no-highlight">409</i>&nbsp;                d = org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">410</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">411</i>&nbsp;            __setitem__(k, d);</b>
+<b class="nc"><i class="no-highlight">412</i>&nbsp;            return d;</b>
+<i class="no-highlight">413</i>&nbsp;        }
+<i class="no-highlight">414</i>&nbsp;    }
+<i class="no-highlight">415</i>&nbsp;
+<i class="no-highlight">416</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">417</i>&nbsp;            __doc__ = &quot;D.update([E, ]**F) -&gt; None.  Update D from dict/iterable E and F.\n&quot; +
+<i class="no-highlight">418</i>&nbsp;            &quot;If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]\n&quot; +
+<i class="no-highlight">419</i>&nbsp;            &quot;If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v\n&quot; +
+<i class="no-highlight">420</i>&nbsp;            &quot;In either case, this is followed by: for k in F:  D[k] = F[k]&quot;,
+<i class="no-highlight">421</i>&nbsp;            default_args = {&quot;iterable&quot;},
+<i class="no-highlight">422</i>&nbsp;            kwargs = &quot;kwargs&quot;
+<i class="no-highlight">423</i>&nbsp;    )
+<i class="no-highlight">424</i>&nbsp;    public org.python.Object update(org.python.Object iterable, org.python.types.Dict kwargs) {
+<b class="nc"><i class="no-highlight">425</i>&nbsp;        if (iterable == null) {</b>
+<b class="nc"><i class="no-highlight">426</i>&nbsp;            if (kwargs != null) {</b>
+<b class="nc"><i class="no-highlight">427</i>&nbsp;                org.python.Object iterator = org.Python.iter(kwargs);</b>
+<i class="no-highlight">428</i>&nbsp;                while (true) {
+<i class="no-highlight">429</i>&nbsp;                    try {
+<b class="nc"><i class="no-highlight">430</i>&nbsp;                        org.python.Object key = iterator.__next__();</b>
+<b class="nc"><i class="no-highlight">431</i>&nbsp;                        org.python.Object value = kwargs.value.get(key);</b>
+<b class="nc"><i class="no-highlight">432</i>&nbsp;                        this.value.put(key, value);</b>
+<b class="nc"><i class="no-highlight">433</i>&nbsp;                    } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">434</i>&nbsp;                        break;</b>
+<b class="nc"><i class="no-highlight">435</i>&nbsp;                    }</b>
+<i class="no-highlight">436</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">437</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">438</i>&nbsp;        } else if (iterable instanceof org.python.types.Dict) {</b>
+<b class="nc"><i class="no-highlight">439</i>&nbsp;            org.python.Object iterator = org.Python.iter(iterable);</b>
+<i class="no-highlight">440</i>&nbsp;            while (true) {
+<i class="no-highlight">441</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">442</i>&nbsp;                    org.python.Object key = iterator.__next__();</b>
+<b class="nc"><i class="no-highlight">443</i>&nbsp;                    org.python.Object value = ((org.python.types.Dict) iterable)._getitem(key);</b>
+<b class="nc"><i class="no-highlight">444</i>&nbsp;                    this.value.put(key, value);</b>
+<b class="nc"><i class="no-highlight">445</i>&nbsp;                } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">446</i>&nbsp;                    break;</b>
+<b class="nc"><i class="no-highlight">447</i>&nbsp;                }</b>
+<i class="no-highlight">448</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">449</i>&nbsp;        } else {</b>
+<b class="nc"><i class="no-highlight">450</i>&nbsp;            org.python.Object iterator = org.Python.iter(iterable);</b>
+<b class="nc"><i class="no-highlight">451</i>&nbsp;            int size = 0;</b>
+<i class="no-highlight">452</i>&nbsp;            java.util.List&lt;org.python.Object&gt; pair;
+<i class="no-highlight">453</i>&nbsp;            while (true) {
+<i class="no-highlight">454</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">455</i>&nbsp;                    org.python.Object next = iterator.__next__();</b>
+<b class="nc"><i class="no-highlight">456</i>&nbsp;                    if (next instanceof org.python.types.List) {</b>
+<b class="nc"><i class="no-highlight">457</i>&nbsp;                        pair = ((org.python.types.List) next).value;</b>
+<b class="nc"><i class="no-highlight">458</i>&nbsp;                    } else if (next instanceof org.python.types.Tuple) {</b>
+<b class="nc"><i class="no-highlight">459</i>&nbsp;                        pair = ((org.python.types.Tuple) next).value;</b>
+<b class="nc"><i class="no-highlight">460</i>&nbsp;                    } else if (next instanceof org.python.types.Str) {</b>
+<b class="nc"><i class="no-highlight">461</i>&nbsp;                        throw new org.python.exceptions.ValueError(</b>
+<i class="no-highlight">462</i>&nbsp;                        &quot;dictionary update sequence element #&quot; + size + &quot; has length 1; 2 is required&quot;);
+<i class="no-highlight">463</i>&nbsp;                    } else {
+<b class="nc"><i class="no-highlight">464</i>&nbsp;                        throw new org.python.exceptions.TypeError(&quot;cannot convert dictionary update sequence element #&quot; + size + &quot; to a sequence&quot;);</b>
+<i class="no-highlight">465</i>&nbsp;                    }
+<i class="no-highlight">466</i>&nbsp;
+<b class="nc"><i class="no-highlight">467</i>&nbsp;                    if (pair.size() != 2) {</b>
+<b class="nc"><i class="no-highlight">468</i>&nbsp;                        throw new org.python.exceptions.ValueError(</b>
+<b class="nc"><i class="no-highlight">469</i>&nbsp;                        &quot;dictionary update sequence element #&quot; + size + &quot; has length &quot; + pair.size() + &quot;; 2 is required&quot;);</b>
+<i class="no-highlight">470</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">471</i>&nbsp;                    org.python.Object key = pair.get(0);</b>
+<b class="nc"><i class="no-highlight">472</i>&nbsp;                    org.python.Object value = pair.get(1);</b>
+<b class="nc"><i class="no-highlight">473</i>&nbsp;                    this.value.put(key, value);</b>
+<b class="nc"><i class="no-highlight">474</i>&nbsp;                    size++;</b>
+<b class="nc"><i class="no-highlight">475</i>&nbsp;                } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">476</i>&nbsp;                    break;</b>
+<b class="nc"><i class="no-highlight">477</i>&nbsp;                }</b>
+<i class="no-highlight">478</i>&nbsp;            }
+<i class="no-highlight">479</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">480</i>&nbsp;        return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">481</i>&nbsp;    }
+<i class="no-highlight">482</i>&nbsp;
+<i class="no-highlight">483</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">484</i>&nbsp;            __doc__ = &quot;D.values() -&gt; an object providing a view on D&#39;s values&quot;
+<i class="no-highlight">485</i>&nbsp;    )
+<i class="no-highlight">486</i>&nbsp;    public org.python.Object values() {
+<i class="no-highlight">487</i>&nbsp;        //throw new org.python.exceptions.NotImplementedError(&quot;dict.values() has not been implemented.&quot;);
+<b class="nc"><i class="no-highlight">488</i>&nbsp;        return new org.python.types.DictValues(this);</b>
+<i class="no-highlight">489</i>&nbsp;    }
+<i class="no-highlight">490</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

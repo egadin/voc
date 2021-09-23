@@ -1,0 +1,1053 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ByteArray</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.types</a>
+</div>
+
+<h1>Coverage Summary for Class: ByteArray (org.python.types)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ByteArray</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/68)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/326)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.types;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.util.Arrays;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;public class ByteArray extends org.python.types.Object {
+<i class="no-highlight">6</i>&nbsp;    public byte[] value;
+<i class="no-highlight">7</i>&nbsp;
+<i class="no-highlight">8</i>&nbsp;    public int hashCode() {
+<b class="nc"><i class="no-highlight">9</i>&nbsp;        return this.value.hashCode();</b>
+<i class="no-highlight">10</i>&nbsp;    }
+<i class="no-highlight">11</i>&nbsp;
+<b class="nc"><i class="no-highlight">12</i>&nbsp;    public ByteArray() {</b>
+<b class="nc"><i class="no-highlight">13</i>&nbsp;        this.value = new byte[0];</b>
+<i class="no-highlight">14</i>&nbsp;    }
+<i class="no-highlight">15</i>&nbsp;
+<b class="nc"><i class="no-highlight">16</i>&nbsp;    public ByteArray(int length) {</b>
+<b class="nc"><i class="no-highlight">17</i>&nbsp;        this.value = new byte[length];</b>
+<i class="no-highlight">18</i>&nbsp;    }
+<i class="no-highlight">19</i>&nbsp;
+<b class="nc"><i class="no-highlight">20</i>&nbsp;    public ByteArray(byte[] value) {</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        this.value = Arrays.copyOf(value, value.length);</b>
+<i class="no-highlight">22</i>&nbsp;    }
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">25</i>&nbsp;            __doc__ = &quot;bytearray(iterable_of_ints) -&gt; bytearray&quot; +
+<i class="no-highlight">26</i>&nbsp;                    &quot;bytearray(string, encoding[, errors]) -&gt; bytearray\n&quot; +
+<i class="no-highlight">27</i>&nbsp;                    &quot;bytearray(bytes_or_buffer) -&gt; mutable copy of bytes_or_buffer\n&quot; +
+<i class="no-highlight">28</i>&nbsp;                    &quot;bytearray(int) -&gt; bytes array of size given by the parameter initialized with null bytes\n&quot; +
+<i class="no-highlight">29</i>&nbsp;                    &quot;bytearray() -&gt; empty bytes array\n&quot; +
+<i class="no-highlight">30</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">31</i>&nbsp;                    &quot;Construct an mutable bytearray object from:\n&quot; +
+<i class="no-highlight">32</i>&nbsp;                    &quot; - an iterable yielding integers in range(256)\n&quot; +
+<i class="no-highlight">33</i>&nbsp;                    &quot; - a text string encoded using the specified encoding\n&quot; +
+<i class="no-highlight">34</i>&nbsp;                    &quot; - a bytes or a buffer object\n&quot; +
+<i class="no-highlight">35</i>&nbsp;                    &quot; - any object implementing the buffer API.\n&quot; +
+<i class="no-highlight">36</i>&nbsp;                    &quot; - an integer\n&quot;,
+<i class="no-highlight">37</i>&nbsp;            default_args = {&quot;source&quot;, &quot;encoding&quot;, &quot;errors&quot;}
+<i class="no-highlight">38</i>&nbsp;    )
+<b class="nc"><i class="no-highlight">39</i>&nbsp;    public ByteArray(org.python.Object[] args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs) {</b>
+<b class="nc"><i class="no-highlight">40</i>&nbsp;        org.python.Object source = args[0];</b>
+<b class="nc"><i class="no-highlight">41</i>&nbsp;        org.python.Object encoding = args[1];</b>
+<b class="nc"><i class="no-highlight">42</i>&nbsp;        org.python.Object errors = args[2];</b>
+<i class="no-highlight">43</i>&nbsp;
+<b class="nc"><i class="no-highlight">44</i>&nbsp;        if (encoding != null &amp;&amp; !(encoding instanceof org.python.types.Str)) {</b>
+<b class="nc"><i class="no-highlight">45</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;bytearray() argument 2 must be str, not &quot; + encoding.typeName());</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;        } else if (errors != null &amp;&amp; !(errors instanceof org.python.types.Str)) {</b>
+<b class="nc"><i class="no-highlight">47</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;bytearray() argument 3 must be str, not &quot; + errors.typeName());</b>
+<b class="nc"><i class="no-highlight">48</i>&nbsp;        } else if (source == null) {</b>
+<b class="nc"><i class="no-highlight">49</i>&nbsp;            if (encoding != null || errors != null) {</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;encoding or errors without sequence argument&quot;);</b>
+<i class="no-highlight">51</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">52</i>&nbsp;            this.value = new byte[0];</b>
+<b class="nc"><i class="no-highlight">53</i>&nbsp;        } else if (source instanceof org.python.types.Str) {</b>
+<b class="nc"><i class="no-highlight">54</i>&nbsp;            if (encoding == null) {</b>
+<b class="nc"><i class="no-highlight">55</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;string argument without an encoding&quot;);</b>
+<i class="no-highlight">56</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">57</i>&nbsp;            org.python.Object bytes = ((org.python.types.Str) source).encode(encoding, errors);</b>
+<b class="nc"><i class="no-highlight">58</i>&nbsp;            this.value = ((org.python.types.Bytes) bytes).value;</b>
+<b class="nc"><i class="no-highlight">59</i>&nbsp;        } else if (encoding != null || errors != null) {</b>
+<b class="nc"><i class="no-highlight">60</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;encoding or errors without a string argument&quot;);</b>
+<b class="nc"><i class="no-highlight">61</i>&nbsp;        } else if (source instanceof org.python.types.Int || source instanceof org.python.types.Bool) {</b>
+<b class="nc"><i class="no-highlight">62</i>&nbsp;            int int_value = (int) ((org.python.types.Int) source.__int__()).value;</b>
+<b class="nc"><i class="no-highlight">63</i>&nbsp;            if (int_value &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">64</i>&nbsp;                throw new org.python.exceptions.ValueError(&quot;negative count&quot;);</b>
+<i class="no-highlight">65</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">66</i>&nbsp;            this.value = new byte[int_value];</b>
+<b class="nc"><i class="no-highlight">67</i>&nbsp;        } else {</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;            org.python.Object iter = null;</b>
+<i class="no-highlight">69</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">70</i>&nbsp;                iter = org.Python.iter(source);</b>
+<b class="nc"><i class="no-highlight">71</i>&nbsp;            } catch (org.python.exceptions.TypeError e) {</b>
+<b class="nc"><i class="no-highlight">72</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + source.typeName() + &quot;&#39; object is not iterable&quot;);</b>
+<b class="nc"><i class="no-highlight">73</i>&nbsp;            }</b>
+<i class="no-highlight">74</i>&nbsp;
+<b class="nc"><i class="no-highlight">75</i>&nbsp;            java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();</b>
+<i class="no-highlight">76</i>&nbsp;            try {
+<i class="no-highlight">77</i>&nbsp;                while (true) {
+<b class="nc"><i class="no-highlight">78</i>&nbsp;                    org.python.Object item = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">79</i>&nbsp;                    if (!(item instanceof org.python.types.Int || item instanceof org.python.types.Bool)) {</b>
+<b class="nc"><i class="no-highlight">80</i>&nbsp;                        if (org.Python.VERSION &lt; 0x03060800 || (org.Python.VERSION &gt;= 0x03070000 &amp;&amp; org.Python.VERSION &lt; 0x03070200)) {</b>
+<b class="nc"><i class="no-highlight">81</i>&nbsp;                            throw new org.python.exceptions.TypeError(&quot;an integer is required&quot;);</b>
+<i class="no-highlight">82</i>&nbsp;                        } else {
+<b class="nc"><i class="no-highlight">83</i>&nbsp;                            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + item.typeName() +</b>
+<i class="no-highlight">84</i>&nbsp;                                &quot;&#39; object cannot be interpreted as an integer&quot;);
+<i class="no-highlight">85</i>&nbsp;                        }
+<i class="no-highlight">86</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">87</i>&nbsp;                    long b = ((org.python.types.Int) item.__int__()).value;</b>
+<b class="nc"><i class="no-highlight">88</i>&nbsp;                    if (b &lt; 0 || b &gt; 255) {</b>
+<b class="nc"><i class="no-highlight">89</i>&nbsp;                        throw new org.python.exceptions.ValueError(&quot;byte must be in range(0, 256)&quot;);</b>
+<i class="no-highlight">90</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">91</i>&nbsp;                    baos.write((int) b);</b>
+<b class="nc"><i class="no-highlight">92</i>&nbsp;                }</b>
+<b class="nc"><i class="no-highlight">93</i>&nbsp;            } catch (org.python.exceptions.StopIteration e) {</b>
+<i class="no-highlight">94</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">95</i>&nbsp;            this.value = baos.toByteArray();</b>
+<i class="no-highlight">96</i>&nbsp;        }
+<i class="no-highlight">97</i>&nbsp;    }
+<i class="no-highlight">98</i>&nbsp;
+<i class="no-highlight">99</i>&nbsp;    // public ByteArray(org.python.types.Bool bool) {
+<i class="no-highlight">100</i>&nbsp;    //     this.value = new byte [(bool.value == true) ? 1 : 0];
+<i class="no-highlight">101</i>&nbsp;    // }
+<i class="no-highlight">102</i>&nbsp;
+<i class="no-highlight">103</i>&nbsp;    // public org.python.Object __new__() {
+<i class="no-highlight">104</i>&nbsp;    //     throw new org.python.exceptions.NotImplementedError(&quot;str.__new__() has not been implemented.&quot;);
+<i class="no-highlight">105</i>&nbsp;    // }
+<i class="no-highlight">106</i>&nbsp;
+<i class="no-highlight">107</i>&nbsp;    // public org.python.Object __init__() {
+<i class="no-highlight">108</i>&nbsp;    //     throw new org.python.exceptions.NotImplementedError(&quot;str.__init__() has not been implemented.&quot;);
+<i class="no-highlight">109</i>&nbsp;    // }
+<i class="no-highlight">110</i>&nbsp;
+<i class="no-highlight">111</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">112</i>&nbsp;            __doc__ = &quot;Return repr(self).&quot;
+<i class="no-highlight">113</i>&nbsp;    )
+<i class="no-highlight">114</i>&nbsp;    public org.python.types.Str __repr__() {
+<b class="nc"><i class="no-highlight">115</i>&nbsp;        return this.__str__();</b>
+<i class="no-highlight">116</i>&nbsp;    }
+<i class="no-highlight">117</i>&nbsp;
+<i class="no-highlight">118</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">119</i>&nbsp;            __doc__ = &quot;Return str(self).&quot;
+<i class="no-highlight">120</i>&nbsp;    )
+<i class="no-highlight">121</i>&nbsp;    public org.python.types.Str __str__() {
+<b class="nc"><i class="no-highlight">122</i>&nbsp;        StringBuilder sb = new StringBuilder();</b>
+<b class="nc"><i class="no-highlight">123</i>&nbsp;        sb.append(&quot;bytearray(b&#39;&quot;);</b>
+<b class="nc"><i class="no-highlight">124</i>&nbsp;        for (byte c : this.value) {</b>
+<b class="nc"><i class="no-highlight">125</i>&nbsp;            if (c == &#39;\n&#39;) {</b>
+<b class="nc"><i class="no-highlight">126</i>&nbsp;                sb.append(&quot;\\n&quot;);</b>
+<b class="nc"><i class="no-highlight">127</i>&nbsp;            } else if (c == &#39;\t&#39;) {</b>
+<b class="nc"><i class="no-highlight">128</i>&nbsp;                sb.append(&quot;\\t&quot;);</b>
+<b class="nc"><i class="no-highlight">129</i>&nbsp;            } else if (c == &#39;\r&#39;) {</b>
+<b class="nc"><i class="no-highlight">130</i>&nbsp;                sb.append(&quot;\\r&quot;);</b>
+<b class="nc"><i class="no-highlight">131</i>&nbsp;            } else if (c == &#39;\&#39;&#39;) {</b>
+<b class="nc"><i class="no-highlight">132</i>&nbsp;                sb.append(&quot;\\&#39;&quot;);</b>
+<b class="nc"><i class="no-highlight">133</i>&nbsp;            } else if (c == &#39;\\&#39;) {</b>
+<b class="nc"><i class="no-highlight">134</i>&nbsp;                sb.append(&quot;\\\\&quot;);</b>
+<b class="nc"><i class="no-highlight">135</i>&nbsp;            } else if (c &gt;= 32 &amp;&amp; c &lt; 127) {</b>
+<b class="nc"><i class="no-highlight">136</i>&nbsp;                sb.append((char) c);</b>
+<i class="no-highlight">137</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">138</i>&nbsp;                sb.append(String.format(&quot;\\x%02x&quot;, c));</b>
+<i class="no-highlight">139</i>&nbsp;            }
+<i class="no-highlight">140</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">141</i>&nbsp;        sb.append(&quot;&#39;)&quot;);</b>
+<b class="nc"><i class="no-highlight">142</i>&nbsp;        return new org.python.types.Str(sb.toString());</b>
+<i class="no-highlight">143</i>&nbsp;    }
+<i class="no-highlight">144</i>&nbsp;
+<i class="no-highlight">145</i>&nbsp;/*
+<i class="no-highlight">146</i>&nbsp;    public org.python.types.Str __repr__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<i class="no-highlight">147</i>&nbsp;        if (kwargs != null &amp;&amp; kwargs.size() != 0) {
+<i class="no-highlight">148</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;bytearray.__repr__ doesn&#39;t take keyword arguments&quot;);
+<i class="no-highlight">149</i>&nbsp;        } else if (args != null &amp;&amp; args.size() != 0) {
+<i class="no-highlight">150</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;Expected 0 arguments, got &quot; + args.size());
+<i class="no-highlight">151</i>&nbsp;        }
+<i class="no-highlight">152</i>&nbsp;
+<i class="no-highlight">153</i>&nbsp;        try {
+<i class="no-highlight">154</i>&nbsp;            return new org.python.types.Str(&quot;bytearray(b&#39;&quot; + new java.lang.String(this.value, &quot;UTF-8&quot;) + &quot;&#39;)&quot;);
+<i class="no-highlight">155</i>&nbsp;        } catch (java.io.UnsupportedEncodingException e) {
+<i class="no-highlight">156</i>&nbsp;            throw new org.python.exceptions.UnicodeDecodeError();
+<i class="no-highlight">157</i>&nbsp;        }
+<i class="no-highlight">158</i>&nbsp;    }
+<i class="no-highlight">159</i>&nbsp;
+<i class="no-highlight">160</i>&nbsp;    public org.python.types.Str __str__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<i class="no-highlight">161</i>&nbsp;        if (kwargs != null &amp;&amp; kwargs.size() != 0) {
+<i class="no-highlight">162</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;bytearray.__str__ doesn&#39;t take keyword arguments&quot;);
+<i class="no-highlight">163</i>&nbsp;        } else if (args != null &amp;&amp; args.size() != 0) {
+<i class="no-highlight">164</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;Expected 0 arguments, got &quot; + args.size());
+<i class="no-highlight">165</i>&nbsp;        }
+<i class="no-highlight">166</i>&nbsp;
+<i class="no-highlight">167</i>&nbsp;        try {
+<i class="no-highlight">168</i>&nbsp;            return new org.python.types.Str(new java.lang.String(this.value, &quot;UTF-8&quot;));
+<i class="no-highlight">169</i>&nbsp;        } catch (java.io.UnsupportedEncodingException e) {
+<i class="no-highlight">170</i>&nbsp;            throw new org.python.exceptions.UnicodeDecodeError();
+<i class="no-highlight">171</i>&nbsp;        }
+<i class="no-highlight">172</i>&nbsp;    }
+<i class="no-highlight">173</i>&nbsp;*/
+<i class="no-highlight">174</i>&nbsp;
+<i class="no-highlight">175</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">176</i>&nbsp;            __doc__ = &quot;&quot;,
+<i class="no-highlight">177</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">178</i>&nbsp;    )
+<i class="no-highlight">179</i>&nbsp;    public org.python.Object __and__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">180</i>&nbsp;        throw new org.python.exceptions.TypeError(&quot;unsupported operand type(s) for &amp;: &#39;&quot; + this.typeName() + &quot;&#39; and &#39;&quot; + other.typeName() + &quot;&#39;&quot;);</b>
+<i class="no-highlight">181</i>&nbsp;    }
+<i class="no-highlight">182</i>&nbsp;
+<i class="no-highlight">183</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">184</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">185</i>&nbsp;    )
+<i class="no-highlight">186</i>&nbsp;    public org.python.Object __bool__() {
+<b class="nc"><i class="no-highlight">187</i>&nbsp;        return org.python.types.Bool.getBool(this.value.length &gt; 0);</b>
+<i class="no-highlight">188</i>&nbsp;    }
+<i class="no-highlight">189</i>&nbsp;
+<i class="no-highlight">190</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">191</i>&nbsp;            __doc__ = &quot;Return self==value.&quot;,
+<i class="no-highlight">192</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">193</i>&nbsp;    )
+<i class="no-highlight">194</i>&nbsp;    public org.python.Object __eq__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">195</i>&nbsp;        if (other instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">196</i>&nbsp;            byte[] other_value = ((org.python.types.Bytes) other).value;</b>
+<b class="nc"><i class="no-highlight">197</i>&nbsp;            return org.python.types.Bool.getBool(Arrays.equals(this.value, other_value));</b>
+<b class="nc"><i class="no-highlight">198</i>&nbsp;        } else if (other instanceof org.python.types.ByteArray) {</b>
+<b class="nc"><i class="no-highlight">199</i>&nbsp;            byte[] other_value = ((org.python.types.ByteArray) other).value;</b>
+<b class="nc"><i class="no-highlight">200</i>&nbsp;            return org.python.types.Bool.getBool(Arrays.equals(this.value, other_value));</b>
+<i class="no-highlight">201</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">202</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">203</i>&nbsp;    }
+<i class="no-highlight">204</i>&nbsp;
+<i class="no-highlight">205</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">206</i>&nbsp;            __doc__ = &quot;Return self+value.&quot;,
+<i class="no-highlight">207</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">208</i>&nbsp;    )
+<i class="no-highlight">209</i>&nbsp;    public org.python.Object __add__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">210</i>&nbsp;        if (other instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">211</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.Bytes) other).value;</b>
+<b class="nc"><i class="no-highlight">212</i>&nbsp;            byte[] new_bytes = new byte[this.value.length + other_bytes.length];</b>
+<b class="nc"><i class="no-highlight">213</i>&nbsp;            System.arraycopy(this.value, 0, new_bytes, 0, this.value.length);</b>
+<b class="nc"><i class="no-highlight">214</i>&nbsp;            System.arraycopy(other_bytes, 0, new_bytes, this.value.length, other_bytes.length);</b>
+<b class="nc"><i class="no-highlight">215</i>&nbsp;            return new ByteArray(new_bytes);</b>
+<b class="nc"><i class="no-highlight">216</i>&nbsp;        } else if (other instanceof org.python.types.ByteArray) {</b>
+<b class="nc"><i class="no-highlight">217</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.ByteArray) other).value;</b>
+<b class="nc"><i class="no-highlight">218</i>&nbsp;            if (other_bytes == null) {</b>
+<b class="nc"><i class="no-highlight">219</i>&nbsp;                return this;</b>
+<i class="no-highlight">220</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">221</i>&nbsp;            byte[] new_bytes = new byte[this.value.length + other_bytes.length];</b>
+<b class="nc"><i class="no-highlight">222</i>&nbsp;            System.arraycopy(this.value, 0, new_bytes, 0, this.value.length);</b>
+<b class="nc"><i class="no-highlight">223</i>&nbsp;            System.arraycopy(other_bytes, 0, new_bytes, this.value.length, other_bytes.length);</b>
+<b class="nc"><i class="no-highlight">224</i>&nbsp;            return new ByteArray(new_bytes);</b>
+<i class="no-highlight">225</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">226</i>&nbsp;        if (org.Python.VERSION &lt; 0x03050400 || (org.Python.VERSION &gt;= 0x03060000 &amp;&amp; org.Python.VERSION &lt; 0x03060200)) {</b>
+<b class="nc"><i class="no-highlight">227</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;can&#39;t concat &quot; + this.typeName() + &quot; to &quot; + other.typeName());</b>
+<i class="no-highlight">228</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">229</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;can&#39;t concat &quot; + other.typeName() + &quot; to &quot; + this.typeName());</b>
+<i class="no-highlight">230</i>&nbsp;        }
+<i class="no-highlight">231</i>&nbsp;    }
+<i class="no-highlight">232</i>&nbsp;
+<i class="no-highlight">233</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">234</i>&nbsp;            __doc__ = &quot;Implement self+=value.&quot;,
+<i class="no-highlight">235</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">236</i>&nbsp;    )
+<i class="no-highlight">237</i>&nbsp;    public org.python.Object __iadd__(org.python.Object other) {
+<i class="no-highlight">238</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">239</i>&nbsp;            return super.__iadd__(other);</b>
+<b class="nc"><i class="no-highlight">240</i>&nbsp;        } catch (org.python.exceptions.TypeError ae) {</b>
+<b class="nc"><i class="no-highlight">241</i>&nbsp;            if (org.Python.VERSION &lt; 0x03050400 || (org.Python.VERSION &gt;= 0x03060000 &amp;&amp; org.Python.VERSION &lt; 0x03060200)) {</b>
+<b class="nc"><i class="no-highlight">242</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;can&#39;t concat &quot; + other.typeName() + &quot; to &quot; + this.typeName());</b>
+<i class="no-highlight">243</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">244</i>&nbsp;                throw ae;</b>
+<i class="no-highlight">245</i>&nbsp;            }
+<i class="no-highlight">246</i>&nbsp;        }
+<i class="no-highlight">247</i>&nbsp;    }
+<i class="no-highlight">248</i>&nbsp;
+<i class="no-highlight">249</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">250</i>&nbsp;            __doc__ = &quot;Return self*value.n&quot;,
+<i class="no-highlight">251</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">252</i>&nbsp;    )
+<i class="no-highlight">253</i>&nbsp;    public org.python.Object __mul__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">254</i>&nbsp;        if (other instanceof org.python.types.Bool) {</b>
+<b class="nc"><i class="no-highlight">255</i>&nbsp;            boolean other_bool = ((org.python.types.Bool) other).value;</b>
+<b class="nc"><i class="no-highlight">256</i>&nbsp;            if (other_bool) {</b>
+<b class="nc"><i class="no-highlight">257</i>&nbsp;                return this;</b>
+<i class="no-highlight">258</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">259</i>&nbsp;                return new ByteArray();</b>
+<i class="no-highlight">260</i>&nbsp;            }
+<i class="no-highlight">261</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">262</i>&nbsp;        if (other instanceof org.python.types.Int) {</b>
+<b class="nc"><i class="no-highlight">263</i>&nbsp;            int other_value = Math.max(0, (int) ((org.python.types.Int) other).value);</b>
+<b class="nc"><i class="no-highlight">264</i>&nbsp;            int len = this.value.length;</b>
+<b class="nc"><i class="no-highlight">265</i>&nbsp;            byte[] bytes = new byte[other_value * len];</b>
+<b class="nc"><i class="no-highlight">266</i>&nbsp;            for (int i = 0; i &lt; other_value; i++) {</b>
+<b class="nc"><i class="no-highlight">267</i>&nbsp;                System.arraycopy(this.value, 0, bytes, i * len, len);</b>
+<i class="no-highlight">268</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">269</i>&nbsp;            return new ByteArray(bytes);</b>
+<i class="no-highlight">270</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">271</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;can&#39;t multiply sequence by non-int of type &#39;&quot; + other.typeName() + &quot;&#39;&quot;);</b>
+<i class="no-highlight">272</i>&nbsp;        }
+<i class="no-highlight">273</i>&nbsp;    }
+<i class="no-highlight">274</i>&nbsp;
+<i class="no-highlight">275</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">276</i>&nbsp;            __doc__ = &quot;Implement self*=value.&quot;,
+<i class="no-highlight">277</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">278</i>&nbsp;    )
+<i class="no-highlight">279</i>&nbsp;    public org.python.Object __imul__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">280</i>&nbsp;        return this.__mul__(other);</b>
+<i class="no-highlight">281</i>&nbsp;    }
+<i class="no-highlight">282</i>&nbsp;
+<i class="no-highlight">283</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">284</i>&nbsp;            __doc__ = &quot;Return self[key].&quot;,
+<i class="no-highlight">285</i>&nbsp;            args = {&quot;index&quot;}
+<i class="no-highlight">286</i>&nbsp;    )
+<i class="no-highlight">287</i>&nbsp;    public org.python.Object __getitem__(org.python.Object index) {
+<b class="nc"><i class="no-highlight">288</i>&nbsp;        if (index instanceof org.python.types.Slice) {</b>
+<b class="nc"><i class="no-highlight">289</i>&nbsp;            org.python.types.Slice.ValidatedValue slice = ((org.python.types.Slice) index).validateValueTypes();</b>
+<i class="no-highlight">290</i>&nbsp;            byte[] sliced;
+<i class="no-highlight">291</i>&nbsp;
+<i class="no-highlight">292</i>&nbsp;            // if (slice.start == null &amp;&amp; slice.stop == null &amp;&amp; slice.step == null) {
+<i class="no-highlight">293</i>&nbsp;            int start;
+<b class="nc"><i class="no-highlight">294</i>&nbsp;            if (slice.start != null) {</b>
+<b class="nc"><i class="no-highlight">295</i>&nbsp;                start = (int) slice.start.value;</b>
+<i class="no-highlight">296</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">297</i>&nbsp;                start = 0;</b>
+<i class="no-highlight">298</i>&nbsp;            }
+<i class="no-highlight">299</i>&nbsp;
+<i class="no-highlight">300</i>&nbsp;            int stop;
+<b class="nc"><i class="no-highlight">301</i>&nbsp;            if (slice.stop != null) {</b>
+<b class="nc"><i class="no-highlight">302</i>&nbsp;                stop = (int) slice.stop.value;</b>
+<i class="no-highlight">303</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">304</i>&nbsp;                stop = this.value.length;</b>
+<i class="no-highlight">305</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">306</i>&nbsp;            if (stop &gt; this.value.length) {</b>
+<b class="nc"><i class="no-highlight">307</i>&nbsp;                stop = this.value.length;</b>
+<i class="no-highlight">308</i>&nbsp;            }
+<i class="no-highlight">309</i>&nbsp;
+<i class="no-highlight">310</i>&nbsp;            int step;
+<b class="nc"><i class="no-highlight">311</i>&nbsp;            if (slice.step != null) {</b>
+<b class="nc"><i class="no-highlight">312</i>&nbsp;                step = (int) slice.step.value;</b>
+<i class="no-highlight">313</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">314</i>&nbsp;                step = 1;</b>
+<i class="no-highlight">315</i>&nbsp;            }
+<i class="no-highlight">316</i>&nbsp;
+<b class="nc"><i class="no-highlight">317</i>&nbsp;            if (step &gt; 0) {</b>
+<b class="nc"><i class="no-highlight">318</i>&nbsp;                if (start &gt;= this.value.length || start &gt; stop) {</b>
+<b class="nc"><i class="no-highlight">319</i>&nbsp;                    return new ByteArray();</b>
+<i class="no-highlight">320</i>&nbsp;                }
+<i class="no-highlight">321</i>&nbsp;
+<b class="nc"><i class="no-highlight">322</i>&nbsp;                int len = (int) Math.ceil((float) (stop - start) / step);</b>
+<b class="nc"><i class="no-highlight">323</i>&nbsp;                sliced = new byte[len];</b>
+<i class="no-highlight">324</i>&nbsp;
+<b class="nc"><i class="no-highlight">325</i>&nbsp;                for (int i = 0, j = start; j &lt; stop; i++, j += step) {</b>
+<b class="nc"><i class="no-highlight">326</i>&nbsp;                    sliced[i] = this.value[j];</b>
+<i class="no-highlight">327</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">328</i>&nbsp;            } else { // step &lt; 0</b>
+<b class="nc"><i class="no-highlight">329</i>&nbsp;                if (Math.abs(start) &gt;= this.value.length || stop &gt; start) {</b>
+<b class="nc"><i class="no-highlight">330</i>&nbsp;                    return new ByteArray();</b>
+<i class="no-highlight">331</i>&nbsp;                }
+<i class="no-highlight">332</i>&nbsp;
+<b class="nc"><i class="no-highlight">333</i>&nbsp;                int len = (int) Math.ceil((float) (stop - start) / step);</b>
+<b class="nc"><i class="no-highlight">334</i>&nbsp;                sliced = new byte[len];</b>
+<i class="no-highlight">335</i>&nbsp;
+<b class="nc"><i class="no-highlight">336</i>&nbsp;                for (int i = 0, j = start; j &gt; stop; i++, j += step) {</b>
+<b class="nc"><i class="no-highlight">337</i>&nbsp;                    sliced[i] = this.value[j];</b>
+<i class="no-highlight">338</i>&nbsp;                }
+<i class="no-highlight">339</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">340</i>&nbsp;            return new ByteArray(sliced);</b>
+<b class="nc"><i class="no-highlight">341</i>&nbsp;        } else if (index instanceof org.python.types.Bool || index instanceof org.python.types.Int) {</b>
+<i class="no-highlight">342</i>&nbsp;            int idx;
+<b class="nc"><i class="no-highlight">343</i>&nbsp;            if (index instanceof org.python.types.Bool) {</b>
+<b class="nc"><i class="no-highlight">344</i>&nbsp;                boolean index_bool = ((org.python.types.Bool) index).value;</b>
+<b class="nc"><i class="no-highlight">345</i>&nbsp;                if (index_bool) {</b>
+<b class="nc"><i class="no-highlight">346</i>&nbsp;                    idx = 1;</b>
+<i class="no-highlight">347</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">348</i>&nbsp;                    idx = 0;</b>
+<i class="no-highlight">349</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">350</i>&nbsp;            } else {</b>
+<b class="nc"><i class="no-highlight">351</i>&nbsp;                idx = (int) ((org.python.types.Int) index).value;</b>
+<i class="no-highlight">352</i>&nbsp;            }
+<i class="no-highlight">353</i>&nbsp;
+<b class="nc"><i class="no-highlight">354</i>&nbsp;            if (idx &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">355</i>&nbsp;                if (-idx &gt; this.value.length) {</b>
+<b class="nc"><i class="no-highlight">356</i>&nbsp;                    throw new org.python.exceptions.IndexError(&quot;bytearray index out of range&quot;);</b>
+<i class="no-highlight">357</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">358</i>&nbsp;                    idx = this.value.length + idx;</b>
+<i class="no-highlight">359</i>&nbsp;                    // return new Bytes(java.util.Arrays.copyOfRange(this.value, idx, idx));
+<b class="nc"><i class="no-highlight">360</i>&nbsp;                    return org.python.types.Int.getInt((long) this.value[idx] &amp; 0xff);</b>
+<i class="no-highlight">361</i>&nbsp;                }
+<i class="no-highlight">362</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">363</i>&nbsp;                if (idx &gt;= this.value.length) {</b>
+<b class="nc"><i class="no-highlight">364</i>&nbsp;                    throw new org.python.exceptions.IndexError(&quot;bytearray index out of range&quot;);</b>
+<i class="no-highlight">365</i>&nbsp;                } else {
+<i class="no-highlight">366</i>&nbsp;                    // return new Bytes(java.util.Arrays.copyOfRange(this.value, idx, idx));
+<b class="nc"><i class="no-highlight">367</i>&nbsp;                    return org.python.types.Int.getInt((long) this.value[idx] &amp; 0xff);</b>
+<i class="no-highlight">368</i>&nbsp;                }
+<i class="no-highlight">369</i>&nbsp;            }
+<i class="no-highlight">370</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">371</i>&nbsp;            if (org.Python.VERSION &lt; 0x03050000) {</b>
+<b class="nc"><i class="no-highlight">372</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;bytearray indices must be integers&quot;);</b>
+<i class="no-highlight">373</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">374</i>&nbsp;                throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">375</i>&nbsp;                        &quot;bytearray indices must be integers or slices, not &quot; + index.typeName()</b>
+<i class="no-highlight">376</i>&nbsp;                );
+<i class="no-highlight">377</i>&nbsp;            }
+<i class="no-highlight">378</i>&nbsp;        }
+<i class="no-highlight">379</i>&nbsp;    }
+<i class="no-highlight">380</i>&nbsp;
+<i class="no-highlight">381</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">382</i>&nbsp;            __doc__ = &quot;Return self&gt;=value.&quot;,
+<i class="no-highlight">383</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">384</i>&nbsp;    )
+<i class="no-highlight">385</i>&nbsp;    public org.python.Object __ge__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">386</i>&nbsp;        if (other instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">387</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.Bytes) other).value;</b>
+<b class="nc"><i class="no-highlight">388</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">389</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">390</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">391</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">392</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">393</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">394</i>&nbsp;                }
+<i class="no-highlight">395</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">396</i>&nbsp;            if (this.value.length &lt; other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">397</i>&nbsp;                return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">398</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">399</i>&nbsp;            return org.python.types.Bool.TRUE;</b>
+<b class="nc"><i class="no-highlight">400</i>&nbsp;        } else if (other instanceof org.python.types.ByteArray) {</b>
+<b class="nc"><i class="no-highlight">401</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.ByteArray) other).value;</b>
+<b class="nc"><i class="no-highlight">402</i>&nbsp;            if (other_bytes == null) {</b>
+<b class="nc"><i class="no-highlight">403</i>&nbsp;                return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">404</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">405</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">406</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">407</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">408</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">409</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">410</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">411</i>&nbsp;                }
+<i class="no-highlight">412</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">413</i>&nbsp;            if (this.value.length &lt; other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">414</i>&nbsp;                return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">415</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">416</i>&nbsp;            return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">417</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">418</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">419</i>&nbsp;    }
+<i class="no-highlight">420</i>&nbsp;
+<i class="no-highlight">421</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">422</i>&nbsp;            __doc__ = &quot;Return self&gt;value.&quot;,
+<i class="no-highlight">423</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">424</i>&nbsp;    )
+<i class="no-highlight">425</i>&nbsp;    public org.python.Object __gt__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">426</i>&nbsp;        if (other instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">427</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.Bytes) other).value;</b>
+<b class="nc"><i class="no-highlight">428</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">429</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">430</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">431</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">432</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">433</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">434</i>&nbsp;                }
+<i class="no-highlight">435</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">436</i>&nbsp;            if (this.value.length &lt;= other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">437</i>&nbsp;                return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">438</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">439</i>&nbsp;            return org.python.types.Bool.TRUE;</b>
+<b class="nc"><i class="no-highlight">440</i>&nbsp;        } else if (other instanceof org.python.types.ByteArray) {</b>
+<b class="nc"><i class="no-highlight">441</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.ByteArray) other).value;</b>
+<b class="nc"><i class="no-highlight">442</i>&nbsp;            if (other_bytes == null) {</b>
+<b class="nc"><i class="no-highlight">443</i>&nbsp;                other_bytes = new byte[0];</b>
+<i class="no-highlight">444</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">445</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">446</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">447</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">448</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">449</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">450</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">451</i>&nbsp;                }
+<i class="no-highlight">452</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">453</i>&nbsp;            if (this.value.length &lt;= other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">454</i>&nbsp;                return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">455</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">456</i>&nbsp;            return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">457</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">458</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">459</i>&nbsp;    }
+<i class="no-highlight">460</i>&nbsp;
+<i class="no-highlight">461</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">462</i>&nbsp;            __doc__ = &quot;Return self&lt;=value.&quot;,
+<i class="no-highlight">463</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">464</i>&nbsp;    )
+<i class="no-highlight">465</i>&nbsp;    public org.python.Object __le__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">466</i>&nbsp;        if (other instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">467</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.Bytes) other).value;</b>
+<b class="nc"><i class="no-highlight">468</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">469</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">470</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">471</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">472</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">473</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">474</i>&nbsp;                }
+<i class="no-highlight">475</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">476</i>&nbsp;            if (this.value.length &lt;= other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">477</i>&nbsp;                return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">478</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">479</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<b class="nc"><i class="no-highlight">480</i>&nbsp;        } else if (other instanceof org.python.types.ByteArray) {</b>
+<b class="nc"><i class="no-highlight">481</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.ByteArray) other).value;</b>
+<b class="nc"><i class="no-highlight">482</i>&nbsp;            if (other_bytes == null) {</b>
+<b class="nc"><i class="no-highlight">483</i>&nbsp;                other_bytes = new byte[0];</b>
+<i class="no-highlight">484</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">485</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">486</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">487</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">488</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">489</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">490</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">491</i>&nbsp;                }
+<i class="no-highlight">492</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">493</i>&nbsp;            if (this.value.length &lt;= other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">494</i>&nbsp;                return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">495</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">496</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">497</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">498</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">499</i>&nbsp;    }
+<i class="no-highlight">500</i>&nbsp;
+<i class="no-highlight">501</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">502</i>&nbsp;            __doc__ = &quot;Return self&lt;value.&quot;,
+<i class="no-highlight">503</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">504</i>&nbsp;    )
+<i class="no-highlight">505</i>&nbsp;    public org.python.Object __lt__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">506</i>&nbsp;        if (other instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">507</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.Bytes) other).value;</b>
+<b class="nc"><i class="no-highlight">508</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">509</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">510</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">511</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">512</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">513</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">514</i>&nbsp;                }
+<i class="no-highlight">515</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">516</i>&nbsp;            if (this.value.length &lt; other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">517</i>&nbsp;                return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">518</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">519</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<b class="nc"><i class="no-highlight">520</i>&nbsp;        } else if (other instanceof org.python.types.ByteArray) {</b>
+<b class="nc"><i class="no-highlight">521</i>&nbsp;            byte[] other_bytes = (byte[]) ((org.python.types.ByteArray) other).value;</b>
+<b class="nc"><i class="no-highlight">522</i>&nbsp;            if (other_bytes == null) {</b>
+<b class="nc"><i class="no-highlight">523</i>&nbsp;                return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">524</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">525</i>&nbsp;            for (int i = 0; i &lt; Math.min(this.value.length, other_bytes.length); i++) {</b>
+<b class="nc"><i class="no-highlight">526</i>&nbsp;                if (this.value[i] &lt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">527</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">528</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">529</i>&nbsp;                if (this.value[i] &gt; other_bytes[i]) {</b>
+<b class="nc"><i class="no-highlight">530</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">531</i>&nbsp;                }
+<i class="no-highlight">532</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">533</i>&nbsp;            if (this.value.length &lt; other_bytes.length) {</b>
+<b class="nc"><i class="no-highlight">534</i>&nbsp;                return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">535</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">536</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">537</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">538</i>&nbsp;        return org.python.types.NotImplementedType.NOT_IMPLEMENTED;</b>
+<i class="no-highlight">539</i>&nbsp;    }
+<i class="no-highlight">540</i>&nbsp;
+<i class="no-highlight">541</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">542</i>&nbsp;            __doc__ = &quot;&quot;,
+<i class="no-highlight">543</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">544</i>&nbsp;    )
+<i class="no-highlight">545</i>&nbsp;    public org.python.Object __mod__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">546</i>&nbsp;        if (org.Python.VERSION &lt; 0x03050000) {</b>
+<b class="nc"><i class="no-highlight">547</i>&nbsp;            throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">548</i>&nbsp;                    &quot;unsupported operand type(s) for %: &#39;bytearray&#39; and &#39;&quot; + other.typeName() + &quot;&#39;&quot;</b>
+<i class="no-highlight">549</i>&nbsp;            );
+<i class="no-highlight">550</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">551</i>&nbsp;            if (other instanceof org.python.types.List</b>
+<i class="no-highlight">552</i>&nbsp;                    || other instanceof org.python.types.Range
+<i class="no-highlight">553</i>&nbsp;                    || other instanceof org.python.types.Dict) {
+<i class="no-highlight">554</i>&nbsp;                int i, size;
+<b class="nc"><i class="no-highlight">555</i>&nbsp;                for (i = 0; i &lt; this.value.length; i++) {</b>
+<b class="nc"><i class="no-highlight">556</i>&nbsp;                    if (this.value[0] == 0) {</b>
+<b class="nc"><i class="no-highlight">557</i>&nbsp;                        break;</b>
+<i class="no-highlight">558</i>&nbsp;                    }
+<i class="no-highlight">559</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">560</i>&nbsp;                if (org.Python.VERSION &lt; 0x03050300) {</b>
+<b class="nc"><i class="no-highlight">561</i>&nbsp;                    size = i;</b>
+<i class="no-highlight">562</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">563</i>&nbsp;                    size = this.value.length;</b>
+<i class="no-highlight">564</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">565</i>&nbsp;                byte[] bytes = new byte[size];</b>
+<b class="nc"><i class="no-highlight">566</i>&nbsp;                System.arraycopy(this.value, 0, bytes, 0, size);</b>
+<b class="nc"><i class="no-highlight">567</i>&nbsp;                return new ByteArray(bytes);</b>
+<i class="no-highlight">568</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">569</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;not all arguments converted during bytes formatting&quot;);</b>
+<i class="no-highlight">570</i>&nbsp;        }
+<i class="no-highlight">571</i>&nbsp;    }
+<i class="no-highlight">572</i>&nbsp;
+<i class="no-highlight">573</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">574</i>&nbsp;            __doc__ = &quot;&quot;,
+<i class="no-highlight">575</i>&nbsp;            args = {&quot;other&quot;}
+<i class="no-highlight">576</i>&nbsp;    )
+<i class="no-highlight">577</i>&nbsp;    public org.python.Object __imod__(org.python.Object other) {
+<b class="nc"><i class="no-highlight">578</i>&nbsp;        if (org.Python.VERSION &lt; 0x03050000) {</b>
+<b class="nc"><i class="no-highlight">579</i>&nbsp;            throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">580</i>&nbsp;                    &quot;unsupported operand type(s) for %=: &#39;bytearray&#39; and &#39;&quot; + other.typeName() + &quot;&#39;&quot;</b>
+<i class="no-highlight">581</i>&nbsp;            );
+<i class="no-highlight">582</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">583</i>&nbsp;            return this.__mod__(other);</b>
+<i class="no-highlight">584</i>&nbsp;        }
+<i class="no-highlight">585</i>&nbsp;    }
+<i class="no-highlight">586</i>&nbsp;
+<i class="no-highlight">587</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">588</i>&nbsp;            __doc__ = &quot;Return true if contains the arg&quot;,
+<i class="no-highlight">589</i>&nbsp;            args = {&quot;slice&quot;}
+<i class="no-highlight">590</i>&nbsp;    )
+<i class="no-highlight">591</i>&nbsp;    public org.python.Object __contains__(org.python.Object slice) {
+<b class="nc"><i class="no-highlight">592</i>&nbsp;        return new Bytes(this.value).__contains__(slice);</b>
+<i class="no-highlight">593</i>&nbsp;    }
+<i class="no-highlight">594</i>&nbsp;
+<i class="no-highlight">595</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">596</i>&nbsp;            __doc__ = &quot;default object formatter&quot;
+<i class="no-highlight">597</i>&nbsp;    )
+<i class="no-highlight">598</i>&nbsp;    public org.python.types.Str __format__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">599</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.__format__ has not been implemented.&quot;);</b>
+<i class="no-highlight">600</i>&nbsp;    }
+<i class="no-highlight">601</i>&nbsp;
+<i class="no-highlight">602</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">603</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">604</i>&nbsp;    )
+<i class="no-highlight">605</i>&nbsp;    public org.python.Object __getnewargs__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">606</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.__getnewargs__ has not been implemented.&quot;);</b>
+<i class="no-highlight">607</i>&nbsp;    }
+<i class="no-highlight">608</i>&nbsp;
+<i class="no-highlight">609</i>&nbsp;    public boolean __setattr_null(java.lang.String name, org.python.Object value) {
+<i class="no-highlight">610</i>&nbsp;        // Builtin types can&#39;t have attributes set on them.
+<b class="nc"><i class="no-highlight">611</i>&nbsp;        return false;</b>
+<i class="no-highlight">612</i>&nbsp;    }
+<i class="no-highlight">613</i>&nbsp;
+<i class="no-highlight">614</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">615</i>&nbsp;            __doc__ = &quot;Implement iter(self).&quot;
+<i class="no-highlight">616</i>&nbsp;    )
+<i class="no-highlight">617</i>&nbsp;    public org.python.Object __iter__() {
+<b class="nc"><i class="no-highlight">618</i>&nbsp;        java.util.List&lt;org.python.Object&gt; listOfBytes = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="nc"><i class="no-highlight">619</i>&nbsp;        for (byte b: this.value) {</b>
+<b class="nc"><i class="no-highlight">620</i>&nbsp;            listOfBytes.add(org.python.types.Int.getInt((long) b &amp; 0xff));</b>
+<i class="no-highlight">621</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">622</i>&nbsp;        return new org.python.types.List(listOfBytes).__iter__();</b>
+<i class="no-highlight">623</i>&nbsp;    }
+<i class="no-highlight">624</i>&nbsp;
+<i class="no-highlight">625</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">626</i>&nbsp;            __doc__ = &quot;Return len(self).&quot;
+<i class="no-highlight">627</i>&nbsp;    )
+<i class="no-highlight">628</i>&nbsp;    public org.python.types.Int __len__() {
+<b class="nc"><i class="no-highlight">629</i>&nbsp;        return org.python.types.Int.getInt(this.value.length);</b>
+<i class="no-highlight">630</i>&nbsp;    }
+<i class="no-highlight">631</i>&nbsp;
+<i class="no-highlight">632</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">633</i>&nbsp;            __doc__ = &quot;Return state information for pickling.&quot;
+<i class="no-highlight">634</i>&nbsp;    )
+<i class="no-highlight">635</i>&nbsp;    public org.python.Object __reduce__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">636</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.__reduce__ has not been implemented.&quot;);</b>
+<i class="no-highlight">637</i>&nbsp;    }
+<i class="no-highlight">638</i>&nbsp;
+<i class="no-highlight">639</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">640</i>&nbsp;            __doc__ = &quot;Return state information for pickling.&quot;
+<i class="no-highlight">641</i>&nbsp;    )
+<i class="no-highlight">642</i>&nbsp;    public org.python.Object __reduce_ex__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">643</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.__reduce_ex__ has not been implemented.&quot;);</b>
+<i class="no-highlight">644</i>&nbsp;    }
+<i class="no-highlight">645</i>&nbsp;
+<i class="no-highlight">646</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">647</i>&nbsp;            __doc__ = &quot;Return self*value.&quot;
+<i class="no-highlight">648</i>&nbsp;    )
+<i class="no-highlight">649</i>&nbsp;    public org.python.Object __rmul__(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">650</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.__rmul__ has not been implemented.&quot;);</b>
+<i class="no-highlight">651</i>&nbsp;    }
+<i class="no-highlight">652</i>&nbsp;
+<i class="no-highlight">653</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">654</i>&nbsp;            __doc__ = &quot;B.capitalize() -&gt; copy of B\n\nReturn a copy of B with only its first character capitalized (ASCII)\nand the rest lower-cased.&quot;
+<i class="no-highlight">655</i>&nbsp;    )
+<i class="no-highlight">656</i>&nbsp;    public org.python.Object capitalize() {
+<b class="nc"><i class="no-highlight">657</i>&nbsp;        return new ByteArray(Bytes._capitalize(this.value));</b>
+<i class="no-highlight">658</i>&nbsp;    }
+<i class="no-highlight">659</i>&nbsp;
+<i class="no-highlight">660</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">661</i>&nbsp;            __doc__ = &quot;B.center(width[, fillchar]) -&gt; copy of B&quot; +
+<i class="no-highlight">662</i>&nbsp;            &quot;\n\nReturn B centered in a string of length width.  Padding is&quot; +
+<i class="no-highlight">663</i>&nbsp;            &quot;\ndone using the specified fill character (default is a space).&quot;,
+<i class="no-highlight">664</i>&nbsp;            args = {&quot;width&quot;},
+<i class="no-highlight">665</i>&nbsp;            default_args = {&quot;byteToFill&quot;}
+<i class="no-highlight">666</i>&nbsp;    )
+<i class="no-highlight">667</i>&nbsp;    public org.python.Object center(org.python.Object width, org.python.Object byteToFill) {
+<b class="nc"><i class="no-highlight">668</i>&nbsp;        return new org.python.types.ByteArray(Bytes._center(this.value, width, byteToFill));</b>
+<i class="no-highlight">669</i>&nbsp;    }
+<i class="no-highlight">670</i>&nbsp;
+<i class="no-highlight">671</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">672</i>&nbsp;            __doc__ = &quot;B.count(sub[, start[, end]]) -&gt; int\n\nReturn the number of non-overlapping occurrences of subsection sub in\nbytes B[start:end].  Optional arguments start and end are interpreted\nas in slice notation.&quot;,
+<i class="no-highlight">673</i>&nbsp;            args = {&quot;sub&quot;},
+<i class="no-highlight">674</i>&nbsp;            default_args = {&quot;start&quot;, &quot;end&quot;}
+<i class="no-highlight">675</i>&nbsp;    )
+<i class="no-highlight">676</i>&nbsp;    public org.python.Object count(org.python.Object sub, org.python.Object start, org.python.Object end) {
+<b class="nc"><i class="no-highlight">677</i>&nbsp;        return new Bytes(this.value).count(sub, start, end);</b>
+<i class="no-highlight">678</i>&nbsp;    }
+<i class="no-highlight">679</i>&nbsp;
+<i class="no-highlight">680</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">681</i>&nbsp;            __doc__ = &quot;B.decode(encoding=&#39;utf-8&#39;, errors=&#39;strict&#39;) -&gt; str\n\nDecode B using the codec registered for encoding. Default encoding\nis &#39;utf-8&#39;. errors may be given to set a different error\nhandling scheme.  Default is &#39;strict&#39; meaning that encoding errors raise\na UnicodeDecodeError.  Other possible values are &#39;ignore&#39; and &#39;replace&#39;\nas well as any other name registered with codecs.register_error that is\nable to handle UnicodeDecodeErrors.&quot;
+<i class="no-highlight">682</i>&nbsp;    )
+<i class="no-highlight">683</i>&nbsp;    public org.python.Object decode(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<i class="no-highlight">684</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">685</i>&nbsp;            return new org.python.types.Str(new java.lang.String(this.value, &quot;UTF-8&quot;));</b>
+<i class="no-highlight">686</i>&nbsp;            // return new org.python.types.Str(new java.lang.String(this.value, encoding));
+<b class="nc"><i class="no-highlight">687</i>&nbsp;        } catch (java.io.UnsupportedEncodingException e) {</b>
+<b class="nc"><i class="no-highlight">688</i>&nbsp;            throw new org.python.exceptions.UnicodeDecodeError();</b>
+<i class="no-highlight">689</i>&nbsp;        }
+<i class="no-highlight">690</i>&nbsp;    }
+<i class="no-highlight">691</i>&nbsp;
+<i class="no-highlight">692</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">693</i>&nbsp;            __doc__ = &quot;B.endswith(suffix[, start[, end]]) -&gt; bool\n\nReturn True if B ends with the specified suffix, False otherwise.\nWith optional start, test B beginning at that position.\nWith optional end, stop comparing B at that position.\nsuffix can also be a tuple of bytes to try.&quot;,
+<i class="no-highlight">694</i>&nbsp;            args = {&quot;suffix&quot;},
+<i class="no-highlight">695</i>&nbsp;            default_args = {&quot;start&quot;, &quot;end&quot;}
+<i class="no-highlight">696</i>&nbsp;    )
+<i class="no-highlight">697</i>&nbsp;    public org.python.Object endswith(org.python.Object suffix, org.python.Object start, org.python.Object end) {
+<i class="no-highlight">698</i>&nbsp;
+<b class="nc"><i class="no-highlight">699</i>&nbsp;        return new Bytes(this.value).endsOrStartsWith(suffix, start, end, 1);</b>
+<i class="no-highlight">700</i>&nbsp;    }
+<i class="no-highlight">701</i>&nbsp;
+<i class="no-highlight">702</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">703</i>&nbsp;            __doc__ = &quot;B.expandtabs(tabsize=8) -&gt; copy of B\n\nReturn a copy of B where all tab characters are expanded using spaces.\nIf tabsize is not given, a tab size of 8 characters is assumed.&quot;,
+<i class="no-highlight">704</i>&nbsp;            args = {},
+<i class="no-highlight">705</i>&nbsp;            default_args = {&quot;tabsize&quot;}
+<i class="no-highlight">706</i>&nbsp;    )
+<i class="no-highlight">707</i>&nbsp;    public org.python.Object expandtabs(org.python.Object tabsize) {
+<b class="nc"><i class="no-highlight">708</i>&nbsp;        return new org.python.types.ByteArray(Bytes._expandtabs(this.value, tabsize));</b>
+<i class="no-highlight">709</i>&nbsp;    }
+<i class="no-highlight">710</i>&nbsp;
+<i class="no-highlight">711</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">712</i>&nbsp;            __doc__ = &quot;B.find(sub[, start[, end]]) -&gt; int&quot; +
+<i class="no-highlight">713</i>&nbsp;            &quot;\n\nReturn the lowest index in B where subsection sub is found,&quot; +
+<i class="no-highlight">714</i>&nbsp;            &quot;\nsuch that sub is contained within B[start,end].  Optional&quot; +
+<i class="no-highlight">715</i>&nbsp;            &quot;\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.&quot;,
+<i class="no-highlight">716</i>&nbsp;            args = {&quot;sub&quot;},
+<i class="no-highlight">717</i>&nbsp;            default_args = {&quot;start&quot;, &quot;end&quot;}
+<i class="no-highlight">718</i>&nbsp;    )
+<i class="no-highlight">719</i>&nbsp;    public org.python.Object find(org.python.Object sub, org.python.Object start, org.python.Object end) {
+<b class="nc"><i class="no-highlight">720</i>&nbsp;        return new Bytes(this.value).find(sub, start, end);</b>
+<i class="no-highlight">721</i>&nbsp;    }
+<i class="no-highlight">722</i>&nbsp;
+<i class="no-highlight">723</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">724</i>&nbsp;            __doc__ = &quot;bytearray.fromhex(string) -&gt; bytearray (static method)\n\nCreate a bytearray object from a string of hexadecimal numbers.\nSpaces between two numbers are accepted.\nExample: bytearray.fromhex(&#39;B9 01EF&#39;) -&gt; bytearray(b&#39;\\xb9\\x01\\xef&#39;).&quot;
+<i class="no-highlight">725</i>&nbsp;    )
+<i class="no-highlight">726</i>&nbsp;    public org.python.Object fromhex(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">727</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.fromhex has not been implemented.&quot;);</b>
+<i class="no-highlight">728</i>&nbsp;    }
+<i class="no-highlight">729</i>&nbsp;
+<i class="no-highlight">730</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">731</i>&nbsp;            __doc__ = &quot;B.index(sub[, start[, end]]) -&gt; int\n\nLike B.find() but raise ValueError when the subsection is not found.&quot;
+<i class="no-highlight">732</i>&nbsp;    )
+<i class="no-highlight">733</i>&nbsp;    public org.python.Object index(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">734</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.index has not been implemented.&quot;);</b>
+<i class="no-highlight">735</i>&nbsp;    }
+<i class="no-highlight">736</i>&nbsp;
+<i class="no-highlight">737</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">738</i>&nbsp;            __doc__ = &quot;B.isalnum() -&gt; bool\n\nReturn True if all characters in B are alphanumeric\nand there is at least one character in B, False otherwise.&quot;
+<i class="no-highlight">739</i>&nbsp;    )
+<i class="no-highlight">740</i>&nbsp;    public org.python.Object isalnum() {
+<b class="nc"><i class="no-highlight">741</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._isalnum(this.value));</b>
+<i class="no-highlight">742</i>&nbsp;    }
+<i class="no-highlight">743</i>&nbsp;
+<i class="no-highlight">744</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">745</i>&nbsp;            __doc__ = &quot;B.isalpha() -&gt; bool\n\nReturn True if all characters in B are alphabetic\nand there is at least one character in B, False otherwise.&quot;
+<i class="no-highlight">746</i>&nbsp;    )
+<i class="no-highlight">747</i>&nbsp;    public org.python.Object isalpha() {
+<b class="nc"><i class="no-highlight">748</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._isalpha(this.value));</b>
+<i class="no-highlight">749</i>&nbsp;    }
+<i class="no-highlight">750</i>&nbsp;
+<i class="no-highlight">751</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">752</i>&nbsp;            __doc__ = &quot;B.isdigit() -&gt; bool\n\nReturn True if all characters in B are digits\nand there is at least one character in B, False otherwise.&quot;
+<i class="no-highlight">753</i>&nbsp;    )
+<i class="no-highlight">754</i>&nbsp;    public org.python.Object isdigit() {
+<b class="nc"><i class="no-highlight">755</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._isdigit(this.value));</b>
+<i class="no-highlight">756</i>&nbsp;    }
+<i class="no-highlight">757</i>&nbsp;
+<i class="no-highlight">758</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">759</i>&nbsp;            __doc__ = &quot;B.islower() -&gt; bool\n\nReturn True if all cased characters in B are lowercase and there is\nat least one cased character in B, False otherwise.&quot;
+<i class="no-highlight">760</i>&nbsp;    )
+<i class="no-highlight">761</i>&nbsp;    public org.python.Object islower() {
+<b class="nc"><i class="no-highlight">762</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._islower(this.value));</b>
+<i class="no-highlight">763</i>&nbsp;    }
+<i class="no-highlight">764</i>&nbsp;
+<i class="no-highlight">765</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">766</i>&nbsp;            __doc__ = &quot;B.isspace() -&gt; bool\n\nReturn True if all characters in B are whitespace\nand there is at least one character in B, False otherwise.&quot;
+<i class="no-highlight">767</i>&nbsp;    )
+<i class="no-highlight">768</i>&nbsp;    public org.python.Object isspace() {
+<b class="nc"><i class="no-highlight">769</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._isspace(this.value));</b>
+<i class="no-highlight">770</i>&nbsp;    }
+<i class="no-highlight">771</i>&nbsp;
+<i class="no-highlight">772</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">773</i>&nbsp;            __doc__ = &quot;B.istitle() -&gt; bool\n\nReturn True if B is a titlecased string and there is at least one\ncharacter in B, i.e. uppercase characters may only follow uncased\ncharacters and lowercase characters only cased ones. Return False\notherwise.&quot;
+<i class="no-highlight">774</i>&nbsp;    )
+<i class="no-highlight">775</i>&nbsp;    public org.python.Object istitle() {
+<b class="nc"><i class="no-highlight">776</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._istitle(this.value));</b>
+<i class="no-highlight">777</i>&nbsp;    }
+<i class="no-highlight">778</i>&nbsp;
+<i class="no-highlight">779</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">780</i>&nbsp;            __doc__ = &quot;B.isupper() -&gt; bool\n\nReturn True if all cased characters in B are uppercase and there is\nat least one cased character in B, False otherwise.&quot;
+<i class="no-highlight">781</i>&nbsp;    )
+<i class="no-highlight">782</i>&nbsp;    public org.python.Object isupper() {
+<b class="nc"><i class="no-highlight">783</i>&nbsp;        return org.python.types.Bool.getBool(Bytes._isupper(this.value));</b>
+<i class="no-highlight">784</i>&nbsp;    }
+<i class="no-highlight">785</i>&nbsp;
+<i class="no-highlight">786</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">787</i>&nbsp;            __doc__ = &quot;B.join(iterable_of_bytes) -&gt; bytearray\n\nConcatenate any number of bytes/bytearray objects, with B\nin between each pair, and return the result as a new bytearray.&quot;,
+<i class="no-highlight">788</i>&nbsp;            args = {&quot;iterable&quot;}
+<i class="no-highlight">789</i>&nbsp;    )
+<i class="no-highlight">790</i>&nbsp;    public org.python.Object join(org.python.Object iterable) {
+<b class="nc"><i class="no-highlight">791</i>&nbsp;        org.python.types.Bytes temp = new org.python.types.Bytes(this.value);</b>
+<b class="nc"><i class="no-highlight">792</i>&nbsp;        org.python.types.Bytes res = (org.python.types.Bytes) temp.join(iterable);</b>
+<b class="nc"><i class="no-highlight">793</i>&nbsp;        return new ByteArray(res.value);</b>
+<i class="no-highlight">794</i>&nbsp;    }
+<i class="no-highlight">795</i>&nbsp;
+<i class="no-highlight">796</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">797</i>&nbsp;            __doc__ = &quot;B.ljust(width[, fillchar]) -&gt; copy of B\n\nReturn B left justified in a string of length width. Padding is\ndone using the specified fill character (default is a space).&quot;,
+<i class="no-highlight">798</i>&nbsp;            args = {&quot;width&quot;},
+<i class="no-highlight">799</i>&nbsp;            default_args = {&quot;fillingChar&quot;}
+<i class="no-highlight">800</i>&nbsp;    )
+<i class="no-highlight">801</i>&nbsp;    public org.python.Object ljust(org.python.Object width, org.python.Object fillingChar) {
+<b class="nc"><i class="no-highlight">802</i>&nbsp;        return new org.python.types.ByteArray(Bytes._ljust(this.value, width, fillingChar));</b>
+<i class="no-highlight">803</i>&nbsp;    }
+<i class="no-highlight">804</i>&nbsp;
+<i class="no-highlight">805</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">806</i>&nbsp;            __doc__ = &quot;B.lower() -&gt; copy of B\n\nReturn a copy of B with all ASCII characters converted to lowercase.&quot;
+<i class="no-highlight">807</i>&nbsp;    )
+<i class="no-highlight">808</i>&nbsp;    public org.python.Object lower() {
+<b class="nc"><i class="no-highlight">809</i>&nbsp;        return new ByteArray(Bytes._lower(this.value));</b>
+<i class="no-highlight">810</i>&nbsp;    }
+<i class="no-highlight">811</i>&nbsp;
+<i class="no-highlight">812</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">813</i>&nbsp;            __doc__ = &quot;B.lstrip([bytes]) -&gt; bytearray\n\nStrip leading bytes contained in the argument\nand return the result as a new bytearray.\nIf the argument is omitted, strip leading ASCII whitespace.&quot;
+<i class="no-highlight">814</i>&nbsp;    )
+<i class="no-highlight">815</i>&nbsp;    public org.python.Object lstrip(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">816</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.lstrip has not been implemented.&quot;);</b>
+<i class="no-highlight">817</i>&nbsp;    }
+<i class="no-highlight">818</i>&nbsp;
+<i class="no-highlight">819</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">820</i>&nbsp;            __doc__ = &quot;B.maketrans(frm, to) -&gt; translation table\n\nReturn a translation table (a bytes object of length 256) suitable\nfor use in the bytes or bytearray translate method where each byte\nin frm is mapped to the byte at the same position in to.\nThe bytes objects frm and to must be of the same length.&quot;
+<i class="no-highlight">821</i>&nbsp;    )
+<i class="no-highlight">822</i>&nbsp;    public org.python.Object maketrans(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">823</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.maketrans has not been implemented.&quot;);</b>
+<i class="no-highlight">824</i>&nbsp;    }
+<i class="no-highlight">825</i>&nbsp;
+<i class="no-highlight">826</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">827</i>&nbsp;            __doc__ = &quot;B.partition(sep) -&gt; (head, sep, tail)\n\nSearch for the separator sep in B, and return the part before it,\nthe separator itself, and the part after it.  If the separator is not\nfound, returns B and two empty bytearray objects.&quot;
+<i class="no-highlight">828</i>&nbsp;    )
+<i class="no-highlight">829</i>&nbsp;    public org.python.Object partition(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">830</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.partition has not been implemented.&quot;);</b>
+<i class="no-highlight">831</i>&nbsp;    }
+<i class="no-highlight">832</i>&nbsp;
+<i class="no-highlight">833</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">834</i>&nbsp;            __doc__ = &quot;B.replace(old, new[, count]) -&gt; bytearray\n\nReturn a copy of B with all occurrences of subsection\nold replaced by new.  If the optional argument count is\ngiven, only the first count occurrences are replaced.&quot;
+<i class="no-highlight">835</i>&nbsp;    )
+<i class="no-highlight">836</i>&nbsp;    public org.python.Object replace(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">837</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.replace has not been implemented.&quot;);</b>
+<i class="no-highlight">838</i>&nbsp;    }
+<i class="no-highlight">839</i>&nbsp;
+<i class="no-highlight">840</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">841</i>&nbsp;            __doc__ = &quot;B.rfind(sub[, start[, end]]) -&gt; int\n\nReturn the highest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.&quot;
+<i class="no-highlight">842</i>&nbsp;    )
+<i class="no-highlight">843</i>&nbsp;    public org.python.Object rfind(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">844</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.rfind has not been implemented.&quot;);</b>
+<i class="no-highlight">845</i>&nbsp;    }
+<i class="no-highlight">846</i>&nbsp;
+<i class="no-highlight">847</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">848</i>&nbsp;            __doc__ = &quot;B.rindex(sub[, start[, end]]) -&gt; int\n\nLike B.rfind() but raise ValueError when the subsection is not found.&quot;
+<i class="no-highlight">849</i>&nbsp;    )
+<i class="no-highlight">850</i>&nbsp;    public org.python.Object rindex(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">851</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.rindex has not been implemented.&quot;);</b>
+<i class="no-highlight">852</i>&nbsp;    }
+<i class="no-highlight">853</i>&nbsp;
+<i class="no-highlight">854</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">855</i>&nbsp;            __doc__ = &quot;B.rjust(width[, fillchar]) -&gt; copy of B\n\nReturn B right justified in a string of length width. Padding is\ndone using the specified fill character (default is a space).&quot;,
+<i class="no-highlight">856</i>&nbsp;            args = {&quot;width&quot;},
+<i class="no-highlight">857</i>&nbsp;            default_args = {&quot;fillingChar&quot;}
+<i class="no-highlight">858</i>&nbsp;    )
+<i class="no-highlight">859</i>&nbsp;    public org.python.Object rjust(org.python.Object width, org.python.Object fillingChar) {
+<b class="nc"><i class="no-highlight">860</i>&nbsp;        return new org.python.types.ByteArray(Bytes._rjust(this.value, width, fillingChar));</b>
+<i class="no-highlight">861</i>&nbsp;    }
+<i class="no-highlight">862</i>&nbsp;
+<i class="no-highlight">863</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">864</i>&nbsp;            __doc__ = &quot;B.rpartition(sep) -&gt; (head, sep, tail)\n\nSearch for the separator sep in B, starting at the end of B,\nand return the part before it, the separator itself, and the\npart after it.  If the separator is not found, returns two empty\nbytearray objects and B.&quot;
+<i class="no-highlight">865</i>&nbsp;    )
+<i class="no-highlight">866</i>&nbsp;    public org.python.Object rpartition(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">867</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.rpartition has not been implemented.&quot;);</b>
+<i class="no-highlight">868</i>&nbsp;    }
+<i class="no-highlight">869</i>&nbsp;
+<i class="no-highlight">870</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">871</i>&nbsp;            __doc__ = &quot;B.rsplit(sep=None, maxsplit=-1) -&gt; list of bytearrays\n\nReturn a list of the sections in B, using sep as the delimiter,\nstarting at the end of B and working to the front.\nIf sep is not given, B is split on ASCII whitespace characters\n(space, tab, return, newline, formfeed, vertical tab).\nIf maxsplit is given, at most maxsplit splits are done.&quot;
+<i class="no-highlight">872</i>&nbsp;    )
+<i class="no-highlight">873</i>&nbsp;    public org.python.Object rsplit(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">874</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.rsplit has not been implemented.&quot;);</b>
+<i class="no-highlight">875</i>&nbsp;    }
+<i class="no-highlight">876</i>&nbsp;
+<i class="no-highlight">877</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">878</i>&nbsp;            __doc__ = &quot;B.rstrip([bytes]) -&gt; bytearray\n\nStrip trailing bytes contained in the argument\nand return the result as a new bytearray.\nIf the argument is omitted, strip trailing ASCII whitespace.&quot;
+<i class="no-highlight">879</i>&nbsp;    )
+<i class="no-highlight">880</i>&nbsp;    public org.python.Object rstrip(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">881</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.rstrip has not been implemented.&quot;);</b>
+<i class="no-highlight">882</i>&nbsp;    }
+<i class="no-highlight">883</i>&nbsp;
+<i class="no-highlight">884</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">885</i>&nbsp;            __doc__ = &quot;B.split(sep=None, maxsplit=-1) -&gt; list of bytearrays\n\nReturn a list of the sections in B, using sep as the delimiter.\nIf sep is not given, B is split on ASCII whitespace characters\n(space, tab, return, newline, formfeed, vertical tab).\nIf maxsplit is given, at most maxsplit splits are done.&quot;
+<i class="no-highlight">886</i>&nbsp;    )
+<i class="no-highlight">887</i>&nbsp;    public org.python.Object split(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">888</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.split has not been implemented.&quot;);</b>
+<i class="no-highlight">889</i>&nbsp;    }
+<i class="no-highlight">890</i>&nbsp;
+<i class="no-highlight">891</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">892</i>&nbsp;            __doc__ = &quot;B.splitlines([keepends]) -&gt; list of lines\n\nReturn a list of the lines in B, breaking at line boundaries.\nLine breaks are not included in the resulting list unless keepends\nis given and true.&quot;
+<i class="no-highlight">893</i>&nbsp;    )
+<i class="no-highlight">894</i>&nbsp;    public org.python.Object splitlines(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">895</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.splitlines has not been implemented.&quot;);</b>
+<i class="no-highlight">896</i>&nbsp;    }
+<i class="no-highlight">897</i>&nbsp;
+<i class="no-highlight">898</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">899</i>&nbsp;            __doc__ = &quot;B.startswith(prefix[, start[, end]]) -&gt; bool\n\nReturn True if B starts with the specified prefix, False otherwise.\nWith optional start, test B beginning at that position.\nWith optional end, stop comparing B at that position.\nprefix can also be a tuple of bytes to try.&quot;,
+<i class="no-highlight">900</i>&nbsp;            args = {&quot;prefix&quot;},
+<i class="no-highlight">901</i>&nbsp;            default_args = {&quot;start&quot;, &quot;end&quot;}
+<i class="no-highlight">902</i>&nbsp;    )
+<i class="no-highlight">903</i>&nbsp;    public org.python.Object startswith(org.python.Object prefix, org.python.Object start, org.python.Object end) {
+<b class="nc"><i class="no-highlight">904</i>&nbsp;        return new Bytes(this.value).endsOrStartsWith(prefix, start, end, -1);</b>
+<i class="no-highlight">905</i>&nbsp;    }
+<i class="no-highlight">906</i>&nbsp;
+<i class="no-highlight">907</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">908</i>&nbsp;            __doc__ = &quot;B.strip([bytes]) -&gt; bytearray\n\nStrip leading and trailing bytes contained in the argument\nand return the result as a new bytearray.\nIf the argument is omitted, strip ASCII whitespace.&quot;
+<i class="no-highlight">909</i>&nbsp;    )
+<i class="no-highlight">910</i>&nbsp;    public org.python.Object strip(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">911</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.strip has not been implemented.&quot;);</b>
+<i class="no-highlight">912</i>&nbsp;    }
+<i class="no-highlight">913</i>&nbsp;
+<i class="no-highlight">914</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">915</i>&nbsp;            __doc__ = &quot;B.swapcase() -&gt; copy of B\n\nReturn a copy of B with uppercase ASCII characters converted\nto lowercase ASCII and vice versa.&quot;
+<i class="no-highlight">916</i>&nbsp;    )
+<i class="no-highlight">917</i>&nbsp;    public org.python.Object swapcase(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">918</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.swapcase has not been implemented.&quot;);</b>
+<i class="no-highlight">919</i>&nbsp;    }
+<i class="no-highlight">920</i>&nbsp;
+<i class="no-highlight">921</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">922</i>&nbsp;            __doc__ = &quot;B.title() -&gt; copy of B\n\nReturn a titlecased version of B, i.e. ASCII words start with uppercase\ncharacters, all remaining cased characters have lowercase.&quot;
+<i class="no-highlight">923</i>&nbsp;    )
+<i class="no-highlight">924</i>&nbsp;    public org.python.Object title() {
+<b class="nc"><i class="no-highlight">925</i>&nbsp;        return new ByteArray(Bytes._title(this.value));</b>
+<i class="no-highlight">926</i>&nbsp;    }
+<i class="no-highlight">927</i>&nbsp;
+<i class="no-highlight">928</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">929</i>&nbsp;            __doc__ = &quot;B.translate(table[, deletechars]) -&gt; bytearray\n\nReturn a copy of B, where all characters occurring in the\noptional argument deletechars are removed, and the remaining\ncharacters have been mapped through the given translation\ntable, which must be a bytes object of length 256.&quot;
+<i class="no-highlight">930</i>&nbsp;    )
+<i class="no-highlight">931</i>&nbsp;    public org.python.Object translate(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">932</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.translate has not been implemented.&quot;);</b>
+<i class="no-highlight">933</i>&nbsp;    }
+<i class="no-highlight">934</i>&nbsp;
+<i class="no-highlight">935</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">936</i>&nbsp;            __doc__ = &quot;B.upper() -&gt; copy of B\n\nReturn a copy of B with all ASCII characters converted to uppercase.&quot;
+<i class="no-highlight">937</i>&nbsp;    )
+<i class="no-highlight">938</i>&nbsp;    public org.python.Object upper() {
+<b class="nc"><i class="no-highlight">939</i>&nbsp;        return new ByteArray(Bytes._upper(this.value));</b>
+<i class="no-highlight">940</i>&nbsp;    }
+<i class="no-highlight">941</i>&nbsp;
+<i class="no-highlight">942</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">943</i>&nbsp;            __doc__ = &quot;B.zfill(width) -&gt; copy of B\n\nPad a numeric string B with zeros on the left, to fill a field\nof the specified width.  B is never truncated.&quot;
+<i class="no-highlight">944</i>&nbsp;    )
+<i class="no-highlight">945</i>&nbsp;    public org.python.Object zfill(java.util.List&lt;org.python.Object&gt; args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, java.util.List&lt;org.python.Object&gt; default_args, java.util.Map&lt;java.lang.String, org.python.Object&gt; default_kwargs) {
+<b class="nc"><i class="no-highlight">946</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;bytearray.zfill has not been implemented.&quot;);</b>
+<i class="no-highlight">947</i>&nbsp;    }
+<i class="no-highlight">948</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

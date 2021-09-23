@@ -1,0 +1,465 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Generator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.types</a>
+</div>
+
+<h1>Coverage Summary for Class: Generator (org.python.types)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Generator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/130)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.types;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;/**
+<i class="no-highlight">4</i>&nbsp; * Possible states of a generator:
+<i class="no-highlight">5</i>&nbsp; * 1. yield_point == 0    : The generator has just started
+<i class="no-highlight">6</i>&nbsp; * 2. expression  == null : The generator is exhausted
+<i class="no-highlight">7</i>&nbsp; * 3. message     != none : The generator currently holds value sent from caller via send() method
+<i class="no-highlight">8</i>&nbsp; * 4. exception   != null : The generator currently holds exception sent from caller via throw() method
+<i class="no-highlight">9</i>&nbsp; *
+<i class="no-highlight">10</i>&nbsp; * Notes: All states are mutually exclusive, (e.g if generator is in state 1 (yield_point == 0),
+<i class="no-highlight">11</i>&nbsp; * expression must not be null, message must be none and exception must be null, similarly for states 2, 3 and 4)
+<i class="no-highlight">12</i>&nbsp; */
+<i class="no-highlight">13</i>&nbsp;public class Generator extends org.python.types.Object {
+<i class="no-highlight">14</i>&nbsp;    java.lang.String name;
+<i class="no-highlight">15</i>&nbsp;    java.lang.reflect.Method expression;
+<i class="no-highlight">16</i>&nbsp;    public int yield_point;
+<i class="no-highlight">17</i>&nbsp;    public java.util.Map&lt;java.lang.String, org.python.Object&gt; stack;
+<i class="no-highlight">18</i>&nbsp;    public org.python.types.Closure closure; // null for non-closure Generator
+<i class="no-highlight">19</i>&nbsp;
+<i class="no-highlight">20</i>&nbsp;    public org.python.Object message;
+<i class="no-highlight">21</i>&nbsp;    public org.python.exceptions.BaseException exception;
+<i class="no-highlight">22</i>&nbsp;
+<i class="no-highlight">23</i>&nbsp;    public int hashCode() {
+<b class="nc"><i class="no-highlight">24</i>&nbsp;        return this.expression.hashCode();</b>
+<i class="no-highlight">25</i>&nbsp;    }
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    public Generator(
+<i class="no-highlight">28</i>&nbsp;            java.lang.String name,
+<i class="no-highlight">29</i>&nbsp;            java.lang.reflect.Method expression,
+<i class="no-highlight">30</i>&nbsp;            java.util.Map&lt;java.lang.String, org.python.Object&gt; stack
+<b class="nc"><i class="no-highlight">31</i>&nbsp;    ) {</b>
+<i class="no-highlight">32</i>&nbsp;        // System.out.println(&quot;GENERATOR: &quot; + expression);
+<i class="no-highlight">33</i>&nbsp;        // for (org.python.Object obj: stack) {
+<i class="no-highlight">34</i>&nbsp;        //     System.out.println(&quot;     : &quot; + obj);
+<i class="no-highlight">35</i>&nbsp;        // }
+<b class="nc"><i class="no-highlight">36</i>&nbsp;        this.name = name;</b>
+<b class="nc"><i class="no-highlight">37</i>&nbsp;        this.expression = expression;</b>
+<b class="nc"><i class="no-highlight">38</i>&nbsp;        this.yield_point = 0;</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;        this.stack = stack;</b>
+<b class="nc"><i class="no-highlight">40</i>&nbsp;        this.message = org.python.types.NoneType.NONE;</b>
+<b class="nc"><i class="no-highlight">41</i>&nbsp;        this.closure = null;</b>
+<i class="no-highlight">42</i>&nbsp;    }
+<i class="no-highlight">43</i>&nbsp;
+<i class="no-highlight">44</i>&nbsp;    public Generator(
+<i class="no-highlight">45</i>&nbsp;            java.lang.String name,
+<i class="no-highlight">46</i>&nbsp;            java.lang.reflect.Method expression,
+<i class="no-highlight">47</i>&nbsp;            java.util.Map&lt;java.lang.String, org.python.Object&gt; stack,
+<i class="no-highlight">48</i>&nbsp;            org.python.types.Closure closure
+<b class="nc"><i class="no-highlight">49</i>&nbsp;    ) {</b>
+<i class="no-highlight">50</i>&nbsp;        // System.out.println(&quot;GENERATOR: &quot; + expression);
+<i class="no-highlight">51</i>&nbsp;        // for (org.python.Object obj: stack) {
+<i class="no-highlight">52</i>&nbsp;        //     System.out.println(&quot;     : &quot; + obj);
+<i class="no-highlight">53</i>&nbsp;        // }
+<b class="nc"><i class="no-highlight">54</i>&nbsp;        this.name = name;</b>
+<b class="nc"><i class="no-highlight">55</i>&nbsp;        this.expression = expression;</b>
+<b class="nc"><i class="no-highlight">56</i>&nbsp;        this.yield_point = 0;</b>
+<b class="nc"><i class="no-highlight">57</i>&nbsp;        this.stack = stack;</b>
+<b class="nc"><i class="no-highlight">58</i>&nbsp;        this.message = new org.python.types.NoneType();</b>
+<b class="nc"><i class="no-highlight">59</i>&nbsp;        this.closure = closure;</b>
+<i class="no-highlight">60</i>&nbsp;    }
+<i class="no-highlight">61</i>&nbsp;
+<i class="no-highlight">62</i>&nbsp;    protected void finalize() throws Throwable {
+<b class="nc"><i class="no-highlight">63</i>&nbsp;        super.finalize();</b>
+<b class="nc"><i class="no-highlight">64</i>&nbsp;        this.__del__();</b>
+<i class="no-highlight">65</i>&nbsp;    }
+<i class="no-highlight">66</i>&nbsp;
+<i class="no-highlight">67</i>&nbsp;    /**
+<i class="no-highlight">68</i>&nbsp;     * API exposed primarily to handle `yield from`
+<i class="no-highlight">69</i>&nbsp;     * Intercepts exception and decide whether to yield next value from `iterator` (via send or __next__)
+<i class="no-highlight">70</i>&nbsp;     * or throw exception into `iterator` if `iterator` is a generator
+<i class="no-highlight">71</i>&nbsp;     *
+<i class="no-highlight">72</i>&nbsp;     * Flow:
+<i class="no-highlight">73</i>&nbsp;     * 1. this.exception == null
+<i class="no-highlight">74</i>&nbsp;     *    1.1 Get next yield value via `get_next_yield_value`
+<i class="no-highlight">75</i>&nbsp;     *    1.2 If StopIteration, re-throw that exception
+<i class="no-highlight">76</i>&nbsp;     *
+<i class="no-highlight">77</i>&nbsp;     * 2. this.exception != null, intercepts this.exception.
+<i class="no-highlight">78</i>&nbsp;     *    2.1 If `iterator` is not a generator, the exception is thrown back to caller.
+<i class="no-highlight">79</i>&nbsp;     *    2.2 If this.exception is GeneratorExit, close the sub-generator
+<i class="no-highlight">80</i>&nbsp;     *    2.3 Otherwise throws the exception into sub-generator
+<i class="no-highlight">81</i>&nbsp;     *        2.2.1 If the sub-generator handles the exception and returns a value,
+<i class="no-highlight">82</i>&nbsp;     *              returns that value as next yield value.
+<i class="no-highlight">83</i>&nbsp;     *        2.2.2 If the sub-generator raises StopIteration, re-throw that exception
+<i class="no-highlight">84</i>&nbsp;     *
+<i class="no-highlight">85</i>&nbsp;     */
+<i class="no-highlight">86</i>&nbsp;    public org.python.Object intercept_exception(org.python.Object iterator) {
+<b class="nc"><i class="no-highlight">87</i>&nbsp;        if (this.exception == null) {</b>
+<b class="nc"><i class="no-highlight">88</i>&nbsp;            org.python.Object msg = this.message;</b>
+<b class="nc"><i class="no-highlight">89</i>&nbsp;            this.reset_message();</b>
+<i class="no-highlight">90</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">91</i>&nbsp;                return get_next_yield_value(iterator, msg);</b>
+<b class="nc"><i class="no-highlight">92</i>&nbsp;            } catch (org.python.exceptions.StopIteration stopIteration) {</b>
+<b class="nc"><i class="no-highlight">93</i>&nbsp;                throw stopIteration;</b>
+<i class="no-highlight">94</i>&nbsp;            }
+<i class="no-highlight">95</i>&nbsp;            //return null;
+<i class="no-highlight">96</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">97</i>&nbsp;            org.python.exceptions.BaseException exception = this.exception;</b>
+<b class="nc"><i class="no-highlight">98</i>&nbsp;            this.exception = null;</b>
+<i class="no-highlight">99</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">100</i>&nbsp;                throw exception;</b>
+<b class="nc"><i class="no-highlight">101</i>&nbsp;            } catch (org.python.exceptions.GeneratorExit generatorExit) {</b>
+<i class="no-highlight">102</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">103</i>&nbsp;                    ((org.python.types.Generator) iterator).close();</b>
+<b class="nc"><i class="no-highlight">104</i>&nbsp;                } catch (java.lang.ClassCastException e) {</b>
+<i class="no-highlight">105</i>&nbsp;                    // pass
+<b class="nc"><i class="no-highlight">106</i>&nbsp;                }</b>
+<b class="nc"><i class="no-highlight">107</i>&nbsp;                throw generatorExit;</b>
+<b class="nc"><i class="no-highlight">108</i>&nbsp;            } catch (org.python.exceptions.BaseException baseException) {</b>
+<i class="no-highlight">109</i>&nbsp;                try {
+<i class="no-highlight">110</i>&nbsp;                    // pass baseException into sub-generator
+<b class="nc"><i class="no-highlight">111</i>&nbsp;                    return ((org.python.types.Generator) iterator).throw$(baseException.type(), baseException.args, null);</b>
+<b class="nc"><i class="no-highlight">112</i>&nbsp;                } catch (java.lang.ClassCastException e) {</b>
+<i class="no-highlight">113</i>&nbsp;                    // if iterator is not a generator, just throw the baseException
+<b class="nc"><i class="no-highlight">114</i>&nbsp;                    throw baseException;</b>
+<b class="nc"><i class="no-highlight">115</i>&nbsp;                } catch (org.python.exceptions.StopIteration stopIteration) {</b>
+<b class="nc"><i class="no-highlight">116</i>&nbsp;                    throw stopIteration;</b>
+<i class="no-highlight">117</i>&nbsp;                }
+<i class="no-highlight">118</i>&nbsp;            }
+<i class="no-highlight">119</i>&nbsp;        }
+<i class="no-highlight">120</i>&nbsp;    }
+<i class="no-highlight">121</i>&nbsp;
+<i class="no-highlight">122</i>&nbsp;    /**
+<i class="no-highlight">123</i>&nbsp;     * Returns the next item from iterator
+<i class="no-highlight">124</i>&nbsp;     *
+<i class="no-highlight">125</i>&nbsp;     * Invokes __next__() on iterator if message is None
+<i class="no-highlight">126</i>&nbsp;     * Invokes send() if message is not None, and if iterator is not a generator, raise AttributeError
+<i class="no-highlight">127</i>&nbsp;     */
+<i class="no-highlight">128</i>&nbsp;    private static org.python.Object get_next_yield_value(org.python.Object iterator, org.python.Object message) {
+<b class="nc"><i class="no-highlight">129</i>&nbsp;        if (message instanceof org.python.types.NoneType) {</b>
+<b class="nc"><i class="no-highlight">130</i>&nbsp;            return iterator.__next__();</b>
+<i class="no-highlight">131</i>&nbsp;        } else {
+<i class="no-highlight">132</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">133</i>&nbsp;                return ((org.python.types.Generator) iterator).send(message);</b>
+<b class="nc"><i class="no-highlight">134</i>&nbsp;            } catch (ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">135</i>&nbsp;                throw new org.python.exceptions.AttributeError(</b>
+<b class="nc"><i class="no-highlight">136</i>&nbsp;                    &quot;&#39;&quot; + iterator.typeName() + &quot;&#39; object has no attribute &#39;send&#39;&quot;);</b>
+<i class="no-highlight">137</i>&nbsp;            }
+<i class="no-highlight">138</i>&nbsp;        }
+<i class="no-highlight">139</i>&nbsp;    }
+<i class="no-highlight">140</i>&nbsp;
+<i class="no-highlight">141</i>&nbsp;    public void yield(java.util.Map&lt;java.lang.String, org.python.Object&gt; stack, int yield_point) {
+<i class="no-highlight">142</i>&nbsp;        // System.out.println(&quot;YIELD: &quot; + yield_point);
+<i class="no-highlight">143</i>&nbsp;        // for (org.python.Object obj: stack) {
+<i class="no-highlight">144</i>&nbsp;        //     System.out.println(&quot;     : &quot; + obj);
+<i class="no-highlight">145</i>&nbsp;        // }
+<b class="nc"><i class="no-highlight">146</i>&nbsp;        this.yield_point = yield_point;</b>
+<b class="nc"><i class="no-highlight">147</i>&nbsp;        this.stack = stack;</b>
+<i class="no-highlight">148</i>&nbsp;    }
+<i class="no-highlight">149</i>&nbsp;
+<i class="no-highlight">150</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">151</i>&nbsp;            __doc__ = &quot;Implement send(message).&quot;,
+<i class="no-highlight">152</i>&nbsp;            args = {&quot;message&quot;}
+<i class="no-highlight">153</i>&nbsp;    )
+<i class="no-highlight">154</i>&nbsp;    public org.python.Object send(org.python.Object message) {
+<b class="nc"><i class="no-highlight">155</i>&nbsp;        if (this.yield_point == 0 &amp;&amp; !(message instanceof org.python.types.NoneType)) {</b>
+<b class="nc"><i class="no-highlight">156</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;can&#39;t send non-None value to a just-started generator&quot;);</b>
+<i class="no-highlight">157</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">158</i>&nbsp;        this.message = message;</b>
+<b class="nc"><i class="no-highlight">159</i>&nbsp;        return this.__next__();</b>
+<i class="no-highlight">160</i>&nbsp;    }
+<i class="no-highlight">161</i>&nbsp;
+<i class="no-highlight">162</i>&nbsp;    public void reset_message() {
+<b class="nc"><i class="no-highlight">163</i>&nbsp;        this.message = org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">164</i>&nbsp;    }
+<i class="no-highlight">165</i>&nbsp;
+<i class="no-highlight">166</i>&nbsp;    /**
+<i class="no-highlight">167</i>&nbsp;     * Construct an exception and store it in `this.exception` then call __next__() on this generator.
+<i class="no-highlight">168</i>&nbsp;     * `this.exception` will then be thrown by `this.throw_exception` when the generator resumes.
+<i class="no-highlight">169</i>&nbsp;     */
+<i class="no-highlight">170</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">171</i>&nbsp;            name = &quot;throw&quot;,
+<i class="no-highlight">172</i>&nbsp;            __doc__ = &quot;Implement throw(type, value=None, traceback=None).&quot;,
+<i class="no-highlight">173</i>&nbsp;            args = {&quot;type&quot;},
+<i class="no-highlight">174</i>&nbsp;            default_args = {&quot;exception_args&quot;, &quot;traceback&quot;}
+<i class="no-highlight">175</i>&nbsp;    )
+<i class="no-highlight">176</i>&nbsp;    public org.python.Object throw$(org.python.Object type, org.python.Object exception_args, org.python.Object traceback) {
+<b class="nc"><i class="no-highlight">177</i>&nbsp;        if (exception_args == null) {</b>
+<b class="nc"><i class="no-highlight">178</i>&nbsp;            exception_args = org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">179</i>&nbsp;        }
+<i class="no-highlight">180</i>&nbsp;
+<b class="nc"><i class="no-highlight">181</i>&nbsp;        if (traceback != null) {</b>
+<b class="nc"><i class="no-highlight">182</i>&nbsp;            throw new org.python.exceptions.NotImplementedError(&quot;traceback currently not supported&quot;);</b>
+<i class="no-highlight">183</i>&nbsp;        }
+<i class="no-highlight">184</i>&nbsp;
+<i class="no-highlight">185</i>&nbsp;        String exception_name;
+<i class="no-highlight">186</i>&nbsp;
+<i class="no-highlight">187</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">188</i>&nbsp;            exception_name = org.Python.typeName(((org.python.types.Type) type).klass);</b>
+<b class="nc"><i class="no-highlight">189</i>&nbsp;        } catch (ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">190</i>&nbsp;            throw new org.python.exceptions.TypeError(</b>
+<b class="nc"><i class="no-highlight">191</i>&nbsp;                &quot;exceptions must be classes or instances deriving from BaseException, not &quot; + type.typeName());</b>
+<b class="nc"><i class="no-highlight">192</i>&nbsp;        }</b>
+<i class="no-highlight">193</i>&nbsp;
+<i class="no-highlight">194</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">195</i>&nbsp;            Class&lt;?&gt; exception_class = Class.forName(&quot;org.python.exceptions.&quot; + exception_name);</b>
+<i class="no-highlight">196</i>&nbsp;            java.lang.reflect.Constructor exception_constructor;
+<b class="nc"><i class="no-highlight">197</i>&nbsp;            if (exception_args instanceof org.python.types.NoneType) {</b>
+<i class="no-highlight">198</i>&nbsp;                // value = None
+<b class="nc"><i class="no-highlight">199</i>&nbsp;                exception_constructor = exception_class.getConstructor();</b>
+<b class="nc"><i class="no-highlight">200</i>&nbsp;                this.exception = (org.python.exceptions.BaseException)</b>
+<b class="nc"><i class="no-highlight">201</i>&nbsp;                    Type.toPython(exception_constructor.newInstance());</b>
+<b class="nc"><i class="no-highlight">202</i>&nbsp;            } else if (exception_args instanceof org.python.types.Tuple) {</b>
+<i class="no-highlight">203</i>&nbsp;                // value is variable arguments
+<b class="nc"><i class="no-highlight">204</i>&nbsp;                exception_constructor = exception_class.getConstructor(org.python.Object[].class, java.util.Map.class);</b>
+<b class="nc"><i class="no-highlight">205</i>&nbsp;                int size = ((org.python.types.Tuple) exception_args).value.size();</b>
+<b class="nc"><i class="no-highlight">206</i>&nbsp;                org.python.Object[] vargs = new org.python.Object[size];</b>
+<b class="nc"><i class="no-highlight">207</i>&nbsp;                for (int i = 0; i &lt; size; i++) {</b>
+<b class="nc"><i class="no-highlight">208</i>&nbsp;                    vargs[i] = ((org.python.types.Tuple) exception_args).value.get(i);</b>
+<i class="no-highlight">209</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">210</i>&nbsp;                this.exception = (org.python.exceptions.BaseException)</b>
+<b class="nc"><i class="no-highlight">211</i>&nbsp;                    Type.toPython(exception_constructor.newInstance(vargs, null));</b>
+<i class="no-highlight">212</i>&nbsp;//            } else if (exception_args instanceof org.python.types.Dict) {
+<i class="no-highlight">213</i>&nbsp;//                // TODO: Test/modify this when custom exception that supports kwargs is implemented
+<i class="no-highlight">214</i>&nbsp;//                exception_constructor = exception_class.getConstructor(org.python.Object[].class, java.util.Map.class);
+<i class="no-highlight">215</i>&nbsp;//                java.util.Map kwargs = new java.util.HashMap&lt;java.lang.String, org.python.Object&gt;();
+<i class="no-highlight">216</i>&nbsp;//                for (java.util.Map.Entry entry : ((org.python.types.Dict)exception_args).value.entrySet()) {
+<i class="no-highlight">217</i>&nbsp;//                    java.lang.String key = entry.getKey().toString();
+<i class="no-highlight">218</i>&nbsp;//                    org.python.Object item = (org.python.Object)entry.getValue();
+<i class="no-highlight">219</i>&nbsp;//                    kwargs.put(key, item);
+<i class="no-highlight">220</i>&nbsp;//                }
+<i class="no-highlight">221</i>&nbsp;//                this.exception = Type.toPython(exception_constructor.newInstance(null, kwargs));
+<b class="nc"><i class="no-highlight">222</i>&nbsp;            } else {</b>
+<i class="no-highlight">223</i>&nbsp;                // use value.__str__() as exception argument
+<b class="nc"><i class="no-highlight">224</i>&nbsp;                exception_constructor = exception_class.getConstructor(String.class);</b>
+<b class="nc"><i class="no-highlight">225</i>&nbsp;                this.exception = (org.python.exceptions.BaseException)</b>
+<b class="nc"><i class="no-highlight">226</i>&nbsp;                    Type.toPython(exception_constructor.newInstance(exception_args.toString()));</b>
+<i class="no-highlight">227</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">228</i>&nbsp;        } catch (ClassNotFoundException e) {</b>
+<b class="nc"><i class="no-highlight">229</i>&nbsp;            throw new org.python.exceptions.NameError(exception_name);</b>
+<b class="nc"><i class="no-highlight">230</i>&nbsp;        } catch (NoSuchMethodException |</b>
+<i class="no-highlight">231</i>&nbsp;            InstantiationException | IllegalAccessException | java.lang.reflect.InvocationTargetException e) {
+<b class="nc"><i class="no-highlight">232</i>&nbsp;            throw new org.python.exceptions.RuntimeError(e.getMessage());</b>
+<b class="nc"><i class="no-highlight">233</i>&nbsp;        }</b>
+<i class="no-highlight">234</i>&nbsp;
+<b class="nc"><i class="no-highlight">235</i>&nbsp;        if (this.yield_point == 0) {</b>
+<b class="nc"><i class="no-highlight">236</i>&nbsp;            this.close();</b>
+<b class="nc"><i class="no-highlight">237</i>&nbsp;            throw this.exception;</b>
+<i class="no-highlight">238</i>&nbsp;        }
+<i class="no-highlight">239</i>&nbsp;
+<i class="no-highlight">240</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">241</i>&nbsp;            return this.__next__();</b>
+<b class="nc"><i class="no-highlight">242</i>&nbsp;        } catch (org.python.exceptions.BaseException e) {</b>
+<b class="nc"><i class="no-highlight">243</i>&nbsp;            this.cleanup(); // close this generator if it did not catch the exception</b>
+<b class="nc"><i class="no-highlight">244</i>&nbsp;            throw e; // re-throw exception after closing</b>
+<i class="no-highlight">245</i>&nbsp;        }
+<i class="no-highlight">246</i>&nbsp;    }
+<i class="no-highlight">247</i>&nbsp;
+<i class="no-highlight">248</i>&nbsp;    /**
+<i class="no-highlight">249</i>&nbsp;     * Called when generator is restored.
+<i class="no-highlight">250</i>&nbsp;     * The exception stored in `this.exception` is thrown here
+<i class="no-highlight">251</i>&nbsp;     * NO-OP if this.exception == null
+<i class="no-highlight">252</i>&nbsp;     */
+<i class="no-highlight">253</i>&nbsp;    public void throw_exception() {
+<b class="nc"><i class="no-highlight">254</i>&nbsp;        if (this.exception != null) {</b>
+<b class="nc"><i class="no-highlight">255</i>&nbsp;            org.python.exceptions.BaseException exception = this.exception;</b>
+<b class="nc"><i class="no-highlight">256</i>&nbsp;            this.exception = null;</b>
+<b class="nc"><i class="no-highlight">257</i>&nbsp;            throw exception;</b>
+<i class="no-highlight">258</i>&nbsp;        }
+<i class="no-highlight">259</i>&nbsp;    }
+<i class="no-highlight">260</i>&nbsp;
+<i class="no-highlight">261</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">262</i>&nbsp;            __doc__ = &quot;Implement close(self).&quot;
+<i class="no-highlight">263</i>&nbsp;    )
+<i class="no-highlight">264</i>&nbsp;    public org.python.Object close() {
+<b class="nc"><i class="no-highlight">265</i>&nbsp;        if (this.yield_point == 0) {</b>
+<b class="nc"><i class="no-highlight">266</i>&nbsp;            this.expression = null;</b>
+<i class="no-highlight">267</i>&nbsp;        }
+<i class="no-highlight">268</i>&nbsp;
+<b class="nc"><i class="no-highlight">269</i>&nbsp;        if (this.expression == null) {</b>
+<i class="no-highlight">270</i>&nbsp;            // Do nothing if generator has already exited
+<b class="nc"><i class="no-highlight">271</i>&nbsp;            return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">272</i>&nbsp;        }
+<i class="no-highlight">273</i>&nbsp;
+<b class="nc"><i class="no-highlight">274</i>&nbsp;        boolean has_exit_normally = false;</b>
+<i class="no-highlight">275</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">276</i>&nbsp;            this.exception = new org.python.exceptions.GeneratorExit();</b>
+<b class="nc"><i class="no-highlight">277</i>&nbsp;            this.__next__();</b>
+<b class="nc"><i class="no-highlight">278</i>&nbsp;        } catch (org.python.exceptions.GeneratorExit | org.python.exceptions.StopIteration e) {</b>
+<b class="nc"><i class="no-highlight">279</i>&nbsp;            has_exit_normally = true;</b>
+<b class="nc"><i class="no-highlight">280</i>&nbsp;        }</b>
+<b class="nc"><i class="no-highlight">281</i>&nbsp;        if (!has_exit_normally) {</b>
+<i class="no-highlight">282</i>&nbsp;            // Generator caught GeneratorExit exception and yields
+<b class="nc"><i class="no-highlight">283</i>&nbsp;            throw new org.python.exceptions.RuntimeError(&quot;generator ignored GeneratorExit&quot;);</b>
+<i class="no-highlight">284</i>&nbsp;        }
+<i class="no-highlight">285</i>&nbsp;
+<b class="nc"><i class="no-highlight">286</i>&nbsp;        this.cleanup();</b>
+<b class="nc"><i class="no-highlight">287</i>&nbsp;        return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">288</i>&nbsp;    }
+<i class="no-highlight">289</i>&nbsp;
+<i class="no-highlight">290</i>&nbsp;    private void cleanup() {
+<b class="nc"><i class="no-highlight">291</i>&nbsp;        this.expression = null;</b>
+<b class="nc"><i class="no-highlight">292</i>&nbsp;        this.message = null;</b>
+<b class="nc"><i class="no-highlight">293</i>&nbsp;        this.exception = null;</b>
+<i class="no-highlight">294</i>&nbsp;    }
+<i class="no-highlight">295</i>&nbsp;
+<i class="no-highlight">296</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">297</i>&nbsp;            __doc__ = &quot;Return del(self).&quot;
+<i class="no-highlight">298</i>&nbsp;    )
+<i class="no-highlight">299</i>&nbsp;    public void __del__() {
+<i class="no-highlight">300</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">301</i>&nbsp;            this.close();</b>
+<b class="nc"><i class="no-highlight">302</i>&nbsp;        } catch (Exception e) {</b>
+<b class="nc"><i class="no-highlight">303</i>&nbsp;            java.lang.String message = e.getCause().getMessage();</b>
+<b class="nc"><i class="no-highlight">304</i>&nbsp;            if (message == null) {</b>
+<b class="nc"><i class="no-highlight">305</i>&nbsp;                message = e.getCause().getClass().getName();</b>
+<i class="no-highlight">306</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">307</i>&nbsp;            System.err.println(message);</b>
+<b class="nc"><i class="no-highlight">308</i>&nbsp;        }</b>
+<i class="no-highlight">309</i>&nbsp;    }
+<i class="no-highlight">310</i>&nbsp;
+<i class="no-highlight">311</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">312</i>&nbsp;            __doc__ = &quot;Return repr(self).&quot;
+<i class="no-highlight">313</i>&nbsp;    )
+<i class="no-highlight">314</i>&nbsp;    public org.python.Object __repr__() {
+<i class="no-highlight">315</i>&nbsp;        // if (this.expression.getName().startswith(&quot;genexpr_&quot;))
+<b class="nc"><i class="no-highlight">316</i>&nbsp;        return new org.python.types.Str(String.format(&quot;&lt;%s object (%s) at 0x%x&gt;&quot;, this.typeName(), this.name, this.hashCode()));</b>
+<i class="no-highlight">317</i>&nbsp;    }
+<i class="no-highlight">318</i>&nbsp;
+<i class="no-highlight">319</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">320</i>&nbsp;            __doc__ = &quot;Implement iter(self).&quot;
+<i class="no-highlight">321</i>&nbsp;    )
+<i class="no-highlight">322</i>&nbsp;    public org.python.Object __iter__() {
+<b class="nc"><i class="no-highlight">323</i>&nbsp;        return this;</b>
+<i class="no-highlight">324</i>&nbsp;    }
+<i class="no-highlight">325</i>&nbsp;
+<i class="no-highlight">326</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">327</i>&nbsp;            __doc__ = &quot;Implement next(self).&quot;
+<i class="no-highlight">328</i>&nbsp;    )
+<i class="no-highlight">329</i>&nbsp;    public org.python.Object __next__() {
+<b class="nc"><i class="no-highlight">330</i>&nbsp;        if (this.expression == null) {</b>
+<i class="no-highlight">331</i>&nbsp;            // Generator has already exited
+<b class="nc"><i class="no-highlight">332</i>&nbsp;            throw org.python.exceptions.StopIteration.STOPITERATION;</b>
+<i class="no-highlight">333</i>&nbsp;        }
+<i class="no-highlight">334</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">335</i>&nbsp;            return (org.python.Object) this.expression.invoke(null, new java.lang.Object[]{this});</b>
+<b class="nc"><i class="no-highlight">336</i>&nbsp;        } catch (java.lang.IllegalAccessException e) {</b>
+<b class="nc"><i class="no-highlight">337</i>&nbsp;            throw new org.python.exceptions.RuntimeError(&quot;Illegal access to Java method &quot; + this.expression);</b>
+<b class="nc"><i class="no-highlight">338</i>&nbsp;        } catch (java.lang.reflect.InvocationTargetException e) {</b>
+<i class="no-highlight">339</i>&nbsp;            try {
+<i class="no-highlight">340</i>&nbsp;                // org.Python.debug(&quot;Exception:&quot;, e.getTargetException());
+<i class="no-highlight">341</i>&nbsp;                // for (java.lang.StackTraceElement ste: e.getTargetException().getStackTrace()) {
+<i class="no-highlight">342</i>&nbsp;                //     org.Python.debug(&quot;     &quot;, ste);
+<i class="no-highlight">343</i>&nbsp;                // }
+<i class="no-highlight">344</i>&nbsp;
+<i class="no-highlight">345</i>&nbsp;                // If the Java method raised an Python exception, re-raise that
+<i class="no-highlight">346</i>&nbsp;                // exception as-is. If it wasn&quot;t a Python exception, wrap it
+<i class="no-highlight">347</i>&nbsp;                // as one and continue.
+<b class="nc"><i class="no-highlight">348</i>&nbsp;                throw (org.python.exceptions.BaseException) e.getCause();</b>
+<b class="nc"><i class="no-highlight">349</i>&nbsp;            } catch (ClassCastException java_e) {</b>
+<b class="nc"><i class="no-highlight">350</i>&nbsp;                java.lang.String message = e.getCause().getMessage();</b>
+<b class="nc"><i class="no-highlight">351</i>&nbsp;                if (message == null) {</b>
+<b class="nc"><i class="no-highlight">352</i>&nbsp;                    message = e.getCause().getClass().getName();</b>
+<i class="no-highlight">353</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">354</i>&nbsp;                throw new org.python.exceptions.RuntimeError(message);</b>
+<i class="no-highlight">355</i>&nbsp;            }
+<i class="no-highlight">356</i>&nbsp;        // } finally {
+<i class="no-highlight">357</i>&nbsp;            //     System.out.println(&quot;INVOKE METHOD DONE&quot;);
+<i class="no-highlight">358</i>&nbsp;        }
+<i class="no-highlight">359</i>&nbsp;    }
+<i class="no-highlight">360</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

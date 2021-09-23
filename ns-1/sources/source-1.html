@@ -1,0 +1,2131 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Python</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org</a>
+</div>
+
+<h1>Coverage Summary for Class: Python (org)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Python</td>
+<td class="coverageStat">
+  <span class="percent">
+    10.3%
+  </span>
+  <span class="absValue">
+    (7/68)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    21.7%
+  </span>
+  <span class="absValue">
+    (146/674)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Python$__SortedObjectComparator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    9.9%
+  </span>
+  <span class="absValue">
+    (7/71)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    21.2%
+  </span>
+  <span class="absValue">
+    (146/688)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org;
+<i class="no-highlight">2</i>&nbsp;
+<b class="nc"><i class="no-highlight">3</i>&nbsp;public class Python {</b>
+<i class="no-highlight">4</i>&nbsp;    public static java.util.Map&lt;java.lang.String, org.python.Object&gt; builtins;
+<i class="no-highlight">5</i>&nbsp;    /**
+<i class="no-highlight">6</i>&nbsp;     * The version of Python that this library implements
+<i class="no-highlight">7</i>&nbsp;     */
+<b class="fc"><i class="no-highlight">8</i>&nbsp;    public static int VERSION = 0x3040000;</b>
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;    static {
+<i class="no-highlight">11</i>&nbsp;        // Load all the builtins into the dictionary as callables
+<b class="fc"><i class="no-highlight">12</i>&nbsp;        builtins = new java.util.HashMap&lt;java.lang.String, org.python.Object&gt;();</b>
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;        // Add the most basic type
+<b class="fc"><i class="no-highlight">15</i>&nbsp;        builtins.put(&quot;object&quot;, org.python.types.Type.pythonType(org.python.types.Object.class));</b>
+<i class="no-highlight">16</i>&nbsp;
+<i class="no-highlight">17</i>&nbsp;        // Add the constants
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        builtins.put(&quot;Ellipsis&quot;, org.python.types.Ellipsis.ELLIPSIS);</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        builtins.put(&quot;None&quot;, org.python.types.NoneType.NONE);</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;        builtins.put(&quot;NotImplemented&quot;, org.python.types.NotImplementedType.NOT_IMPLEMENTED);</b>
+<b class="fc"><i class="no-highlight">21</i>&nbsp;        builtins.put(&quot;True&quot;, org.python.types.Bool.TRUE);</b>
+<b class="fc"><i class="no-highlight">22</i>&nbsp;        builtins.put(&quot;False&quot;, org.python.types.Bool.FALSE);</b>
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;        // Primitives, which are both functions and types.
+<b class="fc"><i class="no-highlight">25</i>&nbsp;        builtins.put(&quot;bytearray&quot;, org.python.types.Type.pythonType(org.python.types.ByteArray.class));</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        builtins.put(&quot;bytes&quot;, org.python.types.Type.pythonType(org.python.types.Bytes.class));</b>
+<b class="fc"><i class="no-highlight">27</i>&nbsp;        builtins.put(&quot;complex&quot;, org.python.types.Type.pythonType(org.python.types.Complex.class));</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;        builtins.put(&quot;dict&quot;, org.python.types.Type.pythonType(org.python.types.Dict.class));</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        builtins.put(&quot;int&quot;, org.python.types.Type.pythonType(org.python.types.Int.class));</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        builtins.put(&quot;float&quot;, org.python.types.Type.pythonType(org.python.types.Float.class));</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        builtins.put(&quot;frozenset&quot;, org.python.types.Type.pythonType(org.python.types.FrozenSet.class));</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        builtins.put(&quot;list&quot;, org.python.types.Type.pythonType(org.python.types.List.class));</b>
+<b class="fc"><i class="no-highlight">33</i>&nbsp;        builtins.put(&quot;memoryview&quot;, org.python.types.Type.pythonType(org.python.types.MemoryView.class));</b>
+<b class="fc"><i class="no-highlight">34</i>&nbsp;        builtins.put(&quot;set&quot;, org.python.types.Type.pythonType(org.python.types.Set.class));</b>
+<b class="fc"><i class="no-highlight">35</i>&nbsp;        builtins.put(&quot;str&quot;, org.python.types.Type.pythonType(org.python.types.Str.class));</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        builtins.put(&quot;tuple&quot;, org.python.types.Type.pythonType(org.python.types.Tuple.class));</b>
+<i class="no-highlight">37</i>&nbsp;
+<i class="no-highlight">38</i>&nbsp;        // subclasses of int
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        java.lang.Class base = org.python.types.Int.class;</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        builtins.put(&quot;bool&quot;, org.python.types.Type.pythonType(org.python.types.Bool.class, base));</b>
+<i class="no-highlight">41</i>&nbsp;
+<i class="no-highlight">42</i>&nbsp;        // Add all the builtin exceptions
+<b class="fc"><i class="no-highlight">43</i>&nbsp;        builtins.put(&quot;BaseException&quot;, org.python.types.Type.pythonType(org.python.exceptions.BaseException.class));</b>
+<i class="no-highlight">44</i>&nbsp;
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        base = org.python.exceptions.BaseException.class;</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;        builtins.put(&quot;SystemExit&quot;, org.python.types.Type.pythonType(org.python.exceptions.SystemExit.class, base));</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        builtins.put(&quot;KeyboardInterrupt&quot;, org.python.types.Type.pythonType(org.python.exceptions.KeyboardInterrupt.class, base));</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        builtins.put(&quot;GeneratorExit&quot;, org.python.types.Type.pythonType(org.python.exceptions.GeneratorExit.class, base));</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        builtins.put(&quot;Exception&quot;, org.python.types.Type.pythonType(org.python.exceptions.Exception.class, base));</b>
+<i class="no-highlight">50</i>&nbsp;
+<i class="no-highlight">51</i>&nbsp;        // subclasses of Exception
+<b class="fc"><i class="no-highlight">52</i>&nbsp;        base = org.python.exceptions.Exception.class;</b>
+<b class="fc"><i class="no-highlight">53</i>&nbsp;        builtins.put(&quot;StopIteration&quot;, org.python.types.Type.pythonType(org.python.exceptions.StopIteration.class, base));</b>
+<i class="no-highlight">54</i>&nbsp;        // New in Python 3.5: builtins.put(&quot;StopAsyncIteration&quot;, org.python.types.Type.pythonType(org.python.exceptions.StopAsyncIteration.class, base));
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        builtins.put(&quot;ArithmeticError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ArithmeticError.class, base));</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;        builtins.put(&quot;AssertionError&quot;, org.python.types.Type.pythonType(org.python.exceptions.AssertionError.class, base));</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        builtins.put(&quot;AttributeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.AttributeError.class, base));</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        builtins.put(&quot;BufferError&quot;, org.python.types.Type.pythonType(org.python.exceptions.BufferError.class, base));</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        builtins.put(&quot;EOFError&quot;, org.python.types.Type.pythonType(org.python.exceptions.EOFError.class, base));</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;        builtins.put(&quot;ImportError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ImportError.class, base));</b>
+<b class="fc"><i class="no-highlight">61</i>&nbsp;        builtins.put(&quot;LookupError&quot;, org.python.types.Type.pythonType(org.python.exceptions.LookupError.class, base));</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;        builtins.put(&quot;MemoryError&quot;, org.python.types.Type.pythonType(org.python.exceptions.MemoryError.class, base));</b>
+<b class="fc"><i class="no-highlight">63</i>&nbsp;        builtins.put(&quot;NameError&quot;, org.python.types.Type.pythonType(org.python.exceptions.NameError.class, base));</b>
+<b class="fc"><i class="no-highlight">64</i>&nbsp;        builtins.put(&quot;OSError&quot;, org.python.types.Type.pythonType(org.python.exceptions.OSError.class, base));</b>
+<b class="fc"><i class="no-highlight">65</i>&nbsp;        builtins.put(&quot;ReferenceError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ReferenceError.class, base));</b>
+<b class="fc"><i class="no-highlight">66</i>&nbsp;        builtins.put(&quot;RuntimeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.RuntimeError.class, base));</b>
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        builtins.put(&quot;SyntaxError&quot;, org.python.types.Type.pythonType(org.python.exceptions.SyntaxError.class, base));</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;        builtins.put(&quot;SystemError&quot;, org.python.types.Type.pythonType(org.python.exceptions.SystemError.class, base));</b>
+<b class="fc"><i class="no-highlight">69</i>&nbsp;        builtins.put(&quot;TypeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.TypeError.class, base));</b>
+<b class="fc"><i class="no-highlight">70</i>&nbsp;        builtins.put(&quot;ValueError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ValueError.class, base));</b>
+<b class="fc"><i class="no-highlight">71</i>&nbsp;        builtins.put(&quot;Warning&quot;, org.python.types.Type.pythonType(org.python.exceptions.Warning.class, base));</b>
+<i class="no-highlight">72</i>&nbsp;
+<i class="no-highlight">73</i>&nbsp;        // subclasses of ArithmeticError
+<b class="fc"><i class="no-highlight">74</i>&nbsp;        base = org.python.exceptions.ArithmeticError.class;</b>
+<b class="fc"><i class="no-highlight">75</i>&nbsp;        builtins.put(&quot;FloatingPointError&quot;, org.python.types.Type.pythonType(org.python.exceptions.FloatingPointError.class, base));</b>
+<b class="fc"><i class="no-highlight">76</i>&nbsp;        builtins.put(&quot;OverflowError&quot;, org.python.types.Type.pythonType(org.python.exceptions.OverflowError.class, base));</b>
+<b class="fc"><i class="no-highlight">77</i>&nbsp;        builtins.put(&quot;ZeroDivisionError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ZeroDivisionError.class, base));</b>
+<i class="no-highlight">78</i>&nbsp;
+<i class="no-highlight">79</i>&nbsp;        // subclasses of ImportError
+<i class="no-highlight">80</i>&nbsp;        // base = org.python.exceptions.ImportError.class;
+<i class="no-highlight">81</i>&nbsp;        // New in 3.6: builtins.put(&quot;ModuleNotFoundError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ModuleNotFoundError.class, base));
+<i class="no-highlight">82</i>&nbsp;
+<i class="no-highlight">83</i>&nbsp;        // subclasses of LookupError
+<b class="fc"><i class="no-highlight">84</i>&nbsp;        base = org.python.exceptions.LookupError.class;</b>
+<b class="fc"><i class="no-highlight">85</i>&nbsp;        builtins.put(&quot;IndexError&quot;, org.python.types.Type.pythonType(org.python.exceptions.IndexError.class, base));</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        builtins.put(&quot;KeyError&quot;, org.python.types.Type.pythonType(org.python.exceptions.KeyError.class, base));</b>
+<i class="no-highlight">87</i>&nbsp;
+<i class="no-highlight">88</i>&nbsp;        // subclasses of NameError
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        base = org.python.exceptions.NameError.class;</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        builtins.put(&quot;UnboundLocalError&quot;, org.python.types.Type.pythonType(org.python.exceptions.UnboundLocalError.class, base));</b>
+<i class="no-highlight">91</i>&nbsp;
+<i class="no-highlight">92</i>&nbsp;        // subclasses of OSError
+<b class="fc"><i class="no-highlight">93</i>&nbsp;        base = org.python.exceptions.OSError.class;</b>
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        builtins.put(&quot;BlockingIOError&quot;, org.python.types.Type.pythonType(org.python.exceptions.BlockingIOError.class, base));</b>
+<b class="fc"><i class="no-highlight">95</i>&nbsp;        builtins.put(&quot;ChildProcessError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ChildProcessError.class, base));</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;        builtins.put(&quot;ConnectionError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ConnectionError.class, base));</b>
+<b class="fc"><i class="no-highlight">97</i>&nbsp;        builtins.put(&quot;FileExistsError&quot;, org.python.types.Type.pythonType(org.python.exceptions.FileExistsError.class, base));</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;        builtins.put(&quot;FileNotFoundError&quot;, org.python.types.Type.pythonType(org.python.exceptions.FileNotFoundError.class, base));</b>
+<b class="fc"><i class="no-highlight">99</i>&nbsp;        builtins.put(&quot;InterruptedError&quot;, org.python.types.Type.pythonType(org.python.exceptions.InterruptedError.class, base));</b>
+<b class="fc"><i class="no-highlight">100</i>&nbsp;        builtins.put(&quot;IsADirectoryError&quot;, org.python.types.Type.pythonType(org.python.exceptions.IsADirectoryError.class, base));</b>
+<b class="fc"><i class="no-highlight">101</i>&nbsp;        builtins.put(&quot;NotADirectoryError&quot;, org.python.types.Type.pythonType(org.python.exceptions.NotADirectoryError.class, base));</b>
+<b class="fc"><i class="no-highlight">102</i>&nbsp;        builtins.put(&quot;PermissionError&quot;, org.python.types.Type.pythonType(org.python.exceptions.PermissionError.class, base));</b>
+<b class="fc"><i class="no-highlight">103</i>&nbsp;        builtins.put(&quot;ProcessLookupError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ProcessLookupError.class, base));</b>
+<b class="fc"><i class="no-highlight">104</i>&nbsp;        builtins.put(&quot;TimeoutError&quot;, org.python.types.Type.pythonType(org.python.exceptions.TimeoutError.class, base));</b>
+<i class="no-highlight">105</i>&nbsp;
+<b class="fc"><i class="no-highlight">106</i>&nbsp;        base = org.python.exceptions.Exception.class;</b>
+<b class="fc"><i class="no-highlight">107</i>&nbsp;        builtins.put(&quot;IOError&quot;, org.python.types.Type.pythonType(org.python.exceptions.OSError.class, base));</b>
+<b class="fc"><i class="no-highlight">108</i>&nbsp;        builtins.put(&quot;EnvironmentError&quot;, org.python.types.Type.pythonType(org.python.exceptions.OSError.class, base));</b>
+<i class="no-highlight">109</i>&nbsp;
+<i class="no-highlight">110</i>&nbsp;        // subclasses of ConnectionError
+<b class="fc"><i class="no-highlight">111</i>&nbsp;        base = org.python.exceptions.ConnectionError.class;</b>
+<b class="fc"><i class="no-highlight">112</i>&nbsp;        builtins.put(&quot;BrokenPipeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.BrokenPipeError.class, base));</b>
+<b class="fc"><i class="no-highlight">113</i>&nbsp;        builtins.put(&quot;ConnectionAbortedError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ConnectionAbortedError.class, base));</b>
+<b class="fc"><i class="no-highlight">114</i>&nbsp;        builtins.put(&quot;ConnectionRefusedError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ConnectionRefusedError.class, base));</b>
+<b class="fc"><i class="no-highlight">115</i>&nbsp;        builtins.put(&quot;ConnectionResetError&quot;, org.python.types.Type.pythonType(org.python.exceptions.ConnectionResetError.class, base));</b>
+<i class="no-highlight">116</i>&nbsp;
+<i class="no-highlight">117</i>&nbsp;        // subclasses of RuntimeError
+<b class="fc"><i class="no-highlight">118</i>&nbsp;        base = org.python.exceptions.RuntimeError.class;</b>
+<b class="fc"><i class="no-highlight">119</i>&nbsp;        builtins.put(&quot;NotImplementedError&quot;, org.python.types.Type.pythonType(org.python.exceptions.NotImplementedError.class, base));</b>
+<i class="no-highlight">120</i>&nbsp;        // new in Python 3.5: builtins.put(&quot;RecursionError&quot;, org.python.types.Type.pythonType(org.python.exceptions.RecursionError.class, base));
+<i class="no-highlight">121</i>&nbsp;
+<i class="no-highlight">122</i>&nbsp;        // subclasses of SyntaxError
+<b class="fc"><i class="no-highlight">123</i>&nbsp;        base = org.python.exceptions.SyntaxError.class;</b>
+<b class="fc"><i class="no-highlight">124</i>&nbsp;        builtins.put(&quot;IndentationError&quot;, org.python.types.Type.pythonType(org.python.exceptions.IndentationError.class, base));</b>
+<i class="no-highlight">125</i>&nbsp;
+<i class="no-highlight">126</i>&nbsp;        // subclasses of IndentationError
+<b class="fc"><i class="no-highlight">127</i>&nbsp;        base = org.python.exceptions.IndentationError.class;</b>
+<b class="fc"><i class="no-highlight">128</i>&nbsp;        builtins.put(&quot;TabError&quot;, org.python.types.Type.pythonType(org.python.exceptions.TabError.class, base));</b>
+<i class="no-highlight">129</i>&nbsp;
+<i class="no-highlight">130</i>&nbsp;        // subclasses of ValueError
+<b class="fc"><i class="no-highlight">131</i>&nbsp;        base = org.python.exceptions.ValueError.class;</b>
+<b class="fc"><i class="no-highlight">132</i>&nbsp;        builtins.put(&quot;UnicodeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.UnicodeError.class, base));</b>
+<i class="no-highlight">133</i>&nbsp;
+<i class="no-highlight">134</i>&nbsp;        // subclasses of UnicodeError
+<b class="fc"><i class="no-highlight">135</i>&nbsp;        base = org.python.exceptions.UnicodeError.class;</b>
+<b class="fc"><i class="no-highlight">136</i>&nbsp;        builtins.put(&quot;UnicodeDecodeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.UnicodeDecodeError.class, base));</b>
+<b class="fc"><i class="no-highlight">137</i>&nbsp;        builtins.put(&quot;UnicodeEncodeError&quot;, org.python.types.Type.pythonType(org.python.exceptions.UnicodeEncodeError.class, base));</b>
+<b class="fc"><i class="no-highlight">138</i>&nbsp;        builtins.put(&quot;UnicodeTranslateError&quot;, org.python.types.Type.pythonType(org.python.exceptions.UnicodeTranslateError.class, base));</b>
+<i class="no-highlight">139</i>&nbsp;
+<i class="no-highlight">140</i>&nbsp;        // subclasses of Warning
+<b class="fc"><i class="no-highlight">141</i>&nbsp;        base = org.python.exceptions.Warning.class;</b>
+<b class="fc"><i class="no-highlight">142</i>&nbsp;        builtins.put(&quot;DeprecationWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.DeprecationWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">143</i>&nbsp;        builtins.put(&quot;PendingDeprecationWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.PendingDeprecationWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">144</i>&nbsp;        builtins.put(&quot;RuntimeWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.RuntimeWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">145</i>&nbsp;        builtins.put(&quot;SyntaxWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.SyntaxWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">146</i>&nbsp;        builtins.put(&quot;UserWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.UserWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">147</i>&nbsp;        builtins.put(&quot;FutureWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.FutureWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">148</i>&nbsp;        builtins.put(&quot;ImportWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.ImportWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">149</i>&nbsp;        builtins.put(&quot;UnicodeWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.UnicodeWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">150</i>&nbsp;        builtins.put(&quot;BytesWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.BytesWarning.class, base));</b>
+<b class="fc"><i class="no-highlight">151</i>&nbsp;        builtins.put(&quot;ResourceWarning&quot;, org.python.types.Type.pythonType(org.python.exceptions.ResourceWarning.class, base));</b>
+<i class="no-highlight">152</i>&nbsp;
+<b class="fc"><i class="no-highlight">153</i>&nbsp;        org.Python.initializeModule(org.Python.class, builtins);</b>
+<i class="no-highlight">154</i>&nbsp;    }
+<i class="no-highlight">155</i>&nbsp;
+<i class="no-highlight">156</i>&nbsp;    public static void debug(java.lang.String msg) {
+<b class="nc"><i class="no-highlight">157</i>&nbsp;        python.platform.impl.debug(msg);</b>
+<i class="no-highlight">158</i>&nbsp;    }
+<i class="no-highlight">159</i>&nbsp;
+<i class="no-highlight">160</i>&nbsp;    public static void debug(java.lang.String msg, java.lang.Object obj) {
+<b class="nc"><i class="no-highlight">161</i>&nbsp;        if (obj == null) {</b>
+<b class="nc"><i class="no-highlight">162</i>&nbsp;            python.platform.impl.debug(msg, &quot;NULL&quot;);</b>
+<i class="no-highlight">163</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">164</i>&nbsp;            python.platform.impl.debug(msg, obj);</b>
+<i class="no-highlight">165</i>&nbsp;        }
+<i class="no-highlight">166</i>&nbsp;    }
+<i class="no-highlight">167</i>&nbsp;
+<i class="no-highlight">168</i>&nbsp;    // This function gets a method defined on the class by name and creates an org.python.types.Function wrapper for it
+<i class="no-highlight">169</i>&nbsp;    // If no method is found, returns null
+<i class="no-highlight">170</i>&nbsp;    public static org.python.types.Function getPythonFunction(java.lang.String name, java.lang.Class cls) {
+<b class="nc"><i class="no-highlight">171</i>&nbsp;        for (java.lang.reflect.Method method : cls.getMethods()) {</b>
+<b class="nc"><i class="no-highlight">172</i>&nbsp;            org.python.Method cls_annotation = method.getAnnotation(org.python.Method.class);</b>
+<b class="nc"><i class="no-highlight">173</i>&nbsp;            if (cls_annotation != null) {</b>
+<i class="no-highlight">174</i>&nbsp;                java.lang.String nameToCheck;
+<i class="no-highlight">175</i>&nbsp;
+<b class="nc"><i class="no-highlight">176</i>&nbsp;                if (cls_annotation.name().equals(&quot;&quot;)) {</b>
+<b class="nc"><i class="no-highlight">177</i>&nbsp;                    nameToCheck = method.getName();</b>
+<i class="no-highlight">178</i>&nbsp;
+<i class="no-highlight">179</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">180</i>&nbsp;                    nameToCheck = cls_annotation.name();</b>
+<i class="no-highlight">181</i>&nbsp;                }
+<i class="no-highlight">182</i>&nbsp;
+<b class="nc"><i class="no-highlight">183</i>&nbsp;                if (name.equals(nameToCheck)) {</b>
+<b class="nc"><i class="no-highlight">184</i>&nbsp;                    return org.Python.createFunction(cls_annotation, method);</b>
+<i class="no-highlight">185</i>&nbsp;                }
+<i class="no-highlight">186</i>&nbsp;            }
+<i class="no-highlight">187</i>&nbsp;        }
+<i class="no-highlight">188</i>&nbsp;        // Failed.
+<b class="nc"><i class="no-highlight">189</i>&nbsp;        return null;</b>
+<i class="no-highlight">190</i>&nbsp;    }
+<i class="no-highlight">191</i>&nbsp;
+<i class="no-highlight">192</i>&nbsp;    // This function performs the following initialization work:
+<i class="no-highlight">193</i>&nbsp;    //     1. Puts the __doc__ property on the given dictionary (a __dict__)
+<i class="no-highlight">194</i>&nbsp;    //     2. Puts the names of all Python methods defined on the class into the dictionary,
+<i class="no-highlight">195</i>&nbsp;    //        but does not create a function wrapper for the method, i.e. (method_name, null)
+<i class="no-highlight">196</i>&nbsp;    public static void loadModule(java.lang.Class cls, java.util.Map&lt;java.lang.String, org.python.Object&gt; attrs) {
+<i class="no-highlight">197</i>&nbsp;        // Get the class annotation and add any properties.
+<b class="fc"><i class="no-highlight">198</i>&nbsp;        org.python.Module mod_annotation = (org.python.Module) cls.getAnnotation(org.python.Module.class);</b>
+<b class="fc"><i class="no-highlight">199</i>&nbsp;        if (mod_annotation != null) {</b>
+<b class="nc"><i class="no-highlight">200</i>&nbsp;            java.lang.String __doc__ = mod_annotation.__doc__();</b>
+<b class="nc"><i class="no-highlight">201</i>&nbsp;            if (__doc__.equals(&quot;[undocumented]&quot;)) {</b>
+<b class="nc"><i class="no-highlight">202</i>&nbsp;                attrs.put(&quot;__doc__&quot;, org.python.types.NoneType.NONE);</b>
+<i class="no-highlight">203</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">204</i>&nbsp;                attrs.put(&quot;__doc__&quot;, new org.python.types.Str(__doc__));</b>
+<i class="no-highlight">205</i>&nbsp;            }
+<i class="no-highlight">206</i>&nbsp;        }
+<i class="no-highlight">207</i>&nbsp;
+<b class="fc"><i class="no-highlight">208</i>&nbsp;        for (java.lang.reflect.Method method : cls.getMethods()) {</b>
+<b class="fc"><i class="no-highlight">209</i>&nbsp;            org.python.Method cls_annotation = method.getAnnotation(org.python.Method.class);</b>
+<b class="fc"><i class="no-highlight">210</i>&nbsp;            if (cls_annotation != null) {</b>
+<i class="no-highlight">211</i>&nbsp;                java.lang.String method_name;
+<i class="no-highlight">212</i>&nbsp;
+<i class="no-highlight">213</i>&nbsp;                // Check for any explicitly set names
+<b class="fc"><i class="no-highlight">214</i>&nbsp;                if (cls_annotation.name().equals(&quot;&quot;)) {</b>
+<b class="fc"><i class="no-highlight">215</i>&nbsp;                    method_name = method.getName();</b>
+<i class="no-highlight">216</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">217</i>&nbsp;                    method_name = cls_annotation.name();</b>
+<i class="no-highlight">218</i>&nbsp;                }
+<i class="no-highlight">219</i>&nbsp;
+<b class="fc"><i class="no-highlight">220</i>&nbsp;                attrs.put(method_name, null);</b>
+<i class="no-highlight">221</i>&nbsp;            }
+<i class="no-highlight">222</i>&nbsp;        }
+<i class="no-highlight">223</i>&nbsp;    }
+<i class="no-highlight">224</i>&nbsp;
+<i class="no-highlight">225</i>&nbsp;    // This function performs the following initialization work:
+<i class="no-highlight">226</i>&nbsp;    //     1. Puts the __doc__ property on the given dictionary (a __dict__)
+<i class="no-highlight">227</i>&nbsp;    //     2. Puts all Python methods defined on the class into the dictionary i.e. (method_name, function)
+<i class="no-highlight">228</i>&nbsp;    public static void initializeModule(java.lang.Class cls, java.util.Map&lt;java.lang.String, org.python.Object&gt; attrs) {
+<i class="no-highlight">229</i>&nbsp;        // Get the class annotation and add any properties.
+<b class="fc"><i class="no-highlight">230</i>&nbsp;        org.python.Module mod_annotation = (org.python.Module) cls.getAnnotation(org.python.Module.class);</b>
+<b class="fc"><i class="no-highlight">231</i>&nbsp;        if (mod_annotation != null) {</b>
+<b class="nc"><i class="no-highlight">232</i>&nbsp;            java.lang.String __doc__ = mod_annotation.__doc__();</b>
+<b class="nc"><i class="no-highlight">233</i>&nbsp;            if (__doc__.equals(&quot;[undocumented]&quot;)) {</b>
+<b class="nc"><i class="no-highlight">234</i>&nbsp;                attrs.put(&quot;__doc__&quot;, org.python.types.NoneType.NONE);</b>
+<i class="no-highlight">235</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">236</i>&nbsp;                attrs.put(&quot;__doc__&quot;, new org.python.types.Str(__doc__));</b>
+<i class="no-highlight">237</i>&nbsp;            }
+<i class="no-highlight">238</i>&nbsp;        }
+<i class="no-highlight">239</i>&nbsp;
+<i class="no-highlight">240</i>&nbsp;        // Iterate over every method in the class, and if the
+<i class="no-highlight">241</i>&nbsp;        // method is annotated for inclusion in the Python class,
+<i class="no-highlight">242</i>&nbsp;        // add a function wrapper to the type definition.
+<b class="fc"><i class="no-highlight">243</i>&nbsp;        for (java.lang.reflect.Method method : cls.getMethods()) {</b>
+<b class="fc"><i class="no-highlight">244</i>&nbsp;            org.python.Method cls_annotation = method.getAnnotation(org.python.Method.class);</b>
+<b class="fc"><i class="no-highlight">245</i>&nbsp;            if (cls_annotation != null) {</b>
+<i class="no-highlight">246</i>&nbsp;                java.lang.String method_name;
+<i class="no-highlight">247</i>&nbsp;
+<i class="no-highlight">248</i>&nbsp;                // Check for any explicitly set names
+<b class="fc"><i class="no-highlight">249</i>&nbsp;                if (cls_annotation.name().equals(&quot;&quot;)) {</b>
+<b class="fc"><i class="no-highlight">250</i>&nbsp;                    method_name = method.getName();</b>
+<i class="no-highlight">251</i>&nbsp;                } else {
+<b class="fc"><i class="no-highlight">252</i>&nbsp;                    method_name = cls_annotation.name();</b>
+<i class="no-highlight">253</i>&nbsp;                }
+<i class="no-highlight">254</i>&nbsp;
+<b class="fc"><i class="no-highlight">255</i>&nbsp;                attrs.put(method_name, org.Python.createFunction(cls_annotation, method));</b>
+<i class="no-highlight">256</i>&nbsp;            }
+<i class="no-highlight">257</i>&nbsp;        }
+<i class="no-highlight">258</i>&nbsp;    }
+<i class="no-highlight">259</i>&nbsp;
+<i class="no-highlight">260</i>&nbsp;    private static org.python.types.Function createFunction(org.python.Method cls_annotation, java.lang.reflect.Method method) {
+<i class="no-highlight">261</i>&nbsp;        java.lang.String varargs_name;
+<i class="no-highlight">262</i>&nbsp;        java.lang.String kwargs_name;
+<i class="no-highlight">263</i>&nbsp;
+<b class="fc"><i class="no-highlight">264</i>&nbsp;        if (cls_annotation.varargs().equals(&quot;&quot;)) {</b>
+<b class="fc"><i class="no-highlight">265</i>&nbsp;            varargs_name = null;</b>
+<i class="no-highlight">266</i>&nbsp;        } else {
+<b class="fc"><i class="no-highlight">267</i>&nbsp;            varargs_name = cls_annotation.varargs();</b>
+<i class="no-highlight">268</i>&nbsp;        }
+<i class="no-highlight">269</i>&nbsp;
+<b class="fc"><i class="no-highlight">270</i>&nbsp;        if (cls_annotation.kwargs().equals(&quot;&quot;)) {</b>
+<b class="fc"><i class="no-highlight">271</i>&nbsp;            kwargs_name = null;</b>
+<i class="no-highlight">272</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">273</i>&nbsp;            kwargs_name = cls_annotation.kwargs();</b>
+<i class="no-highlight">274</i>&nbsp;        }
+<i class="no-highlight">275</i>&nbsp;
+<b class="fc"><i class="no-highlight">276</i>&nbsp;        return new org.python.types.Function(</b>
+<i class="no-highlight">277</i>&nbsp;                method,
+<b class="fc"><i class="no-highlight">278</i>&nbsp;                cls_annotation.args(),</b>
+<b class="fc"><i class="no-highlight">279</i>&nbsp;                cls_annotation.default_args(),</b>
+<i class="no-highlight">280</i>&nbsp;                varargs_name,
+<b class="fc"><i class="no-highlight">281</i>&nbsp;                cls_annotation.kwonlyargs(),</b>
+<i class="no-highlight">282</i>&nbsp;                kwargs_name);
+<i class="no-highlight">283</i>&nbsp;    }
+<i class="no-highlight">284</i>&nbsp;
+<i class="no-highlight">285</i>&nbsp;    public static java.lang.String typeName(java.lang.Class cls) {
+<b class="nc"><i class="no-highlight">286</i>&nbsp;        org.python.types.Type klass = org.python.types.Type.pythonType(cls);</b>
+<b class="nc"><i class="no-highlight">287</i>&nbsp;        java.lang.String name = null;</b>
+<i class="no-highlight">288</i>&nbsp;
+<i class="no-highlight">289</i>&nbsp;        // First look to the Type for an instance variable holding a
+<i class="no-highlight">290</i>&nbsp;        // cached version of the type name.
+<b class="nc"><i class="no-highlight">291</i>&nbsp;        if (klass.PYTHON_TYPE_NAME == null) {</b>
+<i class="no-highlight">292</i>&nbsp;            try {
+<i class="no-highlight">293</i>&nbsp;                // If there&#39;s no pre-cached version, warm the cache.
+<i class="no-highlight">294</i>&nbsp;
+<i class="no-highlight">295</i>&nbsp;                // Look to the class itself for a static field describing
+<i class="no-highlight">296</i>&nbsp;                // the type name.
+<b class="nc"><i class="no-highlight">297</i>&nbsp;                java.lang.reflect.Field field = cls.getField(&quot;PYTHON_TYPE_NAME&quot;);</b>
+<i class="no-highlight">298</i>&nbsp;
+<i class="no-highlight">299</i>&nbsp;                // If a field exists, but it&#39;s not static, treat it as if
+<i class="no-highlight">300</i>&nbsp;                // the field didn&#39;t exist.
+<b class="nc"><i class="no-highlight">301</i>&nbsp;                if ((field.getModifiers() &amp; java.lang.reflect.Modifier.STATIC) != 0) {</b>
+<b class="nc"><i class="no-highlight">302</i>&nbsp;                    name = (java.lang.String) field.get(cls);</b>
+<i class="no-highlight">303</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">304</i>&nbsp;                    throw new java.lang.NoSuchFieldException();</b>
+<i class="no-highlight">305</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">306</i>&nbsp;            } catch (java.lang.NoSuchFieldException e) {</b>
+<i class="no-highlight">307</i>&nbsp;                // No PYTHON_TYPE_NAME field found. Fall back to the default
+<i class="no-highlight">308</i>&nbsp;                // behaviour for Python type naming, stripping python-specific
+<i class="no-highlight">309</i>&nbsp;                // namespace prefixes.
+<b class="nc"><i class="no-highlight">310</i>&nbsp;                name = cls.getName();</b>
+<b class="nc"><i class="no-highlight">311</i>&nbsp;                if (name.startsWith(&quot;org.python.types.&quot;)) {</b>
+<b class="nc"><i class="no-highlight">312</i>&nbsp;                    name = name.substring(17).toLowerCase();</b>
+<b class="nc"><i class="no-highlight">313</i>&nbsp;                } else if (name.startsWith(&quot;org.python.exceptions.&quot;)) {</b>
+<b class="nc"><i class="no-highlight">314</i>&nbsp;                    name = name.substring(22);</b>
+<b class="nc"><i class="no-highlight">315</i>&nbsp;                } else if (name.startsWith(&quot;python.&quot;)) {</b>
+<b class="nc"><i class="no-highlight">316</i>&nbsp;                    name = cls.getSimpleName();</b>
+<i class="no-highlight">317</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">318</i>&nbsp;            } catch (java.lang.IllegalAccessException e) {</b>
+<b class="nc"><i class="no-highlight">319</i>&nbsp;                return &quot;**UNKNOWABLE**&quot;;</b>
+<b class="nc"><i class="no-highlight">320</i>&nbsp;            } catch (java.lang.SecurityException e) {</b>
+<b class="nc"><i class="no-highlight">321</i>&nbsp;                return &quot;**UNKNOWABLE**&quot;;</b>
+<b class="nc"><i class="no-highlight">322</i>&nbsp;            } catch (java.lang.NullPointerException e) {</b>
+<b class="nc"><i class="no-highlight">323</i>&nbsp;                return &quot;**UNKNOWN**&quot;;</b>
+<b class="nc"><i class="no-highlight">324</i>&nbsp;            }</b>
+<i class="no-highlight">325</i>&nbsp;
+<i class="no-highlight">326</i>&nbsp;            // Cache the name for next time.
+<b class="nc"><i class="no-highlight">327</i>&nbsp;            klass.PYTHON_TYPE_NAME = name;</b>
+<i class="no-highlight">328</i>&nbsp;        } else {
+<i class="no-highlight">329</i>&nbsp;            // Use the cached version.
+<b class="nc"><i class="no-highlight">330</i>&nbsp;            name = klass.PYTHON_TYPE_NAME;</b>
+<i class="no-highlight">331</i>&nbsp;        }
+<i class="no-highlight">332</i>&nbsp;
+<b class="nc"><i class="no-highlight">333</i>&nbsp;        return name;</b>
+<i class="no-highlight">334</i>&nbsp;    }
+<i class="no-highlight">335</i>&nbsp;
+<i class="no-highlight">336</i>&nbsp;    /**
+<i class="no-highlight">337</i>&nbsp;     * Add the contents of a list to the varargs to be used in a function call.
+<i class="no-highlight">338</i>&nbsp;     */
+<i class="no-highlight">339</i>&nbsp;    public static org.python.Object[] addToArgs(org.python.Object[] args, org.python.Object varargs) {
+<b class="nc"><i class="no-highlight">340</i>&nbsp;        java.util.List&lt;org.python.Object&gt; temp_list = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<i class="no-highlight">341</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">342</i>&nbsp;            org.python.Object iter = varargs.__iter__();</b>
+<i class="no-highlight">343</i>&nbsp;            while (true) {
+<b class="nc"><i class="no-highlight">344</i>&nbsp;                org.python.Object item = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">345</i>&nbsp;                temp_list.add(item);</b>
+<b class="nc"><i class="no-highlight">346</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">347</i>&nbsp;        } catch (org.python.exceptions.StopIteration e) {</b>
+<i class="no-highlight">348</i>&nbsp;        }
+<i class="no-highlight">349</i>&nbsp;
+<b class="nc"><i class="no-highlight">350</i>&nbsp;        java.lang.Object[] va_list = temp_list.toArray();</b>
+<b class="nc"><i class="no-highlight">351</i>&nbsp;        org.python.Object[] arg_list = new org.python.Object[args.length + va_list.length];</b>
+<i class="no-highlight">352</i>&nbsp;
+<b class="nc"><i class="no-highlight">353</i>&nbsp;        System.arraycopy(args, 0, arg_list, 0, args.length);</b>
+<b class="nc"><i class="no-highlight">354</i>&nbsp;        System.arraycopy(va_list, 0, arg_list, args.length, va_list.length);</b>
+<i class="no-highlight">355</i>&nbsp;
+<b class="nc"><i class="no-highlight">356</i>&nbsp;        return arg_list;</b>
+<i class="no-highlight">357</i>&nbsp;    }
+<i class="no-highlight">358</i>&nbsp;
+<i class="no-highlight">359</i>&nbsp;    /**
+<i class="no-highlight">360</i>&nbsp;     * Add the contents of a dictionary to the keyword arguments to be used
+<i class="no-highlight">361</i>&nbsp;     * in a function call.
+<i class="no-highlight">362</i>&nbsp;     *
+<i class="no-highlight">363</i>&nbsp;     * Returns the updated kwargs Map.
+<i class="no-highlight">364</i>&nbsp;     *
+<i class="no-highlight">365</i>&nbsp;     * If any of the keys in the varkwargs dictionary aren&#39;t strings,
+<i class="no-highlight">366</i>&nbsp;     * a TypeError is raised.
+<i class="no-highlight">367</i>&nbsp;     */
+<i class="no-highlight">368</i>&nbsp;    public static java.util.Map&lt;java.lang.String, org.python.Object&gt; addToKwargs(java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs, org.python.Object kwvarargs, java.lang.String func_name) {
+<i class="no-highlight">369</i>&nbsp;        // FIXME: Once we have dictionary iterators, we should use an iteration-based
+<i class="no-highlight">370</i>&nbsp;        // rollout, rather than casting to Dict.
+<i class="no-highlight">371</i>&nbsp;        // try {
+<i class="no-highlight">372</i>&nbsp;        //     org.python.Object iter = varkwargs.__iter__();
+<i class="no-highlight">373</i>&nbsp;        //     while (true) {
+<i class="no-highlight">374</i>&nbsp;        //         org.python.Object key = iter.__next__()
+<i class="no-highlight">375</i>&nbsp;        //         java.lang.String key_string = ((org.python.types.Str) key).value;
+<i class="no-highlight">376</i>&nbsp;        //         org.python.Object key
+<i class="no-highlight">377</i>&nbsp;        //         kwargs.put(key_string, value);
+<i class="no-highlight">378</i>&nbsp;        //     }
+<i class="no-highlight">379</i>&nbsp;        // } catch (ClassCastException e) {
+<i class="no-highlight">380</i>&nbsp;        //     throw new org.python.exceptions.TypeError(func_name + &quot;() keywords must be strings&quot;);
+<i class="no-highlight">381</i>&nbsp;        // } catch (org.python.exceptions.StopIteration e) {}
+<i class="no-highlight">382</i>&nbsp;
+<b class="nc"><i class="no-highlight">383</i>&nbsp;        for (java.util.Map.Entry&lt;org.python.Object, org.python.Object&gt; entry : ((org.python.types.Dict) kwvarargs).value.entrySet()) {</b>
+<i class="no-highlight">384</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">385</i>&nbsp;                kwargs.put(((org.python.types.Str) entry.getKey()).value, entry.getValue());</b>
+<b class="nc"><i class="no-highlight">386</i>&nbsp;            } catch (ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">387</i>&nbsp;                throw new org.python.exceptions.TypeError(func_name + &quot;() keywords must be strings&quot;);</b>
+<b class="nc"><i class="no-highlight">388</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">389</i>&nbsp;        }</b>
+<b class="nc"><i class="no-highlight">390</i>&nbsp;        return kwargs;</b>
+<i class="no-highlight">391</i>&nbsp;    }
+<i class="no-highlight">392</i>&nbsp;
+<i class="no-highlight">393</i>&nbsp;    /**
+<i class="no-highlight">394</i>&nbsp;     * Check that the number of targets given for unpacking matches the number of provided values
+<i class="no-highlight">395</i>&nbsp;     */
+<i class="no-highlight">396</i>&nbsp;    public static void checkUnpackValues(org.python.types.List values, int tcount, int scount) {
+<b class="nc"><i class="no-highlight">397</i>&nbsp;        int values_count = (int) ((org.python.types.Int) values.__len__()).value;</b>
+<b class="nc"><i class="no-highlight">398</i>&nbsp;        int min_target_count = tcount - scount;</b>
+<i class="no-highlight">399</i>&nbsp;
+<b class="nc"><i class="no-highlight">400</i>&nbsp;        if (scount == 0 &amp;&amp; min_target_count &lt; values_count) {</b>
+<b class="nc"><i class="no-highlight">401</i>&nbsp;            throw new org.python.exceptions.ValueError(&quot;too many values to unpack (expected &quot; + min_target_count + &quot;)&quot;);</b>
+<b class="nc"><i class="no-highlight">402</i>&nbsp;        } else if (min_target_count &gt; values_count) {</b>
+<b class="nc"><i class="no-highlight">403</i>&nbsp;            if (org.Python.VERSION &lt; 0x03050000) {</b>
+<b class="nc"><i class="no-highlight">404</i>&nbsp;                java.lang.String num_values = (values_count == 1) ? &quot;1 value&quot; : (&quot;&quot; + values_count + &quot; values&quot;);</b>
+<b class="nc"><i class="no-highlight">405</i>&nbsp;                throw new org.python.exceptions.ValueError(&quot;need more than &quot; + num_values + &quot; to unpack&quot;);</b>
+<i class="no-highlight">406</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">407</i>&nbsp;                java.lang.String expected_num = ((scount == 1) ? &quot;expected at least &quot; : &quot;expected &quot;) + min_target_count;</b>
+<b class="nc"><i class="no-highlight">408</i>&nbsp;                java.lang.String got_num = &quot;got &quot; + values_count;</b>
+<b class="nc"><i class="no-highlight">409</i>&nbsp;                throw new org.python.exceptions.ValueError(&quot;not enough values to unpack (&quot; + expected_num + &quot;, &quot; + got_num + &quot;)&quot;);</b>
+<i class="no-highlight">410</i>&nbsp;            }
+<i class="no-highlight">411</i>&nbsp;        }
+<i class="no-highlight">412</i>&nbsp;    }
+<i class="no-highlight">413</i>&nbsp;
+<i class="no-highlight">414</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">415</i>&nbsp;            __doc__ = &quot;__import__(name, globals=None, locals=None, fromlist=(), level=0) -&gt; module&quot; +
+<i class="no-highlight">416</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">417</i>&nbsp;                    &quot;Import a module. Because this function is meant for use by the Python\n&quot; +
+<i class="no-highlight">418</i>&nbsp;                    &quot;interpreter and not for general use it is better to use\n&quot; +
+<i class="no-highlight">419</i>&nbsp;                    &quot;importlib.import_module() to programmatically import a module.\n&quot; +
+<i class="no-highlight">420</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">421</i>&nbsp;                    &quot;The globals argument is only used to determine the context;\n&quot; +
+<i class="no-highlight">422</i>&nbsp;                    &quot;they are not modified.  The locals argument is unused.  The fromlist\n&quot; +
+<i class="no-highlight">423</i>&nbsp;                    &quot;should be a list of names to emulate ``from name import ...&#39;&#39;, or an\n&quot; +
+<i class="no-highlight">424</i>&nbsp;                    &quot;empty list to emulate ``import name&#39;&#39;.\n&quot; +
+<i class="no-highlight">425</i>&nbsp;                    &quot;When importing a module from a package, note that __import__(&#39;A.B&#39;, ...)\n&quot; +
+<i class="no-highlight">426</i>&nbsp;                    &quot;returns package A when fromlist is empty, but its submodule B when\n&quot; +
+<i class="no-highlight">427</i>&nbsp;                    &quot;fromlist is not empty.  Level is used to determine whether to perform\n&quot; +
+<i class="no-highlight">428</i>&nbsp;                    &quot;absolute or relative imports. 0 is absolute while a positive number\n&quot; +
+<i class="no-highlight">429</i>&nbsp;                    &quot;is the number of parent directories to search relative to the current module.\n&quot;,
+<i class="no-highlight">430</i>&nbsp;            args = {&quot;name&quot;},
+<i class="no-highlight">431</i>&nbsp;            default_args = {&quot;globals&quot;, &quot;locals&quot;, &quot;fromlist&quot;, &quot;level&quot;}
+<i class="no-highlight">432</i>&nbsp;    )
+<i class="no-highlight">433</i>&nbsp;    public static org.python.Object __import__(
+<i class="no-highlight">434</i>&nbsp;            org.python.Object name,
+<i class="no-highlight">435</i>&nbsp;            org.python.Object globals,
+<i class="no-highlight">436</i>&nbsp;            org.python.Object locals,
+<i class="no-highlight">437</i>&nbsp;            org.python.Object fromlist,
+<i class="no-highlight">438</i>&nbsp;            org.python.Object level) {
+<b class="nc"><i class="no-highlight">439</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;__import__&#39; not implemented&quot;);</b>
+<i class="no-highlight">440</i>&nbsp;    }
+<i class="no-highlight">441</i>&nbsp;
+<i class="no-highlight">442</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">443</i>&nbsp;            __doc__ = &quot;abs(number) -&gt; number&quot; +
+<i class="no-highlight">444</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">445</i>&nbsp;                    &quot;Return the absolute value of the argument.\n&quot;,
+<i class="no-highlight">446</i>&nbsp;            args = {&quot;number&quot;}
+<i class="no-highlight">447</i>&nbsp;    )
+<i class="no-highlight">448</i>&nbsp;    public static org.python.Object abs(org.python.Object number) {
+<i class="no-highlight">449</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">450</i>&nbsp;            return number.__abs__();</b>
+<b class="nc"><i class="no-highlight">451</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">452</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;bad operand type for abs(): &#39;&quot; + number.typeName() + &quot;&#39;&quot;);</b>
+<i class="no-highlight">453</i>&nbsp;        }
+<i class="no-highlight">454</i>&nbsp;    }
+<i class="no-highlight">455</i>&nbsp;
+<i class="no-highlight">456</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">457</i>&nbsp;            __doc__ = &quot;all(iterable) -&gt; bool&quot; +
+<i class="no-highlight">458</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">459</i>&nbsp;                    &quot;Return True if bool(x) is True for all values x in the iterable.\n&quot; +
+<i class="no-highlight">460</i>&nbsp;                    &quot;If the iterable is empty, return True.\n&quot;,
+<i class="no-highlight">461</i>&nbsp;            args = {&quot;iterable&quot;}
+<i class="no-highlight">462</i>&nbsp;    )
+<i class="no-highlight">463</i>&nbsp;    public static org.python.types.Bool all(org.python.Object iterable) {
+<b class="nc"><i class="no-highlight">464</i>&nbsp;        org.python.Object iter = org.Python.iter(iterable);</b>
+<i class="no-highlight">465</i>&nbsp;        try {
+<i class="no-highlight">466</i>&nbsp;            while (true) {
+<b class="nc"><i class="no-highlight">467</i>&nbsp;                org.python.Object next = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">468</i>&nbsp;                if (!next.toBoolean()) {</b>
+<b class="nc"><i class="no-highlight">469</i>&nbsp;                    return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">470</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">471</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">472</i>&nbsp;        } catch (org.python.exceptions.StopIteration si) {</b>
+<i class="no-highlight">473</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">474</i>&nbsp;        return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">475</i>&nbsp;    }
+<i class="no-highlight">476</i>&nbsp;
+<i class="no-highlight">477</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">478</i>&nbsp;            __doc__ = &quot;any(iterable) -&gt; bool&quot; +
+<i class="no-highlight">479</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">480</i>&nbsp;                    &quot;Return True if bool(x) is True for any x in the iterable.\n&quot; +
+<i class="no-highlight">481</i>&nbsp;                    &quot;If the iterable is empty, return False.\n&quot;,
+<i class="no-highlight">482</i>&nbsp;            args = {&quot;iterable&quot;}
+<i class="no-highlight">483</i>&nbsp;    )
+<i class="no-highlight">484</i>&nbsp;    public static org.python.types.Bool any(org.python.Object iterable) {
+<b class="nc"><i class="no-highlight">485</i>&nbsp;        org.python.Object iter = org.Python.iter(iterable);</b>
+<i class="no-highlight">486</i>&nbsp;        try {
+<i class="no-highlight">487</i>&nbsp;            while (true) {
+<b class="nc"><i class="no-highlight">488</i>&nbsp;                org.python.Object next = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">489</i>&nbsp;                if (next.toBoolean()) {</b>
+<b class="nc"><i class="no-highlight">490</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">491</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">492</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">493</i>&nbsp;        } catch (org.python.exceptions.StopIteration si) {</b>
+<i class="no-highlight">494</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">495</i>&nbsp;        return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">496</i>&nbsp;    }
+<i class="no-highlight">497</i>&nbsp;
+<i class="no-highlight">498</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">499</i>&nbsp;            __doc__ = &quot;ascii(object) -&gt; string&quot; +
+<i class="no-highlight">500</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">501</i>&nbsp;                    &quot;As repr(), return a string containing a printable representation of an\n&quot; +
+<i class="no-highlight">502</i>&nbsp;                    &quot;object, but escape the non-ASCII characters in the string returned by\n&quot; +
+<i class="no-highlight">503</i>&nbsp;                    &quot;repr() using \\x, \\u or \\U escapes.  This generates a string similar\n&quot; +
+<i class="no-highlight">504</i>&nbsp;                    &quot;to that returned by repr() in Python 2.\n&quot;,
+<i class="no-highlight">505</i>&nbsp;            args = {&quot;object&quot;}
+<i class="no-highlight">506</i>&nbsp;    )
+<i class="no-highlight">507</i>&nbsp;    public static org.python.types.Str ascii(org.python.Object object) {
+<b class="nc"><i class="no-highlight">508</i>&nbsp;        if (object instanceof org.python.types.Str) {</b>
+<b class="nc"><i class="no-highlight">509</i>&nbsp;            org.python.types.Str s = (org.python.types.Str) object;</b>
+<i class="no-highlight">510</i>&nbsp;
+<b class="nc"><i class="no-highlight">511</i>&nbsp;            char startChar = &#39;\&#39;&#39;;</b>
+<i class="no-highlight">512</i>&nbsp;
+<b class="nc"><i class="no-highlight">513</i>&nbsp;            for (int i = 0; i &lt; s.value.length(); i++) {</b>
+<b class="nc"><i class="no-highlight">514</i>&nbsp;                char c = s.value.charAt(i);</b>
+<i class="no-highlight">515</i>&nbsp;
+<b class="nc"><i class="no-highlight">516</i>&nbsp;                if (c == &#39;\&#39;&#39;) {</b>
+<b class="nc"><i class="no-highlight">517</i>&nbsp;                    startChar = &#39;&quot;&#39;;</b>
+<b class="nc"><i class="no-highlight">518</i>&nbsp;                } else if (c == &#39;&quot;&#39;) {</b>
+<b class="nc"><i class="no-highlight">519</i>&nbsp;                    startChar = &#39;\&#39;&#39;;</b>
+<b class="nc"><i class="no-highlight">520</i>&nbsp;                    break;</b>
+<i class="no-highlight">521</i>&nbsp;                }
+<i class="no-highlight">522</i>&nbsp;            }
+<i class="no-highlight">523</i>&nbsp;
+<b class="nc"><i class="no-highlight">524</i>&nbsp;            String out = Character.toString(startChar);</b>
+<i class="no-highlight">525</i>&nbsp;
+<b class="nc"><i class="no-highlight">526</i>&nbsp;            for (int i = 0; i &lt; s.value.length(); i++) {</b>
+<b class="nc"><i class="no-highlight">527</i>&nbsp;                char c = s.value.charAt(i);</b>
+<i class="no-highlight">528</i>&nbsp;
+<b class="nc"><i class="no-highlight">529</i>&nbsp;                if (c == &#39;\\&#39;) {</b>
+<b class="nc"><i class="no-highlight">530</i>&nbsp;                    out += &quot;\\\\&quot;;</b>
+<b class="nc"><i class="no-highlight">531</i>&nbsp;                } else if (c == startChar) {</b>
+<b class="nc"><i class="no-highlight">532</i>&nbsp;                    out += &quot;\\&quot; + c;</b>
+<b class="nc"><i class="no-highlight">533</i>&nbsp;                } else if (0x20 &lt;= c &amp;&amp; c &lt;= 0x7E) {</b>
+<b class="nc"><i class="no-highlight">534</i>&nbsp;                    out += c;</b>
+<b class="nc"><i class="no-highlight">535</i>&nbsp;                } else if (c &lt;= 0xFF) {</b>
+<b class="nc"><i class="no-highlight">536</i>&nbsp;                    switch (c) {</b>
+<b class="nc"><i class="no-highlight">537</i>&nbsp;                        case 0x09: out += &quot;\\t&quot;; break;</b>
+<b class="nc"><i class="no-highlight">538</i>&nbsp;                        case 0x0A: out += &quot;\\n&quot;; break;</b>
+<b class="nc"><i class="no-highlight">539</i>&nbsp;                        case 0x0D: out += &quot;\\r&quot;; break;</b>
+<b class="nc"><i class="no-highlight">540</i>&nbsp;                        default: out += String.format(&quot;\\x%02x&quot;, (int) c);</b>
+<i class="no-highlight">541</i>&nbsp;                    }
+<i class="no-highlight">542</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">543</i>&nbsp;                    out += String.format(&quot;\\u%04x&quot;, (int) c);</b>
+<i class="no-highlight">544</i>&nbsp;                }
+<i class="no-highlight">545</i>&nbsp;            }
+<i class="no-highlight">546</i>&nbsp;
+<b class="nc"><i class="no-highlight">547</i>&nbsp;            out += startChar;</b>
+<i class="no-highlight">548</i>&nbsp;
+<b class="nc"><i class="no-highlight">549</i>&nbsp;            return new org.python.types.Str(out);</b>
+<b class="nc"><i class="no-highlight">550</i>&nbsp;        } else if (object instanceof org.python.types.List) {</b>
+<b class="nc"><i class="no-highlight">551</i>&nbsp;            org.python.types.List l = (org.python.types.List) object;</b>
+<i class="no-highlight">552</i>&nbsp;
+<b class="nc"><i class="no-highlight">553</i>&nbsp;            String out = &quot;[&quot;;</b>
+<i class="no-highlight">554</i>&nbsp;
+<b class="nc"><i class="no-highlight">555</i>&nbsp;            for (int i = 0; i &lt; l.value.size(); i++) {</b>
+<b class="nc"><i class="no-highlight">556</i>&nbsp;                if(i != 0) {</b>
+<b class="nc"><i class="no-highlight">557</i>&nbsp;                    out += &quot;, &quot;;</b>
+<i class="no-highlight">558</i>&nbsp;                }
+<i class="no-highlight">559</i>&nbsp;
+<b class="nc"><i class="no-highlight">560</i>&nbsp;                out += ascii(l.value.get(i));</b>
+<i class="no-highlight">561</i>&nbsp;            }
+<i class="no-highlight">562</i>&nbsp;
+<b class="nc"><i class="no-highlight">563</i>&nbsp;            out += &quot;]&quot;;</b>
+<i class="no-highlight">564</i>&nbsp;
+<b class="nc"><i class="no-highlight">565</i>&nbsp;            return new org.python.types.Str(out);</b>
+<b class="nc"><i class="no-highlight">566</i>&nbsp;        } else if (object instanceof org.python.types.Tuple) {</b>
+<b class="nc"><i class="no-highlight">567</i>&nbsp;            org.python.types.Tuple t = (org.python.types.Tuple) object;</b>
+<i class="no-highlight">568</i>&nbsp;
+<b class="nc"><i class="no-highlight">569</i>&nbsp;            String out = &quot;(&quot;;</b>
+<i class="no-highlight">570</i>&nbsp;
+<b class="nc"><i class="no-highlight">571</i>&nbsp;            if (t.value.size() == 1) {</b>
+<b class="nc"><i class="no-highlight">572</i>&nbsp;                out += ascii(t.value.get(0)) + &quot;,&quot;;</b>
+<i class="no-highlight">573</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">574</i>&nbsp;                for (int i = 0; i &lt; t.value.size(); i++) {</b>
+<b class="nc"><i class="no-highlight">575</i>&nbsp;                    if(i != 0) {</b>
+<b class="nc"><i class="no-highlight">576</i>&nbsp;                        out += &quot;, &quot;;</b>
+<i class="no-highlight">577</i>&nbsp;                    }
+<i class="no-highlight">578</i>&nbsp;
+<b class="nc"><i class="no-highlight">579</i>&nbsp;                    out += ascii(t.value.get(i));</b>
+<i class="no-highlight">580</i>&nbsp;                }
+<i class="no-highlight">581</i>&nbsp;            }
+<i class="no-highlight">582</i>&nbsp;
+<b class="nc"><i class="no-highlight">583</i>&nbsp;            out += &quot;)&quot;;</b>
+<i class="no-highlight">584</i>&nbsp;
+<b class="nc"><i class="no-highlight">585</i>&nbsp;            return new org.python.types.Str(out);</b>
+<b class="nc"><i class="no-highlight">586</i>&nbsp;        } else if (object instanceof org.python.types.Slice) {</b>
+<b class="nc"><i class="no-highlight">587</i>&nbsp;            org.python.types.Slice s = (org.python.types.Slice) object;</b>
+<b class="nc"><i class="no-highlight">588</i>&nbsp;            return new org.python.types.Str(</b>
+<b class="nc"><i class="no-highlight">589</i>&nbsp;                String.format(&quot;slice(%s, %s, %s)&quot;,</b>
+<b class="nc"><i class="no-highlight">590</i>&nbsp;                    ascii(s.start).value,</b>
+<b class="nc"><i class="no-highlight">591</i>&nbsp;                    ascii(s.stop).value,</b>
+<b class="nc"><i class="no-highlight">592</i>&nbsp;                    ascii(s.step).value)</b>
+<i class="no-highlight">593</i>&nbsp;            );
+<b class="nc"><i class="no-highlight">594</i>&nbsp;        } else if (object instanceof org.python.types.Bytes) {</b>
+<b class="nc"><i class="no-highlight">595</i>&nbsp;            org.python.types.Bytes bytes = (org.python.types.Bytes) object;</b>
+<i class="no-highlight">596</i>&nbsp;
+<b class="nc"><i class="no-highlight">597</i>&nbsp;            char startChar = &#39;\&#39;&#39;;</b>
+<i class="no-highlight">598</i>&nbsp;
+<b class="nc"><i class="no-highlight">599</i>&nbsp;            for (int i = 0; i &lt; bytes.value.length; i++) {</b>
+<b class="nc"><i class="no-highlight">600</i>&nbsp;                byte b = bytes.value[i];</b>
+<i class="no-highlight">601</i>&nbsp;
+<b class="nc"><i class="no-highlight">602</i>&nbsp;                if (b == &#39;\&#39;&#39;) {</b>
+<b class="nc"><i class="no-highlight">603</i>&nbsp;                    startChar = &#39;&quot;&#39;;</b>
+<b class="nc"><i class="no-highlight">604</i>&nbsp;                } else if (b == &#39;&quot;&#39;) {</b>
+<b class="nc"><i class="no-highlight">605</i>&nbsp;                    startChar = &#39;\&#39;&#39;;</b>
+<b class="nc"><i class="no-highlight">606</i>&nbsp;                    break;</b>
+<i class="no-highlight">607</i>&nbsp;                }
+<i class="no-highlight">608</i>&nbsp;            }
+<i class="no-highlight">609</i>&nbsp;
+<b class="nc"><i class="no-highlight">610</i>&nbsp;            String out = &quot;b&quot; + Character.toString(startChar);</b>
+<i class="no-highlight">611</i>&nbsp;
+<b class="nc"><i class="no-highlight">612</i>&nbsp;            for (int i = 0; i &lt; bytes.value.length; i++) {</b>
+<b class="nc"><i class="no-highlight">613</i>&nbsp;                byte b = bytes.value[i];</b>
+<i class="no-highlight">614</i>&nbsp;
+<b class="nc"><i class="no-highlight">615</i>&nbsp;                if (b == &#39;\\&#39;) {</b>
+<b class="nc"><i class="no-highlight">616</i>&nbsp;                    out += &quot;\\\\&quot;;</b>
+<b class="nc"><i class="no-highlight">617</i>&nbsp;                } else if (b == startChar) {</b>
+<b class="nc"><i class="no-highlight">618</i>&nbsp;                    out += &quot;\\&quot; + (char) b;</b>
+<b class="nc"><i class="no-highlight">619</i>&nbsp;                } else if (0x20 &lt;= b &amp;&amp; b &lt;= 0x7E) {</b>
+<b class="nc"><i class="no-highlight">620</i>&nbsp;                    out += (char) b;</b>
+<i class="no-highlight">621</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">622</i>&nbsp;                    switch (b) {</b>
+<b class="nc"><i class="no-highlight">623</i>&nbsp;                        case 0x09: out += &quot;\\t&quot;; break;</b>
+<b class="nc"><i class="no-highlight">624</i>&nbsp;                        case 0x0A: out += &quot;\\n&quot;; break;</b>
+<b class="nc"><i class="no-highlight">625</i>&nbsp;                        case 0x0D: out += &quot;\\r&quot;; break;</b>
+<b class="nc"><i class="no-highlight">626</i>&nbsp;                        default: out += String.format(&quot;\\x%02x&quot;, b &amp; 0xFF);</b>
+<i class="no-highlight">627</i>&nbsp;                    }
+<i class="no-highlight">628</i>&nbsp;                }
+<i class="no-highlight">629</i>&nbsp;            }
+<i class="no-highlight">630</i>&nbsp;
+<b class="nc"><i class="no-highlight">631</i>&nbsp;            out += startChar;</b>
+<i class="no-highlight">632</i>&nbsp;
+<b class="nc"><i class="no-highlight">633</i>&nbsp;            return new org.python.types.Str(out);</b>
+<i class="no-highlight">634</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">635</i>&nbsp;            return (org.python.types.Str) object.__repr__();</b>
+<i class="no-highlight">636</i>&nbsp;        }
+<i class="no-highlight">637</i>&nbsp;    }
+<i class="no-highlight">638</i>&nbsp;
+<i class="no-highlight">639</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">640</i>&nbsp;            __doc__ = &quot;bin(number) -&gt; string&quot; +
+<i class="no-highlight">641</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">642</i>&nbsp;                    &quot;Return the binary representation of an integer.\n&quot; +
+<i class="no-highlight">643</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">644</i>&nbsp;                    &quot;  &gt;&gt;&gt; bin(2796202)\n&quot; +
+<i class="no-highlight">645</i>&nbsp;                    &quot;  &#39;0b1010101010101010101010&#39;\n&quot;,
+<i class="no-highlight">646</i>&nbsp;            args = {&quot;number&quot;}
+<i class="no-highlight">647</i>&nbsp;    )
+<i class="no-highlight">648</i>&nbsp;    public static org.python.types.Str bin(org.python.Object number) {
+<i class="no-highlight">649</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">650</i>&nbsp;            if (!(number instanceof org.python.types.Int)) {</b>
+<b class="nc"><i class="no-highlight">651</i>&nbsp;                number.__index__();</b>
+<i class="no-highlight">652</i>&nbsp;            }
+<i class="no-highlight">653</i>&nbsp;
+<b class="nc"><i class="no-highlight">654</i>&nbsp;            java.lang.String s = java.lang.Long.toString(((org.python.types.Int) number.__int__()).value, 2);</b>
+<b class="nc"><i class="no-highlight">655</i>&nbsp;            if (s.charAt(0) == &#39;-&#39;) {</b>
+<b class="nc"><i class="no-highlight">656</i>&nbsp;                s = &quot;-0b&quot; + s.substring(1);</b>
+<i class="no-highlight">657</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">658</i>&nbsp;                s = &quot;0b&quot; + s;</b>
+<i class="no-highlight">659</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">660</i>&nbsp;            return new org.python.types.Str(s);</b>
+<b class="nc"><i class="no-highlight">661</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">662</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + number.typeName() + &quot;&#39; object cannot be interpreted as an integer&quot;);</b>
+<i class="no-highlight">663</i>&nbsp;        }
+<i class="no-highlight">664</i>&nbsp;    }
+<i class="no-highlight">665</i>&nbsp;
+<i class="no-highlight">666</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">667</i>&nbsp;            __doc__ = &quot;callable(object) -&gt; bool&quot; +
+<i class="no-highlight">668</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">669</i>&nbsp;                    &quot;Return whether the object is callable (i.e., some kind of function).\n&quot; +
+<i class="no-highlight">670</i>&nbsp;                    &quot;Note that classes are callable, as are instances of classes with a\n&quot; +
+<i class="no-highlight">671</i>&nbsp;                    &quot;__call__() method.\n&quot;,
+<i class="no-highlight">672</i>&nbsp;            args = {&quot;object&quot;}
+<i class="no-highlight">673</i>&nbsp;    )
+<i class="no-highlight">674</i>&nbsp;    public static org.python.types.Bool callable(org.python.Object object) {
+<b class="nc"><i class="no-highlight">675</i>&nbsp;        return org.python.types.Bool.getBool(org.python.Callable.class.isAssignableFrom(object.getClass()));</b>
+<i class="no-highlight">676</i>&nbsp;    }
+<i class="no-highlight">677</i>&nbsp;
+<i class="no-highlight">678</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">679</i>&nbsp;            __doc__ = &quot;chr(i) -&gt; Unicode character&quot; +
+<i class="no-highlight">680</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">681</i>&nbsp;                    &quot;Return a Unicode string of one character with ordinal i; 0 &lt;= i &lt;= 0x10ffff.\n&quot;,
+<i class="no-highlight">682</i>&nbsp;            args = {&quot;i&quot;}
+<i class="no-highlight">683</i>&nbsp;    )
+<i class="no-highlight">684</i>&nbsp;    public static org.python.types.Str chr(org.python.Object i) {
+<b class="nc"><i class="no-highlight">685</i>&nbsp;        if (i instanceof org.python.types.Float) {</b>
+<b class="nc"><i class="no-highlight">686</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;integer argument expected, got &quot; + i.typeName() + &quot;&quot;);</b>
+<i class="no-highlight">687</i>&nbsp;        }
+<i class="no-highlight">688</i>&nbsp;
+<i class="no-highlight">689</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">690</i>&nbsp;            if (!(i instanceof org.python.types.Int)) {</b>
+<b class="nc"><i class="no-highlight">691</i>&nbsp;                i.__index__();</b>
+<i class="no-highlight">692</i>&nbsp;            }
+<i class="no-highlight">693</i>&nbsp;
+<b class="nc"><i class="no-highlight">694</i>&nbsp;            long value = ((org.python.types.Int) i.__int__()).value;</b>
+<b class="nc"><i class="no-highlight">695</i>&nbsp;            if (value &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">696</i>&nbsp;                throw new org.python.exceptions.ValueError(&quot;chr() arg not in range(&quot; + String.format(&quot;0x%x&quot;, (int) ((org.python.types.Int) i.__int__()).value) + &quot;)&quot;);</b>
+<i class="no-highlight">697</i>&nbsp;            }
+<i class="no-highlight">698</i>&nbsp;
+<b class="nc"><i class="no-highlight">699</i>&nbsp;            return new org.python.types.Str(Character.toChars((int) value)[0]);</b>
+<b class="nc"><i class="no-highlight">700</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">701</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;an integer is required (got type &quot; + i.typeName() + &quot;)&quot;);</b>
+<i class="no-highlight">702</i>&nbsp;        }
+<i class="no-highlight">703</i>&nbsp;    }
+<i class="no-highlight">704</i>&nbsp;
+<i class="no-highlight">705</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">706</i>&nbsp;            __doc__ = &quot;classmethod(function) -&gt; method&quot; +
+<i class="no-highlight">707</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">708</i>&nbsp;                    &quot;Convert a function to be a class method.\n&quot; +
+<i class="no-highlight">709</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">710</i>&nbsp;                    &quot;A class method receives the class as implicit first argument,\n&quot; +
+<i class="no-highlight">711</i>&nbsp;                    &quot;just like an instance method receives the instance.\n&quot; +
+<i class="no-highlight">712</i>&nbsp;                    &quot;To declare a class method, use this idiom:\n&quot; +
+<i class="no-highlight">713</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">714</i>&nbsp;                    &quot; class C:\n&quot; +
+<i class="no-highlight">715</i>&nbsp;                    &quot;     def f(cls, arg1, arg2, ...): ...\n&quot; +
+<i class="no-highlight">716</i>&nbsp;                    &quot;     f = classmethod(f)\n&quot; +
+<i class="no-highlight">717</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">718</i>&nbsp;                    &quot;It can be called either on the class (e.g. C.f()) or on an instance\n&quot; +
+<i class="no-highlight">719</i>&nbsp;                    &quot;(e.g. C().f()).  The instance is ignored except for its class.\n&quot; +
+<i class="no-highlight">720</i>&nbsp;                    &quot;If a class method is called for a derived class, the derived class\n&quot; +
+<i class="no-highlight">721</i>&nbsp;                    &quot;object is passed as the implied first argument.\n&quot; +
+<i class="no-highlight">722</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">723</i>&nbsp;                    &quot;Class methods are different than C++ or Java static methods.\n&quot; +
+<i class="no-highlight">724</i>&nbsp;                    &quot;If you want those, see the staticmethod builtin.\n&quot;,
+<i class="no-highlight">725</i>&nbsp;            args = {&quot;function&quot;}
+<i class="no-highlight">726</i>&nbsp;    )
+<i class="no-highlight">727</i>&nbsp;    public static org.python.Object classmethod(org.python.Object function) {
+<b class="nc"><i class="no-highlight">728</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;classmethod&#39; not implemented&quot;);</b>
+<i class="no-highlight">729</i>&nbsp;    }
+<i class="no-highlight">730</i>&nbsp;
+<i class="no-highlight">731</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">732</i>&nbsp;            __doc__ = &quot;compile(source, filename, mode[, flags[, dont_inherit]]) -&gt; code object&quot; +
+<i class="no-highlight">733</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">734</i>&nbsp;                    &quot;Compile the source (a Python module, statement or expression)\n&quot; +
+<i class="no-highlight">735</i>&nbsp;                    &quot;into a code object that can be executed by exec() or eval().\n&quot; +
+<i class="no-highlight">736</i>&nbsp;                    &quot;The filename will be used for run-time error messages.\n&quot; +
+<i class="no-highlight">737</i>&nbsp;                    &quot;The mode must be &#39;exec&#39; to compile a module, &#39;single&#39; to compile a\n&quot; +
+<i class="no-highlight">738</i>&nbsp;                    &quot;single (interactive) statement, or &#39;eval&#39; to compile an expression.\n&quot; +
+<i class="no-highlight">739</i>&nbsp;                    &quot;The flags argument, if present, controls which future statements influence\n&quot; +
+<i class="no-highlight">740</i>&nbsp;                    &quot;the compilation of the code.\n&quot; +
+<i class="no-highlight">741</i>&nbsp;                    &quot;The dont_inherit argument, if non-zero, stops the compilation inheriting\n&quot; +
+<i class="no-highlight">742</i>&nbsp;                    &quot;the effects of any future statements in effect in the code calling\n&quot; +
+<i class="no-highlight">743</i>&nbsp;                    &quot;compile; if absent or zero these statements do influence the compilation,\n&quot; +
+<i class="no-highlight">744</i>&nbsp;                    &quot;in addition to any features explicitly specified.\n&quot;,
+<i class="no-highlight">745</i>&nbsp;            args = {&quot;source&quot;, &quot;filename&quot;, &quot;mode&quot;},
+<i class="no-highlight">746</i>&nbsp;            default_args = {&quot;flags&quot;, &quot;dont_inherit&quot;}
+<i class="no-highlight">747</i>&nbsp;    )
+<i class="no-highlight">748</i>&nbsp;    public static org.python.Object compile(
+<i class="no-highlight">749</i>&nbsp;            org.python.Object source,
+<i class="no-highlight">750</i>&nbsp;            org.python.Object filename,
+<i class="no-highlight">751</i>&nbsp;            org.python.Object mode,
+<i class="no-highlight">752</i>&nbsp;            org.python.Object flags,
+<i class="no-highlight">753</i>&nbsp;            org.python.Object dont_inherit) {
+<b class="nc"><i class="no-highlight">754</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;compile&#39; not implemented&quot;);</b>
+<i class="no-highlight">755</i>&nbsp;    }
+<i class="no-highlight">756</i>&nbsp;
+<i class="no-highlight">757</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">758</i>&nbsp;            __doc__ = &quot;interactive prompt objects for printing the license text, a list of&quot; +
+<i class="no-highlight">759</i>&nbsp;                    &quot;contributors and the copyright notice.\n&quot;
+<i class="no-highlight">760</i>&nbsp;    )
+<i class="no-highlight">761</i>&nbsp;    public static org.python.types.Str copyright() {
+<b class="nc"><i class="no-highlight">762</i>&nbsp;        return new org.python.types.Str(</b>
+<i class="no-highlight">763</i>&nbsp;                &quot;Copyright (c) 2015 Russell Keith-Magee.\n&quot; +
+<i class="no-highlight">764</i>&nbsp;                        &quot;All Rights Reserved.\n&quot; +
+<i class="no-highlight">765</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">766</i>&nbsp;                        &quot;Copyright (c) 2001-2014 Python Software Foundation.\n&quot; +
+<i class="no-highlight">767</i>&nbsp;                        &quot;All Rights Reserved.\n&quot; +
+<i class="no-highlight">768</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">769</i>&nbsp;                        &quot;Copyright (c) 2000 BeOpen.com.\n&quot; +
+<i class="no-highlight">770</i>&nbsp;                        &quot;All Rights Reserved.\n&quot; +
+<i class="no-highlight">771</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">772</i>&nbsp;                        &quot;Copyright (c) 1995-2001 Corporation for National Research Initiatives.\n&quot; +
+<i class="no-highlight">773</i>&nbsp;                        &quot;All Rights Reserved.\n&quot; +
+<i class="no-highlight">774</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">775</i>&nbsp;                        &quot;Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\n&quot; +
+<i class="no-highlight">776</i>&nbsp;                        &quot;All Rights Reserved.\n&quot;
+<i class="no-highlight">777</i>&nbsp;        );
+<i class="no-highlight">778</i>&nbsp;    }
+<i class="no-highlight">779</i>&nbsp;
+<i class="no-highlight">780</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">781</i>&nbsp;            __doc__ = &quot;interactive prompt objects for printing the license text, a list of&quot; +
+<i class="no-highlight">782</i>&nbsp;                    &quot;contributors and the copyright notice.\n&quot;
+<i class="no-highlight">783</i>&nbsp;    )
+<i class="no-highlight">784</i>&nbsp;    public static org.python.Object credits() {
+<b class="nc"><i class="no-highlight">785</i>&nbsp;        return new org.python.types.Str(</b>
+<i class="no-highlight">786</i>&nbsp;                &quot;voc is a BeeWare project. See beeware.org/voc for more information.\n&quot; +
+<i class="no-highlight">787</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">788</i>&nbsp;                        &quot;Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands\n&quot; +
+<i class="no-highlight">789</i>&nbsp;                        &quot;for supporting Python development.  See www.python.org for more information.\n&quot;
+<i class="no-highlight">790</i>&nbsp;        );
+<i class="no-highlight">791</i>&nbsp;    }
+<i class="no-highlight">792</i>&nbsp;
+<i class="no-highlight">793</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">794</i>&nbsp;            __doc__ = &quot;delattr(object, name)&quot; +
+<i class="no-highlight">795</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">796</i>&nbsp;                    &quot;Delete a named attribute on an object; delattr(x, &#39;y&#39;) is equivalent to\n&quot; +
+<i class="no-highlight">797</i>&nbsp;                    &quot;``del x.y&#39;&#39;.\n&quot;,
+<i class="no-highlight">798</i>&nbsp;            args = {&quot;object&quot;, &quot;name&quot;}
+<i class="no-highlight">799</i>&nbsp;    )
+<i class="no-highlight">800</i>&nbsp;    public static org.python.Object delattr(org.python.Object object, org.python.Object name) {
+<b class="nc"><i class="no-highlight">801</i>&nbsp;        object.__delattr__(name);</b>
+<b class="nc"><i class="no-highlight">802</i>&nbsp;        return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">803</i>&nbsp;    }
+<i class="no-highlight">804</i>&nbsp;
+<i class="no-highlight">805</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">806</i>&nbsp;            __doc__ = &quot;dir([object]) -&gt; list of strings&quot; +
+<i class="no-highlight">807</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">808</i>&nbsp;                    &quot;If called without an argument, return the names in the current scope.\n&quot; +
+<i class="no-highlight">809</i>&nbsp;                    &quot;Else, return an alphabetized list of names comprising (some of) the attributes\n&quot; +
+<i class="no-highlight">810</i>&nbsp;                    &quot;of the given object, and of attributes reachable from it.\n&quot; +
+<i class="no-highlight">811</i>&nbsp;                    &quot;If the object supplies a method named __dir__, it will be used; otherwise\n&quot; +
+<i class="no-highlight">812</i>&nbsp;                    &quot;the default dir() logic is used and returns:\n&quot; +
+<i class="no-highlight">813</i>&nbsp;                    &quot;  for a module object: the module&#39;s attributes.\n&quot; +
+<i class="no-highlight">814</i>&nbsp;                    &quot;  for a class object:  its attributes, and recursively the attributes\n&quot; +
+<i class="no-highlight">815</i>&nbsp;                    &quot;    of its bases.\n&quot; +
+<i class="no-highlight">816</i>&nbsp;                    &quot;    for any other object: its attributes, its class&#39;s attributes, and\n&quot; +
+<i class="no-highlight">817</i>&nbsp;                    &quot;    recursively the attributes of its class&#39;s base classes.\n&quot;,
+<i class="no-highlight">818</i>&nbsp;            default_args = {&quot;object&quot;}
+<i class="no-highlight">819</i>&nbsp;    )
+<i class="no-highlight">820</i>&nbsp;    public static org.python.types.List dir(org.python.Object object) {
+<b class="nc"><i class="no-highlight">821</i>&nbsp;        if (object == null) {</b>
+<b class="nc"><i class="no-highlight">822</i>&nbsp;            throw new org.python.exceptions.NotImplementedError(&quot;builting function &#39;dir&#39; with no arguments not implemented&quot;);</b>
+<i class="no-highlight">823</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">824</i>&nbsp;            return (org.python.types.List) object.__dir__();</b>
+<i class="no-highlight">825</i>&nbsp;        }
+<i class="no-highlight">826</i>&nbsp;    }
+<i class="no-highlight">827</i>&nbsp;
+<i class="no-highlight">828</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">829</i>&nbsp;            __doc__ = &quot;divmod(x, y) -&gt; (div, mod)&quot; +
+<i class="no-highlight">830</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">831</i>&nbsp;                    &quot;Return the tuple ((x-x%y)/y, x%y).  Invariant: div*y + mod == x.\n&quot;,
+<i class="no-highlight">832</i>&nbsp;            args = {&quot;a&quot;, &quot;b&quot;}
+<i class="no-highlight">833</i>&nbsp;    )
+<i class="no-highlight">834</i>&nbsp;    public static org.python.types.Tuple divmod(org.python.Object a, org.python.Object b) {
+<i class="no-highlight">835</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">836</i>&nbsp;            return (org.python.types.Tuple) a.__divmod__(b);</b>
+<b class="nc"><i class="no-highlight">837</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">838</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;unsupported operand type(s) for divmod(): &#39;&quot; + a.typeName() + &quot;&#39; and &#39;&quot; + b.typeName() + &quot;&#39;&quot;);</b>
+<i class="no-highlight">839</i>&nbsp;        }
+<i class="no-highlight">840</i>&nbsp;    }
+<i class="no-highlight">841</i>&nbsp;
+<i class="no-highlight">842</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">843</i>&nbsp;            __doc__ = &quot;enumerate(iterable[, start]) -&gt; iterator for index, value of iterable&quot; +
+<i class="no-highlight">844</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">845</i>&nbsp;                    &quot;Return an enumerate object.  iterable must be another object that supports\n&quot; +
+<i class="no-highlight">846</i>&nbsp;                    &quot;iteration.  The enumerate object yields pairs containing a count (from\n&quot; +
+<i class="no-highlight">847</i>&nbsp;                    &quot;start, which defaults to zero) and a value yielded by the iterable argument.\n&quot; +
+<i class="no-highlight">848</i>&nbsp;                    &quot;enumerate is useful for obtaining an indexed list:\n&quot; +
+<i class="no-highlight">849</i>&nbsp;                    &quot;(0, seq[0]), (1, seq[1]), (2, seq[2]), ...\n&quot;,
+<i class="no-highlight">850</i>&nbsp;            default_args = {&quot;items&quot;, &quot;start&quot;}
+<i class="no-highlight">851</i>&nbsp;    )
+<i class="no-highlight">852</i>&nbsp;    public static org.python.Object enumerate(org.python.Object items, org.python.Object start) {
+<b class="nc"><i class="no-highlight">853</i>&nbsp;        if (items == null) {</b>
+<b class="nc"><i class="no-highlight">854</i>&nbsp;            if (org.Python.VERSION &lt; 0x03070000) {</b>
+<b class="nc"><i class="no-highlight">855</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;Required argument &#39;iterable&#39; (pos 1) not found&quot;);</b>
+<i class="no-highlight">856</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">857</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;enumerate() missing required argument &#39;iterable&#39; (pos 1)&quot;);</b>
+<i class="no-highlight">858</i>&nbsp;            }
+<i class="no-highlight">859</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">860</i>&nbsp;        org.python.Object index = org.python.types.Int.getInt(0);</b>
+<b class="nc"><i class="no-highlight">861</i>&nbsp;        if (start != null) {</b>
+<i class="no-highlight">862</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">863</i>&nbsp;                index = (org.python.types.Int) start; // will throw error if start can&#39;t be converted to Int</b>
+<b class="nc"><i class="no-highlight">864</i>&nbsp;            } catch (ClassCastException te) {</b>
+<b class="nc"><i class="no-highlight">865</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + start.typeName() + &quot;&#39; object cannot be interpreted as an integer&quot;);</b>
+<b class="nc"><i class="no-highlight">866</i>&nbsp;            }</b>
+<i class="no-highlight">867</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">868</i>&nbsp;        org.python.Object increment = org.python.types.Int.getInt(1);</b>
+<b class="nc"><i class="no-highlight">869</i>&nbsp;        java.util.List enumList = new java.util.ArrayList();</b>
+<i class="no-highlight">870</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">871</i>&nbsp;            org.python.Object iter = org.Python.iter(items);</b>
+<i class="no-highlight">872</i>&nbsp;            while (true) {
+<i class="no-highlight">873</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">874</i>&nbsp;                    java.util.List tuple = new java.util.ArrayList();</b>
+<b class="nc"><i class="no-highlight">875</i>&nbsp;                    tuple.add(index);</b>
+<b class="nc"><i class="no-highlight">876</i>&nbsp;                    tuple.add(iter.__next__());</b>
+<b class="nc"><i class="no-highlight">877</i>&nbsp;                    org.python.types.Tuple pythonTuple = new org.python.types.Tuple(tuple);</b>
+<b class="nc"><i class="no-highlight">878</i>&nbsp;                    enumList.add(pythonTuple);</b>
+<b class="nc"><i class="no-highlight">879</i>&nbsp;                    index = index.__add__(increment);</b>
+<b class="nc"><i class="no-highlight">880</i>&nbsp;                } catch (org.python.exceptions.StopIteration e) {</b>
+<b class="nc"><i class="no-highlight">881</i>&nbsp;                    break;</b>
+<b class="nc"><i class="no-highlight">882</i>&nbsp;                }</b>
+<i class="no-highlight">883</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">884</i>&nbsp;            return org.Python.iter(new org.python.types.List(enumList));</b>
+<b class="nc"><i class="no-highlight">885</i>&nbsp;        } catch (org.python.exceptions.AttributeError e) {</b>
+<b class="nc"><i class="no-highlight">886</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + items.typeName() + &quot;&#39; object is not iterable&quot;);</b>
+<i class="no-highlight">887</i>&nbsp;        }
+<i class="no-highlight">888</i>&nbsp;    }
+<i class="no-highlight">889</i>&nbsp;
+<i class="no-highlight">890</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">891</i>&nbsp;            __doc__ = &quot;eval(source[, globals[, locals]]) -&gt; value&quot; +
+<i class="no-highlight">892</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">893</i>&nbsp;                    &quot;Evaluate the source in the context of globals and locals.\n&quot; +
+<i class="no-highlight">894</i>&nbsp;                    &quot;The source may be a string representing a Python expression\n&quot; +
+<i class="no-highlight">895</i>&nbsp;                    &quot;or a code object as returned by compile().\n&quot; +
+<i class="no-highlight">896</i>&nbsp;                    &quot;The globals must be a dictionary and locals can be any mapping,\n&quot; +
+<i class="no-highlight">897</i>&nbsp;                    &quot;defaulting to the current globals and locals.\n&quot; +
+<i class="no-highlight">898</i>&nbsp;                    &quot;If only globals is given, locals defaults to it.\n&quot;,
+<i class="no-highlight">899</i>&nbsp;            args = {&quot;source&quot;},
+<i class="no-highlight">900</i>&nbsp;            default_args = {&quot;globals&quot;, &quot;locals&quot;}
+<i class="no-highlight">901</i>&nbsp;    )
+<i class="no-highlight">902</i>&nbsp;    public static org.python.Object eval(org.python.Object source, org.python.Object globals, org.python.Object locals) {
+<b class="nc"><i class="no-highlight">903</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;eval&#39; not implemented&quot;);</b>
+<i class="no-highlight">904</i>&nbsp;    }
+<i class="no-highlight">905</i>&nbsp;
+<i class="no-highlight">906</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">907</i>&nbsp;            __doc__ = &quot;exec(object[, globals[, locals]])&quot; +
+<i class="no-highlight">908</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">909</i>&nbsp;                    &quot;Read and execute code from an object, which can be a string or a code\n&quot; +
+<i class="no-highlight">910</i>&nbsp;                    &quot;object.\n&quot; +
+<i class="no-highlight">911</i>&nbsp;                    &quot;The globals and locals are dictionaries, defaulting to the current\n&quot; +
+<i class="no-highlight">912</i>&nbsp;                    &quot;globals and locals.  If only globals is given, locals defaults to it.\n&quot;,
+<i class="no-highlight">913</i>&nbsp;            args = {&quot;object&quot;},
+<i class="no-highlight">914</i>&nbsp;            default_args = {&quot;globals&quot;, &quot;locals&quot;}
+<i class="no-highlight">915</i>&nbsp;    )
+<i class="no-highlight">916</i>&nbsp;    public static org.python.Object exec(org.python.Object object, org.python.Object globals, org.python.Object locals) {
+<b class="nc"><i class="no-highlight">917</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;exec&#39; not implemented&quot;);</b>
+<i class="no-highlight">918</i>&nbsp;    }
+<i class="no-highlight">919</i>&nbsp;
+<i class="no-highlight">920</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">921</i>&nbsp;            name = &quot;filter&quot;,
+<i class="no-highlight">922</i>&nbsp;            __doc__ = &quot;filter(function or None, iterable) --&gt; filter object&quot; +
+<i class="no-highlight">923</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">924</i>&nbsp;                    &quot;Return an iterator yielding those items of iterable for which function(item)\n&quot; +
+<i class="no-highlight">925</i>&nbsp;                    &quot;is true. If function is None, return the items that are true.\n&quot;,
+<i class="no-highlight">926</i>&nbsp;            args = {&quot;function&quot;, &quot;iterable&quot;}
+<i class="no-highlight">927</i>&nbsp;    )
+<i class="no-highlight">928</i>&nbsp;    public static org.python.Object filter(org.python.Object function, org.python.Object iterable) {
+<b class="nc"><i class="no-highlight">929</i>&nbsp;        return new org.python.types.Filter(function, org.Python.iter(iterable));</b>
+<i class="no-highlight">930</i>&nbsp;    }
+<i class="no-highlight">931</i>&nbsp;
+<i class="no-highlight">932</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">933</i>&nbsp;            __doc__ = &quot;format(value[, format_spec]) -&gt; string&quot; +
+<i class="no-highlight">934</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">935</i>&nbsp;                    &quot;Returns value.__format__(format_spec)\n&quot; +
+<i class="no-highlight">936</i>&nbsp;                    &quot;format_spec defaults to &#39;&#39;\n&quot;,
+<i class="no-highlight">937</i>&nbsp;            args = {&quot;value&quot;},
+<i class="no-highlight">938</i>&nbsp;            default_args = {&quot;format_spec&quot;}
+<i class="no-highlight">939</i>&nbsp;    )
+<i class="no-highlight">940</i>&nbsp;    public static org.python.types.Str format(org.python.Object value, org.python.Object format_spec) {
+<b class="nc"><i class="no-highlight">941</i>&nbsp;        if (format_spec == null) {</b>
+<b class="nc"><i class="no-highlight">942</i>&nbsp;            return (org.python.types.Str) value.__str__();</b>
+<i class="no-highlight">943</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">944</i>&nbsp;            return (org.python.types.Str) value.__format__(format_spec);</b>
+<i class="no-highlight">945</i>&nbsp;        }
+<i class="no-highlight">946</i>&nbsp;    }
+<i class="no-highlight">947</i>&nbsp;
+<i class="no-highlight">948</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">949</i>&nbsp;            __doc__ = &quot;getattr(object, name[, default]) -&gt; value&quot; +
+<i class="no-highlight">950</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">951</i>&nbsp;                    &quot;Get a named attribute from an object; getattr(x, &#39;y&#39;) is equivalent to x.y.\n&quot; +
+<i class="no-highlight">952</i>&nbsp;                    &quot;When a default argument is given, it is returned when the attribute doesn&#39;t\n&quot; +
+<i class="no-highlight">953</i>&nbsp;                    &quot;exist; without it, an exception is raised in that case.\n&quot;,
+<i class="no-highlight">954</i>&nbsp;            args = {&quot;object&quot;, &quot;name&quot;},
+<i class="no-highlight">955</i>&nbsp;            default_args = {&quot;default&quot;}
+<i class="no-highlight">956</i>&nbsp;    )
+<i class="no-highlight">957</i>&nbsp;    public static org.python.Object getattr(org.python.Object object, org.python.Object name, org.python.Object default_) {
+<i class="no-highlight">958</i>&nbsp;        org.python.Object result;
+<i class="no-highlight">959</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">960</i>&nbsp;            result = object.__getattribute__(name);</b>
+<b class="nc"><i class="no-highlight">961</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">962</i>&nbsp;            if (default_ == null) {</b>
+<b class="nc"><i class="no-highlight">963</i>&nbsp;                throw ae;</b>
+<i class="no-highlight">964</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">965</i>&nbsp;            result = default_;</b>
+<b class="nc"><i class="no-highlight">966</i>&nbsp;        } catch (org.python.exceptions.TypeError te) {</b>
+<b class="nc"><i class="no-highlight">967</i>&nbsp;            throw new org.python.exceptions.TypeError(te.getMessage().replace(&quot;__getattribute__&quot;, &quot;getattr&quot;));</b>
+<b class="nc"><i class="no-highlight">968</i>&nbsp;        }</b>
+<b class="nc"><i class="no-highlight">969</i>&nbsp;        return result;</b>
+<i class="no-highlight">970</i>&nbsp;    }
+<i class="no-highlight">971</i>&nbsp;
+<i class="no-highlight">972</i>&nbsp;    // @org.python.Method(
+<i class="no-highlight">973</i>&nbsp;    //     __doc__ = &quot;globals() -&gt; dictionary&quot; +
+<i class="no-highlight">974</i>&nbsp;    //         &quot;\n&quot; +
+<i class="no-highlight">975</i>&nbsp;    //         &quot;Return the dictionary containing the current scope&#39;s global variables.\n&quot;
+<i class="no-highlight">976</i>&nbsp;    // )
+<i class="no-highlight">977</i>&nbsp;    // public static org.python.types.Dict globals() {
+<i class="no-highlight">978</i>&nbsp;    //     Implemented directly at the AST level
+<i class="no-highlight">979</i>&nbsp;    // }
+<i class="no-highlight">980</i>&nbsp;
+<i class="no-highlight">981</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">982</i>&nbsp;            __doc__ = &quot;hasattr(object, name) -&gt; bool&quot; +
+<i class="no-highlight">983</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">984</i>&nbsp;                    &quot;Return whether the object has an attribute with the given name.\n&quot; +
+<i class="no-highlight">985</i>&nbsp;                    &quot;(This is done by calling getattr(object, name) and catching AttributeError.)\n&quot;,
+<i class="no-highlight">986</i>&nbsp;            args = {&quot;object&quot;, &quot;name&quot;}
+<i class="no-highlight">987</i>&nbsp;    )
+<i class="no-highlight">988</i>&nbsp;    public static org.python.types.Bool hasattr(org.python.Object object, org.python.Object name) {
+<b class="nc"><i class="no-highlight">989</i>&nbsp;        if (!(name instanceof org.python.types.Str)) {</b>
+<b class="nc"><i class="no-highlight">990</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;hasattr(): attribute name must be string&quot;);</b>
+<i class="no-highlight">991</i>&nbsp;        }
+<i class="no-highlight">992</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">993</i>&nbsp;            object.__getattribute__(name);</b>
+<b class="nc"><i class="no-highlight">994</i>&nbsp;            return org.python.types.Bool.TRUE;</b>
+<b class="nc"><i class="no-highlight">995</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">996</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<b class="nc"><i class="no-highlight">997</i>&nbsp;        } catch (org.python.exceptions.TypeError te) {</b>
+<b class="nc"><i class="no-highlight">998</i>&nbsp;            throw new org.python.exceptions.TypeError(te.getMessage().replace(&quot;__hasattribute__&quot;, &quot;hasattr&quot;));</b>
+<i class="no-highlight">999</i>&nbsp;        }
+<i class="no-highlight">1000</i>&nbsp;    }
+<i class="no-highlight">1001</i>&nbsp;
+<i class="no-highlight">1002</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1003</i>&nbsp;            __doc__ = &quot;hash(object) -&gt; integer&quot; +
+<i class="no-highlight">1004</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1005</i>&nbsp;                    &quot;Return a hash value for the object.  Two objects with the same value have\n&quot; +
+<i class="no-highlight">1006</i>&nbsp;                    &quot;the same hash value.  The reverse is not necessarily true, but likely.\n&quot;,
+<i class="no-highlight">1007</i>&nbsp;            args = {&quot;object&quot;}
+<i class="no-highlight">1008</i>&nbsp;    )
+<i class="no-highlight">1009</i>&nbsp;    public static org.python.types.Int hash(org.python.Object object) {
+<b class="nc"><i class="no-highlight">1010</i>&nbsp;        return (org.python.types.Int) object.__hash__();</b>
+<i class="no-highlight">1011</i>&nbsp;    }
+<i class="no-highlight">1012</i>&nbsp;
+<i class="no-highlight">1013</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1014</i>&nbsp;            __doc__ = &quot;Define the built-in &#39;help&#39;.&quot; +
+<i class="no-highlight">1015</i>&nbsp;                    &quot;This is a wrapper around pydoc.help (with a twist).\n&quot;,
+<i class="no-highlight">1016</i>&nbsp;            default_args = {&quot;object&quot;}
+<i class="no-highlight">1017</i>&nbsp;    )
+<i class="no-highlight">1018</i>&nbsp;    public static org.python.Object help(org.python.Object object) {
+<b class="nc"><i class="no-highlight">1019</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;help&#39; not implemented&quot;);</b>
+<i class="no-highlight">1020</i>&nbsp;    }
+<i class="no-highlight">1021</i>&nbsp;
+<i class="no-highlight">1022</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1023</i>&nbsp;            __doc__ = &quot;hex(number) -&gt; string&quot; +
+<i class="no-highlight">1024</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1025</i>&nbsp;                    &quot;Return the hexadecimal representation of an integer.\n&quot; +
+<i class="no-highlight">1026</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1027</i>&nbsp;                    &quot;  &gt;&gt;&gt; hex(3735928559)\n&quot; +
+<i class="no-highlight">1028</i>&nbsp;                    &quot;  &#39;0xdeadbeef&#39;\n&quot;,
+<i class="no-highlight">1029</i>&nbsp;            args = {&quot;number&quot;}
+<i class="no-highlight">1030</i>&nbsp;    )
+<i class="no-highlight">1031</i>&nbsp;    public static org.python.types.Str hex(org.python.Object number) {
+<i class="no-highlight">1032</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1033</i>&nbsp;            if (!(number instanceof org.python.types.Int)) {</b>
+<b class="nc"><i class="no-highlight">1034</i>&nbsp;                number.__index__();</b>
+<i class="no-highlight">1035</i>&nbsp;            }
+<i class="no-highlight">1036</i>&nbsp;
+<b class="nc"><i class="no-highlight">1037</i>&nbsp;            String s = Long.toString(((org.python.types.Int) number.__int__()).value, 16);</b>
+<b class="nc"><i class="no-highlight">1038</i>&nbsp;            if (s.charAt(0) == &#39;-&#39;) {</b>
+<b class="nc"><i class="no-highlight">1039</i>&nbsp;                s = &quot;-0x&quot; + s.substring(1);</b>
+<i class="no-highlight">1040</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">1041</i>&nbsp;                s = &quot;0x&quot; + s;</b>
+<i class="no-highlight">1042</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1043</i>&nbsp;            return new org.python.types.Str(s);</b>
+<b class="nc"><i class="no-highlight">1044</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">1045</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + number.typeName() + &quot;&#39; object cannot be interpreted as an integer&quot;);</b>
+<i class="no-highlight">1046</i>&nbsp;        }
+<i class="no-highlight">1047</i>&nbsp;    }
+<i class="no-highlight">1048</i>&nbsp;
+<i class="no-highlight">1049</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1050</i>&nbsp;            __doc__ = &quot;id(object) -&gt; integer&quot; +
+<i class="no-highlight">1051</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1052</i>&nbsp;                    &quot;Return the identity of an object.  This is guaranteed to be unique among\n&quot; +
+<i class="no-highlight">1053</i>&nbsp;                    &quot;simultaneously existing objects.\n&quot;,
+<i class="no-highlight">1054</i>&nbsp;            args = {&quot;object&quot;}
+<i class="no-highlight">1055</i>&nbsp;    )
+<i class="no-highlight">1056</i>&nbsp;    public static org.python.types.Int id(org.python.Object object) {
+<b class="nc"><i class="no-highlight">1057</i>&nbsp;        return org.python.types.Int.getInt(System.identityHashCode(object));</b>
+<i class="no-highlight">1058</i>&nbsp;    }
+<i class="no-highlight">1059</i>&nbsp;
+<i class="no-highlight">1060</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1061</i>&nbsp;            __doc__ = &quot;input([prompt]) -&gt; string&quot; +
+<i class="no-highlight">1062</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1063</i>&nbsp;                    &quot;Read a string from standard input.  The trailing newline is stripped.\n&quot; +
+<i class="no-highlight">1064</i>&nbsp;                    &quot;If the user hits EOF (Unix: Ctl-D, Windows: Ctl-Z+Return), raise EOFError.\n&quot; +
+<i class="no-highlight">1065</i>&nbsp;                    &quot;The prompt string, if given,\n&quot; +
+<i class="no-highlight">1066</i>&nbsp;                    &quot;is printed without a trailing newline before reading.\n&quot;,
+<i class="no-highlight">1067</i>&nbsp;            default_args = {&quot;prompt&quot;}
+<i class="no-highlight">1068</i>&nbsp;    )
+<i class="no-highlight">1069</i>&nbsp;    public static org.python.types.Str input(org.python.Object prompt) {
+<b class="nc"><i class="no-highlight">1070</i>&nbsp;        java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));</b>
+<i class="no-highlight">1071</i>&nbsp;
+<b class="nc"><i class="no-highlight">1072</i>&nbsp;        if (prompt != null) {</b>
+<b class="nc"><i class="no-highlight">1073</i>&nbsp;            System.out.print(prompt);</b>
+<b class="nc"><i class="no-highlight">1074</i>&nbsp;            System.out.flush();</b>
+<i class="no-highlight">1075</i>&nbsp;        }
+<i class="no-highlight">1076</i>&nbsp;
+<i class="no-highlight">1077</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1078</i>&nbsp;            return new org.python.types.Str(reader.readLine());</b>
+<b class="nc"><i class="no-highlight">1079</i>&nbsp;        } catch (java.io.IOException e) {</b>
+<b class="nc"><i class="no-highlight">1080</i>&nbsp;            throw new org.python.exceptions.OSError();</b>
+<i class="no-highlight">1081</i>&nbsp;        }
+<i class="no-highlight">1082</i>&nbsp;    }
+<i class="no-highlight">1083</i>&nbsp;
+<i class="no-highlight">1084</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1085</i>&nbsp;            __doc__ = &quot;isinstance(object, class-or-type-or-tuple) -&gt; bool&quot; +
+<i class="no-highlight">1086</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1087</i>&nbsp;                    &quot;Return whether an object is an instance of a class or of a subclass thereof.\n&quot; +
+<i class="no-highlight">1088</i>&nbsp;                    &quot;With a type as second argument, return whether that is the object&#39;s type.\n&quot; +
+<i class="no-highlight">1089</i>&nbsp;                    &quot;The form using a tuple, isinstance(x, (A, B, ...)), is a shortcut for\n&quot; +
+<i class="no-highlight">1090</i>&nbsp;                    &quot;isinstance(x, A) or isinstance(x, B) or ... (etc.).\n&quot;,
+<i class="no-highlight">1091</i>&nbsp;            default_args = {&quot;object&quot;, &quot;class_or_type_or_tuple&quot;}
+<i class="no-highlight">1092</i>&nbsp;    )
+<i class="no-highlight">1093</i>&nbsp;    public static org.python.types.Bool isinstance(org.python.Object object, org.python.Object class_or_type_or_tuple) {
+<b class="fc"><i class="no-highlight">1094</i>&nbsp;        if (object == null) {</b>
+<b class="nc"><i class="no-highlight">1095</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;isinstance expected 2 arguments, got 0&quot;);</b>
+<b class="fc"><i class="no-highlight">1096</i>&nbsp;        } else if (class_or_type_or_tuple == null) {</b>
+<b class="nc"><i class="no-highlight">1097</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;isinstance expected 2 arguments, got 1&quot;);</b>
+<b class="fc"><i class="no-highlight">1098</i>&nbsp;        } else if (class_or_type_or_tuple instanceof org.python.types.Tuple) {</b>
+<b class="nc"><i class="no-highlight">1099</i>&nbsp;            return org.Python.issubclass(org.Python.type(object, null, null), class_or_type_or_tuple);</b>
+<b class="fc"><i class="no-highlight">1100</i>&nbsp;        } else if (class_or_type_or_tuple instanceof org.python.types.Type) {</b>
+<b class="fc"><i class="no-highlight">1101</i>&nbsp;            return org.Python.issubclass(org.Python.type(object, null, null), class_or_type_or_tuple);</b>
+<i class="no-highlight">1102</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1103</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;isinstance() arg 2 must be a type or tuple of types&quot;);</b>
+<i class="no-highlight">1104</i>&nbsp;        }
+<i class="no-highlight">1105</i>&nbsp;    }
+<i class="no-highlight">1106</i>&nbsp;
+<i class="no-highlight">1107</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1108</i>&nbsp;            __doc__ = &quot;issubclass(C, B) -&gt; bool&quot; +
+<i class="no-highlight">1109</i>&nbsp;                &quot;\n&quot; +
+<i class="no-highlight">1110</i>&nbsp;                &quot;Return whether class C is a subclass (i.e., a derived class) of class B.\n&quot; +
+<i class="no-highlight">1111</i>&nbsp;                &quot;When using a tuple as the second argument issubclass(X, (A, B, ...)),\n&quot; +
+<i class="no-highlight">1112</i>&nbsp;                &quot;is a shortcut for issubclass(X, A) or issubclass(X, B) or ... (etc.).\n&quot;,
+<i class="no-highlight">1113</i>&nbsp;            default_args = {&quot;class&quot;, &quot;classinfo_or_tuple&quot;}
+<i class="no-highlight">1114</i>&nbsp;    )
+<i class="no-highlight">1115</i>&nbsp;    public static org.python.types.Bool issubclass(org.python.Object klass, org.python.Object classinfo_or_tuple) {
+<b class="fc"><i class="no-highlight">1116</i>&nbsp;        if (klass == null) {</b>
+<b class="nc"><i class="no-highlight">1117</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;issubclass expected 2 arguments, got 0&quot;);</b>
+<b class="fc"><i class="no-highlight">1118</i>&nbsp;        } else if (classinfo_or_tuple == null) {</b>
+<b class="nc"><i class="no-highlight">1119</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;issubclass expected 2 arguments, got 1&quot;);</b>
+<b class="fc"><i class="no-highlight">1120</i>&nbsp;        } else if (!(klass instanceof org.python.types.Type)) {</b>
+<b class="nc"><i class="no-highlight">1121</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;issubclass() arg 1 must be a class&quot;);</b>
+<b class="fc"><i class="no-highlight">1122</i>&nbsp;        } else if (classinfo_or_tuple instanceof org.python.types.Tuple) {</b>
+<b class="nc"><i class="no-highlight">1123</i>&nbsp;            java.util.List&lt;org.python.Object&gt; target_classes = ((org.python.types.Tuple) classinfo_or_tuple).value;</b>
+<b class="nc"><i class="no-highlight">1124</i>&nbsp;            for (org.python.Object target_klass: target_classes) {</b>
+<b class="nc"><i class="no-highlight">1125</i>&nbsp;                if (org.Python.issubclass(klass, target_klass).toBoolean()) {</b>
+<b class="nc"><i class="no-highlight">1126</i>&nbsp;                    return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">1127</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1128</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">1129</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<b class="fc"><i class="no-highlight">1130</i>&nbsp;        } else if (classinfo_or_tuple instanceof org.python.types.Type) {</b>
+<b class="fc"><i class="no-highlight">1131</i>&nbsp;            org.python.types.Type klass_obj = (org.python.types.Type) klass;</b>
+<b class="fc"><i class="no-highlight">1132</i>&nbsp;            if (klass == classinfo_or_tuple) {</b>
+<b class="nc"><i class="no-highlight">1133</i>&nbsp;                return org.python.types.Bool.TRUE;</b>
+<b class="fc"><i class="no-highlight">1134</i>&nbsp;            } else if (klass_obj.__dict__.get(&quot;__bases__&quot;) != null) {</b>
+<b class="fc"><i class="no-highlight">1135</i>&nbsp;                for (org.python.Object base: ((org.python.types.Tuple) klass_obj.__dict__.get(&quot;__bases__&quot;)).value) {</b>
+<b class="fc"><i class="no-highlight">1136</i>&nbsp;                    if (base == classinfo_or_tuple || org.Python.issubclass(base, classinfo_or_tuple).value) {</b>
+<b class="nc"><i class="no-highlight">1137</i>&nbsp;                        return org.python.types.Bool.TRUE;</b>
+<i class="no-highlight">1138</i>&nbsp;                    }
+<b class="fc"><i class="no-highlight">1139</i>&nbsp;                }</b>
+<i class="no-highlight">1140</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">1141</i>&nbsp;            return org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">1142</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1143</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;issubclass() arg 2 must be a class or tuple of classes&quot;);</b>
+<i class="no-highlight">1144</i>&nbsp;        }
+<i class="no-highlight">1145</i>&nbsp;    }
+<i class="no-highlight">1146</i>&nbsp;
+<i class="no-highlight">1147</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1148</i>&nbsp;            __doc__ = &quot;iter(iterable) -&gt; iterator&quot; +
+<i class="no-highlight">1149</i>&nbsp;                    &quot;iter(callable, sentinel) -&gt; iterator\n&quot; +
+<i class="no-highlight">1150</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1151</i>&nbsp;                    &quot;Get an iterator from an object.  In the first form, the argument must\n&quot; +
+<i class="no-highlight">1152</i>&nbsp;                    &quot;supply its own iterator, or be a sequence.\n&quot; +
+<i class="no-highlight">1153</i>&nbsp;                    &quot;In the second form, the callable is called until it returns the sentinel.\n&quot;,
+<i class="no-highlight">1154</i>&nbsp;            args = {&quot;iterable&quot;},
+<i class="no-highlight">1155</i>&nbsp;            default_args = {&quot;sentinel&quot;}
+<i class="no-highlight">1156</i>&nbsp;    )
+<i class="no-highlight">1157</i>&nbsp;    public static org.python.Object iter(org.python.Object iterable, org.python.Object sentinel) {
+<b class="nc"><i class="no-highlight">1158</i>&nbsp;        if (sentinel == null) {</b>
+<i class="no-highlight">1159</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1160</i>&nbsp;                return iterable.__iter__();</b>
+<b class="nc"><i class="no-highlight">1161</i>&nbsp;            } catch (org.python.exceptions.AttributeError e) {</b>
+<i class="no-highlight">1162</i>&nbsp;                // No __iter__ == not iterable
+<b class="nc"><i class="no-highlight">1163</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + iterable.typeName() + &quot;&#39; object is not iterable&quot;);</b>
+<i class="no-highlight">1164</i>&nbsp;            }
+<i class="no-highlight">1165</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1166</i>&nbsp;            throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;iter&#39; with callable/sentinel not implemented&quot;);</b>
+<i class="no-highlight">1167</i>&nbsp;        }
+<i class="no-highlight">1168</i>&nbsp;    }
+<i class="no-highlight">1169</i>&nbsp;
+<i class="no-highlight">1170</i>&nbsp;    public static org.python.Object iter(org.python.Object iterable) {
+<b class="nc"><i class="no-highlight">1171</i>&nbsp;        return org.Python.iter(iterable, null);</b>
+<i class="no-highlight">1172</i>&nbsp;    }
+<i class="no-highlight">1173</i>&nbsp;
+<i class="no-highlight">1174</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1175</i>&nbsp;            __doc__ = &quot;len(object)&quot; +
+<i class="no-highlight">1176</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1177</i>&nbsp;                    &quot;Return the number of items of a sequence or collection.\n&quot;,
+<i class="no-highlight">1178</i>&nbsp;            args = {&quot;object&quot;}
+<i class="no-highlight">1179</i>&nbsp;    )
+<i class="no-highlight">1180</i>&nbsp;    public static org.python.types.Int len(org.python.Object object) {
+<i class="no-highlight">1181</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1182</i>&nbsp;            return (org.python.types.Int) object.__len__();</b>
+<b class="nc"><i class="no-highlight">1183</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">1184</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;object of type &#39;&quot; + object.typeName() + &quot;&#39; has no len()&quot;);</b>
+<i class="no-highlight">1185</i>&nbsp;        }
+<i class="no-highlight">1186</i>&nbsp;    }
+<i class="no-highlight">1187</i>&nbsp;
+<i class="no-highlight">1188</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1189</i>&nbsp;            __doc__ = &quot;interactive prompt objects for printing the license text, a list of&quot; +
+<i class="no-highlight">1190</i>&nbsp;                    &quot;contributors and the copyright notice.\n&quot;
+<i class="no-highlight">1191</i>&nbsp;    )
+<i class="no-highlight">1192</i>&nbsp;    public static org.python.Object license() {
+<b class="nc"><i class="no-highlight">1193</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;license&#39; not implemented&quot;);</b>
+<i class="no-highlight">1194</i>&nbsp;    }
+<i class="no-highlight">1195</i>&nbsp;
+<i class="no-highlight">1196</i>&nbsp;    // @org.python.Method(
+<i class="no-highlight">1197</i>&nbsp;    //     __doc__ = &quot;locals() -&gt; dictionary&quot; +
+<i class="no-highlight">1198</i>&nbsp;    //         &quot;\n&quot; +
+<i class="no-highlight">1199</i>&nbsp;    //         &quot;Update and return a dictionary containing the current scope&#39;s local variables.\n&quot;
+<i class="no-highlight">1200</i>&nbsp;    // )
+<i class="no-highlight">1201</i>&nbsp;    // public static org.python.types.Dict locals() {
+<i class="no-highlight">1202</i>&nbsp;    //     Implemented directly at the AST level
+<i class="no-highlight">1203</i>&nbsp;    // }
+<i class="no-highlight">1204</i>&nbsp;
+<i class="no-highlight">1205</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1206</i>&nbsp;            __doc__ = &quot;map(func, *iterables) --&gt; map object&quot; +
+<i class="no-highlight">1207</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1208</i>&nbsp;                    &quot;Make an iterator that computes the function using arguments from\n&quot; +
+<i class="no-highlight">1209</i>&nbsp;                    &quot;each of the iterables.  Stops when the shortest iterable is exhausted.\n&quot;,
+<i class="no-highlight">1210</i>&nbsp;            args = {&quot;func&quot;},
+<i class="no-highlight">1211</i>&nbsp;            varargs = &quot;iterable&quot;
+<i class="no-highlight">1212</i>&nbsp;    )
+<i class="no-highlight">1213</i>&nbsp;    public static org.python.Object map(org.python.Object func, org.python.types.Tuple iterables) {
+<b class="nc"><i class="no-highlight">1214</i>&nbsp;        return new org.python.types.Map(func, iterables);</b>
+<i class="no-highlight">1215</i>&nbsp;    }
+<i class="no-highlight">1216</i>&nbsp;
+<i class="no-highlight">1217</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1218</i>&nbsp;            __doc__ = &quot;max(iterable, *[, default=obj, key=func]) -&gt; value&quot; +
+<i class="no-highlight">1219</i>&nbsp;                    &quot;max(arg1, arg2, *args, *[, key=func]) -&gt; value\n&quot; +
+<i class="no-highlight">1220</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1221</i>&nbsp;                    &quot;With a single iterable argument, return its biggest item. The\n&quot; +
+<i class="no-highlight">1222</i>&nbsp;                    &quot;default keyword-only argument specifies an object to return if\n&quot; +
+<i class="no-highlight">1223</i>&nbsp;                    &quot;the provided iterable is empty.\n&quot; +
+<i class="no-highlight">1224</i>&nbsp;                    &quot;With two or more arguments, return the largest argument.\n&quot;,
+<i class="no-highlight">1225</i>&nbsp;            varargs = &quot;args&quot;,
+<i class="no-highlight">1226</i>&nbsp;            kwonlyargs = {&quot;default&quot;, &quot;key&quot;}
+<i class="no-highlight">1227</i>&nbsp;    )
+<i class="no-highlight">1228</i>&nbsp;    public static org.python.Object max(org.python.types.Tuple args, org.python.Object default_, org.python.Object key) {
+<b class="nc"><i class="no-highlight">1229</i>&nbsp;        org.python.Object max_value = null;</b>
+<b class="nc"><i class="no-highlight">1230</i>&nbsp;        org.python.Object max_key_value = null;</b>
+<i class="no-highlight">1231</i>&nbsp;        org.python.Object value;
+<i class="no-highlight">1232</i>&nbsp;        org.python.Object key_value;
+<i class="no-highlight">1233</i>&nbsp;
+<b class="nc"><i class="no-highlight">1234</i>&nbsp;        if (args.value.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">1235</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;max expected 1 arguments, got 0&quot;);</b>
+<b class="nc"><i class="no-highlight">1236</i>&nbsp;        } else if (args.value.size() == 1) {</b>
+<i class="no-highlight">1237</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1238</i>&nbsp;                org.python.Object iter = args.value.get(0).__iter__();</b>
+<b class="nc"><i class="no-highlight">1239</i>&nbsp;                max_value = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">1240</i>&nbsp;                max_key_value = applyKey(max_value, key);</b>
+<i class="no-highlight">1241</i>&nbsp;
+<i class="no-highlight">1242</i>&nbsp;                while (true) {
+<b class="nc"><i class="no-highlight">1243</i>&nbsp;                    value = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">1244</i>&nbsp;                    key_value = applyKey(value, key);</b>
+<i class="no-highlight">1245</i>&nbsp;
+<b class="nc"><i class="no-highlight">1246</i>&nbsp;                    if (compareKeys(key_value, max_key_value)) {</b>
+<b class="nc"><i class="no-highlight">1247</i>&nbsp;                        max_value = value;</b>
+<b class="nc"><i class="no-highlight">1248</i>&nbsp;                        max_key_value = key_value;</b>
+<i class="no-highlight">1249</i>&nbsp;                    }
+<i class="no-highlight">1250</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1251</i>&nbsp;            } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">1252</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + args.value.get(0).typeName() + &quot;&#39; object is not iterable&quot;);</b>
+<b class="nc"><i class="no-highlight">1253</i>&nbsp;            } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">1254</i>&nbsp;                if (max_value == null) {</b>
+<b class="nc"><i class="no-highlight">1255</i>&nbsp;                    if (default_ == null) {</b>
+<b class="nc"><i class="no-highlight">1256</i>&nbsp;                        throw new org.python.exceptions.ValueError(&quot;max() arg is an empty sequence&quot;);</b>
+<i class="no-highlight">1257</i>&nbsp;                    } else {
+<b class="nc"><i class="no-highlight">1258</i>&nbsp;                        max_value = default_;</b>
+<i class="no-highlight">1259</i>&nbsp;                    }
+<i class="no-highlight">1260</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1261</i>&nbsp;            }</b>
+<i class="no-highlight">1262</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1263</i>&nbsp;            if (default_ != null) {</b>
+<b class="nc"><i class="no-highlight">1264</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;Cannot specify a default for max() with multiple positional arguments&quot;);</b>
+<i class="no-highlight">1265</i>&nbsp;            }
+<i class="no-highlight">1266</i>&nbsp;
+<b class="nc"><i class="no-highlight">1267</i>&nbsp;            max_value = args.value.get(0);</b>
+<b class="nc"><i class="no-highlight">1268</i>&nbsp;            max_key_value = applyKey(max_value, key);</b>
+<i class="no-highlight">1269</i>&nbsp;
+<b class="nc"><i class="no-highlight">1270</i>&nbsp;            for (int i = 1; i &lt; args.value.size(); i++) {</b>
+<b class="nc"><i class="no-highlight">1271</i>&nbsp;                value = args.value.get(i);</b>
+<b class="nc"><i class="no-highlight">1272</i>&nbsp;                key_value = applyKey(value, key);</b>
+<b class="nc"><i class="no-highlight">1273</i>&nbsp;                if (compareKeys(key_value, max_key_value)) {</b>
+<b class="nc"><i class="no-highlight">1274</i>&nbsp;                    max_value = value;</b>
+<b class="nc"><i class="no-highlight">1275</i>&nbsp;                    max_key_value = key_value;</b>
+<i class="no-highlight">1276</i>&nbsp;                }
+<i class="no-highlight">1277</i>&nbsp;            }
+<i class="no-highlight">1278</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1279</i>&nbsp;        return max_value;</b>
+<i class="no-highlight">1280</i>&nbsp;    }
+<i class="no-highlight">1281</i>&nbsp;
+<i class="no-highlight">1282</i>&nbsp;    private static boolean compareKeys(org.python.Object first, org.python.Object second) {
+<b class="nc"><i class="no-highlight">1283</i>&nbsp;        return org.python.types.Object.__gt__(first, second).toBoolean();</b>
+<i class="no-highlight">1284</i>&nbsp;    }
+<i class="no-highlight">1285</i>&nbsp;
+<i class="no-highlight">1286</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1287</i>&nbsp;            __doc__ = &quot;min(iterable, *[, default=obj, key=func]) -&gt; value&quot; +
+<i class="no-highlight">1288</i>&nbsp;                    &quot;min(arg1, arg2, *args, *[, key=func]) -&gt; value\n&quot; +
+<i class="no-highlight">1289</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1290</i>&nbsp;                    &quot;With a single iterable argument, return its smallest item. The\n&quot; +
+<i class="no-highlight">1291</i>&nbsp;                    &quot;default keyword-only argument specifies an object to return if\n&quot; +
+<i class="no-highlight">1292</i>&nbsp;                    &quot;the provided iterable is empty.\n&quot; +
+<i class="no-highlight">1293</i>&nbsp;                    &quot;With two or more arguments, return the smallest argument.\n&quot;,
+<i class="no-highlight">1294</i>&nbsp;            varargs = &quot;args&quot;,
+<i class="no-highlight">1295</i>&nbsp;            kwonlyargs = {&quot;default&quot;, &quot;key&quot;}
+<i class="no-highlight">1296</i>&nbsp;    )
+<i class="no-highlight">1297</i>&nbsp;    public static org.python.Object min(org.python.types.Tuple args, org.python.Object default_, org.python.Object key) {
+<b class="nc"><i class="no-highlight">1298</i>&nbsp;        org.python.Object min_value = null;</b>
+<b class="nc"><i class="no-highlight">1299</i>&nbsp;        org.python.Object min_key_value = null;</b>
+<i class="no-highlight">1300</i>&nbsp;        org.python.Object value;
+<i class="no-highlight">1301</i>&nbsp;        org.python.Object key_value;
+<i class="no-highlight">1302</i>&nbsp;
+<b class="nc"><i class="no-highlight">1303</i>&nbsp;        if (args.value.size() == 0) {</b>
+<b class="nc"><i class="no-highlight">1304</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;min expected 1 arguments, got 0&quot;);</b>
+<b class="nc"><i class="no-highlight">1305</i>&nbsp;        } else if (args.value.size() == 1) {</b>
+<i class="no-highlight">1306</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1307</i>&nbsp;                org.python.Object iter = args.value.get(0).__iter__();</b>
+<b class="nc"><i class="no-highlight">1308</i>&nbsp;                min_value = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">1309</i>&nbsp;                min_key_value = applyKey(min_value, key);</b>
+<i class="no-highlight">1310</i>&nbsp;
+<i class="no-highlight">1311</i>&nbsp;                while (true) {
+<b class="nc"><i class="no-highlight">1312</i>&nbsp;                    value = iter.__next__();</b>
+<b class="nc"><i class="no-highlight">1313</i>&nbsp;                    key_value = applyKey(value, key);</b>
+<i class="no-highlight">1314</i>&nbsp;
+<b class="nc"><i class="no-highlight">1315</i>&nbsp;                    if (compareKeys(min_key_value, key_value)) {</b>
+<b class="nc"><i class="no-highlight">1316</i>&nbsp;                        min_value = value;</b>
+<b class="nc"><i class="no-highlight">1317</i>&nbsp;                        min_key_value = key_value;</b>
+<i class="no-highlight">1318</i>&nbsp;                    }
+<i class="no-highlight">1319</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1320</i>&nbsp;            } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">1321</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + args.value.get(0).typeName() + &quot;&#39; object is not iterable&quot;);</b>
+<b class="nc"><i class="no-highlight">1322</i>&nbsp;            } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">1323</i>&nbsp;                if (min_value == null) {</b>
+<b class="nc"><i class="no-highlight">1324</i>&nbsp;                    if (default_ == null) {</b>
+<b class="nc"><i class="no-highlight">1325</i>&nbsp;                        throw new org.python.exceptions.ValueError(&quot;min() arg is an empty sequence&quot;);</b>
+<i class="no-highlight">1326</i>&nbsp;                    } else {
+<b class="nc"><i class="no-highlight">1327</i>&nbsp;                        min_value = default_;</b>
+<i class="no-highlight">1328</i>&nbsp;                    }
+<i class="no-highlight">1329</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1330</i>&nbsp;            }</b>
+<i class="no-highlight">1331</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1332</i>&nbsp;            if (default_ != null) {</b>
+<b class="nc"><i class="no-highlight">1333</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;Cannot specify a default for min() with multiple positional arguments&quot;);</b>
+<i class="no-highlight">1334</i>&nbsp;            }
+<i class="no-highlight">1335</i>&nbsp;
+<b class="nc"><i class="no-highlight">1336</i>&nbsp;            min_value = args.value.get(0);</b>
+<b class="nc"><i class="no-highlight">1337</i>&nbsp;            min_key_value = applyKey(min_value, key);</b>
+<i class="no-highlight">1338</i>&nbsp;
+<b class="nc"><i class="no-highlight">1339</i>&nbsp;            for (int i = 1; i &lt; args.value.size(); i++) {</b>
+<b class="nc"><i class="no-highlight">1340</i>&nbsp;                value = args.value.get(i);</b>
+<b class="nc"><i class="no-highlight">1341</i>&nbsp;                key_value = applyKey(value, key);</b>
+<i class="no-highlight">1342</i>&nbsp;
+<b class="nc"><i class="no-highlight">1343</i>&nbsp;                if (compareKeys(min_key_value, key_value)) {</b>
+<b class="nc"><i class="no-highlight">1344</i>&nbsp;                    min_value = value;</b>
+<b class="nc"><i class="no-highlight">1345</i>&nbsp;                    min_key_value = key_value;</b>
+<i class="no-highlight">1346</i>&nbsp;                }
+<i class="no-highlight">1347</i>&nbsp;            }
+<i class="no-highlight">1348</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1349</i>&nbsp;        return min_value;</b>
+<i class="no-highlight">1350</i>&nbsp;    }
+<i class="no-highlight">1351</i>&nbsp;
+<i class="no-highlight">1352</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1353</i>&nbsp;            __doc__ = &quot;next(iterator[, default])&quot; +
+<i class="no-highlight">1354</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1355</i>&nbsp;                    &quot;Return the next item from the iterator. If default is given and the iterator\n&quot; +
+<i class="no-highlight">1356</i>&nbsp;                    &quot;is exhausted, it is returned instead of raising StopIteration.\n&quot;,
+<i class="no-highlight">1357</i>&nbsp;            args = {&quot;iterator&quot;},
+<i class="no-highlight">1358</i>&nbsp;            default_args = {&quot;default&quot;}
+<i class="no-highlight">1359</i>&nbsp;    )
+<i class="no-highlight">1360</i>&nbsp;    public static org.python.Object next(org.python.Object iterator, org.python.Object default_) {
+<i class="no-highlight">1361</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1362</i>&nbsp;            return ((org.python.Object) iterator).__next__();</b>
+<b class="nc"><i class="no-highlight">1363</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">1364</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + iterator.typeName() + &quot;&#39; object is not an iterator&quot;);</b>
+<b class="nc"><i class="no-highlight">1365</i>&nbsp;        } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">1366</i>&nbsp;            if (default_ != null) {</b>
+<b class="nc"><i class="no-highlight">1367</i>&nbsp;                return default_;</b>
+<i class="no-highlight">1368</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">1369</i>&nbsp;                throw si;</b>
+<i class="no-highlight">1370</i>&nbsp;            }
+<i class="no-highlight">1371</i>&nbsp;        }
+<i class="no-highlight">1372</i>&nbsp;    }
+<i class="no-highlight">1373</i>&nbsp;
+<i class="no-highlight">1374</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1375</i>&nbsp;            __doc__ = &quot;oct(number) -&gt; string&quot; +
+<i class="no-highlight">1376</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1377</i>&nbsp;                    &quot;Return the octal representation of an integer.\n&quot; +
+<i class="no-highlight">1378</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1379</i>&nbsp;                    &quot;   &gt;&gt;&gt; oct(342391)\n&quot; +
+<i class="no-highlight">1380</i>&nbsp;                    &quot;  &#39;0o1234567&#39;\n&quot;,
+<i class="no-highlight">1381</i>&nbsp;            args = {&quot;number&quot;}
+<i class="no-highlight">1382</i>&nbsp;    )
+<i class="no-highlight">1383</i>&nbsp;    public static org.python.types.Str oct(org.python.Object number) {
+<i class="no-highlight">1384</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1385</i>&nbsp;            if (!(number instanceof org.python.types.Int)) {</b>
+<b class="nc"><i class="no-highlight">1386</i>&nbsp;                number.__index__();</b>
+<i class="no-highlight">1387</i>&nbsp;            }
+<i class="no-highlight">1388</i>&nbsp;
+<b class="nc"><i class="no-highlight">1389</i>&nbsp;            String s = Long.toString(((org.python.types.Int) number.__int__()).value, 8);</b>
+<b class="nc"><i class="no-highlight">1390</i>&nbsp;            if (s.charAt(0) == &#39;-&#39;) {</b>
+<b class="nc"><i class="no-highlight">1391</i>&nbsp;                s = &quot;-0o&quot; + s.substring(1);</b>
+<i class="no-highlight">1392</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">1393</i>&nbsp;                s = &quot;0o&quot; + s;</b>
+<i class="no-highlight">1394</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1395</i>&nbsp;            return new org.python.types.Str(s);</b>
+<b class="nc"><i class="no-highlight">1396</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<b class="nc"><i class="no-highlight">1397</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + number.typeName() + &quot;&#39; object cannot be interpreted as an integer&quot;);</b>
+<i class="no-highlight">1398</i>&nbsp;        }
+<i class="no-highlight">1399</i>&nbsp;    }
+<i class="no-highlight">1400</i>&nbsp;
+<i class="no-highlight">1401</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1402</i>&nbsp;            __doc__ = &quot;open(file, mode=&#39;r&#39;, buffering=-1, encoding=None,&quot; +
+<i class="no-highlight">1403</i>&nbsp;                    &quot;     errors=None, newline=None, closefd=True, opener=None) -&gt; file object\n&quot; +
+<i class="no-highlight">1404</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1405</i>&nbsp;                    &quot;Open file and return a stream.  Raise IOError upon failure.\n&quot; +
+<i class="no-highlight">1406</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1407</i>&nbsp;                    &quot;file is either a text or byte string giving the name (and the path\n&quot; +
+<i class="no-highlight">1408</i>&nbsp;                    &quot;if the file isn&#39;t in the current working directory) of the file to\n&quot; +
+<i class="no-highlight">1409</i>&nbsp;                    &quot;be opened or an integer file descriptor of the file to be\n&quot; +
+<i class="no-highlight">1410</i>&nbsp;                    &quot;wrapped. (If a file descriptor is given, it is closed when the\n&quot; +
+<i class="no-highlight">1411</i>&nbsp;                    &quot;returned I/O object is closed, unless closefd is set to False.)\n&quot; +
+<i class="no-highlight">1412</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1413</i>&nbsp;                    &quot;mode is an optional string that specifies the mode in which the file\n&quot; +
+<i class="no-highlight">1414</i>&nbsp;                    &quot;is opened. It defaults to &#39;r&#39; which means open for reading in text\n&quot; +
+<i class="no-highlight">1415</i>&nbsp;                    &quot;mode.  Other common values are &#39;w&#39; for writing (truncating the file if\n&quot; +
+<i class="no-highlight">1416</i>&nbsp;                    &quot;it already exists), &#39;x&#39; for creating and writing to a new file, and\n&quot; +
+<i class="no-highlight">1417</i>&nbsp;                    &quot;&#39;a&#39; for appending (which on some Unix systems, means that all writes\n&quot; +
+<i class="no-highlight">1418</i>&nbsp;                    &quot;append to the end of the file regardless of the current seek position).\n&quot; +
+<i class="no-highlight">1419</i>&nbsp;                    &quot;In text mode, if encoding is not specified the encoding used is platform\n&quot; +
+<i class="no-highlight">1420</i>&nbsp;                    &quot;dependent: locale.getpreferredencoding(False) is called to get the\n&quot; +
+<i class="no-highlight">1421</i>&nbsp;                    &quot;current locale encoding. (For reading and writing raw bytes use binary\n&quot; +
+<i class="no-highlight">1422</i>&nbsp;                    &quot;mode and leave encoding unspecified.) The available modes are:\n&quot; +
+<i class="no-highlight">1423</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1424</i>&nbsp;                    &quot;========= ===============================================================\n&quot; +
+<i class="no-highlight">1425</i>&nbsp;                    &quot;Character Meaning\n&quot; +
+<i class="no-highlight">1426</i>&nbsp;                    &quot;--------- ---------------------------------------------------------------\n&quot; +
+<i class="no-highlight">1427</i>&nbsp;                    &quot;&#39;r&#39;       open for reading (default)\n&quot; +
+<i class="no-highlight">1428</i>&nbsp;                    &quot;&#39;w&#39;       open for writing, truncating the file first\n&quot; +
+<i class="no-highlight">1429</i>&nbsp;                    &quot;&#39;x&#39;       create a new file and open it for writing\n&quot; +
+<i class="no-highlight">1430</i>&nbsp;                    &quot;&#39;a&#39;       open for writing, appending to the end of the file if it exists\n&quot; +
+<i class="no-highlight">1431</i>&nbsp;                    &quot;&#39;b&#39;       binary mode\n&quot; +
+<i class="no-highlight">1432</i>&nbsp;                    &quot;&#39;t&#39;       text mode (default)\n&quot; +
+<i class="no-highlight">1433</i>&nbsp;                    &quot;&#39;+&#39;       open a disk file for updating (reading and writing)\n&quot; +
+<i class="no-highlight">1434</i>&nbsp;                    &quot;&#39;U&#39;       universal newline mode (deprecated)\n&quot; +
+<i class="no-highlight">1435</i>&nbsp;                    &quot;========= ===============================================================\n&quot; +
+<i class="no-highlight">1436</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1437</i>&nbsp;                    &quot;The default mode is &#39;rt&#39; (open for reading text). For binary random\n&quot; +
+<i class="no-highlight">1438</i>&nbsp;                    &quot;access, the mode &#39;w+b&#39; opens and truncates the file to 0 bytes, while\n&quot; +
+<i class="no-highlight">1439</i>&nbsp;                    &quot;&#39;r+b&#39; opens the file without truncation. The &#39;x&#39; mode implies &#39;w&#39; and\n&quot; +
+<i class="no-highlight">1440</i>&nbsp;                    &quot;raises an `FileExistsError` if the file already exists.\n&quot; +
+<i class="no-highlight">1441</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1442</i>&nbsp;                    &quot;Python distinguishes between files opened in binary and text modes,\n&quot; +
+<i class="no-highlight">1443</i>&nbsp;                    &quot;even when the underlying operating system doesn&#39;t. Files opened in\n&quot; +
+<i class="no-highlight">1444</i>&nbsp;                    &quot;binary mode (appending &#39;b&#39; to the mode argument) return contents as\n&quot; +
+<i class="no-highlight">1445</i>&nbsp;                    &quot;bytes objects without any decoding. In text mode (the default, or when\n&quot; +
+<i class="no-highlight">1446</i>&nbsp;                    &quot;&#39;t&#39; is appended to the mode argument), the contents of the file are\n&quot; +
+<i class="no-highlight">1447</i>&nbsp;                    &quot;returned as strings, the bytes having been first decoded using a\n&quot; +
+<i class="no-highlight">1448</i>&nbsp;                    &quot;platform-dependent encoding or using the specified encoding if given.\n&quot; +
+<i class="no-highlight">1449</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1450</i>&nbsp;                    &quot;&#39;U&#39; mode is deprecated and will raise an exception in future versions\n&quot; +
+<i class="no-highlight">1451</i>&nbsp;                    &quot;of Python.  It has no effect in Python 3.  Use newline to control\n&quot; +
+<i class="no-highlight">1452</i>&nbsp;                    &quot;universal newlines mode.\n&quot; +
+<i class="no-highlight">1453</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1454</i>&nbsp;                    &quot;buffering is an optional integer used to set the buffering policy.\n&quot; +
+<i class="no-highlight">1455</i>&nbsp;                    &quot;Pass 0 to switch buffering off (only allowed in binary mode), 1 to select\n&quot; +
+<i class="no-highlight">1456</i>&nbsp;                    &quot;line buffering (only usable in text mode), and an integer &gt; 1 to indicate\n&quot; +
+<i class="no-highlight">1457</i>&nbsp;                    &quot;the size of a fixed-size chunk buffer.  When no buffering argument is\n&quot; +
+<i class="no-highlight">1458</i>&nbsp;                    &quot;given, the default buffering policy works as follows:\n&quot; +
+<i class="no-highlight">1459</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1460</i>&nbsp;                    &quot;* Binary files are buffered in fixed-size chunks; the size of the buffer\n&quot; +
+<i class="no-highlight">1461</i>&nbsp;                    &quot;  is chosen using a heuristic trying to determine the underlying device&#39;s\n&quot; +
+<i class="no-highlight">1462</i>&nbsp;                    &quot;  &#39;block size&#39; and falling back on `io.DEFAULT_BUFFER_SIZE`.\n&quot; +
+<i class="no-highlight">1463</i>&nbsp;                    &quot;  On many systems, the buffer will typically be 4096 or 8192 bytes long.\n&quot; +
+<i class="no-highlight">1464</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1465</i>&nbsp;                    &quot;* &#39;Interactive&#39; text files (files for which isatty() returns True)\n&quot; +
+<i class="no-highlight">1466</i>&nbsp;                    &quot;  use line buffering.  Other text files use the policy described above\n&quot; +
+<i class="no-highlight">1467</i>&nbsp;                    &quot;  for binary files.\n&quot; +
+<i class="no-highlight">1468</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1469</i>&nbsp;                    &quot;encoding is the name of the encoding used to decode or encode the\n&quot; +
+<i class="no-highlight">1470</i>&nbsp;                    &quot;file. This should only be used in text mode. The default encoding is\n&quot; +
+<i class="no-highlight">1471</i>&nbsp;                    &quot;platform dependent, but any encoding supported by Python can be\n&quot; +
+<i class="no-highlight">1472</i>&nbsp;                    &quot;passed.  See the codecs module for the list of supported encodings.\n&quot; +
+<i class="no-highlight">1473</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1474</i>&nbsp;                    &quot;errors is an optional string that specifies how encoding errors are to\n&quot; +
+<i class="no-highlight">1475</i>&nbsp;                    &quot;be handled---this argument should not be used in binary mode. Pass\n&quot; +
+<i class="no-highlight">1476</i>&nbsp;                    &quot;&#39;strict&#39; to raise a ValueError exception if there is an encoding error\n&quot; +
+<i class="no-highlight">1477</i>&nbsp;                    &quot;(the default of None has the same effect), or pass &#39;ignore&#39; to ignore\n&quot; +
+<i class="no-highlight">1478</i>&nbsp;                    &quot;errors. (Note that ignoring encoding errors can lead to data loss.)\n&quot; +
+<i class="no-highlight">1479</i>&nbsp;                    &quot;See the documentation for codecs.register or run &#39;help(codecs.Codec)&#39;\n&quot; +
+<i class="no-highlight">1480</i>&nbsp;                    &quot;for a list of the permitted encoding error strings.\n&quot; +
+<i class="no-highlight">1481</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1482</i>&nbsp;                    &quot;newline controls how universal newlines works (it only applies to text\n&quot; +
+<i class="no-highlight">1483</i>&nbsp;                    &quot;mode). It can be None, &#39;&#39;, &#39;\n&#39;, &#39;\r&#39;, and &#39;\r\n&#39;.  It works as\n&quot; +
+<i class="no-highlight">1484</i>&nbsp;                    &quot;follows:\n&quot; +
+<i class="no-highlight">1485</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1486</i>&nbsp;                    &quot;* On input, if newline is None, universal newlines mode is\n&quot; +
+<i class="no-highlight">1487</i>&nbsp;                    &quot;  enabled. Lines in the input can end in &#39;\n&#39;, &#39;\r&#39;, or &#39;\r\n&#39;, and\n&quot; +
+<i class="no-highlight">1488</i>&nbsp;                    &quot;  these are translated into &#39;\n&#39; before being returned to the\n&quot; +
+<i class="no-highlight">1489</i>&nbsp;                    &quot;  caller. If it is &#39;&#39;, universal newline mode is enabled, but line\n&quot; +
+<i class="no-highlight">1490</i>&nbsp;                    &quot;  endings are returned to the caller untranslated. If it has any of\n&quot; +
+<i class="no-highlight">1491</i>&nbsp;                    &quot;  the other legal values, input lines are only terminated by the given\n&quot; +
+<i class="no-highlight">1492</i>&nbsp;                    &quot;  string, and the line ending is returned to the caller untranslated.\n&quot; +
+<i class="no-highlight">1493</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1494</i>&nbsp;                    &quot;* On output, if newline is None, any &#39;\n&#39; characters written are\n&quot; +
+<i class="no-highlight">1495</i>&nbsp;                    &quot;  translated to the system default line separator, os.linesep. If\n&quot; +
+<i class="no-highlight">1496</i>&nbsp;                    &quot;  newline is &#39;&#39; or &#39;\n&#39;, no translation takes place. If newline is any\n&quot; +
+<i class="no-highlight">1497</i>&nbsp;                    &quot;  of the other legal values, any &#39;\n&#39; characters written are translated\n&quot; +
+<i class="no-highlight">1498</i>&nbsp;                    &quot;  to the given string.\n&quot; +
+<i class="no-highlight">1499</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1500</i>&nbsp;                    &quot;If closefd is False, the underlying file descriptor will be kept open\n&quot; +
+<i class="no-highlight">1501</i>&nbsp;                    &quot;when the file is closed. This does not work when a file name is given\n&quot; +
+<i class="no-highlight">1502</i>&nbsp;                    &quot;and must be True in that case.\n&quot; +
+<i class="no-highlight">1503</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1504</i>&nbsp;                    &quot;A custom opener can be used by passing a callable as *opener*. The\n&quot; +
+<i class="no-highlight">1505</i>&nbsp;                    &quot;underlying file descriptor for the file object is then obtained by\n&quot; +
+<i class="no-highlight">1506</i>&nbsp;                    &quot;calling *opener* with (*file*, *flags*). *opener* must return an open\n&quot; +
+<i class="no-highlight">1507</i>&nbsp;                    &quot;file descriptor (passing os.open as *opener* results in functionality\n&quot; +
+<i class="no-highlight">1508</i>&nbsp;                    &quot;similar to passing None).\n&quot; +
+<i class="no-highlight">1509</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1510</i>&nbsp;                    &quot;open() returns a file object whose type depends on the mode, and\n&quot; +
+<i class="no-highlight">1511</i>&nbsp;                    &quot;through which the standard file operations such as reading and writing\n&quot; +
+<i class="no-highlight">1512</i>&nbsp;                    &quot;are performed. When open() is used to open a file in a text mode (&#39;w&#39;,\n&quot; +
+<i class="no-highlight">1513</i>&nbsp;                    &quot;&#39;r&#39;, &#39;wt&#39;, &#39;rt&#39;, etc.), it returns a TextIOWrapper. When used to open\n&quot; +
+<i class="no-highlight">1514</i>&nbsp;                    &quot;a file in a binary mode, the returned class varies: in read binary\n&quot; +
+<i class="no-highlight">1515</i>&nbsp;                    &quot;mode, it returns a BufferedReader; in write binary and append binary\n&quot; +
+<i class="no-highlight">1516</i>&nbsp;                    &quot;modes, it returns a BufferedWriter, and in read/write mode, it returns\n&quot; +
+<i class="no-highlight">1517</i>&nbsp;                    &quot;a BufferedRandom.\n&quot; +
+<i class="no-highlight">1518</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1519</i>&nbsp;                    &quot;It is also possible to use a string or bytearray as a file for both\n&quot; +
+<i class="no-highlight">1520</i>&nbsp;                    &quot;reading and writing. For strings StringIO can be used like a file\n&quot; +
+<i class="no-highlight">1521</i>&nbsp;                    &quot;opened in a text mode, and for bytes a BytesIO can be used like a file\n&quot; +
+<i class="no-highlight">1522</i>&nbsp;                    &quot;opened in a binary mode.\n&quot;,
+<i class="no-highlight">1523</i>&nbsp;            args = {&quot;file&quot;},
+<i class="no-highlight">1524</i>&nbsp;            default_args = {&quot;mode&quot;, &quot;buffering&quot;, &quot;encoding&quot;, &quot;errors&quot;, &quot;newline&quot;, &quot;closefd&quot;, &quot;opener&quot;}
+<i class="no-highlight">1525</i>&nbsp;    )
+<i class="no-highlight">1526</i>&nbsp;    public static org.python.Object open(
+<i class="no-highlight">1527</i>&nbsp;            org.python.Object file,
+<i class="no-highlight">1528</i>&nbsp;            org.python.Object mode,
+<i class="no-highlight">1529</i>&nbsp;            org.python.Object buffering,
+<i class="no-highlight">1530</i>&nbsp;            org.python.Object encoding,
+<i class="no-highlight">1531</i>&nbsp;            org.python.Object errors,
+<i class="no-highlight">1532</i>&nbsp;            org.python.Object newline,
+<i class="no-highlight">1533</i>&nbsp;            org.python.Object closefd,
+<i class="no-highlight">1534</i>&nbsp;            org.python.Object opener) {
+<b class="nc"><i class="no-highlight">1535</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;open&#39; not implemented&quot;);</b>
+<i class="no-highlight">1536</i>&nbsp;    }
+<i class="no-highlight">1537</i>&nbsp;
+<i class="no-highlight">1538</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1539</i>&nbsp;            __doc__ = &quot;ord(c) -&gt; integer&quot; +
+<i class="no-highlight">1540</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1541</i>&nbsp;                    &quot;Return the integer ordinal of a one-character string.\n&quot;,
+<i class="no-highlight">1542</i>&nbsp;            args = {&quot;c&quot;}
+<i class="no-highlight">1543</i>&nbsp;    )
+<i class="no-highlight">1544</i>&nbsp;    public static org.python.types.Int ord(org.python.Object c) {
+<i class="no-highlight">1545</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1546</i>&nbsp;            int length = ((org.python.types.Str) c).value.length();</b>
+<b class="nc"><i class="no-highlight">1547</i>&nbsp;            if (length == 1) {</b>
+<b class="nc"><i class="no-highlight">1548</i>&nbsp;                return org.python.types.Int.getInt((int) (((org.python.types.Str) c.__str__()).value).charAt(0));</b>
+<i class="no-highlight">1549</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">1550</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;ord() expected a character, but string of length &quot; + length + &quot; found&quot;);</b>
+<i class="no-highlight">1551</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1552</i>&nbsp;        } catch (ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">1553</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;ord() expected string of length 1, but &quot; + c.typeName() + &quot; found&quot;);</b>
+<i class="no-highlight">1554</i>&nbsp;        }
+<i class="no-highlight">1555</i>&nbsp;    }
+<i class="no-highlight">1556</i>&nbsp;
+<i class="no-highlight">1557</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1558</i>&nbsp;            __doc__ = &quot;pow(x, y[, z]) -&gt; number&quot; +
+<i class="no-highlight">1559</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1560</i>&nbsp;                    &quot;With two arguments, equivalent to x**y.  With three arguments,\n&quot; +
+<i class="no-highlight">1561</i>&nbsp;                    &quot;equivalent to (x**y) % z, but may be more efficient (e.g. for ints).\n&quot;,
+<i class="no-highlight">1562</i>&nbsp;            args = {&quot;x&quot;, &quot;y&quot;},
+<i class="no-highlight">1563</i>&nbsp;            default_args = {&quot;z&quot;}
+<i class="no-highlight">1564</i>&nbsp;    )
+<i class="no-highlight">1565</i>&nbsp;    public static org.python.Object pow(org.python.Object x, org.python.Object y, org.python.Object z) {
+<b class="nc"><i class="no-highlight">1566</i>&nbsp;        if (z != null &amp;&amp; !((x instanceof org.python.types.Int) &amp;&amp; (y instanceof org.python.types.Int))) {</b>
+<b class="nc"><i class="no-highlight">1567</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;pow() 3rd argument not allowed unless all arguments are integers&quot;);</b>
+<i class="no-highlight">1568</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1569</i>&nbsp;        if (z != null &amp;&amp; ((org.python.types.Int) y).value &lt; 0) {</b>
+<b class="nc"><i class="no-highlight">1570</i>&nbsp;            if (org.Python.VERSION &lt; 0x03050000) {</b>
+<b class="nc"><i class="no-highlight">1571</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;pow() 2nd argument cannot be negative when 3rd argument specified&quot;);</b>
+<i class="no-highlight">1572</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">1573</i>&nbsp;                throw new org.python.exceptions.ValueError(&quot;pow() 2nd argument cannot be negative when 3rd argument specified&quot;);</b>
+<i class="no-highlight">1574</i>&nbsp;            }
+<i class="no-highlight">1575</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1576</i>&nbsp;        return x.__pow__(y, z);</b>
+<i class="no-highlight">1577</i>&nbsp;    }
+<i class="no-highlight">1578</i>&nbsp;
+<i class="no-highlight">1579</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1580</i>&nbsp;            __doc__ = &quot;print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)&quot; +
+<i class="no-highlight">1581</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1582</i>&nbsp;                    &quot;Prints the values to a stream, or to sys.stdout by default.\n&quot; +
+<i class="no-highlight">1583</i>&nbsp;                    &quot;Optional keyword arguments:\n&quot; +
+<i class="no-highlight">1584</i>&nbsp;                    &quot;file:  a file-like object (stream); defaults to the current sys.stdout.\n&quot; +
+<i class="no-highlight">1585</i>&nbsp;                    &quot;sep:   string inserted between values, default a space.\n&quot; +
+<i class="no-highlight">1586</i>&nbsp;                    &quot;end:   string appended after the last value, default a newline.\n&quot; +
+<i class="no-highlight">1587</i>&nbsp;                    &quot;flush: whether to forcibly flush the stream.\n&quot;,
+<i class="no-highlight">1588</i>&nbsp;            varargs = &quot;value&quot;,
+<i class="no-highlight">1589</i>&nbsp;            kwonlyargs = {&quot;file&quot;, &quot;sep&quot;, &quot;end&quot;, &quot;flush&quot;}
+<i class="no-highlight">1590</i>&nbsp;    )
+<i class="no-highlight">1591</i>&nbsp;    public static void print(org.python.types.Tuple value, org.python.Object file, org.python.Object sep, org.python.Object end, org.python.Object flush) {
+<b class="nc"><i class="no-highlight">1592</i>&nbsp;        java.util.List&lt;org.python.Object&gt; valueArgs = value.value;</b>
+<b class="nc"><i class="no-highlight">1593</i>&nbsp;        StringBuilder buffer = new StringBuilder();</b>
+<i class="no-highlight">1594</i>&nbsp;
+<b class="nc"><i class="no-highlight">1595</i>&nbsp;        for (int i = 0; i &lt; valueArgs.size(); i++) {</b>
+<b class="nc"><i class="no-highlight">1596</i>&nbsp;            buffer.append(valueArgs.get(i).__str__());</b>
+<i class="no-highlight">1597</i>&nbsp;
+<b class="nc"><i class="no-highlight">1598</i>&nbsp;            if (i != valueArgs.size() - 1) {</b>
+<b class="nc"><i class="no-highlight">1599</i>&nbsp;                if (sep == null) {</b>
+<b class="nc"><i class="no-highlight">1600</i>&nbsp;                    buffer.append(&quot; &quot;);</b>
+<i class="no-highlight">1601</i>&nbsp;                } else {
+<b class="nc"><i class="no-highlight">1602</i>&nbsp;                    buffer.append(sep);</b>
+<i class="no-highlight">1603</i>&nbsp;                }
+<i class="no-highlight">1604</i>&nbsp;            }
+<i class="no-highlight">1605</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1606</i>&nbsp;        if (end == null) {</b>
+<b class="nc"><i class="no-highlight">1607</i>&nbsp;            buffer.append(&quot;\n&quot;);</b>
+<i class="no-highlight">1608</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1609</i>&nbsp;            buffer.append(end);</b>
+<i class="no-highlight">1610</i>&nbsp;        }
+<i class="no-highlight">1611</i>&nbsp;
+<b class="nc"><i class="no-highlight">1612</i>&nbsp;        if (file == null) {</b>
+<b class="nc"><i class="no-highlight">1613</i>&nbsp;            file = python.sys.stdout;</b>
+<i class="no-highlight">1614</i>&nbsp;        }
+<i class="no-highlight">1615</i>&nbsp;
+<b class="nc"><i class="no-highlight">1616</i>&nbsp;        org.python.Object content = new org.python.types.Str(buffer.toString());</b>
+<b class="nc"><i class="no-highlight">1617</i>&nbsp;        org.python.Object write_method = file.__getattribute__(&quot;write&quot;);</b>
+<i class="no-highlight">1618</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1619</i>&nbsp;            ((org.python.Callable) write_method).invoke(new org.python.Object[]{content}, null);</b>
+<b class="nc"><i class="no-highlight">1620</i>&nbsp;        } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">1621</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + write_method.typeName() + &quot;&#39; object is not callable&quot;);</b>
+<b class="nc"><i class="no-highlight">1622</i>&nbsp;        }</b>
+<i class="no-highlight">1623</i>&nbsp;
+<b class="nc"><i class="no-highlight">1624</i>&nbsp;        if (flush != null &amp;&amp; flush.toBoolean()) {</b>
+<b class="nc"><i class="no-highlight">1625</i>&nbsp;            org.python.Object flush_method = file.__getattribute__(&quot;flush&quot;);</b>
+<i class="no-highlight">1626</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1627</i>&nbsp;                ((org.python.Callable) flush_method).invoke(null, null);</b>
+<b class="nc"><i class="no-highlight">1628</i>&nbsp;            } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">1629</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + flush_method.typeName() + &quot;&#39; object is not callable&quot;);</b>
+<b class="nc"><i class="no-highlight">1630</i>&nbsp;            }</b>
+<i class="no-highlight">1631</i>&nbsp;        }
+<i class="no-highlight">1632</i>&nbsp;    }
+<i class="no-highlight">1633</i>&nbsp;
+<i class="no-highlight">1634</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1635</i>&nbsp;            __doc__ = &quot;property(fget=None, fset=None, fdel=None, doc=None) -&gt; property attribute&quot; +
+<i class="no-highlight">1636</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1637</i>&nbsp;                    &quot;fget is a function to be used for getting an attribute value, and likewise\n&quot; +
+<i class="no-highlight">1638</i>&nbsp;                    &quot;fset is a function for setting, and fdel a function for del&#39;ing, an\n&quot; +
+<i class="no-highlight">1639</i>&nbsp;                    &quot;attribute.  Typical use is to define a managed attribute x:\n&quot; +
+<i class="no-highlight">1640</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1641</i>&nbsp;                    &quot;class C(object):\n&quot; +
+<i class="no-highlight">1642</i>&nbsp;                    &quot;    def getx(self): return self._x\n&quot; +
+<i class="no-highlight">1643</i>&nbsp;                    &quot;    def setx(self, value): self._x = value\n&quot; +
+<i class="no-highlight">1644</i>&nbsp;                    &quot;    def delx(self): del self._x\n&quot; +
+<i class="no-highlight">1645</i>&nbsp;                    &quot;    x = property(getx, setx, delx, \&quot;I&#39;m the &#39;x&#39; property.\&quot;)\n&quot; +
+<i class="no-highlight">1646</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1647</i>&nbsp;                    &quot;Decorators make defining new properties or modifying existing ones easy:\n&quot; +
+<i class="no-highlight">1648</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1649</i>&nbsp;                    &quot;class C(object):\n&quot; +
+<i class="no-highlight">1650</i>&nbsp;                    &quot;    @property\n&quot; +
+<i class="no-highlight">1651</i>&nbsp;                    &quot;    def x(self):\n&quot; +
+<i class="no-highlight">1652</i>&nbsp;                    &quot;        \&quot;I am the &#39;x&#39; property.\&quot;\n&quot; +
+<i class="no-highlight">1653</i>&nbsp;                    &quot;        return self._x\n&quot; +
+<i class="no-highlight">1654</i>&nbsp;                    &quot;    @x.setter\n&quot; +
+<i class="no-highlight">1655</i>&nbsp;                    &quot;    def x(self, value):\n&quot; +
+<i class="no-highlight">1656</i>&nbsp;                    &quot;        self._x = value\n&quot; +
+<i class="no-highlight">1657</i>&nbsp;                    &quot;    @x.deleter\n&quot; +
+<i class="no-highlight">1658</i>&nbsp;                    &quot;    def x(self):\n&quot; +
+<i class="no-highlight">1659</i>&nbsp;                    &quot;        del self._x\n&quot;,
+<i class="no-highlight">1660</i>&nbsp;            args = {&quot;fget&quot;},
+<i class="no-highlight">1661</i>&nbsp;            default_args = {&quot;fset&quot;, &quot;fdel&quot;, &quot;doc&quot;}
+<i class="no-highlight">1662</i>&nbsp;    )
+<i class="no-highlight">1663</i>&nbsp;    public static org.python.Object property(org.python.Object fget, org.python.Object fset, org.python.Object fdel, org.python.Object doc) {
+<b class="nc"><i class="no-highlight">1664</i>&nbsp;        return new org.python.types.Property(fget, fset, fdel, doc);</b>
+<i class="no-highlight">1665</i>&nbsp;    }
+<i class="no-highlight">1666</i>&nbsp;
+<i class="no-highlight">1667</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1668</i>&nbsp;            __doc__ = &quot;range(stop) -&gt; range object&quot; +
+<i class="no-highlight">1669</i>&nbsp;                    &quot;range(start, stop[, step]) -&gt; range object\n&quot; +
+<i class="no-highlight">1670</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1671</i>&nbsp;                    &quot;Return a virtual sequence of numbers from start to stop by step.\n&quot;,
+<i class="no-highlight">1672</i>&nbsp;            args = {&quot;start_or_stop&quot;},
+<i class="no-highlight">1673</i>&nbsp;            default_args = {&quot;stop&quot;, &quot;step&quot;}
+<i class="no-highlight">1674</i>&nbsp;    )
+<i class="no-highlight">1675</i>&nbsp;    public static org.python.types.Range range(org.python.Object start_or_stop, org.python.Object stop, org.python.Object step) {
+<b class="nc"><i class="no-highlight">1676</i>&nbsp;        if (stop == null &amp;&amp; step == null) {</b>
+<b class="nc"><i class="no-highlight">1677</i>&nbsp;            return new org.python.types.Range(start_or_stop);</b>
+<b class="nc"><i class="no-highlight">1678</i>&nbsp;        } else if (step == null) {</b>
+<b class="nc"><i class="no-highlight">1679</i>&nbsp;            return new org.python.types.Range(start_or_stop, stop);</b>
+<i class="no-highlight">1680</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1681</i>&nbsp;            return new org.python.types.Range(start_or_stop, stop, step);</b>
+<i class="no-highlight">1682</i>&nbsp;        }
+<i class="no-highlight">1683</i>&nbsp;    }
+<i class="no-highlight">1684</i>&nbsp;
+<i class="no-highlight">1685</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1686</i>&nbsp;            __doc__ = &quot;repr(object) -&gt; string&quot; +
+<i class="no-highlight">1687</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1688</i>&nbsp;                    &quot;Return the canonical string representation of the object.\n&quot; +
+<i class="no-highlight">1689</i>&nbsp;                    &quot;For most object types, eval(repr(object)) == object.\n&quot;,
+<i class="no-highlight">1690</i>&nbsp;            args = {&quot;object&quot;}
+<i class="no-highlight">1691</i>&nbsp;    )
+<i class="no-highlight">1692</i>&nbsp;    public static org.python.types.Str repr(org.python.Object object) {
+<b class="nc"><i class="no-highlight">1693</i>&nbsp;        return (org.python.types.Str) object.__repr__();</b>
+<i class="no-highlight">1694</i>&nbsp;    }
+<i class="no-highlight">1695</i>&nbsp;
+<i class="no-highlight">1696</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1697</i>&nbsp;            __doc__ = &quot;reversed(sequence) -&gt; reverse iterator over values of the sequence&quot; +
+<i class="no-highlight">1698</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1699</i>&nbsp;                    &quot;Return a reverse iterator\n&quot;,
+<i class="no-highlight">1700</i>&nbsp;            args = {&quot;sequence&quot;}
+<i class="no-highlight">1701</i>&nbsp;    )
+<i class="no-highlight">1702</i>&nbsp;    public static org.python.Object reversed(org.python.Object sequence) {
+<i class="no-highlight">1703</i>&nbsp;        // Try the __reversed__() protocol.
+<i class="no-highlight">1704</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1705</i>&nbsp;            return sequence.__reversed__();</b>
+<b class="nc"><i class="no-highlight">1706</i>&nbsp;        } catch (org.python.exceptions.AttributeError ae) {</b>
+<i class="no-highlight">1707</i>&nbsp;        }
+<i class="no-highlight">1708</i>&nbsp;
+<b class="nc"><i class="no-highlight">1709</i>&nbsp;        if (!(sequence instanceof org.python.types.Dict)) {</b>
+<i class="no-highlight">1710</i>&nbsp;            try {
+<i class="no-highlight">1711</i>&nbsp;                // Check the argument really is a sequence.
+<i class="no-highlight">1712</i>&nbsp;                // There probably should be a better way to introspect for these
+<i class="no-highlight">1713</i>&nbsp;                // methods without catually calling them, but this will do for now.
+<i class="no-highlight">1714</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">1715</i>&nbsp;                    sequence.__getitem__(org.python.types.Int.getInt(0));</b>
+<b class="nc"><i class="no-highlight">1716</i>&nbsp;                } catch (org.python.exceptions.IndexError e) {</b>
+<b class="nc"><i class="no-highlight">1717</i>&nbsp;                }</b>
+<i class="no-highlight">1718</i>&nbsp;
+<i class="no-highlight">1719</i>&nbsp;                // Wrap the sequence into a generic reverse iterator.
+<b class="nc"><i class="no-highlight">1720</i>&nbsp;                return new org.python.types.Reversed(sequence);</b>
+<b class="nc"><i class="no-highlight">1721</i>&nbsp;            } catch (org.python.exceptions.AttributeError | org.python.exceptions.TypeError e) {</b>
+<i class="no-highlight">1722</i>&nbsp;            }
+<i class="no-highlight">1723</i>&nbsp;        }
+<i class="no-highlight">1724</i>&nbsp;
+<b class="nc"><i class="no-highlight">1725</i>&nbsp;        if (org.Python.VERSION &lt; 0x03060000) {</b>
+<b class="nc"><i class="no-highlight">1726</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;argument to reversed() must be a sequence&quot;);</b>
+<i class="no-highlight">1727</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1728</i>&nbsp;        throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + sequence.typeName() + &quot;&#39; object is not reversible&quot;);</b>
+<i class="no-highlight">1729</i>&nbsp;    }
+<i class="no-highlight">1730</i>&nbsp;
+<i class="no-highlight">1731</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1732</i>&nbsp;            __doc__ = &quot;round(number[, ndigits]) -&gt; number&quot; +
+<i class="no-highlight">1733</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1734</i>&nbsp;                    &quot;Round a number to a given precision in decimal digits (default 0 digits).\n&quot; +
+<i class="no-highlight">1735</i>&nbsp;                    &quot;This returns an int when called with one argument, otherwise the\n&quot; +
+<i class="no-highlight">1736</i>&nbsp;                    &quot;same type as the number. ndigits may be negative.\n&quot;,
+<i class="no-highlight">1737</i>&nbsp;            args = {&quot;number&quot;},
+<i class="no-highlight">1738</i>&nbsp;            default_args = {&quot;ndigits&quot;}
+<i class="no-highlight">1739</i>&nbsp;    )
+<i class="no-highlight">1740</i>&nbsp;    public static org.python.Object round(org.python.Object number, org.python.Object ndigits) {
+<b class="nc"><i class="no-highlight">1741</i>&nbsp;        if (org.Python.VERSION &gt;= 0x03050000 &amp;&amp; ndigits == org.python.types.NoneType.NONE) {</b>
+<b class="nc"><i class="no-highlight">1742</i>&nbsp;            return number.__round__(null);</b>
+<i class="no-highlight">1743</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1744</i>&nbsp;        return number.__round__(ndigits);</b>
+<i class="no-highlight">1745</i>&nbsp;    }
+<i class="no-highlight">1746</i>&nbsp;
+<i class="no-highlight">1747</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1748</i>&nbsp;            __doc__ = &quot;setattr(object, name, value)&quot; +
+<i class="no-highlight">1749</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1750</i>&nbsp;                    &quot;Set a named attribute on an object; setattr(x, &#39;y&#39;, v) is equivalent to\n&quot; +
+<i class="no-highlight">1751</i>&nbsp;                    &quot;``x.y = v&#39;&#39;.\n&quot;,
+<i class="no-highlight">1752</i>&nbsp;            args = {&quot;object&quot;, &quot;name&quot;, &quot;value&quot;}
+<i class="no-highlight">1753</i>&nbsp;    )
+<i class="no-highlight">1754</i>&nbsp;    public static org.python.Object setattr(org.python.Object object, org.python.Object name, org.python.Object value) {
+<i class="no-highlight">1755</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">1756</i>&nbsp;            object.__setattr__(name, value);</b>
+<b class="nc"><i class="no-highlight">1757</i>&nbsp;            return org.python.types.NoneType.NONE;</b>
+<b class="nc"><i class="no-highlight">1758</i>&nbsp;        } catch (org.python.exceptions.TypeError te) {</b>
+<b class="nc"><i class="no-highlight">1759</i>&nbsp;            throw new org.python.exceptions.TypeError(te.getMessage().replace(&quot;__setattr__&quot;, &quot;setattr&quot;));</b>
+<i class="no-highlight">1760</i>&nbsp;        }
+<i class="no-highlight">1761</i>&nbsp;    }
+<i class="no-highlight">1762</i>&nbsp;
+<i class="no-highlight">1763</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1764</i>&nbsp;            __doc__ = &quot;slice(stop)&quot; +
+<i class="no-highlight">1765</i>&nbsp;                    &quot;slice(start, stop[, step])\n&quot; +
+<i class="no-highlight">1766</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1767</i>&nbsp;                    &quot;Create a slice object.  This is used for extended slicing (e.g. a[0:10:2]).\n&quot;,
+<i class="no-highlight">1768</i>&nbsp;            args = {&quot;start_or_stop&quot;},
+<i class="no-highlight">1769</i>&nbsp;            default_args = {&quot;stop&quot;, &quot;step&quot;}
+<i class="no-highlight">1770</i>&nbsp;    )
+<i class="no-highlight">1771</i>&nbsp;    public static org.python.Object slice(org.python.Object start_or_stop, org.python.Object stop, org.python.Object step) {
+<b class="nc"><i class="no-highlight">1772</i>&nbsp;        if (stop == null &amp;&amp; step == null) {</b>
+<b class="nc"><i class="no-highlight">1773</i>&nbsp;            return new org.python.types.Slice(start_or_stop);</b>
+<b class="nc"><i class="no-highlight">1774</i>&nbsp;        } else if (step == null) {</b>
+<b class="nc"><i class="no-highlight">1775</i>&nbsp;            return new org.python.types.Slice(start_or_stop, stop);</b>
+<i class="no-highlight">1776</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1777</i>&nbsp;            return new org.python.types.Slice(start_or_stop, stop, step);</b>
+<i class="no-highlight">1778</i>&nbsp;        }
+<i class="no-highlight">1779</i>&nbsp;    }
+<i class="no-highlight">1780</i>&nbsp;
+<i class="no-highlight">1781</i>&nbsp;    public static class __SortedObjectComparator implements java.util.Comparator&lt;org.python.Object&gt; {
+<i class="no-highlight">1782</i>&nbsp;        private boolean reverse;
+<i class="no-highlight">1783</i>&nbsp;        private org.python.Object key;
+<i class="no-highlight">1784</i>&nbsp;
+<b class="nc"><i class="no-highlight">1785</i>&nbsp;        public __SortedObjectComparator(boolean reverse, org.python.Object key) {</b>
+<b class="nc"><i class="no-highlight">1786</i>&nbsp;            this.reverse = reverse;</b>
+<b class="nc"><i class="no-highlight">1787</i>&nbsp;            this.key = key;</b>
+<i class="no-highlight">1788</i>&nbsp;        }
+<i class="no-highlight">1789</i>&nbsp;
+<b class="nc"><i class="no-highlight">1790</i>&nbsp;        public __SortedObjectComparator(boolean reverse) {</b>
+<b class="nc"><i class="no-highlight">1791</i>&nbsp;            this.reverse = reverse;</b>
+<i class="no-highlight">1792</i>&nbsp;        }
+<i class="no-highlight">1793</i>&nbsp;
+<i class="no-highlight">1794</i>&nbsp;        public int compare(org.python.Object o1, org.python.Object o2) {
+<b class="nc"><i class="no-highlight">1795</i>&nbsp;            o1 = applyKey(o1, key);</b>
+<b class="nc"><i class="no-highlight">1796</i>&nbsp;            o2 = applyKey(o2, key);</b>
+<b class="nc"><i class="no-highlight">1797</i>&nbsp;            org.python.Object result = org.python.types.Object.__lt__(o1, o2);</b>
+<b class="nc"><i class="no-highlight">1798</i>&nbsp;            if (result.toBoolean()) {</b>
+<b class="nc"><i class="no-highlight">1799</i>&nbsp;                return reverse ? 1 : -1;</b>
+<i class="no-highlight">1800</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1801</i>&nbsp;            result = org.python.types.Object.__lt__(o2, o1);</b>
+<b class="nc"><i class="no-highlight">1802</i>&nbsp;            if (result.toBoolean()) {</b>
+<b class="nc"><i class="no-highlight">1803</i>&nbsp;                return reverse ? -1 : 1;</b>
+<i class="no-highlight">1804</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1805</i>&nbsp;            return 0;</b>
+<i class="no-highlight">1806</i>&nbsp;        }
+<i class="no-highlight">1807</i>&nbsp;    }
+<i class="no-highlight">1808</i>&nbsp;
+<i class="no-highlight">1809</i>&nbsp;    private static org.python.Object applyKey(org.python.Object obj, org.python.Object key) {
+<b class="nc"><i class="no-highlight">1810</i>&nbsp;        if (key != null) {</b>
+<i class="no-highlight">1811</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1812</i>&nbsp;                return ((org.python.Callable) key).invoke(new org.python.Object[]{obj}, null);</b>
+<b class="nc"><i class="no-highlight">1813</i>&nbsp;            } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">1814</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;&#39;&quot; + key.typeName() + &quot;&#39; object is not callable&quot;);</b>
+<i class="no-highlight">1815</i>&nbsp;            }
+<i class="no-highlight">1816</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1817</i>&nbsp;        return obj;</b>
+<i class="no-highlight">1818</i>&nbsp;    }
+<i class="no-highlight">1819</i>&nbsp;
+<i class="no-highlight">1820</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1821</i>&nbsp;            __doc__ = &quot;sorted(iterable, key=None, reverse=False) --&gt; new sorted list&quot;,
+<i class="no-highlight">1822</i>&nbsp;            args = {&quot;iterable&quot;},
+<i class="no-highlight">1823</i>&nbsp;            default_args = {&quot;key&quot;, &quot;reverse&quot;}
+<i class="no-highlight">1824</i>&nbsp;    )
+<i class="no-highlight">1825</i>&nbsp;    public static org.python.types.List sorted(org.python.Object iterable, org.python.Object key, org.python.types.Bool reverse) {
+<b class="nc"><i class="no-highlight">1826</i>&nbsp;        if (iterable == null) {</b>
+<b class="nc"><i class="no-highlight">1827</i>&nbsp;            return new org.python.types.List();</b>
+<i class="no-highlight">1828</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1829</i>&nbsp;            if (reverse == null) {</b>
+<b class="nc"><i class="no-highlight">1830</i>&nbsp;                reverse = org.python.types.Bool.FALSE;</b>
+<i class="no-highlight">1831</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1832</i>&nbsp;            org.python.Object iterator = org.Python.iter(iterable);</b>
+<b class="nc"><i class="no-highlight">1833</i>&nbsp;            java.util.List&lt;org.python.Object&gt; generated = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<i class="no-highlight">1834</i>&nbsp;            try {
+<i class="no-highlight">1835</i>&nbsp;                while (true) {
+<b class="nc"><i class="no-highlight">1836</i>&nbsp;                    org.python.Object next = iterator.__next__();</b>
+<b class="nc"><i class="no-highlight">1837</i>&nbsp;                    generated.add(next);</b>
+<b class="nc"><i class="no-highlight">1838</i>&nbsp;                }</b>
+<b class="nc"><i class="no-highlight">1839</i>&nbsp;            } catch (org.python.exceptions.StopIteration si) {</b>
+<i class="no-highlight">1840</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1841</i>&nbsp;            if (key == null || key instanceof org.python.types.NoneType) {</b>
+<b class="nc"><i class="no-highlight">1842</i>&nbsp;                java.util.Collections.sort(generated, new __SortedObjectComparator(reverse.value));</b>
+<i class="no-highlight">1843</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">1844</i>&nbsp;                java.util.Collections.sort(generated, new __SortedObjectComparator(reverse.value, key));</b>
+<i class="no-highlight">1845</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1846</i>&nbsp;            return new org.python.types.List(generated);</b>
+<i class="no-highlight">1847</i>&nbsp;        }
+<i class="no-highlight">1848</i>&nbsp;    }
+<i class="no-highlight">1849</i>&nbsp;
+<i class="no-highlight">1850</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1851</i>&nbsp;            __doc__ = &quot;staticmethod(function) -&gt; method&quot; +
+<i class="no-highlight">1852</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1853</i>&nbsp;                    &quot;Convert a function to be a static method.\n&quot; +
+<i class="no-highlight">1854</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1855</i>&nbsp;                    &quot;A static method does not receive an implicit first argument.\n&quot; +
+<i class="no-highlight">1856</i>&nbsp;                    &quot;To declare a static method, use this idiom:\n&quot; +
+<i class="no-highlight">1857</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1858</i>&nbsp;                    &quot;     class C:\n&quot; +
+<i class="no-highlight">1859</i>&nbsp;                    &quot;     def f(arg1, arg2, ...): ...\n&quot; +
+<i class="no-highlight">1860</i>&nbsp;                    &quot;     f = staticmethod(f)\n&quot; +
+<i class="no-highlight">1861</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1862</i>&nbsp;                    &quot;It can be called either on the class (e.g. C.f()) or on an instance\n&quot; +
+<i class="no-highlight">1863</i>&nbsp;                    &quot;(e.g. C().f()).  The instance is ignored except for its class.\n&quot; +
+<i class="no-highlight">1864</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1865</i>&nbsp;                    &quot;Static methods in Python are similar to those found in Java or C++.\n&quot; +
+<i class="no-highlight">1866</i>&nbsp;                    &quot;For a more advanced concept, see the classmethod builtin.\n&quot;,
+<i class="no-highlight">1867</i>&nbsp;            args = {&quot;function&quot;}
+<i class="no-highlight">1868</i>&nbsp;    )
+<i class="no-highlight">1869</i>&nbsp;    public static org.python.Object staticmethod(org.python.Object function) {
+<b class="nc"><i class="no-highlight">1870</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;Builtin function &#39;staticmethod&#39; not implemented&quot;);</b>
+<i class="no-highlight">1871</i>&nbsp;    }
+<i class="no-highlight">1872</i>&nbsp;
+<i class="no-highlight">1873</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1874</i>&nbsp;            __doc__ = &quot;sum(iterable[, start]) -&gt; value&quot; +
+<i class="no-highlight">1875</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1876</i>&nbsp;                    &quot;Return the sum of an iterable of numbers (NOT strings) plus the value\n&quot; +
+<i class="no-highlight">1877</i>&nbsp;                    &quot;of parameter &#39;start&#39; (which defaults to 0).  When the iterable is\n&quot; +
+<i class="no-highlight">1878</i>&nbsp;                    &quot;empty, return start.\n&quot;,
+<i class="no-highlight">1879</i>&nbsp;            args = {&quot;iterable&quot;},
+<i class="no-highlight">1880</i>&nbsp;            default_args = {&quot;start&quot;}
+<i class="no-highlight">1881</i>&nbsp;    )
+<i class="no-highlight">1882</i>&nbsp;    public static org.python.Object sum(org.python.Object iterable, org.python.Object start) {
+<i class="no-highlight">1883</i>&nbsp;        org.python.Object value;
+<b class="nc"><i class="no-highlight">1884</i>&nbsp;        if (start != null) {</b>
+<b class="nc"><i class="no-highlight">1885</i>&nbsp;            value = start;</b>
+<i class="no-highlight">1886</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1887</i>&nbsp;            value = org.python.types.Int.getInt(0);</b>
+<i class="no-highlight">1888</i>&nbsp;        }
+<i class="no-highlight">1889</i>&nbsp;
+<b class="nc"><i class="no-highlight">1890</i>&nbsp;        org.python.Object iterator = org.Python.iter(iterable);</b>
+<i class="no-highlight">1891</i>&nbsp;        while (true) {
+<i class="no-highlight">1892</i>&nbsp;            org.python.Object next;
+<i class="no-highlight">1893</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1894</i>&nbsp;                next = iterator.__next__();</b>
+<b class="nc"><i class="no-highlight">1895</i>&nbsp;            } catch (org.python.exceptions.StopIteration si) {</b>
+<b class="nc"><i class="no-highlight">1896</i>&nbsp;                break;</b>
+<b class="nc"><i class="no-highlight">1897</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">1898</i>&nbsp;            value = value.__add__(next);</b>
+<b class="nc"><i class="no-highlight">1899</i>&nbsp;        }</b>
+<i class="no-highlight">1900</i>&nbsp;
+<b class="nc"><i class="no-highlight">1901</i>&nbsp;        return value;</b>
+<i class="no-highlight">1902</i>&nbsp;    }
+<i class="no-highlight">1903</i>&nbsp;
+<i class="no-highlight">1904</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1905</i>&nbsp;            __doc__ = &quot;type(object_or_name, bases, dict)&quot; +
+<i class="no-highlight">1906</i>&nbsp;                    &quot;type(object) -&gt; the object&#39;s type\n&quot; +
+<i class="no-highlight">1907</i>&nbsp;                    &quot;type(name, bases, dict) -&gt; a new type\n&quot;,
+<i class="no-highlight">1908</i>&nbsp;            args = {&quot;object_or_name&quot;},
+<i class="no-highlight">1909</i>&nbsp;            default_args = {&quot;bases&quot;, &quot;dict&quot;}
+<i class="no-highlight">1910</i>&nbsp;    )
+<i class="no-highlight">1911</i>&nbsp;    public static org.python.types.Type type(org.python.Object object_or_name, org.python.Object bases, org.python.Object dict) {
+<b class="fc"><i class="no-highlight">1912</i>&nbsp;        if (bases == null &amp;&amp; dict != null) {</b>
+<b class="nc"><i class="no-highlight">1913</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;type() takes 1 or 3 arguments&quot;);</b>
+<i class="no-highlight">1914</i>&nbsp;        }
+<i class="no-highlight">1915</i>&nbsp;
+<b class="fc"><i class="no-highlight">1916</i>&nbsp;        if (bases == null &amp;&amp; dict == null) {</b>
+<b class="fc"><i class="no-highlight">1917</i>&nbsp;            return org.python.types.Type.pythonType(object_or_name.getClass());</b>
+<i class="no-highlight">1918</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">1919</i>&nbsp;            return org.python.types.Type.declarePythonType(object_or_name, bases, dict);</b>
+<i class="no-highlight">1920</i>&nbsp;        }
+<i class="no-highlight">1921</i>&nbsp;    }
+<i class="no-highlight">1922</i>&nbsp;
+<i class="no-highlight">1923</i>&nbsp;    // @org.python.Method(
+<i class="no-highlight">1924</i>&nbsp;    //     __doc__ = &quot;vars([object]) -&gt; dictionary&quot; +
+<i class="no-highlight">1925</i>&nbsp;    //         &quot;\n&quot; +
+<i class="no-highlight">1926</i>&nbsp;    //         &quot;Without arguments, equivalent to locals().\n&quot; +
+<i class="no-highlight">1927</i>&nbsp;    //         &quot;With an argument, equivalent to object.__dict__.\n&quot;
+<i class="no-highlight">1928</i>&nbsp;    // )
+<i class="no-highlight">1929</i>&nbsp;    // public static org.python.types.Dict vars() {
+<i class="no-highlight">1930</i>&nbsp;    //     Implemented directly at the AST level
+<i class="no-highlight">1931</i>&nbsp;    // }
+<i class="no-highlight">1932</i>&nbsp;
+<i class="no-highlight">1933</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">1934</i>&nbsp;            __doc__ = &quot;zip(iter1 [,iter2 [...]]) --&gt; zip object&quot; +
+<i class="no-highlight">1935</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">1936</i>&nbsp;                    &quot;Return a zip object whose .__next__() method returns a tuple where\n&quot; +
+<i class="no-highlight">1937</i>&nbsp;                    &quot;the i-th element comes from the i-th iterable argument.  The .__next__()\n&quot; +
+<i class="no-highlight">1938</i>&nbsp;                    &quot;method continues until the shortest iterable in the argument sequence\n&quot; +
+<i class="no-highlight">1939</i>&nbsp;                    &quot;is exhausted and then it raises StopIteration.\n&quot;,
+<i class="no-highlight">1940</i>&nbsp;
+<i class="no-highlight">1941</i>&nbsp;            args = {&quot;item&quot;},
+<i class="no-highlight">1942</i>&nbsp;            varargs = &quot;moreItems&quot;
+<i class="no-highlight">1943</i>&nbsp;    )
+<i class="no-highlight">1944</i>&nbsp;    public static org.python.Object zip(org.python.Object item, org.python.types.Tuple moreItems) {
+<b class="nc"><i class="no-highlight">1945</i>&nbsp;        java.util.List result = new java.util.ArrayList();</b>
+<b class="nc"><i class="no-highlight">1946</i>&nbsp;        int count = 0;</b>
+<b class="nc"><i class="no-highlight">1947</i>&nbsp;        if (item != null) {</b>
+<b class="nc"><i class="no-highlight">1948</i>&nbsp;            count = 1;</b>
+<i class="no-highlight">1949</i>&nbsp;            org.python.Object iter;
+<i class="no-highlight">1950</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">1951</i>&nbsp;                iter = org.Python.iter(item);</b>
+<b class="nc"><i class="no-highlight">1952</i>&nbsp;            } catch (org.python.exceptions.TypeError e) {</b>
+<b class="nc"><i class="no-highlight">1953</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;zip argument #&quot; + count + &quot; must support iteration&quot;);</b>
+<b class="nc"><i class="no-highlight">1954</i>&nbsp;            }</b>
+<b class="nc"><i class="no-highlight">1955</i>&nbsp;            java.util.List&lt;org.python.Object&gt; iters = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="nc"><i class="no-highlight">1956</i>&nbsp;            iters.add(iter);</b>
+<b class="nc"><i class="no-highlight">1957</i>&nbsp;            if (moreItems != null) {</b>
+<b class="nc"><i class="no-highlight">1958</i>&nbsp;                org.python.Object tupIter = org.Python.iter(moreItems);</b>
+<i class="no-highlight">1959</i>&nbsp;                while (true) {
+<b class="nc"><i class="no-highlight">1960</i>&nbsp;                    count++;</b>
+<i class="no-highlight">1961</i>&nbsp;                    org.python.Object it;
+<i class="no-highlight">1962</i>&nbsp;                    org.python.Object obj;
+<i class="no-highlight">1963</i>&nbsp;                    try {
+<b class="nc"><i class="no-highlight">1964</i>&nbsp;                        obj = tupIter.__next__();</b>
+<b class="nc"><i class="no-highlight">1965</i>&nbsp;                    } catch (org.python.exceptions.StopIteration e) {</b>
+<b class="nc"><i class="no-highlight">1966</i>&nbsp;                        break;</b>
+<b class="nc"><i class="no-highlight">1967</i>&nbsp;                    }</b>
+<i class="no-highlight">1968</i>&nbsp;                    try {
+<b class="nc"><i class="no-highlight">1969</i>&nbsp;                        it = org.Python.iter(obj);</b>
+<b class="nc"><i class="no-highlight">1970</i>&nbsp;                    } catch (org.python.exceptions.TypeError e) {</b>
+<b class="nc"><i class="no-highlight">1971</i>&nbsp;                        throw new org.python.exceptions.TypeError(&quot;zip argument #&quot; + count + &quot; must support iteration&quot;);</b>
+<b class="nc"><i class="no-highlight">1972</i>&nbsp;                    }</b>
+<b class="nc"><i class="no-highlight">1973</i>&nbsp;                    iters.add(it);</b>
+<b class="nc"><i class="no-highlight">1974</i>&nbsp;                }</b>
+<i class="no-highlight">1975</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">1976</i>&nbsp;            boolean flag = false;</b>
+<i class="no-highlight">1977</i>&nbsp;            while (true) {
+<b class="nc"><i class="no-highlight">1978</i>&nbsp;                java.util.List tuple = new java.util.ArrayList();</b>
+<b class="nc"><i class="no-highlight">1979</i>&nbsp;                for (int i = 0; i &lt; count - 1; i++) {</b>
+<i class="no-highlight">1980</i>&nbsp;                    try {
+<b class="nc"><i class="no-highlight">1981</i>&nbsp;                        org.python.Object it = iters.get(i);</b>
+<b class="nc"><i class="no-highlight">1982</i>&nbsp;                        tuple.add(it.__next__());</b>
+<b class="nc"><i class="no-highlight">1983</i>&nbsp;                    } catch (IndexOutOfBoundsException e) {</b>
+<b class="nc"><i class="no-highlight">1984</i>&nbsp;                        flag = true;</b>
+<b class="nc"><i class="no-highlight">1985</i>&nbsp;                        break;</b>
+<b class="nc"><i class="no-highlight">1986</i>&nbsp;                    } catch (org.python.exceptions.StopIteration e) {</b>
+<b class="nc"><i class="no-highlight">1987</i>&nbsp;                        flag = true;</b>
+<b class="nc"><i class="no-highlight">1988</i>&nbsp;                        break;</b>
+<b class="nc"><i class="no-highlight">1989</i>&nbsp;                    }</b>
+<i class="no-highlight">1990</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1991</i>&nbsp;                if (flag) {</b>
+<b class="nc"><i class="no-highlight">1992</i>&nbsp;                    break;</b>
+<i class="no-highlight">1993</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">1994</i>&nbsp;                org.python.types.Tuple pythonTuple = new org.python.types.Tuple(tuple);</b>
+<b class="nc"><i class="no-highlight">1995</i>&nbsp;                result.add(pythonTuple);</b>
+<b class="nc"><i class="no-highlight">1996</i>&nbsp;            }</b>
+<i class="no-highlight">1997</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">1998</i>&nbsp;        return new org.python.types.List(result);</b>
+<i class="no-highlight">1999</i>&nbsp;    }
+<i class="no-highlight">2000</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

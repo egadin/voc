@@ -1,0 +1,187 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > DefaultDict</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.stdlib.collections</a>
+</div>
+
+<h1>Coverage Summary for Class: DefaultDict (org.python.stdlib.collections)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DefaultDict</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.stdlib.collections;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;public class DefaultDict extends org.python.types.Dict {
+<i class="no-highlight">4</i>&nbsp;    private org.python.Object default_factory;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">7</i>&nbsp;            __doc__ =
+<i class="no-highlight">8</i>&nbsp;                &quot;defaultdict(default_factory[, ...]) --&gt; dict with default factory\n&quot; +
+<i class="no-highlight">9</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">10</i>&nbsp;                    &quot;The default factory is called without arguments to produce\n&quot; +
+<i class="no-highlight">11</i>&nbsp;                    &quot;a new value when a key is not present, in __getitem__ only.\n&quot; +
+<i class="no-highlight">12</i>&nbsp;                    &quot;A defaultdict compares equal to a dict with the same items.\n&quot; +
+<i class="no-highlight">13</i>&nbsp;                    &quot;All remaining arguments are treated the same as if they were\n&quot; +
+<i class="no-highlight">14</i>&nbsp;                    &quot;passed to the dict constructor, including keyword arguments.\n&quot; +
+<i class="no-highlight">15</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">16</i>&nbsp;                    &quot;\n&quot;,
+<i class="no-highlight">17</i>&nbsp;            default_args = {&quot;default_factory&quot;, &quot;iterable&quot;}
+<i class="no-highlight">18</i>&nbsp;    )
+<i class="no-highlight">19</i>&nbsp;    public DefaultDict(org.python.Object[] args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs) {
+<b class="nc"><i class="no-highlight">20</i>&nbsp;        super(new org.python.Object[]{args[1]}, kwargs);</b>
+<i class="no-highlight">21</i>&nbsp;
+<b class="nc"><i class="no-highlight">22</i>&nbsp;        if (args[0] != null) {</b>
+<b class="nc"><i class="no-highlight">23</i>&nbsp;            this.default_factory = args[0];</b>
+<i class="no-highlight">24</i>&nbsp;
+<b class="nc"><i class="no-highlight">25</i>&nbsp;            if (!(this.default_factory instanceof org.python.Callable ||</b>
+<i class="no-highlight">26</i>&nbsp;                    this.default_factory instanceof org.python.types.NoneType)) {
+<b class="nc"><i class="no-highlight">27</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;first argument must be callable or None&quot;);</b>
+<i class="no-highlight">28</i>&nbsp;            }
+<i class="no-highlight">29</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">30</i>&nbsp;            this.default_factory = org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">31</i>&nbsp;        }
+<i class="no-highlight">32</i>&nbsp;    }
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">35</i>&nbsp;            __doc__ = &quot;Return repr(self).&quot;
+<i class="no-highlight">36</i>&nbsp;    )
+<i class="no-highlight">37</i>&nbsp;    public org.python.types.Str __repr__() {
+<b class="nc"><i class="no-highlight">38</i>&nbsp;        return new org.python.types.Str(</b>
+<b class="nc"><i class="no-highlight">39</i>&nbsp;            &quot;defaultdict(&quot; + this.default_factory.__repr__() + &quot;, &quot; + super.__repr__() + &quot;)&quot;);</b>
+<i class="no-highlight">40</i>&nbsp;    }
+<i class="no-highlight">41</i>&nbsp;
+<i class="no-highlight">42</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">43</i>&nbsp;            __doc__ =
+<i class="no-highlight">44</i>&nbsp;                &quot;__missing__(key) # Called by __getitem__ for missing key; pseudo-code:\n&quot; +
+<i class="no-highlight">45</i>&nbsp;                &quot;  if self.default_factory is None: raise KeyError((key,))\n&quot; +
+<i class="no-highlight">46</i>&nbsp;                &quot;  self[key] = value = self.default_factory()\n&quot; +
+<i class="no-highlight">47</i>&nbsp;                &quot;  return value&quot;,
+<i class="no-highlight">48</i>&nbsp;            args = {&quot;key&quot;}
+<i class="no-highlight">49</i>&nbsp;    )
+<i class="no-highlight">50</i>&nbsp;    public org.python.Object __missing__(org.python.Object key) {
+<b class="nc"><i class="no-highlight">51</i>&nbsp;        if (default_factory instanceof org.python.types.NoneType) {</b>
+<b class="nc"><i class="no-highlight">52</i>&nbsp;            throw new org.python.exceptions.KeyError(key);</b>
+<i class="no-highlight">53</i>&nbsp;        }
+<i class="no-highlight">54</i>&nbsp;
+<i class="no-highlight">55</i>&nbsp;        try {
+<i class="no-highlight">56</i>&nbsp;            org.python.Object value;
+<b class="nc"><i class="no-highlight">57</i>&nbsp;            if (this.default_factory instanceof org.python.types.Function) {</b>
+<i class="no-highlight">58</i>&nbsp;                // invoke function without argument
+<b class="nc"><i class="no-highlight">59</i>&nbsp;                value = ((org.python.types.Function) this.default_factory).invoke(null, null);</b>
+<i class="no-highlight">60</i>&nbsp;            } else {
+<i class="no-highlight">61</i>&nbsp;                // use default constructor to get default value
+<b class="nc"><i class="no-highlight">62</i>&nbsp;                java.lang.reflect.Constructor constructor = ((org.python.types.Type) this.default_factory).constructor;</b>
+<b class="nc"><i class="no-highlight">63</i>&nbsp;                value = (org.python.Object) constructor.newInstance(new org.python.Object[1], null);</b>
+<i class="no-highlight">64</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">65</i>&nbsp;            this.__setitem__(key, value);</b>
+<i class="no-highlight">66</i>&nbsp;
+<b class="nc"><i class="no-highlight">67</i>&nbsp;            return this.__getitem__(key);</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;        } catch (IllegalAccessException e) {</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;            throw new org.python.exceptions.RuntimeError(&quot;Illegal access to constructor &quot; + e.getMessage());</b>
+<b class="nc"><i class="no-highlight">70</i>&nbsp;        } catch (InstantiationException | java.lang.reflect.InvocationTargetException e) {</b>
+<i class="no-highlight">71</i>&nbsp;            try {
+<b class="nc"><i class="no-highlight">72</i>&nbsp;                throw (org.python.exceptions.BaseException) e.getCause();</b>
+<b class="nc"><i class="no-highlight">73</i>&nbsp;            } catch (ClassCastException java_e) {</b>
+<b class="nc"><i class="no-highlight">74</i>&nbsp;                java.lang.String message = e.getCause().getMessage();</b>
+<b class="nc"><i class="no-highlight">75</i>&nbsp;                if (message == null) {</b>
+<b class="nc"><i class="no-highlight">76</i>&nbsp;                    message = e.getCause().getClass().getName();</b>
+<i class="no-highlight">77</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">78</i>&nbsp;                throw new org.python.exceptions.RuntimeError(message);</b>
+<i class="no-highlight">79</i>&nbsp;            }
+<i class="no-highlight">80</i>&nbsp;        }
+<i class="no-highlight">81</i>&nbsp;    }
+<i class="no-highlight">82</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

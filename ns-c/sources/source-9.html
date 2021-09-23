@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > types</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">python</a>
+</div>
+
+<h1>Coverage Summary for Class: types (python)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">types</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package python;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;@org.python.Module(
+<i class="no-highlight">4</i>&nbsp;        __doc__ = &quot;\nDefine names for built-in types that aren&#39;t directly accessible as a builtin.\n&quot;
+<i class="no-highlight">5</i>&nbsp;)
+<b class="nc"><i class="no-highlight">6</i>&nbsp;public class types extends org.python.types.Module {</b>
+<i class="no-highlight">7</i>&nbsp;    static {
+<i class="no-highlight">8</i>&nbsp;        // BuiltinFunctionType = org.python.types.Type.pythonType(org.python.types.BuiltinFunction.class);
+<i class="no-highlight">9</i>&nbsp;        // BuiltinMethodType = org.python.types.Type.pythonType(org.python.types.BuiltinMethod.class);
+<b class="nc"><i class="no-highlight">10</i>&nbsp;        CodeType = org.python.types.Type.pythonType(org.python.types.Code.class);</b>
+<i class="no-highlight">11</i>&nbsp;        // DynamicClassAttribute = org.python.types.Type.pythonType(org.python.types.DynamicClassAttri.class);
+<i class="no-highlight">12</i>&nbsp;        // FrameType = org.python.types.Type.pythonType(org.python.types.Frame.class);
+<b class="nc"><i class="no-highlight">13</i>&nbsp;        FunctionType = org.python.types.Type.pythonType(org.python.types.Function.class);</b>
+<b class="nc"><i class="no-highlight">14</i>&nbsp;        GeneratorType = org.python.types.Type.pythonType(org.python.types.Generator.class);</b>
+<i class="no-highlight">15</i>&nbsp;        // GetSetDescriptorType = org.python.types.Type.pythonType(org.python.types.GetSetDescriptor.class);
+<i class="no-highlight">16</i>&nbsp;        // LambdaType = org.python.types.Type.pythonType(org.python.types.Lambda.class);
+<i class="no-highlight">17</i>&nbsp;        // MappingProxyType = org.python.types.Type.pythonType(org.python.types.MappingProxy.class);
+<i class="no-highlight">18</i>&nbsp;        // MemberDescriptorType = org.python.types.Type.pythonType(org.python.types.MemberDescriptor.class);
+<b class="nc"><i class="no-highlight">19</i>&nbsp;        MethodType = org.python.types.Type.pythonType(org.python.types.Method.class);</b>
+<b class="nc"><i class="no-highlight">20</i>&nbsp;        ModuleType = org.python.types.Type.pythonType(org.python.types.Module.class);</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        SimpleNamespace = org.python.types.Type.pythonType(org.python.types.SimpleNamespace.class);</b>
+<i class="no-highlight">22</i>&nbsp;        // TracebackType = org.python.types.Type.pythonType(org.python.types.Traceback.class);
+<i class="no-highlight">23</i>&nbsp;    }
+<i class="no-highlight">24</i>&nbsp;
+<i class="no-highlight">25</i>&nbsp;    private static long vm_start_time;
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">28</i>&nbsp;    // public static org.python.Object BuiltinFunctionType;
+<i class="no-highlight">29</i>&nbsp;
+<i class="no-highlight">30</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">31</i>&nbsp;    // public static org.python.Object BuiltinMethodType;
+<i class="no-highlight">32</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">33</i>&nbsp;    public static org.python.Object CodeType;
+<i class="no-highlight">34</i>&nbsp;
+<i class="no-highlight">35</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">36</i>&nbsp;    // public static org.python.Object DynamicClassAttribute;
+<i class="no-highlight">37</i>&nbsp;
+<i class="no-highlight">38</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">39</i>&nbsp;    // public static org.python.Object FrameType;
+<i class="no-highlight">40</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">41</i>&nbsp;    public static org.python.Object FunctionType;
+<i class="no-highlight">42</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">43</i>&nbsp;    public static org.python.Object GeneratorType;
+<i class="no-highlight">44</i>&nbsp;
+<i class="no-highlight">45</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">46</i>&nbsp;    // public static org.python.Object GetSetDescriptorType;
+<i class="no-highlight">47</i>&nbsp;
+<i class="no-highlight">48</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">49</i>&nbsp;    // public static org.python.Object LambdaType;
+<i class="no-highlight">50</i>&nbsp;
+<i class="no-highlight">51</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">52</i>&nbsp;    // public static org.python.Object MappingProxyType;
+<i class="no-highlight">53</i>&nbsp;
+<i class="no-highlight">54</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">55</i>&nbsp;    // public static org.python.Object MemberDescriptorType;
+<i class="no-highlight">56</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">57</i>&nbsp;    public static org.python.Object MethodType;
+<i class="no-highlight">58</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">59</i>&nbsp;    public static org.python.Object ModuleType;
+<i class="no-highlight">60</i>&nbsp;
+<i class="no-highlight">61</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">62</i>&nbsp;    public static org.python.Object SimpleNamespace;
+<i class="no-highlight">63</i>&nbsp;
+<i class="no-highlight">64</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">65</i>&nbsp;    // public static org.python.Object TracebackType;
+<i class="no-highlight">66</i>&nbsp;
+<i class="no-highlight">67</i>&nbsp;    // @org.python.Attribute
+<i class="no-highlight">68</i>&nbsp;    // public static org.python.Object __builtins__;
+<i class="no-highlight">69</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">70</i>&nbsp;    public static org.python.Object __cached__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">71</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">72</i>&nbsp;    public static org.python.Object __file__ = new org.python.types.Str(&quot;python/common/python/types.java&quot;);</b>
+<i class="no-highlight">73</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">74</i>&nbsp;    public static org.python.Object __loader__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">75</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">76</i>&nbsp;    public static org.python.Object __name__ = new org.python.types.Str(&quot;types&quot;);</b>
+<i class="no-highlight">77</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">78</i>&nbsp;    public static org.python.Object __package__ = new org.python.types.Str(&quot;&quot;);</b>
+<i class="no-highlight">79</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">80</i>&nbsp;    public static org.python.Object __spec__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">81</i>&nbsp;
+<i class="no-highlight">82</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">83</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">84</i>&nbsp;    )
+<i class="no-highlight">85</i>&nbsp;    public static org.python.Object _calculate_meta() {
+<b class="nc"><i class="no-highlight">86</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;types._calculate_meta() has not been implemented.&quot;);</b>
+<i class="no-highlight">87</i>&nbsp;    }
+<i class="no-highlight">88</i>&nbsp;
+<i class="no-highlight">89</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">90</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">91</i>&nbsp;    )
+<i class="no-highlight">92</i>&nbsp;    public static org.python.Object new_class() {
+<b class="nc"><i class="no-highlight">93</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;types.new_class() has not been implemented.&quot;);</b>
+<i class="no-highlight">94</i>&nbsp;    }
+<i class="no-highlight">95</i>&nbsp;
+<i class="no-highlight">96</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">97</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">98</i>&nbsp;    )
+<i class="no-highlight">99</i>&nbsp;    public static org.python.Object prepare_class() {
+<b class="nc"><i class="no-highlight">100</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;types.prepare_class() has not been implemented.&quot;);</b>
+<i class="no-highlight">101</i>&nbsp;    }
+<i class="no-highlight">102</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

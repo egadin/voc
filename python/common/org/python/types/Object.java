@@ -1,9 +1,12 @@
 package org.python.types;
 
+import org.python.exceptions.StopIteration;
+
 public class Object extends java.lang.RuntimeException implements org.python.Object {
     public java.util.Map<java.lang.String, org.python.Object> __dict__;
     public org.python.types.Type __class__;
     public org.python.types.Type.Origin origin;
+    protected StopIteration i;
 
     public java.lang.Object toJava() {
         return this;

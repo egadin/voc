@@ -1,0 +1,390 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > DateTime</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.stdlib.datetime</a>
+</div>
+
+<h1>Coverage Summary for Class: DateTime (org.python.stdlib.datetime)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DateTime</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (12/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    55%
+  </span>
+  <span class="absValue">
+    (82/149)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.stdlib.datetime;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import java.util.Collections;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;public class DateTime extends org.python.types.Object {
+<b class="fc"><i class="no-highlight">6</i>&nbsp;    private final int YEAR_INDEX = 0;</b>
+<b class="fc"><i class="no-highlight">7</i>&nbsp;    private final int MONTH_INDEX = 1;</b>
+<b class="fc"><i class="no-highlight">8</i>&nbsp;    private final int DAY_INDEX = 2;</b>
+<b class="fc"><i class="no-highlight">9</i>&nbsp;    private final int HOUR_INDEX = 3;</b>
+<b class="fc"><i class="no-highlight">10</i>&nbsp;    private final int MINUTE_INDEX = 4;</b>
+<b class="fc"><i class="no-highlight">11</i>&nbsp;    private final int SECOND_INDEX = 5;</b>
+<b class="fc"><i class="no-highlight">12</i>&nbsp;    private final int MICROSECOND_INDEX = 6;</b>
+<i class="no-highlight">13</i>&nbsp;
+<b class="fc"><i class="no-highlight">14</i>&nbsp;    private final int MIN_YEAR = 1;</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;    private final int MAX_YEAR = 9999;</b>
+<i class="no-highlight">16</i>&nbsp;
+<b class="fc"><i class="no-highlight">17</i>&nbsp;    private Long[] timeUnits = { 0l, 0l, 0l, 0l, 0l, 0l, 0l };</b>
+<i class="no-highlight">18</i>&nbsp;
+<i class="no-highlight">19</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">20</i>&nbsp;    public final org.python.Object year;
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">23</i>&nbsp;    public final org.python.Object month;
+<i class="no-highlight">24</i>&nbsp;
+<i class="no-highlight">25</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">26</i>&nbsp;    public final org.python.Object day;
+<i class="no-highlight">27</i>&nbsp;
+<i class="no-highlight">28</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">29</i>&nbsp;    public final org.python.Object hour;
+<i class="no-highlight">30</i>&nbsp;
+<i class="no-highlight">31</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">32</i>&nbsp;    public final org.python.Object minute;
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">35</i>&nbsp;    public final org.python.Object second;
+<i class="no-highlight">36</i>&nbsp;
+<i class="no-highlight">37</i>&nbsp;    @org.python.Attribute
+<i class="no-highlight">38</i>&nbsp;    public final org.python.Object microsecond;
+<i class="no-highlight">39</i>&nbsp;
+<i class="no-highlight">40</i>&nbsp;    @org.python.Attribute
+<b class="fc"><i class="no-highlight">41</i>&nbsp;    public static final org.python.Object min = __min__();</b>
+<i class="no-highlight">42</i>&nbsp;
+<i class="no-highlight">43</i>&nbsp;    @org.python.Attribute
+<b class="fc"><i class="no-highlight">44</i>&nbsp;    public static final org.python.Object max = __max__();</b>
+<i class="no-highlight">45</i>&nbsp;
+<i class="no-highlight">46</i>&nbsp;    public DateTime(org.python.Object[] args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs) {
+<b class="fc"><i class="no-highlight">47</i>&nbsp;	super();</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;	String[] keys = { &quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;hour&quot;, &quot;minute&quot;, &quot;second&quot;, &quot;microsecond&quot; };</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;	boolean kwargsIsUsed = false;</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;	int keyIndex = 0;</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;	int argIndex = 0;</b>
+<i class="no-highlight">52</i>&nbsp;
+<b class="fc"><i class="no-highlight">53</i>&nbsp;	for (String key : keys) {</b>
+<b class="fc"><i class="no-highlight">54</i>&nbsp;	    if (kwargs.get(key) != null) {</b>
+<b class="fc"><i class="no-highlight">55</i>&nbsp;		this.timeUnits[keyIndex] = ((org.python.types.Int) kwargs.get(key)).value;</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;		kwargsIsUsed = true;</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;	    } else if (args.length &gt; argIndex) {</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;		if (kwargsIsUsed)</b>
+<b class="nc"><i class="no-highlight">59</i>&nbsp;		    throw new org.python.exceptions.SyntaxError(&quot;positional argument follows keyword argument&quot;);</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;		this.timeUnits[keyIndex] = ((org.python.types.Int) args[argIndex]).value;</b>
+<b class="fc"><i class="no-highlight">61</i>&nbsp;		argIndex++;</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;	    } else if (keyIndex &lt; 3) {</b>
+<b class="nc"><i class="no-highlight">63</i>&nbsp;		throw new org.python.exceptions.TypeError(&quot;Required argument &#39;&quot; + keys[keyIndex] + &quot;&#39; (pos &quot; + (keyIndex + 1) + &quot;) not found&quot;);</b>
+<i class="no-highlight">64</i>&nbsp;	    }
+<b class="fc"><i class="no-highlight">65</i>&nbsp;	    keyIndex++;</b>
+<i class="no-highlight">66</i>&nbsp;	}
+<i class="no-highlight">67</i>&nbsp;
+<b class="fc"><i class="no-highlight">68</i>&nbsp;	if (this.timeUnits[YEAR_INDEX] &lt; MIN_YEAR || this.timeUnits[YEAR_INDEX] &gt; MAX_YEAR) {</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;year &quot; + this.timeUnits[YEAR_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">70</i>&nbsp;	}
+<i class="no-highlight">71</i>&nbsp;
+<b class="fc"><i class="no-highlight">72</i>&nbsp;	if (this.timeUnits[MONTH_INDEX] &lt; 1 || this.timeUnits[MONTH_INDEX] &gt; 12) {</b>
+<b class="nc"><i class="no-highlight">73</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;month &quot; + this.timeUnits[MONTH_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">74</i>&nbsp;	}
+<b class="fc"><i class="no-highlight">75</i>&nbsp;	if (this.timeUnits[DAY_INDEX] &lt; 1 || this.timeUnits[DAY_INDEX] &gt; 31) {</b>
+<b class="nc"><i class="no-highlight">76</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;day &quot; + this.timeUnits[DAY_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">77</i>&nbsp;	}
+<i class="no-highlight">78</i>&nbsp;
+<b class="fc"><i class="no-highlight">79</i>&nbsp;	if (this.timeUnits[HOUR_INDEX] &lt; 0 || this.timeUnits[HOUR_INDEX] &gt; 24) {</b>
+<b class="nc"><i class="no-highlight">80</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;hour &quot; + this.timeUnits[HOUR_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">81</i>&nbsp;	}
+<i class="no-highlight">82</i>&nbsp;
+<b class="fc"><i class="no-highlight">83</i>&nbsp;	if (this.timeUnits[MINUTE_INDEX] &lt; 0 || this.timeUnits[MINUTE_INDEX] &gt; 60) {</b>
+<b class="nc"><i class="no-highlight">84</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;minute &quot; + this.timeUnits[MINUTE_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">85</i>&nbsp;	}
+<i class="no-highlight">86</i>&nbsp;
+<b class="fc"><i class="no-highlight">87</i>&nbsp;	if (this.timeUnits[SECOND_INDEX] &lt; 0 || this.timeUnits[SECOND_INDEX] &gt; 60) {</b>
+<b class="nc"><i class="no-highlight">88</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;second &quot; + this.timeUnits[SECOND_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">89</i>&nbsp;	}
+<i class="no-highlight">90</i>&nbsp;
+<b class="fc"><i class="no-highlight">91</i>&nbsp;	if (this.timeUnits[MICROSECOND_INDEX] &lt; 0 || this.timeUnits[MICROSECOND_INDEX] &gt; 1000000) {</b>
+<b class="nc"><i class="no-highlight">92</i>&nbsp;	    throw new org.python.exceptions.ValueError(&quot;microsecond &quot; + this.timeUnits[MICROSECOND_INDEX] + &quot;is out of range&quot;);</b>
+<i class="no-highlight">93</i>&nbsp;	}
+<i class="no-highlight">94</i>&nbsp;
+<b class="fc"><i class="no-highlight">95</i>&nbsp;	this.year = __year__();</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;	this.month = __month__();</b>
+<b class="fc"><i class="no-highlight">97</i>&nbsp;	this.day = __day__();</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;	this.hour = __hour__();</b>
+<b class="fc"><i class="no-highlight">99</i>&nbsp;	this.minute = __minute__();</b>
+<b class="fc"><i class="no-highlight">100</i>&nbsp;	this.second = __second__();</b>
+<b class="fc"><i class="no-highlight">101</i>&nbsp;	this.microsecond = __microsecond__();</b>
+<i class="no-highlight">102</i>&nbsp;    }
+<i class="no-highlight">103</i>&nbsp;
+<i class="no-highlight">104</i>&nbsp;
+<i class="no-highlight">105</i>&nbsp;    public org.python.types.Str __str__() {
+<b class="fc"><i class="no-highlight">106</i>&nbsp;	String year = Long.toString(this.timeUnits[YEAR_INDEX]);</b>
+<b class="fc"><i class="no-highlight">107</i>&nbsp;	while (year.length() &lt; 4)</b>
+<b class="nc"><i class="no-highlight">108</i>&nbsp;	    year = &quot;0&quot; + year;</b>
+<i class="no-highlight">109</i>&nbsp;
+<b class="fc"><i class="no-highlight">110</i>&nbsp;	String month = Long.toString(this.timeUnits[MONTH_INDEX]);</b>
+<b class="fc"><i class="no-highlight">111</i>&nbsp;	while (month.length() &lt; 2)</b>
+<b class="nc"><i class="no-highlight">112</i>&nbsp;	    month = &quot;0&quot; + month;</b>
+<i class="no-highlight">113</i>&nbsp;
+<b class="fc"><i class="no-highlight">114</i>&nbsp;	String day = Long.toString(this.timeUnits[DAY_INDEX]);</b>
+<b class="fc"><i class="no-highlight">115</i>&nbsp;	while (day.length() &lt; 2)</b>
+<b class="fc"><i class="no-highlight">116</i>&nbsp;	    day = &quot;0&quot; + day;</b>
+<i class="no-highlight">117</i>&nbsp;
+<b class="fc"><i class="no-highlight">118</i>&nbsp;	String hour = this.timeUnits[HOUR_INDEX] != 0 ? Long.toString(this.timeUnits[HOUR_INDEX]) : &quot;00&quot;;</b>
+<b class="fc"><i class="no-highlight">119</i>&nbsp;	while (hour.length() &lt; 2)</b>
+<b class="fc"><i class="no-highlight">120</i>&nbsp;	    hour = &quot;0&quot; + hour;</b>
+<i class="no-highlight">121</i>&nbsp;
+<b class="fc"><i class="no-highlight">122</i>&nbsp;	String minute = this.timeUnits[MINUTE_INDEX] != 0 ? Long.toString(this.timeUnits[MINUTE_INDEX]) : &quot;00&quot;;</b>
+<b class="fc"><i class="no-highlight">123</i>&nbsp;	while (minute.length() &lt; 2)</b>
+<b class="nc"><i class="no-highlight">124</i>&nbsp;	    minute = &quot;0&quot; + minute;</b>
+<i class="no-highlight">125</i>&nbsp;
+<b class="fc"><i class="no-highlight">126</i>&nbsp;	String second = this.timeUnits[SECOND_INDEX] != 0 ? Long.toString(this.timeUnits[SECOND_INDEX]) : &quot;00&quot;;</b>
+<b class="fc"><i class="no-highlight">127</i>&nbsp;	while (second.length() &lt; 2)</b>
+<b class="nc"><i class="no-highlight">128</i>&nbsp;	    second = &quot;0&quot; + second;</b>
+<i class="no-highlight">129</i>&nbsp;
+<b class="fc"><i class="no-highlight">130</i>&nbsp;	String microsecond = this.timeUnits[MICROSECOND_INDEX] != 0 ? Long.toString(this.timeUnits[MICROSECOND_INDEX]) : &quot;&quot;;</b>
+<b class="fc"><i class="no-highlight">131</i>&nbsp;	while (microsecond.length() &lt; 6 &amp;&amp; microsecond.length() != 0)</b>
+<b class="fc"><i class="no-highlight">132</i>&nbsp;	    microsecond = &quot;0&quot; + microsecond;</b>
+<i class="no-highlight">133</i>&nbsp;
+<b class="fc"><i class="no-highlight">134</i>&nbsp;	String returnStr = year + &quot;-&quot; + month + &quot;-&quot; + day + &quot; &quot; + hour + &quot;:&quot; + minute + &quot;:&quot; + second;</b>
+<i class="no-highlight">135</i>&nbsp;
+<b class="fc"><i class="no-highlight">136</i>&nbsp;	returnStr += microsecond.length() &gt; 0 ? &quot;.&quot; + microsecond : &quot;&quot;;</b>
+<b class="fc"><i class="no-highlight">137</i>&nbsp;	return new org.python.types.Str(returnStr);</b>
+<i class="no-highlight">138</i>&nbsp;    }
+<i class="no-highlight">139</i>&nbsp;
+<i class="no-highlight">140</i>&nbsp;    @org.python.Method(__doc__ = &quot;&quot;)
+<i class="no-highlight">141</i>&nbsp;    public org.python.Object date() {
+<b class="nc"><i class="no-highlight">142</i>&nbsp;	org.python.Object[] args = { org.python.types.Int.getInt(this.timeUnits[YEAR_INDEX]), org.python.types.Int.getInt(this.timeUnits[MONTH_INDEX]),</b>
+<b class="nc"><i class="no-highlight">143</i>&nbsp;		org.python.types.Int.getInt(this.timeUnits[DAY_INDEX]) };</b>
+<b class="nc"><i class="no-highlight">144</i>&nbsp;	return new Date(args, Collections.emptyMap());</b>
+<i class="no-highlight">145</i>&nbsp;    }
+<i class="no-highlight">146</i>&nbsp;
+<i class="no-highlight">147</i>&nbsp;    @org.python.Method(__doc__ = &quot;&quot;)
+<i class="no-highlight">148</i>&nbsp;    public static org.python.Object today() {
+<b class="nc"><i class="no-highlight">149</i>&nbsp;	java.time.LocalDateTime today = java.time.LocalDateTime.now();</b>
+<b class="nc"><i class="no-highlight">150</i>&nbsp;	org.python.Object[] args = { org.python.types.Int.getInt(today.getYear()), org.python.types.Int.getInt(today.getMonth().getValue()),</b>
+<b class="nc"><i class="no-highlight">151</i>&nbsp;		org.python.types.Int.getInt(today.getDayOfMonth()), org.python.types.Int.getInt(today.getHour()), org.python.types.Int.getInt(today.getMinute()),</b>
+<b class="nc"><i class="no-highlight">152</i>&nbsp;		org.python.types.Int.getInt(today.getSecond()), org.python.types.Int.getInt(today.getNano() / 1000) };</b>
+<b class="nc"><i class="no-highlight">153</i>&nbsp;	return new DateTime(args, Collections.emptyMap());</b>
+<i class="no-highlight">154</i>&nbsp;    }
+<i class="no-highlight">155</i>&nbsp;
+<i class="no-highlight">156</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns year&quot;)
+<i class="no-highlight">157</i>&nbsp;    public org.python.types.Str __year__() {
+<b class="fc"><i class="no-highlight">158</i>&nbsp;	return new org.python.types.Str(this.timeUnits[YEAR_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">159</i>&nbsp;    }
+<i class="no-highlight">160</i>&nbsp;
+<i class="no-highlight">161</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns month&quot;)
+<i class="no-highlight">162</i>&nbsp;    public org.python.types.Str __month__() {
+<b class="fc"><i class="no-highlight">163</i>&nbsp;	return new org.python.types.Str(this.timeUnits[MONTH_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">164</i>&nbsp;    }
+<i class="no-highlight">165</i>&nbsp;
+<i class="no-highlight">166</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns day&quot;)
+<i class="no-highlight">167</i>&nbsp;    public org.python.types.Str __day__() {
+<b class="fc"><i class="no-highlight">168</i>&nbsp;	return new org.python.types.Str(this.timeUnits[DAY_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">169</i>&nbsp;    }
+<i class="no-highlight">170</i>&nbsp;
+<i class="no-highlight">171</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns hour&quot;)
+<i class="no-highlight">172</i>&nbsp;    public org.python.types.Str __hour__() {
+<b class="fc"><i class="no-highlight">173</i>&nbsp;	return new org.python.types.Str(this.timeUnits[HOUR_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">174</i>&nbsp;    }
+<i class="no-highlight">175</i>&nbsp;
+<i class="no-highlight">176</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns minute&quot;)
+<i class="no-highlight">177</i>&nbsp;    public org.python.types.Str __minute__() {
+<b class="fc"><i class="no-highlight">178</i>&nbsp;	return new org.python.types.Str(this.timeUnits[MINUTE_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">179</i>&nbsp;    }
+<i class="no-highlight">180</i>&nbsp;
+<i class="no-highlight">181</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns second&quot;)
+<i class="no-highlight">182</i>&nbsp;    public org.python.types.Str __second__() {
+<b class="fc"><i class="no-highlight">183</i>&nbsp;	return new org.python.types.Str(this.timeUnits[SECOND_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">184</i>&nbsp;    }
+<i class="no-highlight">185</i>&nbsp;
+<i class="no-highlight">186</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns microsecond&quot;)
+<i class="no-highlight">187</i>&nbsp;    public org.python.types.Str __microsecond__() {
+<b class="fc"><i class="no-highlight">188</i>&nbsp;	return new org.python.types.Str(this.timeUnits[MICROSECOND_INDEX] + &quot;&quot;);</b>
+<i class="no-highlight">189</i>&nbsp;    }
+<i class="no-highlight">190</i>&nbsp;
+<i class="no-highlight">191</i>&nbsp;    @org.python.Method(__doc__ = &quot;&quot;)
+<i class="no-highlight">192</i>&nbsp;    private static org.python.Object __min__() {
+<b class="fc"><i class="no-highlight">193</i>&nbsp;	org.python.types.Int year = org.python.types.Int.getInt(1);</b>
+<b class="fc"><i class="no-highlight">194</i>&nbsp;	org.python.types.Int month = org.python.types.Int.getInt(1);</b>
+<b class="fc"><i class="no-highlight">195</i>&nbsp;	org.python.types.Int day = org.python.types.Int.getInt(1);</b>
+<i class="no-highlight">196</i>&nbsp;
+<b class="fc"><i class="no-highlight">197</i>&nbsp;	org.python.Object[] args = { year, month, day };</b>
+<b class="fc"><i class="no-highlight">198</i>&nbsp;	return new DateTime(args, Collections.emptyMap());</b>
+<i class="no-highlight">199</i>&nbsp;    }
+<i class="no-highlight">200</i>&nbsp;
+<i class="no-highlight">201</i>&nbsp;    @org.python.Method(__doc__ = &quot;&quot;)
+<i class="no-highlight">202</i>&nbsp;    private static org.python.Object __max__() {
+<b class="fc"><i class="no-highlight">203</i>&nbsp;	org.python.types.Int year = org.python.types.Int.getInt(9999);</b>
+<b class="fc"><i class="no-highlight">204</i>&nbsp;	org.python.types.Int month = org.python.types.Int.getInt(12);</b>
+<b class="fc"><i class="no-highlight">205</i>&nbsp;	org.python.types.Int day = org.python.types.Int.getInt(31);</b>
+<b class="fc"><i class="no-highlight">206</i>&nbsp;	org.python.types.Int hour = org.python.types.Int.getInt(23);</b>
+<b class="fc"><i class="no-highlight">207</i>&nbsp;	org.python.types.Int minute = org.python.types.Int.getInt(59);</b>
+<b class="fc"><i class="no-highlight">208</i>&nbsp;	org.python.types.Int second = org.python.types.Int.getInt(59);</b>
+<b class="fc"><i class="no-highlight">209</i>&nbsp;	org.python.types.Int microsecond = org.python.types.Int.getInt(999999);</b>
+<i class="no-highlight">210</i>&nbsp;
+<b class="fc"><i class="no-highlight">211</i>&nbsp;	org.python.Object[] args = { year, month, day, hour, minute, second, microsecond };</b>
+<b class="fc"><i class="no-highlight">212</i>&nbsp;	return new DateTime(args, Collections.emptyMap());</b>
+<i class="no-highlight">213</i>&nbsp;    }
+<i class="no-highlight">214</i>&nbsp;
+<i class="no-highlight">215</i>&nbsp;    @org.python.Method(__doc__ = &quot;&quot;)
+<i class="no-highlight">216</i>&nbsp;    public org.python.Object weekday() {
+<b class="nc"><i class="no-highlight">217</i>&nbsp;	double y = ((org.python.types.Int) this.year).value;</b>
+<b class="nc"><i class="no-highlight">218</i>&nbsp;	double m = ((org.python.types.Int) this.month).value;</b>
+<b class="nc"><i class="no-highlight">219</i>&nbsp;	double d = ((org.python.types.Int) this.day).value;</b>
+<i class="no-highlight">220</i>&nbsp;
+<b class="nc"><i class="no-highlight">221</i>&nbsp;	java.util.Date myCalendar = new java.util.GregorianCalendar((int) y, (int) m - 1, (int) d).getTime();</b>
+<b class="nc"><i class="no-highlight">222</i>&nbsp;	java.util.Calendar c = java.util.Calendar.getInstance();</b>
+<b class="nc"><i class="no-highlight">223</i>&nbsp;	c.setTime(myCalendar);</b>
+<b class="nc"><i class="no-highlight">224</i>&nbsp;	int day = c.get(java.util.Calendar.DAY_OF_WEEK);</b>
+<b class="nc"><i class="no-highlight">225</i>&nbsp;	int[] convertToPython = { 6, 0, 1, 2, 3, 4, 5 };</b>
+<b class="nc"><i class="no-highlight">226</i>&nbsp;	return org.python.types.Int.getInt(convertToPython[day - 1]);</b>
+<i class="no-highlight">227</i>&nbsp;
+<i class="no-highlight">228</i>&nbsp;    }
+<i class="no-highlight">229</i>&nbsp;
+<i class="no-highlight">230</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns comparison true/false&quot;)
+<i class="no-highlight">231</i>&nbsp;    public org.python.types.Bool __eq__(DateTime toCompare) {
+<b class="nc"><i class="no-highlight">232</i>&nbsp;        String stringToCompare = toCompare.toString();</b>
+<b class="nc"><i class="no-highlight">233</i>&nbsp;        String baseString = this.toString();</b>
+<i class="no-highlight">234</i>&nbsp;
+<b class="nc"><i class="no-highlight">235</i>&nbsp;        return new org.python.types.Bool(stringToCompare == baseString);</b>
+<i class="no-highlight">236</i>&nbsp;    }
+<i class="no-highlight">237</i>&nbsp;
+<i class="no-highlight">238</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns comparison true/false&quot;)
+<i class="no-highlight">239</i>&nbsp;    public boolean __gt__(DateTime toCompare) {
+<i class="no-highlight">240</i>&nbsp;        //Attempted to break out the comparisons by creating an array containing the attributes and iterating over that
+<i class="no-highlight">241</i>&nbsp;        //by doing this.[array attribute] to reuse the comparison statements, however I didn&#39;t get that to work...
+<b class="nc"><i class="no-highlight">242</i>&nbsp;        if (((org.python.types.Int) this.year).value &lt; ((org.python.types.Int) toCompare.year).value)</b>
+<b class="nc"><i class="no-highlight">243</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">244</i>&nbsp;        else if (((org.python.types.Int) this.month).value &lt; ((org.python.types.Int) toCompare.month).value)</b>
+<b class="nc"><i class="no-highlight">245</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">246</i>&nbsp;        else if (((org.python.types.Int) this.day).value &lt; ((org.python.types.Int) toCompare.day).value)</b>
+<b class="nc"><i class="no-highlight">247</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">248</i>&nbsp;        else if (((org.python.types.Int) this.hour).value &lt; ((org.python.types.Int) toCompare.hour).value)</b>
+<b class="nc"><i class="no-highlight">249</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">250</i>&nbsp;        else if (((org.python.types.Int) this.minute).value &lt; ((org.python.types.Int) toCompare.minute).value)</b>
+<b class="nc"><i class="no-highlight">251</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">252</i>&nbsp;        else if (((org.python.types.Int) this.second).value &lt; ((org.python.types.Int) toCompare.second).value)</b>
+<b class="nc"><i class="no-highlight">253</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">254</i>&nbsp;        else if (((org.python.types.Int) this.microsecond).value &lt; ((org.python.types.Int) toCompare.microsecond).value)</b>
+<b class="nc"><i class="no-highlight">255</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">256</i>&nbsp;        else if ((this) == (toCompare))</b>
+<b class="nc"><i class="no-highlight">257</i>&nbsp;            return false;</b>
+<i class="no-highlight">258</i>&nbsp;        else
+<b class="nc"><i class="no-highlight">259</i>&nbsp;            return true;</b>
+<i class="no-highlight">260</i>&nbsp;    }
+<i class="no-highlight">261</i>&nbsp;
+<i class="no-highlight">262</i>&nbsp;    @org.python.Method(__doc__ = &quot;returns comparison true/false&quot;)
+<i class="no-highlight">263</i>&nbsp;    public boolean __lt__(DateTime toCompare) {
+<i class="no-highlight">264</i>&nbsp;        //Attempted to break out the comparisons by creating an array containing the attributes and iterating over that
+<i class="no-highlight">265</i>&nbsp;        //by doing this.[array attribute] to reuse the comparison statements, however I didn&#39;t get that to work...
+<b class="nc"><i class="no-highlight">266</i>&nbsp;        if (((org.python.types.Int) this.year).value &gt; ((org.python.types.Int) toCompare.year).value)</b>
+<b class="nc"><i class="no-highlight">267</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">268</i>&nbsp;        else if (((org.python.types.Int) this.month).value &gt; ((org.python.types.Int) toCompare.month).value)</b>
+<b class="nc"><i class="no-highlight">269</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">270</i>&nbsp;        else if (((org.python.types.Int) this.day).value &gt; ((org.python.types.Int) toCompare.day).value)</b>
+<b class="nc"><i class="no-highlight">271</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">272</i>&nbsp;        else if (((org.python.types.Int) this.hour).value &gt; ((org.python.types.Int) toCompare.hour).value)</b>
+<b class="nc"><i class="no-highlight">273</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">274</i>&nbsp;        else if (((org.python.types.Int) this.minute).value &gt; ((org.python.types.Int) toCompare.minute).value)</b>
+<b class="nc"><i class="no-highlight">275</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">276</i>&nbsp;        else if (((org.python.types.Int) this.second).value &gt; ((org.python.types.Int) toCompare.second).value)</b>
+<b class="nc"><i class="no-highlight">277</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">278</i>&nbsp;        else if (((org.python.types.Int) this.microsecond).value &gt; ((org.python.types.Int) toCompare.microsecond).value)</b>
+<b class="nc"><i class="no-highlight">279</i>&nbsp;            return false;</b>
+<b class="nc"><i class="no-highlight">280</i>&nbsp;        else if ((this) == (toCompare))</b>
+<b class="nc"><i class="no-highlight">281</i>&nbsp;            return false;</b>
+<i class="no-highlight">282</i>&nbsp;        else
+<b class="nc"><i class="no-highlight">283</i>&nbsp;            return true;</b>
+<i class="no-highlight">284</i>&nbsp;    }
+<i class="no-highlight">285</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

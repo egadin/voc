@@ -1,0 +1,633 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Type</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.python.types</a>
+</div>
+
+<h1>Coverage Summary for Class: Type (org.python.types)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Type</td>
+<td class="coverageStat">
+  <span class="percent">
+    27.8%
+  </span>
+  <span class="absValue">
+    (5/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    24.2%
+  </span>
+  <span class="absValue">
+    (53/219)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Type$Origin</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    35%
+  </span>
+  <span class="absValue">
+    (7/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    26.2%
+  </span>
+  <span class="absValue">
+    (59/225)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package org.python.types;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;public class Type extends org.python.types.Object implements org.python.Callable {
+<b class="fc"><i class="no-highlight">4</i>&nbsp;    public enum Origin {</b>
+<b class="fc"><i class="no-highlight">5</i>&nbsp;        PLACEHOLDER,  // Dummy entry to resolve circular dependencies</b>
+<b class="fc"><i class="no-highlight">6</i>&nbsp;        BUILTIN,      // A type provided as part of Python itself.</b>
+<b class="fc"><i class="no-highlight">7</i>&nbsp;        PYTHON,       // A type defined in Python code</b>
+<b class="fc"><i class="no-highlight">8</i>&nbsp;        JAVA,         // A type defined in Java</b>
+<b class="fc"><i class="no-highlight">9</i>&nbsp;        EXTENSION     // A type defined in Python, extending a Java base class</b>
+<i class="no-highlight">10</i>&nbsp;    }
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;    public java.lang.String PYTHON_TYPE_NAME;
+<b class="fc"><i class="no-highlight">13</i>&nbsp;    private static java.util.Map&lt;java.lang.Class, org.python.types.Type&gt; known_types = new java.util.HashMap&lt;java.lang.Class, org.python.types.Type&gt;();</b>
+<i class="no-highlight">14</i>&nbsp;    public java.lang.reflect.Constructor constructor;
+<i class="no-highlight">15</i>&nbsp;    public java.lang.Class klass;
+<i class="no-highlight">16</i>&nbsp;
+<i class="no-highlight">17</i>&nbsp;    private static org.python.Object[] emptyArgs;
+<i class="no-highlight">18</i>&nbsp;    private static java.util.Map&lt;java.lang.String, org.python.Object&gt; emptyKwargs;
+<i class="no-highlight">19</i>&nbsp;
+<i class="no-highlight">20</i>&nbsp;    private static org.python.Object[] getEmptyArgs() {
+<b class="nc"><i class="no-highlight">21</i>&nbsp;        if (emptyArgs == null) {</b>
+<b class="nc"><i class="no-highlight">22</i>&nbsp;            emptyArgs = new org.python.Object[0];</b>
+<i class="no-highlight">23</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">24</i>&nbsp;        return emptyArgs;</b>
+<i class="no-highlight">25</i>&nbsp;    }
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    private static java.util.Map&lt;java.lang.String, org.python.Object&gt; getEmptyKwargs() {
+<b class="nc"><i class="no-highlight">28</i>&nbsp;        if (emptyKwargs == null) {</b>
+<b class="nc"><i class="no-highlight">29</i>&nbsp;            emptyKwargs = new java.util.HashMap&lt;java.lang.String, org.python.Object&gt;();</b>
+<i class="no-highlight">30</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">31</i>&nbsp;        return emptyKwargs;</b>
+<i class="no-highlight">32</i>&nbsp;    }
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;    /**
+<i class="no-highlight">35</i>&nbsp;     * Factory method to obtain Python classes from their Java counterparts
+<i class="no-highlight">36</i>&nbsp;     */
+<i class="no-highlight">37</i>&nbsp;    public static org.python.types.Type pythonType(java.lang.Class java_class) {
+<i class="no-highlight">38</i>&nbsp;        // Look up the class in the known types table.
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        org.python.types.Type python_type = known_types.get(java_class);</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        if (python_type == null) {</b>
+<i class="no-highlight">41</i>&nbsp;            // If type isn&#39;t known, create and store a placeholder
+<i class="no-highlight">42</i>&nbsp;            // so that recursive lookups have a termination condition.
+<b class="fc"><i class="no-highlight">43</i>&nbsp;            PlaceholderType placeholder = new PlaceholderType(java_class);</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;            known_types.put(java_class, placeholder);</b>
+<i class="no-highlight">45</i>&nbsp;
+<i class="no-highlight">46</i>&nbsp;            // Declare the type, and install it the known types list
+<i class="no-highlight">47</i>&nbsp;            // (Replacing any placeholders)
+<b class="fc"><i class="no-highlight">48</i>&nbsp;            python_type = declarePythonType(java_class, null, null, null);</b>
+<i class="no-highlight">49</i>&nbsp;
+<i class="no-highlight">50</i>&nbsp;            // Since we have a freshly created type, resolve
+<i class="no-highlight">51</i>&nbsp;            // any placeholders that referenced this type.
+<i class="no-highlight">52</i>&nbsp;            // These will have been created as a consequence of
+<i class="no-highlight">53</i>&nbsp;            // calling the constructor for this type.
+<b class="fc"><i class="no-highlight">54</i>&nbsp;            placeholder.resolve(python_type);</b>
+<i class="no-highlight">55</i>&nbsp;
+<i class="no-highlight">56</i>&nbsp;            // After object type is resolved, clean up subclasses that
+<i class="no-highlight">57</i>&nbsp;            // reference the placeholder.
+<b class="fc"><i class="no-highlight">58</i>&nbsp;            if (java_class == org.python.types.Object.class) {</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;                java.util.List&lt;org.python.Object&gt; bases = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;                bases.add(python_type);</b>
+<b class="fc"><i class="no-highlight">61</i>&nbsp;                for (org.python.types.Type type : known_types.values()) {</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;                    if (type.__dict__.get(&quot;__base__&quot;) == placeholder) {</b>
+<b class="fc"><i class="no-highlight">63</i>&nbsp;                        type.__dict__.put(&quot;__base__&quot;, python_type);</b>
+<b class="fc"><i class="no-highlight">64</i>&nbsp;                        type.__dict__.put(&quot;__bases__&quot;, new org.python.types.Tuple(bases));</b>
+<i class="no-highlight">65</i>&nbsp;                    }
+<b class="fc"><i class="no-highlight">66</i>&nbsp;                }</b>
+<i class="no-highlight">67</i>&nbsp;            }
+<i class="no-highlight">68</i>&nbsp;        }
+<i class="no-highlight">69</i>&nbsp;        // System.out.println(&quot;GOT TYPE &quot; + java_class + &quot; &quot; + python_type.origin);
+<b class="fc"><i class="no-highlight">70</i>&nbsp;        return python_type;</b>
+<i class="no-highlight">71</i>&nbsp;    }
+<i class="no-highlight">72</i>&nbsp;
+<i class="no-highlight">73</i>&nbsp;    public static org.python.types.Type pythonType(java.lang.String java_class_name) {
+<i class="no-highlight">74</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">75</i>&nbsp;            return pythonType(java.lang.Thread.currentThread().getContextClassLoader().loadClass(java_class_name.replace(&quot;/&quot;, &quot;.&quot;)));</b>
+<b class="nc"><i class="no-highlight">76</i>&nbsp;        } catch (ClassNotFoundException e) {</b>
+<b class="nc"><i class="no-highlight">77</i>&nbsp;            throw new org.python.exceptions.RuntimeError(&quot;Unknown Class &quot; + java_class_name);</b>
+<i class="no-highlight">78</i>&nbsp;        }
+<i class="no-highlight">79</i>&nbsp;    }
+<i class="no-highlight">80</i>&nbsp;
+<i class="no-highlight">81</i>&nbsp;    public static org.python.types.Type pythonType(java.lang.Class java_class, java.lang.Class base_java_class) {
+<b class="fc"><i class="no-highlight">82</i>&nbsp;        org.python.types.Type python_type = pythonType(java_class);</b>
+<i class="no-highlight">83</i>&nbsp;
+<b class="fc"><i class="no-highlight">84</i>&nbsp;        if (base_java_class != null) {</b>
+<b class="fc"><i class="no-highlight">85</i>&nbsp;            org.python.types.Type base_python_type = known_types.get(base_java_class);</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;            java.util.List&lt;org.python.Object&gt; bases = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="fc"><i class="no-highlight">87</i>&nbsp;            bases.add(base_python_type);</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;            python_type.__dict__.put(&quot;__base__&quot;, base_python_type);</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;            python_type.__dict__.put(&quot;__bases__&quot;, new org.python.types.Tuple(bases));</b>
+<i class="no-highlight">90</i>&nbsp;        }
+<i class="no-highlight">91</i>&nbsp;
+<b class="fc"><i class="no-highlight">92</i>&nbsp;        return python_type;</b>
+<i class="no-highlight">93</i>&nbsp;    }
+<i class="no-highlight">94</i>&nbsp;
+<i class="no-highlight">95</i>&nbsp;    public static org.python.types.Type declarePythonType(
+<i class="no-highlight">96</i>&nbsp;            org.python.Object name,
+<i class="no-highlight">97</i>&nbsp;            org.python.Object bases,
+<i class="no-highlight">98</i>&nbsp;            org.python.Object dict
+<i class="no-highlight">99</i>&nbsp;    ) {
+<b class="nc"><i class="no-highlight">100</i>&nbsp;        java.util.Map&lt;org.python.Object, org.python.Object&gt; from_dict = ((org.python.types.Dict) dict).value;</b>
+<b class="nc"><i class="no-highlight">101</i>&nbsp;        java.util.Map&lt;java.lang.String, org.python.Object&gt; to_dict = new java.util.HashMap&lt;java.lang.String, org.python.Object&gt;();</b>
+<b class="nc"><i class="no-highlight">102</i>&nbsp;        for (org.python.Object k : from_dict.keySet()) {</b>
+<b class="nc"><i class="no-highlight">103</i>&nbsp;            to_dict.put(k.toString(), from_dict.get(k));</b>
+<b class="nc"><i class="no-highlight">104</i>&nbsp;        }</b>
+<i class="no-highlight">105</i>&nbsp;
+<b class="nc"><i class="no-highlight">106</i>&nbsp;        return org.python.types.Type.declarePythonType(</b>
+<i class="no-highlight">107</i>&nbsp;                org.python.types.Object.class,
+<i class="no-highlight">108</i>&nbsp;                ((org.python.types.Str) name).value,
+<i class="no-highlight">109</i>&nbsp;                ((org.python.types.Tuple) bases).value,
+<i class="no-highlight">110</i>&nbsp;                to_dict
+<i class="no-highlight">111</i>&nbsp;        );
+<i class="no-highlight">112</i>&nbsp;    }
+<i class="no-highlight">113</i>&nbsp;
+<i class="no-highlight">114</i>&nbsp;    public static org.python.types.Type declarePythonType(
+<i class="no-highlight">115</i>&nbsp;            java.lang.Class java_class,
+<i class="no-highlight">116</i>&nbsp;            java.lang.String name,
+<i class="no-highlight">117</i>&nbsp;            java.util.List&lt;org.python.Object&gt; bases,
+<i class="no-highlight">118</i>&nbsp;            java.util.Map&lt;java.lang.String, org.python.Object&gt; dict
+<i class="no-highlight">119</i>&nbsp;    ) {
+<i class="no-highlight">120</i>&nbsp;        org.python.types.Type python_type;
+<i class="no-highlight">121</i>&nbsp;        // System.out.println(&quot;DECLARE &quot; + java_class + &quot; as &quot; + name + &quot; with bases &quot; + bases + &quot; and dict &quot; + dict);
+<i class="no-highlight">122</i>&nbsp;
+<i class="no-highlight">123</i>&nbsp;        // Construct the new type, and store it in the types table.
+<i class="no-highlight">124</i>&nbsp;        // Any type implementing org.python.Object is a Python type;
+<i class="no-highlight">125</i>&nbsp;        // otherwise, wrap it as a native Java type.
+<b class="fc"><i class="no-highlight">126</i>&nbsp;        if (org.python.Object.class.isAssignableFrom(java_class)) {</b>
+<b class="fc"><i class="no-highlight">127</i>&nbsp;            if (java_class.getName().startsWith(&quot;org.python.types&quot;)</b>
+<b class="fc"><i class="no-highlight">128</i>&nbsp;                    || java_class.getName().startsWith(&quot;org.python.stdlib&quot;)) {</b>
+<i class="no-highlight">129</i>&nbsp;                // System.out.println(&quot;    BUILTIN&quot;);
+<b class="fc"><i class="no-highlight">130</i>&nbsp;                python_type = new org.python.types.Type(Origin.BUILTIN, java_class);</b>
+<b class="fc"><i class="no-highlight">131</i>&nbsp;                org.Python.loadModule(java_class, python_type.__dict__);</b>
+<i class="no-highlight">132</i>&nbsp;            } else {
+<i class="no-highlight">133</i>&nbsp;                // System.out.println(&quot;    PYTHON&quot;);
+<b class="fc"><i class="no-highlight">134</i>&nbsp;                python_type = new org.python.types.Type(Origin.PYTHON, java_class);</b>
+<i class="no-highlight">135</i>&nbsp;            }
+<i class="no-highlight">136</i>&nbsp;        } else {
+<i class="no-highlight">137</i>&nbsp;            try {
+<i class="no-highlight">138</i>&nbsp;                // System.out.println(&quot;    EXTENSION&quot;);
+<b class="nc"><i class="no-highlight">139</i>&nbsp;                java_class.getDeclaredField(&quot;__VOC__&quot;);</b>
+<b class="nc"><i class="no-highlight">140</i>&nbsp;                python_type = new org.python.java.Type(Origin.EXTENSION, java_class);</b>
+<b class="nc"><i class="no-highlight">141</i>&nbsp;            } catch (NoSuchFieldException e) {</b>
+<i class="no-highlight">142</i>&nbsp;                // System.out.println(&quot;    JAVA&quot;);
+<b class="nc"><i class="no-highlight">143</i>&nbsp;                python_type = new org.python.java.Type(Origin.JAVA, java_class);</b>
+<b class="nc"><i class="no-highlight">144</i>&nbsp;            }</b>
+<i class="no-highlight">145</i>&nbsp;        }
+<i class="no-highlight">146</i>&nbsp;
+<i class="no-highlight">147</i>&nbsp;        // Set the name of the class.
+<b class="fc"><i class="no-highlight">148</i>&nbsp;        if (name != null) {</b>
+<b class="nc"><i class="no-highlight">149</i>&nbsp;            python_type.PYTHON_TYPE_NAME = name;</b>
+<i class="no-highlight">150</i>&nbsp;        }
+<i class="no-highlight">151</i>&nbsp;
+<i class="no-highlight">152</i>&nbsp;        // Set __base__ and __bases__ for the type
+<b class="fc"><i class="no-highlight">153</i>&nbsp;        if (java_class == org.python.types.Object.class) {</b>
+<b class="fc"><i class="no-highlight">154</i>&nbsp;            python_type.__dict__.put(&quot;__base__&quot;, org.python.types.NoneType.NONE);</b>
+<b class="fc"><i class="no-highlight">155</i>&nbsp;            python_type.__dict__.put(&quot;__bases__&quot;, new org.python.types.Tuple());</b>
+<b class="fc"><i class="no-highlight">156</i>&nbsp;        } else if (bases != null &amp;&amp; bases.size() &gt; 0) {</b>
+<b class="nc"><i class="no-highlight">157</i>&nbsp;            python_type.__dict__.put(&quot;__base__&quot;, bases.get(0));</b>
+<b class="nc"><i class="no-highlight">158</i>&nbsp;            python_type.__dict__.put(&quot;__bases__&quot;, new org.python.types.Tuple(bases));</b>
+<i class="no-highlight">159</i>&nbsp;        } else {
+<b class="fc"><i class="no-highlight">160</i>&nbsp;            org.python.types.Type base_python_type = known_types.get(org.python.types.Object.class);</b>
+<b class="fc"><i class="no-highlight">161</i>&nbsp;            java.util.List&lt;org.python.Object&gt; default_bases = new java.util.ArrayList&lt;org.python.Object&gt;();</b>
+<b class="fc"><i class="no-highlight">162</i>&nbsp;            default_bases.add(base_python_type);</b>
+<b class="fc"><i class="no-highlight">163</i>&nbsp;            python_type.__dict__.put(&quot;__base__&quot;, base_python_type);</b>
+<b class="fc"><i class="no-highlight">164</i>&nbsp;            python_type.__dict__.put(&quot;__bases__&quot;, new org.python.types.Tuple(default_bases));</b>
+<i class="no-highlight">165</i>&nbsp;        }
+<i class="no-highlight">166</i>&nbsp;
+<i class="no-highlight">167</i>&nbsp;        // Update the dictionary of the type.
+<b class="fc"><i class="no-highlight">168</i>&nbsp;        if (dict != null) {</b>
+<b class="nc"><i class="no-highlight">169</i>&nbsp;            python_type.__dict__.putAll(dict);</b>
+<i class="no-highlight">170</i>&nbsp;        }
+<i class="no-highlight">171</i>&nbsp;
+<i class="no-highlight">172</i>&nbsp;        // Register the type.
+<b class="fc"><i class="no-highlight">173</i>&nbsp;        org.python.types.Type placeholder = known_types.put(java_class, python_type);</b>
+<i class="no-highlight">174</i>&nbsp;
+<b class="fc"><i class="no-highlight">175</i>&nbsp;        if (placeholder != null &amp;&amp; placeholder.__dict__ != null) {</b>
+<b class="fc"><i class="no-highlight">176</i>&nbsp;            python_type.__dict__.putAll(placeholder.__dict__);</b>
+<i class="no-highlight">177</i>&nbsp;        }
+<i class="no-highlight">178</i>&nbsp;
+<i class="no-highlight">179</i>&nbsp;        // System.out.println(&quot;FINISHED DECLARING &quot; + java_class + &quot; as &quot; + name + &quot;; &quot; + python_type.__dict__);
+<b class="fc"><i class="no-highlight">180</i>&nbsp;        return python_type;</b>
+<i class="no-highlight">181</i>&nbsp;    }
+<i class="no-highlight">182</i>&nbsp;
+<i class="no-highlight">183</i>&nbsp;    /**
+<i class="no-highlight">184</i>&nbsp;     * Convert a Java instance into the a Python-wrapped type.
+<i class="no-highlight">185</i>&nbsp;     *
+<i class="no-highlight">186</i>&nbsp;     * This means converting:
+<i class="no-highlight">187</i>&nbsp;     *    * `null` into a None
+<i class="no-highlight">188</i>&nbsp;     *    * Returning any object that already implements org.python.Object as itself.
+<i class="no-highlight">189</i>&nbsp;     *    * Returning the existing VOC wrapper if one exists
+<i class="no-highlight">190</i>&nbsp;     *    * Wrapping any other object in a newly created org.python.java.Object wrapper.
+<i class="no-highlight">191</i>&nbsp;     */
+<i class="no-highlight">192</i>&nbsp;    public static org.python.Object toPython(java.lang.Object value) {
+<b class="nc"><i class="no-highlight">193</i>&nbsp;        if (value == null) {</b>
+<b class="nc"><i class="no-highlight">194</i>&nbsp;            return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">195</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">196</i>&nbsp;            if (value.getClass() == java.lang.Boolean.TYPE</b>
+<b class="nc"><i class="no-highlight">197</i>&nbsp;                    || value.getClass() == java.lang.Boolean.class) {</b>
+<b class="nc"><i class="no-highlight">198</i>&nbsp;                return org.python.types.Bool.getBool((java.lang.Boolean) value);</b>
+<b class="nc"><i class="no-highlight">199</i>&nbsp;            } else if (value.getClass() == java.lang.Byte.TYPE</b>
+<b class="nc"><i class="no-highlight">200</i>&nbsp;                    || value.getClass() == java.lang.Byte.class) {</b>
+<b class="nc"><i class="no-highlight">201</i>&nbsp;                return org.python.types.Int.getInt((java.lang.Byte) value);</b>
+<b class="nc"><i class="no-highlight">202</i>&nbsp;            } else if (value.getClass() == java.lang.Character.TYPE</b>
+<b class="nc"><i class="no-highlight">203</i>&nbsp;                    || value.getClass() == java.lang.Character.class) {</b>
+<b class="nc"><i class="no-highlight">204</i>&nbsp;                return new org.python.types.Str((java.lang.Character) value);</b>
+<b class="nc"><i class="no-highlight">205</i>&nbsp;            } else if (value.getClass() == java.lang.Short.TYPE</b>
+<b class="nc"><i class="no-highlight">206</i>&nbsp;                    || value.getClass() == java.lang.Short.class) {</b>
+<b class="nc"><i class="no-highlight">207</i>&nbsp;                return org.python.types.Int.getInt((java.lang.Short) value);</b>
+<b class="nc"><i class="no-highlight">208</i>&nbsp;            } else if (value.getClass() == java.lang.Integer.TYPE</b>
+<b class="nc"><i class="no-highlight">209</i>&nbsp;                    || value.getClass() == java.lang.Integer.class) {</b>
+<b class="nc"><i class="no-highlight">210</i>&nbsp;                return org.python.types.Int.getInt((java.lang.Integer) value);</b>
+<b class="nc"><i class="no-highlight">211</i>&nbsp;            } else if (value.getClass() == java.lang.Long.TYPE</b>
+<b class="nc"><i class="no-highlight">212</i>&nbsp;                    || value.getClass() == java.lang.Long.class) {</b>
+<b class="nc"><i class="no-highlight">213</i>&nbsp;                return org.python.types.Int.getInt((java.lang.Long) value);</b>
+<b class="nc"><i class="no-highlight">214</i>&nbsp;            } else if (value.getClass() == java.lang.Float.TYPE</b>
+<b class="nc"><i class="no-highlight">215</i>&nbsp;                    || value.getClass() == java.lang.Float.class) {</b>
+<b class="nc"><i class="no-highlight">216</i>&nbsp;                return new org.python.types.Float((java.lang.Float) value);</b>
+<b class="nc"><i class="no-highlight">217</i>&nbsp;            } else if (value.getClass() == java.lang.Double.TYPE</b>
+<b class="nc"><i class="no-highlight">218</i>&nbsp;                    || value.getClass() == java.lang.Double.class) {</b>
+<b class="nc"><i class="no-highlight">219</i>&nbsp;                return new org.python.types.Float((java.lang.Double) value);</b>
+<b class="nc"><i class="no-highlight">220</i>&nbsp;            } else if (value.getClass() == java.lang.String.class) {</b>
+<b class="nc"><i class="no-highlight">221</i>&nbsp;                return new org.python.types.Str((java.lang.String) value);</b>
+<b class="nc"><i class="no-highlight">222</i>&nbsp;            } else if (org.python.Object.class.isAssignableFrom(value.getClass())) {</b>
+<b class="nc"><i class="no-highlight">223</i>&nbsp;                return (org.python.Object) value;</b>
+<i class="no-highlight">224</i>&nbsp;            } else {
+<i class="no-highlight">225</i>&nbsp;                try {
+<i class="no-highlight">226</i>&nbsp;                    // Check to see if a __VOC__ field exists on the object.
+<i class="no-highlight">227</i>&nbsp;                    // If it does, that field will contain the wrapper object.
+<i class="no-highlight">228</i>&nbsp;                    // However, if this is the first time the object has been
+<i class="no-highlight">229</i>&nbsp;                    // referenced (e.g., during construction), we may need to
+<i class="no-highlight">230</i>&nbsp;                    // create the wrapper.
+<b class="nc"><i class="no-highlight">231</i>&nbsp;                    java.lang.reflect.Field field = value.getClass().getField(&quot;__VOC__&quot;);</b>
+<b class="nc"><i class="no-highlight">232</i>&nbsp;                    org.python.Object wrapper = (org.python.Object) field.get(value);</b>
+<b class="nc"><i class="no-highlight">233</i>&nbsp;                    if (wrapper == null) {</b>
+<b class="nc"><i class="no-highlight">234</i>&nbsp;                        wrapper = new org.python.java.Object(value);</b>
+<b class="nc"><i class="no-highlight">235</i>&nbsp;                        field.set(value, wrapper);</b>
+<i class="no-highlight">236</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">237</i>&nbsp;                    return wrapper;</b>
+<b class="nc"><i class="no-highlight">238</i>&nbsp;                } catch (java.lang.NoSuchFieldException nsf) {</b>
+<b class="nc"><i class="no-highlight">239</i>&nbsp;                    return new org.python.java.Object(value);</b>
+<b class="nc"><i class="no-highlight">240</i>&nbsp;                } catch (java.lang.IllegalAccessException e) {</b>
+<b class="nc"><i class="no-highlight">241</i>&nbsp;                    throw new org.python.exceptions.RuntimeError(&quot;Illegal access to __VOC__ attribute&quot;);</b>
+<i class="no-highlight">242</i>&nbsp;                }
+<i class="no-highlight">243</i>&nbsp;            }
+<i class="no-highlight">244</i>&nbsp;        }
+<i class="no-highlight">245</i>&nbsp;    }
+<i class="no-highlight">246</i>&nbsp;
+<i class="no-highlight">247</i>&nbsp;    public static java.lang.Object toJava(java.lang.Class&lt;?&gt; klass, org.python.Object value) {
+<b class="nc"><i class="no-highlight">248</i>&nbsp;        if (value == null) {</b>
+<b class="nc"><i class="no-highlight">249</i>&nbsp;            return value;</b>
+<i class="no-highlight">250</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">251</i>&nbsp;            if (klass == java.lang.Float.TYPE || klass == java.lang.Float.class) {</b>
+<b class="nc"><i class="no-highlight">252</i>&nbsp;                return ((java.lang.Number) value.toJava()).floatValue();</b>
+<b class="nc"><i class="no-highlight">253</i>&nbsp;            } else if (klass == java.lang.Long.TYPE || klass == java.lang.Long.class) {</b>
+<b class="nc"><i class="no-highlight">254</i>&nbsp;                return ((java.lang.Number) value.toJava()).longValue();</b>
+<b class="nc"><i class="no-highlight">255</i>&nbsp;            } else if (klass == java.lang.Integer.TYPE || klass == java.lang.Integer.class) {</b>
+<b class="nc"><i class="no-highlight">256</i>&nbsp;                return ((java.lang.Number) value.toJava()).intValue();</b>
+<b class="nc"><i class="no-highlight">257</i>&nbsp;            } else if (klass == java.lang.Short.TYPE || klass == java.lang.Short.class) {</b>
+<b class="nc"><i class="no-highlight">258</i>&nbsp;                return ((java.lang.Number) value.toJava()).shortValue();</b>
+<b class="nc"><i class="no-highlight">259</i>&nbsp;            } else if (klass == java.lang.Byte.TYPE || klass == java.lang.Byte.class) {</b>
+<b class="nc"><i class="no-highlight">260</i>&nbsp;                return ((java.lang.Number) value.toJava()).byteValue();</b>
+<i class="no-highlight">261</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">262</i>&nbsp;                return value.toJava();</b>
+<i class="no-highlight">263</i>&nbsp;            }
+<i class="no-highlight">264</i>&nbsp;        }
+<i class="no-highlight">265</i>&nbsp;    }
+<i class="no-highlight">266</i>&nbsp;
+<i class="no-highlight">267</i>&nbsp;    public Type(Origin origin, java.lang.Class klass) {
+<b class="fc"><i class="no-highlight">268</i>&nbsp;        super(origin, null);</b>
+<i class="no-highlight">269</i>&nbsp;
+<b class="fc"><i class="no-highlight">270</i>&nbsp;        if (origin != Origin.PLACEHOLDER) {</b>
+<b class="fc"><i class="no-highlight">271</i>&nbsp;            this.klass = klass;</b>
+<i class="no-highlight">272</i>&nbsp;        }
+<i class="no-highlight">273</i>&nbsp;
+<b class="fc"><i class="no-highlight">274</i>&nbsp;        if (origin == Origin.BUILTIN || origin == Origin.PYTHON || origin == Origin.EXTENSION) {</b>
+<i class="no-highlight">275</i>&nbsp;            try {
+<b class="fc"><i class="no-highlight">276</i>&nbsp;                this.constructor = this.klass.getConstructor(org.python.Object[].class, java.util.Map.class);</b>
+<b class="fc"><i class="no-highlight">277</i>&nbsp;            } catch (java.lang.NoSuchMethodException e) {</b>
+<b class="fc"><i class="no-highlight">278</i>&nbsp;                this.constructor = null;</b>
+<b class="fc"><i class="no-highlight">279</i>&nbsp;            }</b>
+<i class="no-highlight">280</i>&nbsp;        }
+<i class="no-highlight">281</i>&nbsp;    }
+<i class="no-highlight">282</i>&nbsp;
+<i class="no-highlight">283</i>&nbsp;    public Type(java.lang.Class klass) {
+<b class="nc"><i class="no-highlight">284</i>&nbsp;        this(Origin.PYTHON, klass);</b>
+<i class="no-highlight">285</i>&nbsp;    }
+<i class="no-highlight">286</i>&nbsp;
+<i class="no-highlight">287</i>&nbsp;    public void add_reference(org.python.Object instance) {
+<b class="nc"><i class="no-highlight">288</i>&nbsp;        throw new java.lang.RuntimeException(&quot;Can&#39;t add reference to normal type&quot;);</b>
+<i class="no-highlight">289</i>&nbsp;    }
+<i class="no-highlight">290</i>&nbsp;
+<i class="no-highlight">291</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">292</i>&nbsp;            __doc__ = &quot;Return repr(self).&quot;
+<i class="no-highlight">293</i>&nbsp;    )
+<i class="no-highlight">294</i>&nbsp;    public org.python.types.Str __repr__() {
+<b class="nc"><i class="no-highlight">295</i>&nbsp;        if (this.klass == null) {</b>
+<b class="nc"><i class="no-highlight">296</i>&nbsp;            return new org.python.types.Str(</b>
+<b class="nc"><i class="no-highlight">297</i>&nbsp;                    String.format(&quot;&lt;...type 0x%x (%s) is being initialized...&gt;&quot;,</b>
+<b class="nc"><i class="no-highlight">298</i>&nbsp;                            this.hashCode(),</b>
+<i class="no-highlight">299</i>&nbsp;                            this.origin
+<i class="no-highlight">300</i>&nbsp;                    )
+<i class="no-highlight">301</i>&nbsp;            );
+<i class="no-highlight">302</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">303</i>&nbsp;        return new org.python.types.Str(</b>
+<b class="nc"><i class="no-highlight">304</i>&nbsp;                String.format(&quot;&lt;class &#39;%s&#39;%s&gt;&quot;,</b>
+<b class="nc"><i class="no-highlight">305</i>&nbsp;                        org.Python.typeName(this.klass),</b>
+<b class="nc"><i class="no-highlight">306</i>&nbsp;                        this.origin == Origin.PLACEHOLDER ? &quot; (placeholder)&quot; : &quot;&quot;</b>
+<i class="no-highlight">307</i>&nbsp;                )
+<i class="no-highlight">308</i>&nbsp;        );
+<i class="no-highlight">309</i>&nbsp;    }
+<i class="no-highlight">310</i>&nbsp;
+<i class="no-highlight">311</i>&nbsp;    public org.python.Object __getattribute_null(java.lang.String name) {
+<i class="no-highlight">312</i>&nbsp;        // System.out.println(&quot;GETATTRIBUTE CLASS &quot; + this.klass.getName() + &quot; &quot; + name + &quot; &quot; + this.origin);
+<i class="no-highlight">313</i>&nbsp;        // System.out.println(&quot;CLASS ATTRS &quot; + this.__dict__);
+<b class="nc"><i class="no-highlight">314</i>&nbsp;        org.python.Object value = this.__dict__.get(name);</b>
+<i class="no-highlight">315</i>&nbsp;
+<i class="no-highlight">316</i>&nbsp;        // It&#39;s an org.python.types Method that hasn&#39;t been initialized into __dict__ yet
+<b class="nc"><i class="no-highlight">317</i>&nbsp;        if (value == null) {</b>
+<b class="nc"><i class="no-highlight">318</i>&nbsp;            value = org.Python.getPythonFunction(name, klass);</b>
+<b class="nc"><i class="no-highlight">319</i>&nbsp;            if (value != null) {</b>
+<b class="nc"><i class="no-highlight">320</i>&nbsp;                this.__dict__.put(name, value);</b>
+<i class="no-highlight">321</i>&nbsp;            }
+<i class="no-highlight">322</i>&nbsp;        }
+<i class="no-highlight">323</i>&nbsp;
+<b class="nc"><i class="no-highlight">324</i>&nbsp;        if (value == null) {</b>
+<i class="no-highlight">325</i>&nbsp;            // We need to differentiate between &quot;doesn&#39;t exist in the __dict__&quot;, and
+<i class="no-highlight">326</i>&nbsp;            // exists, but has a value of null.
+<b class="nc"><i class="no-highlight">327</i>&nbsp;            if (!this.__dict__.containsKey(name)) {</b>
+<i class="no-highlight">328</i>&nbsp;                // The class attributes didn&#39;t contain a value for the attribute
+<i class="no-highlight">329</i>&nbsp;                // name. Introspect on the object class to see if a field
+<i class="no-highlight">330</i>&nbsp;                // with the given name exists, caching either the Field instance,
+<i class="no-highlight">331</i>&nbsp;                // or an AttributeError representation of the NoSuchFieldException.
+<i class="no-highlight">332</i>&nbsp;                try {
+<b class="nc"><i class="no-highlight">333</i>&nbsp;                    java.lang.reflect.Field field = this.klass.getDeclaredField(name);</b>
+<i class="no-highlight">334</i>&nbsp;
+<i class="no-highlight">335</i>&nbsp;                    // A field exists. Check that the attribute
+<i class="no-highlight">336</i>&nbsp;                    // should be exposed to the Python namespace.
+<b class="nc"><i class="no-highlight">337</i>&nbsp;                    org.python.Attribute annotation =</b>
+<b class="nc"><i class="no-highlight">338</i>&nbsp;                            (org.python.Attribute) field.getAnnotation(org.python.Attribute.class);</b>
+<b class="nc"><i class="no-highlight">339</i>&nbsp;                    if (annotation != null) {</b>
+<b class="nc"><i class="no-highlight">340</i>&nbsp;                        value = new org.python.java.Field(field);</b>
+<i class="no-highlight">341</i>&nbsp;                    } else {
+<b class="nc"><i class="no-highlight">342</i>&nbsp;                        value = null;</b>
+<i class="no-highlight">343</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">344</i>&nbsp;                } catch (java.lang.NoSuchFieldException e) {</b>
+<b class="nc"><i class="no-highlight">345</i>&nbsp;                    value = null;</b>
+<b class="nc"><i class="no-highlight">346</i>&nbsp;                }</b>
+<b class="nc"><i class="no-highlight">347</i>&nbsp;                this.__dict__.put(name, value);</b>
+<i class="no-highlight">348</i>&nbsp;            }
+<i class="no-highlight">349</i>&nbsp;        }
+<i class="no-highlight">350</i>&nbsp;
+<i class="no-highlight">351</i>&nbsp;        // If the result of the lookup is an AttributeError, there&#39;s
+<i class="no-highlight">352</i>&nbsp;        // no local field; so defer to the base type chain.
+<b class="nc"><i class="no-highlight">353</i>&nbsp;        if (value == null) {</b>
+<b class="nc"><i class="no-highlight">354</i>&nbsp;            if (this.__dict__.get(&quot;__bases__&quot;) != null) {</b>
+<b class="nc"><i class="no-highlight">355</i>&nbsp;                for (org.python.Object base : ((org.python.types.Tuple) this.__dict__.get(&quot;__bases__&quot;)).value) {</b>
+<b class="nc"><i class="no-highlight">356</i>&nbsp;                    value = base.__getattribute_null(name);</b>
+<b class="nc"><i class="no-highlight">357</i>&nbsp;                    if (value != null) {</b>
+<b class="nc"><i class="no-highlight">358</i>&nbsp;                        break;</b>
+<i class="no-highlight">359</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">360</i>&nbsp;                }</b>
+<i class="no-highlight">361</i>&nbsp;            }
+<i class="no-highlight">362</i>&nbsp;        }
+<i class="no-highlight">363</i>&nbsp;
+<i class="no-highlight">364</i>&nbsp;        // If we still don&#39;t have a value, look for a global
+<i class="no-highlight">365</i>&nbsp;        // variable defined at the module level.
+<b class="nc"><i class="no-highlight">366</i>&nbsp;        if (value == null) {</b>
+<i class="no-highlight">367</i>&nbsp;            // System.out.println(&quot;CLASS ATTRS &quot; + this.klass);
+<i class="no-highlight">368</i>&nbsp;            // System.out.println(&quot;__dict__ &quot; + this.__dict__);
+<b class="nc"><i class="no-highlight">369</i>&nbsp;            org.python.Object module_name = this.__dict__.get(&quot;__module__&quot;);</b>
+<b class="nc"><i class="no-highlight">370</i>&nbsp;            if (module_name != null) {</b>
+<b class="nc"><i class="no-highlight">371</i>&nbsp;                org.python.Object module = python.sys.modules.__getitem__(module_name);</b>
+<b class="nc"><i class="no-highlight">372</i>&nbsp;                value = module.__getattribute_null(name);</b>
+<i class="no-highlight">373</i>&nbsp;            }
+<i class="no-highlight">374</i>&nbsp;        }
+<i class="no-highlight">375</i>&nbsp;
+<i class="no-highlight">376</i>&nbsp;        // If we don&#39;t have a module attribute, look for a builtin.
+<b class="nc"><i class="no-highlight">377</i>&nbsp;        if (value == null) {</b>
+<i class="no-highlight">378</i>&nbsp;            // System.out.println(&quot;Look for attribute in builtins &quot; + name);
+<b class="nc"><i class="no-highlight">379</i>&nbsp;            value = org.Python.builtins.get(name);</b>
+<i class="no-highlight">380</i>&nbsp;        }
+<i class="no-highlight">381</i>&nbsp;
+<i class="no-highlight">382</i>&nbsp;        // System.out.println(&quot;GETATTRIBUTE CLASS &quot; + this.klass.getName() + &quot; &quot; + name + &quot; = &quot; + value);
+<b class="nc"><i class="no-highlight">383</i>&nbsp;        return value;</b>
+<i class="no-highlight">384</i>&nbsp;    }
+<i class="no-highlight">385</i>&nbsp;
+<i class="no-highlight">386</i>&nbsp;    public void __setattr__(java.lang.String name, org.python.Object value) {
+<b class="nc"><i class="no-highlight">387</i>&nbsp;        if (!this.__setattr_null(name, value)) {</b>
+<b class="nc"><i class="no-highlight">388</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;Can&#39;t set new attributes on built-in type &#39;&quot; + org.Python.typeName(this.klass) + &quot;&#39;&quot;);</b>
+<i class="no-highlight">389</i>&nbsp;        }
+<i class="no-highlight">390</i>&nbsp;    }
+<i class="no-highlight">391</i>&nbsp;
+<i class="no-highlight">392</i>&nbsp;    public boolean __setattr_null(java.lang.String name, org.python.Object value) {
+<i class="no-highlight">393</i>&nbsp;        // System.out.println(&quot;SETATTRIBUTE TYPE &quot; + name + &quot; = &quot; + value);
+<i class="no-highlight">394</i>&nbsp;        // System.out.println(&quot;class __dict__ = &quot; + this.__dict__);
+<i class="no-highlight">395</i>&nbsp;
+<i class="no-highlight">396</i>&nbsp;        // Can&#39;t set attributes of builtin types.
+<b class="nc"><i class="no-highlight">397</i>&nbsp;        if (this.origin == Origin.BUILTIN) {</b>
+<b class="nc"><i class="no-highlight">398</i>&nbsp;            return false;</b>
+<i class="no-highlight">399</i>&nbsp;        }
+<i class="no-highlight">400</i>&nbsp;
+<b class="nc"><i class="no-highlight">401</i>&nbsp;        this.__dict__.put(name, value);</b>
+<b class="nc"><i class="no-highlight">402</i>&nbsp;        return true;</b>
+<i class="no-highlight">403</i>&nbsp;    }
+<i class="no-highlight">404</i>&nbsp;
+<i class="no-highlight">405</i>&nbsp;    public org.python.Object invoke(org.python.Object[] args, java.util.Map&lt;java.lang.String, org.python.Object&gt; kwargs) {
+<i class="no-highlight">406</i>&nbsp;        try {
+<i class="no-highlight">407</i>&nbsp;            // org.Python.debug(&quot;Constructor:&quot;, this.constructor);
+<i class="no-highlight">408</i>&nbsp;            // org.Python.debug(&quot;     Origin:&quot;, this.origin);
+<i class="no-highlight">409</i>&nbsp;            // org.Python.debug(&quot;       Type:&quot;, this);
+<i class="no-highlight">410</i>&nbsp;            // for (org.python.Object arg: args) {
+<i class="no-highlight">411</i>&nbsp;            //     org.Python.debug(&quot;            arg: &quot;, arg);
+<i class="no-highlight">412</i>&nbsp;            // }
+<i class="no-highlight">413</i>&nbsp;            // org.Python.debug(&quot;         kwargs: &quot;, kwargs);
+<i class="no-highlight">414</i>&nbsp;
+<b class="nc"><i class="no-highlight">415</i>&nbsp;            if (this.constructor != null) {</b>
+<b class="nc"><i class="no-highlight">416</i>&nbsp;                org.python.Method annotation = (org.python.Method) this.constructor.getAnnotation(org.python.Method.class);</b>
+<i class="no-highlight">417</i>&nbsp;                org.python.Object[] adjusted_args;
+<i class="no-highlight">418</i>&nbsp;
+<b class="nc"><i class="no-highlight">419</i>&nbsp;                if (annotation != null &amp;&amp; origin == Origin.BUILTIN) {</b>
+<b class="nc"><i class="no-highlight">420</i>&nbsp;                    java.lang.String[] arg_names = annotation.args();</b>
+<b class="nc"><i class="no-highlight">421</i>&nbsp;                    java.lang.String[] default_arg_names = annotation.default_args();</b>
+<b class="nc"><i class="no-highlight">422</i>&nbsp;                    boolean has_varargs = annotation.varargs().equals(&quot;&quot;);</b>
+<i class="no-highlight">423</i>&nbsp;                    int a;
+<i class="no-highlight">424</i>&nbsp;                    java.lang.String arg_name;
+<i class="no-highlight">425</i>&nbsp;                    org.python.Object arg;
+<b class="nc"><i class="no-highlight">426</i>&nbsp;                    int n_args = arg_names.length + default_arg_names.length;</b>
+<i class="no-highlight">427</i>&nbsp;
+<b class="nc"><i class="no-highlight">428</i>&nbsp;                    adjusted_args = new org.python.Object[arg_names.length + default_arg_names.length];</b>
+<i class="no-highlight">429</i>&nbsp;
+<b class="nc"><i class="no-highlight">430</i>&nbsp;                    int n_provided_args = (args == null) ? 0 : args.length;</b>
+<b class="nc"><i class="no-highlight">431</i>&nbsp;                    if (n_provided_args &lt; n_args) {</b>
+<i class="no-highlight">432</i>&nbsp;                        // Take as many positional arguments as have been literally provided
+<b class="nc"><i class="no-highlight">433</i>&nbsp;                        for (a = 0; a &lt; n_provided_args; a++) {</b>
+<b class="nc"><i class="no-highlight">434</i>&nbsp;                            adjusted_args[a] = args[a];</b>
+<i class="no-highlight">435</i>&nbsp;                        }
+<i class="no-highlight">436</i>&nbsp;
+<i class="no-highlight">437</i>&nbsp;                        // Populate the rest from kwargs
+<b class="nc"><i class="no-highlight">438</i>&nbsp;                        for (a = n_provided_args; a &lt; n_args; a++) {</b>
+<b class="nc"><i class="no-highlight">439</i>&nbsp;                            if (a &lt; arg_names.length) {</b>
+<b class="nc"><i class="no-highlight">440</i>&nbsp;                                arg_name = arg_names[a];</b>
+<i class="no-highlight">441</i>&nbsp;                            } else {
+<b class="nc"><i class="no-highlight">442</i>&nbsp;                                arg_name = default_arg_names[a - arg_names.length];</b>
+<i class="no-highlight">443</i>&nbsp;                            }
+<i class="no-highlight">444</i>&nbsp;
+<b class="nc"><i class="no-highlight">445</i>&nbsp;                            arg = (kwargs == null) ? null : kwargs.remove(arg_name);</b>
+<b class="nc"><i class="no-highlight">446</i>&nbsp;                            if (arg == null &amp;&amp; a &lt; arg_names.length) {</b>
+<b class="nc"><i class="no-highlight">447</i>&nbsp;                                throw new org.python.exceptions.TypeError(</b>
+<i class="no-highlight">448</i>&nbsp;                                        this.PYTHON_TYPE_NAME + &quot; constructor missing positional argument &#39;&quot; +
+<i class="no-highlight">449</i>&nbsp;                                                arg_name + &quot;&#39;&quot;
+<i class="no-highlight">450</i>&nbsp;                                );
+<i class="no-highlight">451</i>&nbsp;                            }
+<b class="nc"><i class="no-highlight">452</i>&nbsp;                            adjusted_args[a] = arg;</b>
+<i class="no-highlight">453</i>&nbsp;                        }
+<b class="nc"><i class="no-highlight">454</i>&nbsp;                    } else if (n_provided_args == n_args) {</b>
+<b class="nc"><i class="no-highlight">455</i>&nbsp;                        for (a = 0; a &lt; n_args; a++) {</b>
+<b class="nc"><i class="no-highlight">456</i>&nbsp;                            adjusted_args[a] = args[a];</b>
+<i class="no-highlight">457</i>&nbsp;                        }
+<i class="no-highlight">458</i>&nbsp;
+<b class="nc"><i class="no-highlight">459</i>&nbsp;                        for (a = n_args; a &lt; n_provided_args; a++) {</b>
+<b class="nc"><i class="no-highlight">460</i>&nbsp;                            if (a &lt; arg_names.length) {</b>
+<b class="nc"><i class="no-highlight">461</i>&nbsp;                                arg_name = arg_names[a];</b>
+<i class="no-highlight">462</i>&nbsp;                            } else {
+<b class="nc"><i class="no-highlight">463</i>&nbsp;                                arg_name = default_arg_names[a - arg_names.length];</b>
+<i class="no-highlight">464</i>&nbsp;                            }
+<b class="nc"><i class="no-highlight">465</i>&nbsp;                            kwargs.put(arg_name, args[a]);</b>
+<i class="no-highlight">466</i>&nbsp;                        }
+<i class="no-highlight">467</i>&nbsp;                    } else {
+<i class="no-highlight">468</i>&nbsp;                        // More arguments than expected, call the constructor anyway to handle too many arguments
+<b class="nc"><i class="no-highlight">469</i>&nbsp;                        adjusted_args = args;</b>
+<i class="no-highlight">470</i>&nbsp;                    }
+<b class="nc"><i class="no-highlight">471</i>&nbsp;                } else {</b>
+<b class="nc"><i class="no-highlight">472</i>&nbsp;                    adjusted_args = args;</b>
+<i class="no-highlight">473</i>&nbsp;                }
+<i class="no-highlight">474</i>&nbsp;
+<i class="no-highlight">475</i>&nbsp;                // for (org.python.Object arg: adjusted_args) {
+<i class="no-highlight">476</i>&nbsp;                //     org.Python.debug(&quot;            adj arg: &quot;, arg);
+<i class="no-highlight">477</i>&nbsp;                // }
+<i class="no-highlight">478</i>&nbsp;                // org.Python.debug(&quot;         adj kwargs: &quot;, kwargs);
+<i class="no-highlight">479</i>&nbsp;
+<b class="nc"><i class="no-highlight">480</i>&nbsp;                return (org.python.Object) this.constructor.newInstance((adjusted_args != null) ? adjusted_args : getEmptyArgs(), (kwargs != null) ? kwargs : getEmptyKwargs());</b>
+<i class="no-highlight">481</i>&nbsp;            } else {
+<b class="nc"><i class="no-highlight">482</i>&nbsp;                throw new org.python.exceptions.RuntimeError(&quot;No Python-compatible constructor for type &quot; + this.klass);</b>
+<i class="no-highlight">483</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">484</i>&nbsp;        } catch (java.lang.IllegalAccessException e) {</b>
+<b class="nc"><i class="no-highlight">485</i>&nbsp;            throw new org.python.exceptions.RuntimeError(&quot;Illegal access to Java constructor &quot; + this.constructor);</b>
+<b class="nc"><i class="no-highlight">486</i>&nbsp;        } catch (java.lang.reflect.InvocationTargetException e) {</b>
+<i class="no-highlight">487</i>&nbsp;            try {
+<i class="no-highlight">488</i>&nbsp;                // e.getTargetException().printStackTrace();
+<i class="no-highlight">489</i>&nbsp;                // If the Java method raised an Python exception, re-raise that
+<i class="no-highlight">490</i>&nbsp;                // exception as-is. If it wasn&#39;t a Python exception, wrap it
+<i class="no-highlight">491</i>&nbsp;                // as one and continue.
+<b class="nc"><i class="no-highlight">492</i>&nbsp;                throw (org.python.exceptions.BaseException) e.getCause();</b>
+<b class="nc"><i class="no-highlight">493</i>&nbsp;            } catch (ClassCastException java_e) {</b>
+<b class="nc"><i class="no-highlight">494</i>&nbsp;                throw new org.python.exceptions.RuntimeError(e.getCause().toString());</b>
+<i class="no-highlight">495</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">496</i>&nbsp;        } catch (java.lang.InstantiationException e) {</b>
+<b class="nc"><i class="no-highlight">497</i>&nbsp;            throw new org.python.exceptions.RuntimeError(e.getCause().toString());</b>
+<i class="no-highlight">498</i>&nbsp;        // } finally {
+<i class="no-highlight">499</i>&nbsp;            //     System.out.println(&quot;CONSTRUCTOR DONE&quot;);
+<i class="no-highlight">500</i>&nbsp;        }
+<i class="no-highlight">501</i>&nbsp;    }
+<i class="no-highlight">502</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>

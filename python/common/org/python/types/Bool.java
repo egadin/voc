@@ -27,7 +27,7 @@ public class Bool extends org.python.types.Object {
         return new java.lang.Boolean(this.value).hashCode();
     }
 
-    private Bool(boolean bool) {
+    public Bool(boolean bool) {
         super();
         this.value = bool;
     }

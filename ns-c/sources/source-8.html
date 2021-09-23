@@ -1,0 +1,382 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > time</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">python</a>
+</div>
+
+<h1>Coverage Summary for Class: time (python)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">time</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package python;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;@org.python.Module(
+<i class="no-highlight">4</i>&nbsp;        __doc__ =
+<i class="no-highlight">5</i>&nbsp;                &quot;This module provides various functions to manipulate time values.\n&quot; +
+<i class="no-highlight">6</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">7</i>&nbsp;                        &quot;There are two standard representations of time.  One is the number\n&quot; +
+<i class="no-highlight">8</i>&nbsp;                        &quot;of seconds since the Epoch, in UTC (a.k.a. GMT).  It may be an integer\n&quot; +
+<i class="no-highlight">9</i>&nbsp;                        &quot;or a floating point number (to represent fractions of seconds).\n&quot; +
+<i class="no-highlight">10</i>&nbsp;                        &quot;The Epoch is system-defined; on Unix, it is generally January 1st, 1970.\n&quot; +
+<i class="no-highlight">11</i>&nbsp;                        &quot;The actual value can be retrieved by calling gmtime(0).\n&quot; +
+<i class="no-highlight">12</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">13</i>&nbsp;                        &quot;The other representation is a tuple of 9 integers giving local time.\n&quot; +
+<i class="no-highlight">14</i>&nbsp;                        &quot;The tuple items are:\n&quot; +
+<i class="no-highlight">15</i>&nbsp;                        &quot;  year (including century, e.g. 1998)\n&quot; +
+<i class="no-highlight">16</i>&nbsp;                        &quot;  month (1-12)\n&quot; +
+<i class="no-highlight">17</i>&nbsp;                        &quot;  day (1-31)\n&quot; +
+<i class="no-highlight">18</i>&nbsp;                        &quot;  hours (0-23)\n&quot; +
+<i class="no-highlight">19</i>&nbsp;                        &quot;  minutes (0-59)\n&quot; +
+<i class="no-highlight">20</i>&nbsp;                        &quot;  seconds (0-59)\n&quot; +
+<i class="no-highlight">21</i>&nbsp;                        &quot;  weekday (0-6, Monday is 0)\n&quot; +
+<i class="no-highlight">22</i>&nbsp;                        &quot;  Julian day (day in the year, 1-366)\n&quot; +
+<i class="no-highlight">23</i>&nbsp;                        &quot;  DST (Daylight Savings Time) flag (-1, 0 or 1)\n&quot; +
+<i class="no-highlight">24</i>&nbsp;                        &quot;If the DST flag is 0, the time is given in the regular time zone;\n&quot; +
+<i class="no-highlight">25</i>&nbsp;                        &quot;if it is 1, the time is given in the DST time zone;\n&quot; +
+<i class="no-highlight">26</i>&nbsp;                        &quot;if it is -1, mktime() should guess based on the date and time.\n&quot; +
+<i class="no-highlight">27</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">28</i>&nbsp;                        &quot;Variables:\n&quot; +
+<i class="no-highlight">29</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">30</i>&nbsp;                        &quot;timezone -- difference in seconds between UTC and local standard time\n&quot; +
+<i class="no-highlight">31</i>&nbsp;                        &quot;altzone -- difference in  seconds between UTC and local DST time\n&quot; +
+<i class="no-highlight">32</i>&nbsp;                        &quot;daylight -- whether local time should reflect DST\n&quot; +
+<i class="no-highlight">33</i>&nbsp;                        &quot;tzname -- tuple of (standard time zone name, DST time zone name)\n&quot; +
+<i class="no-highlight">34</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">35</i>&nbsp;                        &quot;Functions:\n&quot; +
+<i class="no-highlight">36</i>&nbsp;                        &quot;\n&quot; +
+<i class="no-highlight">37</i>&nbsp;                        &quot;time() -- return current time in seconds since the Epoch as a float\n&quot; +
+<i class="no-highlight">38</i>&nbsp;                        &quot;clock() -- return CPU time since process start as a float\n&quot; +
+<i class="no-highlight">39</i>&nbsp;                        &quot;sleep() -- delay for a number of seconds given as a float\n&quot; +
+<i class="no-highlight">40</i>&nbsp;                        &quot;gmtime() -- convert seconds since Epoch to UTC tuple\n&quot; +
+<i class="no-highlight">41</i>&nbsp;                        &quot;localtime() -- convert seconds since Epoch to local time tuple\n&quot; +
+<i class="no-highlight">42</i>&nbsp;                        &quot;asctime() -- convert time tuple to string\n&quot; +
+<i class="no-highlight">43</i>&nbsp;                        &quot;ctime() -- convert time in seconds to string\n&quot; +
+<i class="no-highlight">44</i>&nbsp;                        &quot;mktime() -- convert local time tuple to seconds since Epoch\n&quot; +
+<i class="no-highlight">45</i>&nbsp;                        &quot;strftime() -- convert time tuple to string according to format specification\n&quot; +
+<i class="no-highlight">46</i>&nbsp;                        &quot;strptime() -- parse string to time tuple according to format specification\n&quot; +
+<i class="no-highlight">47</i>&nbsp;                        &quot;tzset() -- change the local timezone&quot;
+<i class="no-highlight">48</i>&nbsp;)
+<i class="no-highlight">49</i>&nbsp;public class time extends org.python.types.Module {
+<i class="no-highlight">50</i>&nbsp;    public time() {
+<b class="nc"><i class="no-highlight">51</i>&nbsp;        super();</b>
+<b class="nc"><i class="no-highlight">52</i>&nbsp;        vm_start_time = python.platform.impl.clock();</b>
+<i class="no-highlight">53</i>&nbsp;    }
+<i class="no-highlight">54</i>&nbsp;
+<i class="no-highlight">55</i>&nbsp;    private static long vm_start_time;
+<i class="no-highlight">56</i>&nbsp;    public static org.python.Object _STRUCT_TM_ITEMS;
+<i class="no-highlight">57</i>&nbsp;
+<i class="no-highlight">58</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">59</i>&nbsp;    public static org.python.Object __file__ = new org.python.types.Str(&quot;python/common/python/time.java&quot;);</b>
+<i class="no-highlight">60</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">61</i>&nbsp;    public static org.python.Object __loader__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">62</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">63</i>&nbsp;    public static org.python.Object __name__ = new org.python.types.Str(&quot;time&quot;);</b>
+<i class="no-highlight">64</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">65</i>&nbsp;    public static org.python.Object __package__ = new org.python.types.Str(&quot;&quot;);</b>
+<i class="no-highlight">66</i>&nbsp;    @org.python.Attribute
+<b class="nc"><i class="no-highlight">67</i>&nbsp;    public static org.python.Object __spec__ = org.python.types.NoneType.NONE;  // TODO</b>
+<i class="no-highlight">68</i>&nbsp;    public static org.python.types.Int altzone;
+<i class="no-highlight">69</i>&nbsp;
+<i class="no-highlight">70</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">71</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">72</i>&nbsp;    )
+<i class="no-highlight">73</i>&nbsp;    public static org.python.Object asctime() {
+<b class="nc"><i class="no-highlight">74</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.asctime() has not been implemented.&quot;);</b>
+<i class="no-highlight">75</i>&nbsp;    }
+<i class="no-highlight">76</i>&nbsp;
+<i class="no-highlight">77</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">78</i>&nbsp;            __doc__ = &quot;clock() -&gt; floating point number\n&quot; +
+<i class="no-highlight">79</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">80</i>&nbsp;                    &quot;Return the CPU time or real time since the start of the process or since\n&quot; +
+<i class="no-highlight">81</i>&nbsp;                    &quot;the first call to clock().  This has as much precision as the system\n&quot; +
+<i class="no-highlight">82</i>&nbsp;                    &quot;records.\n&quot;
+<i class="no-highlight">83</i>&nbsp;    )
+<i class="no-highlight">84</i>&nbsp;    public static org.python.Object clock() {
+<b class="nc"><i class="no-highlight">85</i>&nbsp;        long current_time = python.platform.impl.clock() - vm_start_time;</b>
+<i class="no-highlight">86</i>&nbsp;
+<i class="no-highlight">87</i>&nbsp;        // thread time is in nanoseconds; convert to seconds.
+<b class="nc"><i class="no-highlight">88</i>&nbsp;        return new org.python.types.Float(current_time / 1000000000.0);</b>
+<i class="no-highlight">89</i>&nbsp;    }
+<i class="no-highlight">90</i>&nbsp;
+<i class="no-highlight">91</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">92</i>&nbsp;            __doc__ = &quot;ctime(seconds) -&gt; string\n\n&quot; +
+<i class="no-highlight">93</i>&nbsp;                      &quot;Convert a time in seconds since the Epoch to a string in local time.\n&quot; +
+<i class="no-highlight">94</i>&nbsp;                      &quot;This is equivalent to asctime(localtime(seconds)). When the time tuple is\n&quot; +
+<i class="no-highlight">95</i>&nbsp;                      &quot;not present, current time as returned by localtime() is used.&quot;,
+<i class="no-highlight">96</i>&nbsp;            default_args = {&quot;seconds&quot;}
+<i class="no-highlight">97</i>&nbsp;    )
+<i class="no-highlight">98</i>&nbsp;    public static org.python.Object ctime(org.python.Object seconds) {
+<i class="no-highlight">99</i>&nbsp;        java.util.Date date;
+<b class="nc"><i class="no-highlight">100</i>&nbsp;        if ((seconds == null) || (seconds instanceof org.python.types.NoneType)) {</b>
+<b class="nc"><i class="no-highlight">101</i>&nbsp;            long currentTimeInMillis = System.currentTimeMillis();</b>
+<b class="nc"><i class="no-highlight">102</i>&nbsp;            date = new java.util.Date(currentTimeInMillis);</b>
+<b class="nc"><i class="no-highlight">103</i>&nbsp;        } else {</b>
+<i class="no-highlight">104</i>&nbsp;            //Type checking the parameter
+<b class="nc"><i class="no-highlight">105</i>&nbsp;            if (!(seconds instanceof org.python.types.Int) &amp;&amp; !(seconds instanceof org.python.types.Float)) {</b>
+<b class="nc"><i class="no-highlight">106</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;an integer is required (got type &quot; + seconds.typeName() + &quot;)&quot;);</b>
+<i class="no-highlight">107</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">108</i>&nbsp;            date = new java.util.Date(((org.python.types.Int) seconds.__int__()).value * 1000L);</b>
+<i class="no-highlight">109</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">110</i>&nbsp;        java.text.SimpleDateFormat ft = new java.text.SimpleDateFormat(&quot;E MMM dd HH:mm:ss yyyy&quot;, java.util.Locale.ENGLISH);</b>
+<b class="nc"><i class="no-highlight">111</i>&nbsp;        String padded_date = ft.format(date);</b>
+<b class="nc"><i class="no-highlight">112</i>&nbsp;        if (Character.toString(padded_date.charAt(8)).equals(&quot;0&quot;)) {</b>
+<b class="nc"><i class="no-highlight">113</i>&nbsp;            java.lang.StringBuilder sb = new StringBuilder();</b>
+<b class="nc"><i class="no-highlight">114</i>&nbsp;            sb.append(padded_date.substring(0, 7));</b>
+<b class="nc"><i class="no-highlight">115</i>&nbsp;            sb.append(&quot;  &quot;);</b>
+<b class="nc"><i class="no-highlight">116</i>&nbsp;            sb.append(padded_date.substring(9, padded_date.length()));</b>
+<b class="nc"><i class="no-highlight">117</i>&nbsp;            padded_date = sb.toString();</b>
+<i class="no-highlight">118</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">119</i>&nbsp;        return new org.python.types.Str(padded_date);</b>
+<i class="no-highlight">120</i>&nbsp;    }
+<i class="no-highlight">121</i>&nbsp;
+<i class="no-highlight">122</i>&nbsp;    public static org.python.types.Int daylight;
+<i class="no-highlight">123</i>&nbsp;
+<i class="no-highlight">124</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">125</i>&nbsp;            __doc__ = &quot;get_clock_info(name: str) -&gt; dict\n&quot; +
+<i class="no-highlight">126</i>&nbsp;                      &quot;\n&quot; +
+<i class="no-highlight">127</i>&nbsp;                      &quot;Get information of the specified clock.&quot;,
+<i class="no-highlight">128</i>&nbsp;            args = {&quot;name&quot;}
+<i class="no-highlight">129</i>&nbsp;    )
+<i class="no-highlight">130</i>&nbsp;    public static org.python.Object get_clock_info(org.python.Object name) {
+<i class="no-highlight">131</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">132</i>&nbsp;            if (((org.python.types.Str) name).value.equals(&quot;monotonic&quot;)) {</b>
+<b class="nc"><i class="no-highlight">133</i>&nbsp;                return new org.python.stdlib.time.Namespace(</b>
+<b class="nc"><i class="no-highlight">134</i>&nbsp;                    false, &quot;java.lang.System.nanoTime()&quot;, true, compute_nanoTime_resolution()</b>
+<i class="no-highlight">135</i>&nbsp;                );
+<i class="no-highlight">136</i>&nbsp;            }
+<i class="no-highlight">137</i>&nbsp;            // TODO: complete this when more clock types are implemented
+<b class="nc"><i class="no-highlight">138</i>&nbsp;            throw new org.python.exceptions.ValueError(&quot;unknown clock&quot;);</b>
+<b class="nc"><i class="no-highlight">139</i>&nbsp;        } catch (java.lang.ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">140</i>&nbsp;            if (org.Python.VERSION &lt; 0x03050000) {</b>
+<b class="nc"><i class="no-highlight">141</i>&nbsp;                throw new org.python.exceptions.TypeError(&quot;must be str, not &quot; + name.typeName());</b>
+<i class="no-highlight">142</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">143</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;get_clock_info() argument 1 must be str, not &quot; + name.typeName());</b>
+<i class="no-highlight">144</i>&nbsp;        }
+<i class="no-highlight">145</i>&nbsp;
+<i class="no-highlight">146</i>&nbsp;    }
+<i class="no-highlight">147</i>&nbsp;
+<i class="no-highlight">148</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">149</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">150</i>&nbsp;    )
+<i class="no-highlight">151</i>&nbsp;    public static org.python.Object gmtime() {
+<b class="nc"><i class="no-highlight">152</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.gmtime() has not been implemented.&quot;);</b>
+<i class="no-highlight">153</i>&nbsp;    }
+<i class="no-highlight">154</i>&nbsp;
+<i class="no-highlight">155</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">156</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">157</i>&nbsp;    )
+<i class="no-highlight">158</i>&nbsp;    public static org.python.Object localtime() {
+<b class="nc"><i class="no-highlight">159</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.localtime() has not been implemented.&quot;);</b>
+<i class="no-highlight">160</i>&nbsp;    }
+<i class="no-highlight">161</i>&nbsp;
+<i class="no-highlight">162</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">163</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">164</i>&nbsp;    )
+<i class="no-highlight">165</i>&nbsp;    public static org.python.Object mktime() {
+<b class="nc"><i class="no-highlight">166</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.mktime() has not been implemented.&quot;);</b>
+<i class="no-highlight">167</i>&nbsp;    }
+<i class="no-highlight">168</i>&nbsp;
+<i class="no-highlight">169</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">170</i>&nbsp;            __doc__ = &quot;monotonic() -&gt; float\n&quot; +
+<i class="no-highlight">171</i>&nbsp;                      &quot;\n&quot; +
+<i class="no-highlight">172</i>&nbsp;                      &quot;Monotonic clock, cannot go backward.&quot;
+<i class="no-highlight">173</i>&nbsp;    )
+<i class="no-highlight">174</i>&nbsp;    public static org.python.Object monotonic() {
+<b class="nc"><i class="no-highlight">175</i>&nbsp;        return new org.python.types.Float(System.nanoTime() / 1000000000.0);</b>
+<i class="no-highlight">176</i>&nbsp;    }
+<i class="no-highlight">177</i>&nbsp;
+<i class="no-highlight">178</i>&nbsp;    /**
+<i class="no-highlight">179</i>&nbsp;     * Computes resolution of nanoTime in worst case scenario
+<i class="no-highlight">180</i>&nbsp;     *
+<i class="no-highlight">181</i>&nbsp;     * According to https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#nanoTime(),
+<i class="no-highlight">182</i>&nbsp;     * resolution of nanoTime is at least as good as that of currentTimeMillis()
+<i class="no-highlight">183</i>&nbsp;     *
+<i class="no-highlight">184</i>&nbsp;     * The algorithm to compute currentTimeMillis() resolution is adopted from
+<i class="no-highlight">185</i>&nbsp;     * https://www.javaworld.com/article/2077327/core-java/my-kingdom-for-a-good-timer.html
+<i class="no-highlight">186</i>&nbsp;     */
+<i class="no-highlight">187</i>&nbsp;    private static double compute_nanoTime_resolution() {
+<i class="no-highlight">188</i>&nbsp;        // JIT/hotspot warmup:
+<b class="nc"><i class="no-highlight">189</i>&nbsp;        for (int r = 0; r &lt; 3000; ++r) {</b>
+<b class="nc"><i class="no-highlight">190</i>&nbsp;            System.currentTimeMillis();</b>
+<i class="no-highlight">191</i>&nbsp;        }
+<i class="no-highlight">192</i>&nbsp;
+<b class="nc"><i class="no-highlight">193</i>&nbsp;        long time = System.currentTimeMillis();</b>
+<b class="nc"><i class="no-highlight">194</i>&nbsp;        long time_prev = time;</b>
+<b class="nc"><i class="no-highlight">195</i>&nbsp;        long total_delta = 0;</b>
+<b class="nc"><i class="no-highlight">196</i>&nbsp;        int iteration = 5;</b>
+<i class="no-highlight">197</i>&nbsp;
+<b class="nc"><i class="no-highlight">198</i>&nbsp;        for (int i = 0; i &lt; iteration; ++i) {</b>
+<i class="no-highlight">199</i>&nbsp;            // Busy wait until system time changes:
+<b class="nc"><i class="no-highlight">200</i>&nbsp;            while (time == time_prev) {</b>
+<b class="nc"><i class="no-highlight">201</i>&nbsp;                time = System.currentTimeMillis();</b>
+<i class="no-highlight">202</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">203</i>&nbsp;            total_delta += (time - time_prev);</b>
+<b class="nc"><i class="no-highlight">204</i>&nbsp;            time_prev = time;</b>
+<i class="no-highlight">205</i>&nbsp;        }
+<i class="no-highlight">206</i>&nbsp;
+<b class="nc"><i class="no-highlight">207</i>&nbsp;        return (total_delta / iteration) / 1000.0; // returns resolution in seconds</b>
+<i class="no-highlight">208</i>&nbsp;    }
+<i class="no-highlight">209</i>&nbsp;
+<i class="no-highlight">210</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">211</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">212</i>&nbsp;    )
+<i class="no-highlight">213</i>&nbsp;    public static org.python.Object perf_counter() {
+<b class="nc"><i class="no-highlight">214</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.perf_counter() has not been implemented.&quot;);</b>
+<i class="no-highlight">215</i>&nbsp;    }
+<i class="no-highlight">216</i>&nbsp;
+<i class="no-highlight">217</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">218</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">219</i>&nbsp;    )
+<i class="no-highlight">220</i>&nbsp;    public static org.python.Object process_time() {
+<b class="nc"><i class="no-highlight">221</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.process_time() has not been implemented.&quot;);</b>
+<i class="no-highlight">222</i>&nbsp;    }
+<i class="no-highlight">223</i>&nbsp;
+<i class="no-highlight">224</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">225</i>&nbsp;            __doc__ = &quot;sleep(seconds)\n&quot; +
+<i class="no-highlight">226</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">227</i>&nbsp;                    &quot;Delay execution for a given number of seconds.  The argument may be\n&quot; +
+<i class="no-highlight">228</i>&nbsp;                    &quot;a floating point number for subsecond precision.\n&quot;,
+<i class="no-highlight">229</i>&nbsp;            args = {&quot;seconds&quot;}
+<i class="no-highlight">230</i>&nbsp;    )
+<i class="no-highlight">231</i>&nbsp;    public static org.python.Object sleep(org.python.Object seconds) {
+<i class="no-highlight">232</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">233</i>&nbsp;            java.lang.Thread.sleep((int) (((org.python.types.Float) seconds.__float__()).value * 1000.0));</b>
+<b class="nc"><i class="no-highlight">234</i>&nbsp;        } catch (ClassCastException e) {</b>
+<b class="nc"><i class="no-highlight">235</i>&nbsp;            throw new org.python.exceptions.TypeError(&quot;a float is required&quot;);</b>
+<b class="nc"><i class="no-highlight">236</i>&nbsp;        } catch (InterruptedException ex) {</b>
+<b class="nc"><i class="no-highlight">237</i>&nbsp;            Thread.currentThread().interrupt();</b>
+<b class="nc"><i class="no-highlight">238</i>&nbsp;        }</b>
+<b class="nc"><i class="no-highlight">239</i>&nbsp;        return org.python.types.NoneType.NONE;</b>
+<i class="no-highlight">240</i>&nbsp;    }
+<i class="no-highlight">241</i>&nbsp;
+<i class="no-highlight">242</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">243</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">244</i>&nbsp;    )
+<i class="no-highlight">245</i>&nbsp;    public static org.python.Object strftime() {
+<b class="nc"><i class="no-highlight">246</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.strftime() has not been implemented.&quot;);</b>
+<i class="no-highlight">247</i>&nbsp;    }
+<i class="no-highlight">248</i>&nbsp;
+<i class="no-highlight">249</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">250</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">251</i>&nbsp;    )
+<i class="no-highlight">252</i>&nbsp;    public static org.python.Object strptime() {
+<b class="nc"><i class="no-highlight">253</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.strptime() has not been implemented.&quot;);</b>
+<i class="no-highlight">254</i>&nbsp;    }
+<i class="no-highlight">255</i>&nbsp;
+<i class="no-highlight">256</i>&nbsp;    // public static org.python.Object struct_time;
+<i class="no-highlight">257</i>&nbsp;
+<i class="no-highlight">258</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">259</i>&nbsp;            __doc__ = &quot;time() -&gt; floating point number\n&quot; +
+<i class="no-highlight">260</i>&nbsp;                    &quot;\n&quot; +
+<i class="no-highlight">261</i>&nbsp;                    &quot;Return the current time in seconds since the Epoch.\n&quot; +
+<i class="no-highlight">262</i>&nbsp;                    &quot;Fractions of a second may be present if the system clock provides them.\n&quot;
+<i class="no-highlight">263</i>&nbsp;    )
+<i class="no-highlight">264</i>&nbsp;    public static org.python.types.Float time() {
+<b class="nc"><i class="no-highlight">265</i>&nbsp;        return new org.python.types.Float(System.currentTimeMillis() / 1000.0);</b>
+<i class="no-highlight">266</i>&nbsp;    }
+<i class="no-highlight">267</i>&nbsp;
+<i class="no-highlight">268</i>&nbsp;    public static org.python.types.Int timezone;
+<i class="no-highlight">269</i>&nbsp;    public static org.python.types.Tuple tzname;
+<i class="no-highlight">270</i>&nbsp;
+<i class="no-highlight">271</i>&nbsp;    @org.python.Method(
+<i class="no-highlight">272</i>&nbsp;            __doc__ = &quot;&quot;
+<i class="no-highlight">273</i>&nbsp;    )
+<i class="no-highlight">274</i>&nbsp;    public static org.python.Object tzset() {
+<b class="nc"><i class="no-highlight">275</i>&nbsp;        throw new org.python.exceptions.NotImplementedError(&quot;time.tzset() has not been implemented.&quot;);</b>
+<i class="no-highlight">276</i>&nbsp;    }
+<i class="no-highlight">277</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-09-23 22:25</div>
+</div>
+</body>
+</html>
