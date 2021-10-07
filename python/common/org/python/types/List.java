@@ -522,13 +522,48 @@ public class List extends org.python.types.Object {
 
     @org.python.Method(
             __doc__ = "Return key in self.",
-            args = {"item"}
+            args = {"item", "sorted"}
+    )
+    public org.python.Object __contains__(org.python.Object item, org.python.types.Bool sorted) {
+        if (sorted == Bool.TRUE) {
+            return contHelper(this, item);
+        }
+        else {
+        return this.__contains__(item);
+    }
+    }
+
+    public org.python.Object contHelper(org.python.types.List list, org.python.Object item) {
+        int length = list.value.size();
+        int halvLength = length/2;
+        org.python.Object toCompare = list.value.get(halvLength);
+
+        if (((org.python.types.Bool) org.python.types.Object.__cmp_eq__(
+            item, toCompare)).value) {
+            return org.python.types.Bool.getBool(true);
+        }
+        else if (length > 1 && ((org.python.types.Bool) org.python.types.Object.__lt__(
+            item, toCompare)).value) {
+            return contHelper(new List(list.value.subList(0, halvLength)), item);
+        }
+        else if(length > 1 && ((org.python.types.Bool) org.python.types.Object.__gt__(
+            item, toCompare)).value) {
+            return contHelper(new List(list.value.subList(halvLength, length)), item);
+        }
+        else {
+            return org.python.types.Bool.getBool(false);
+        }
+    }
+
+    @org.python.Method(
+        __doc__ = "Return key in self.",
+        args = {"item"}
     )
     public org.python.Object __contains__(org.python.Object item) {
         boolean found = false;
         for (int i = 0; i < this.value.size(); i++) {
             if (((org.python.types.Bool) org.python.types.Object.__cmp_eq__(
-                    item, this.value.get(i))).value) {
+                item, this.value.get(i))).value) {
                 found = true;
                 break;
             }
@@ -704,7 +739,7 @@ public class List extends org.python.types.Object {
             args = {"item"},
             default_args = {"start", "end"}
     )
-    public org.python.Object index(org.python.Object item, org.python.Object start, org.python.Object end) {
+    public org.python.Object index(org.python.Object item, org.python.Object start, org.python.Object end, org.python.Object sorted) {
         if (start != null && !(start instanceof org.python.types.Int)) {
             if (org.Python.VERSION < 0x03050000) {
                 throw new org.python.exceptions.TypeError(
@@ -735,7 +770,6 @@ public class List extends org.python.types.Object {
         if (start != null) {
             iStart = toPositiveIndex(((Long) start.toJava()).intValue());
         }
-
         for (int i = iStart; i < Math.min(iEnd, this.value.size()); i++) {
             if (((org.python.types.Bool) org.python.types.Object.__cmp_eq__(
                     item, this.value.get(i))).value) {
