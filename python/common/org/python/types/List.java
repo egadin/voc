@@ -739,7 +739,7 @@ public class List extends org.python.types.Object {
             args = {"item"},
             default_args = {"start", "end"}
     )
-    public org.python.Object index(org.python.Object item, org.python.Object start, org.python.Object end, org.python.Object sorted) {
+    public org.python.Object index(org.python.Object item, org.python.Object start, org.python.Object end) {
         if (start != null && !(start instanceof org.python.types.Int)) {
             if (org.Python.VERSION < 0x03050000) {
                 throw new org.python.exceptions.TypeError(
